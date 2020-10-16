@@ -1,7 +1,6 @@
 # 
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/wethered/docker-api.svg?style=flat-square)](https://packagist.org/packages/wethered/docker-api)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/wethered/docker-api/run-tests?label=tests)](https://github.com/wethered/docker-api/actions?query=workflow%3Arun-tests+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/wethered/docker-api.svg?style=flat-square)](https://packagist.org/packages/wethered/docker-api)
 
 
@@ -20,12 +19,6 @@ composer require wethered/docker-api
 ``` php
 $skeleton = new WeTheRed\DockerApi();
 echo $skeleton->echoPhrase('Hello, WeTheRed!');
-```
-
-## Testing
-
-``` bash
-composer test
 ```
 
 ## Changelog
