@@ -4,6 +4,5 @@ return [
     'directory' => 'src',
     'namespace' => 'WeTheRed\\DockerApi',
     'openapi-file' => __DIR__ . '/swagger/v1.40.yaml',
-    'async' => true,
     'strict' => true,
 ];

@@ -1,0 +1,17 @@
+<?php
+
+namespace WeTheRed\DockerApi\Exception;
+
+class VolumeDeleteNotFoundException extends \RuntimeException implements ClientException
+{
+    private $errorResponse;
+    public function __construct(\WeTheRed\DockerApi\Model\ErrorResponse $errorResponse)
+    {
+        parent::__construct('No such volume or volume driver', 404);
+        $this->errorResponse = $errorResponse;
+    }
+    public function getErrorResponse()
+    {
+        return $this->errorResponse;
+    }
+}
