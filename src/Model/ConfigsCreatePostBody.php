@@ -19,7 +19,7 @@ class ConfigsCreatePostBody
     /**
     * Base64-url-safe-encoded ([RFC 4648](https://tools.ietf.org/html/rfc4648#section-5))
     config data.
-    
+
     *
     * @var string
     */
@@ -30,6 +30,7 @@ class ConfigsCreatePostBody
      * @var Driver
      */
     protected $templating;
+
     /**
      * User-defined name of the config.
      *
@@ -39,6 +40,7 @@ class ConfigsCreatePostBody
     {
         return $this->name;
     }
+
     /**
      * User-defined name of the config.
      *
@@ -49,8 +51,10 @@ class ConfigsCreatePostBody
     public function setName(string $name) : self
     {
         $this->name = $name;
+
         return $this;
     }
+
     /**
      * User-defined key/value metadata.
      *
@@ -60,6 +64,7 @@ class ConfigsCreatePostBody
     {
         return $this->labels;
     }
+
     /**
      * User-defined key/value metadata.
      *
@@ -70,12 +75,14 @@ class ConfigsCreatePostBody
     public function setLabels(iterable $labels) : self
     {
         $this->labels = $labels;
+
         return $this;
     }
+
     /**
     * Base64-url-safe-encoded ([RFC 4648](https://tools.ietf.org/html/rfc4648#section-5))
     config data.
-    
+
     *
     * @return string
     */
@@ -83,10 +90,11 @@ class ConfigsCreatePostBody
     {
         return $this->data;
     }
+
     /**
     * Base64-url-safe-encoded ([RFC 4648](https://tools.ietf.org/html/rfc4648#section-5))
     config data.
-    
+
     *
     * @param string $data
     *
@@ -95,8 +103,10 @@ class ConfigsCreatePostBody
     public function setData(string $data) : self
     {
         $this->data = $data;
+
         return $this;
     }
+
     /**
      * Driver represents a driver (network, logging, secrets).
      *
@@ -106,6 +116,7 @@ class ConfigsCreatePostBody
     {
         return $this->templating;
     }
+
     /**
      * Driver represents a driver (network, logging, secrets).
      *
@@ -116,6 +127,7 @@ class ConfigsCreatePostBody
     public function setTemplating(Driver $templating) : self
     {
         $this->templating = $templating;
+
         return $this;
     }
 }

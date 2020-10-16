@@ -2,29 +2,32 @@
 
 namespace WeTheRed\DockerApi\Normalizer;
 
-use Jane\JsonSchemaRuntime\Reference;
 use Jane\JsonSchemaRuntime\Normalizer\CheckArray;
-use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Jane\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 class SwarmSpecCAConfigNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
     use CheckArray;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
         return $type === 'WeTheRed\\DockerApi\\Model\\SwarmSpecCAConfig';
     }
+
     public function supportsNormalization($data, $format = null)
     {
         return is_object($data) && get_class($data) === 'WeTheRed\\DockerApi\\Model\\SwarmSpecCAConfig';
     }
-    public function denormalize($data, $class, $format = null, array $context = array())
+
+    public function denormalize($data, $class, $format = null, array $context = [])
     {
         if (isset($data['$ref'])) {
             return new Reference($data['$ref'], $context['document-origin']);
@@ -37,7 +40,7 @@ class SwarmSpecCAConfigNormalizer implements DenormalizerInterface, NormalizerIn
             $object->setNodeCertExpiry($data['NodeCertExpiry']);
         }
         if (\array_key_exists('ExternalCAs', $data)) {
-            $values = array();
+            $values = [];
             foreach ($data['ExternalCAs'] as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'WeTheRed\\DockerApi\\Model\\SwarmSpecCAConfigExternalCAsItem', 'json', $context);
             }
@@ -52,16 +55,18 @@ class SwarmSpecCAConfigNormalizer implements DenormalizerInterface, NormalizerIn
         if (\array_key_exists('ForceRotate', $data)) {
             $object->setForceRotate($data['ForceRotate']);
         }
+
         return $object;
     }
-    public function normalize($object, $format = null, array $context = array())
+
+    public function normalize($object, $format = null, array $context = [])
     {
-        $data = array();
+        $data = [];
         if (null !== $object->getNodeCertExpiry()) {
             $data['NodeCertExpiry'] = $object->getNodeCertExpiry();
         }
         if (null !== $object->getExternalCAs()) {
-            $values = array();
+            $values = [];
             foreach ($object->getExternalCAs() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
@@ -76,6 +81,7 @@ class SwarmSpecCAConfigNormalizer implements DenormalizerInterface, NormalizerIn
         if (null !== $object->getForceRotate()) {
             $data['ForceRotate'] = $object->getForceRotate();
         }
+
         return $data;
     }
 }

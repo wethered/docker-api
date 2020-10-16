@@ -19,10 +19,10 @@ class SecretSpec
     /**
     * Base64-url-safe-encoded ([RFC 4648](https://tools.ietf.org/html/rfc4648#section-5))
     data to store as secret.
-    
+
     This field is only used to _create_ a secret, and is not returned by
     other endpoints.
-    
+
     *
     * @var string
     */
@@ -39,6 +39,7 @@ class SecretSpec
      * @var Driver
      */
     protected $templating;
+
     /**
      * User-defined name of the secret.
      *
@@ -48,6 +49,7 @@ class SecretSpec
     {
         return $this->name;
     }
+
     /**
      * User-defined name of the secret.
      *
@@ -58,8 +60,10 @@ class SecretSpec
     public function setName(string $name) : self
     {
         $this->name = $name;
+
         return $this;
     }
+
     /**
      * User-defined key/value metadata.
      *
@@ -69,6 +73,7 @@ class SecretSpec
     {
         return $this->labels;
     }
+
     /**
      * User-defined key/value metadata.
      *
@@ -79,15 +84,17 @@ class SecretSpec
     public function setLabels(iterable $labels) : self
     {
         $this->labels = $labels;
+
         return $this;
     }
+
     /**
     * Base64-url-safe-encoded ([RFC 4648](https://tools.ietf.org/html/rfc4648#section-5))
     data to store as secret.
-    
+
     This field is only used to _create_ a secret, and is not returned by
     other endpoints.
-    
+
     *
     * @return string
     */
@@ -95,13 +102,14 @@ class SecretSpec
     {
         return $this->data;
     }
+
     /**
     * Base64-url-safe-encoded ([RFC 4648](https://tools.ietf.org/html/rfc4648#section-5))
     data to store as secret.
-    
+
     This field is only used to _create_ a secret, and is not returned by
     other endpoints.
-    
+
     *
     * @param string $data
     *
@@ -110,8 +118,10 @@ class SecretSpec
     public function setData(string $data) : self
     {
         $this->data = $data;
+
         return $this;
     }
+
     /**
      * Driver represents a driver (network, logging, secrets).
      *
@@ -121,6 +131,7 @@ class SecretSpec
     {
         return $this->driver;
     }
+
     /**
      * Driver represents a driver (network, logging, secrets).
      *
@@ -131,8 +142,10 @@ class SecretSpec
     public function setDriver(Driver $driver) : self
     {
         $this->driver = $driver;
+
         return $this;
     }
+
     /**
      * Driver represents a driver (network, logging, secrets).
      *
@@ -142,6 +155,7 @@ class SecretSpec
     {
         return $this->templating;
     }
+
     /**
      * Driver represents a driver (network, logging, secrets).
      *
@@ -152,6 +166,7 @@ class SecretSpec
     public function setTemplating(Driver $templating) : self
     {
         $this->templating = $templating;
+
         return $this;
     }
 }

@@ -5,19 +5,20 @@ namespace WeTheRed\DockerApi\Model;
 class GraphDriverData
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $name;
     /**
-     * 
+     *
      *
      * @var string[]
      */
     protected $data;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -25,8 +26,9 @@ class GraphDriverData
     {
         return $this->name;
     }
+
     /**
-     * 
+     *
      *
      * @param string $name
      *
@@ -35,10 +37,12 @@ class GraphDriverData
     public function setName(string $name) : self
     {
         $this->name = $name;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -46,8 +50,9 @@ class GraphDriverData
     {
         return $this->data;
     }
+
     /**
-     * 
+     *
      *
      * @param string[] $data
      *
@@ -56,6 +61,7 @@ class GraphDriverData
     public function setData(iterable $data) : self
     {
         $this->data = $data;
+
         return $this;
     }
 }

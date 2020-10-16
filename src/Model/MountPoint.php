@@ -5,55 +5,56 @@ namespace WeTheRed\DockerApi\Model;
 class MountPoint
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $type;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $name;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $source;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $destination;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $driver;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $mode;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $rW;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $propagation;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -61,8 +62,9 @@ class MountPoint
     {
         return $this->type;
     }
+
     /**
-     * 
+     *
      *
      * @param string $type
      *
@@ -71,10 +73,12 @@ class MountPoint
     public function setType(string $type) : self
     {
         $this->type = $type;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -82,8 +86,9 @@ class MountPoint
     {
         return $this->name;
     }
+
     /**
-     * 
+     *
      *
      * @param string $name
      *
@@ -92,10 +97,12 @@ class MountPoint
     public function setName(string $name) : self
     {
         $this->name = $name;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -103,8 +110,9 @@ class MountPoint
     {
         return $this->source;
     }
+
     /**
-     * 
+     *
      *
      * @param string $source
      *
@@ -113,10 +121,12 @@ class MountPoint
     public function setSource(string $source) : self
     {
         $this->source = $source;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -124,8 +134,9 @@ class MountPoint
     {
         return $this->destination;
     }
+
     /**
-     * 
+     *
      *
      * @param string $destination
      *
@@ -134,10 +145,12 @@ class MountPoint
     public function setDestination(string $destination) : self
     {
         $this->destination = $destination;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -145,8 +158,9 @@ class MountPoint
     {
         return $this->driver;
     }
+
     /**
-     * 
+     *
      *
      * @param string $driver
      *
@@ -155,10 +169,12 @@ class MountPoint
     public function setDriver(string $driver) : self
     {
         $this->driver = $driver;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -166,8 +182,9 @@ class MountPoint
     {
         return $this->mode;
     }
+
     /**
-     * 
+     *
      *
      * @param string $mode
      *
@@ -176,10 +193,12 @@ class MountPoint
     public function setMode(string $mode) : self
     {
         $this->mode = $mode;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -187,8 +206,9 @@ class MountPoint
     {
         return $this->rW;
     }
+
     /**
-     * 
+     *
      *
      * @param bool $rW
      *
@@ -197,10 +217,12 @@ class MountPoint
     public function setRW(bool $rW) : self
     {
         $this->rW = $rW;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -208,8 +230,9 @@ class MountPoint
     {
         return $this->propagation;
     }
+
     /**
-     * 
+     *
      *
      * @param string $propagation
      *
@@ -218,6 +241,7 @@ class MountPoint
     public function setPropagation(string $propagation) : self
     {
         $this->propagation = $propagation;
+
         return $this;
     }
 }

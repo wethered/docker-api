@@ -16,6 +16,7 @@ class MountBindOptions
      * @var bool
      */
     protected $nonRecursive = false;
+
     /**
      * A propagation mode with the value `[r]private`, `[r]shared`, or `[r]slave`.
      *
@@ -25,6 +26,7 @@ class MountBindOptions
     {
         return $this->propagation;
     }
+
     /**
      * A propagation mode with the value `[r]private`, `[r]shared`, or `[r]slave`.
      *
@@ -35,8 +37,10 @@ class MountBindOptions
     public function setPropagation(string $propagation) : self
     {
         $this->propagation = $propagation;
+
         return $this;
     }
+
     /**
      * Disable recursive bind mount.
      *
@@ -46,6 +50,7 @@ class MountBindOptions
     {
         return $this->nonRecursive;
     }
+
     /**
      * Disable recursive bind mount.
      *
@@ -56,6 +61,7 @@ class MountBindOptions
     public function setNonRecursive(bool $nonRecursive) : self
     {
         $this->nonRecursive = $nonRecursive;
+
         return $this;
     }
 }

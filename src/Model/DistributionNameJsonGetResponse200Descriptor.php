@@ -5,31 +5,32 @@ namespace WeTheRed\DockerApi\Model;
 class DistributionNameJsonGetResponse200Descriptor
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $mediaType;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $size;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $digest;
     /**
-     * 
+     *
      *
      * @var string[]
      */
     protected $uRLs;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -37,8 +38,9 @@ class DistributionNameJsonGetResponse200Descriptor
     {
         return $this->mediaType;
     }
+
     /**
-     * 
+     *
      *
      * @param string $mediaType
      *
@@ -47,10 +49,12 @@ class DistributionNameJsonGetResponse200Descriptor
     public function setMediaType(string $mediaType) : self
     {
         $this->mediaType = $mediaType;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -58,8 +62,9 @@ class DistributionNameJsonGetResponse200Descriptor
     {
         return $this->size;
     }
+
     /**
-     * 
+     *
      *
      * @param int $size
      *
@@ -68,10 +73,12 @@ class DistributionNameJsonGetResponse200Descriptor
     public function setSize(int $size) : self
     {
         $this->size = $size;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -79,8 +86,9 @@ class DistributionNameJsonGetResponse200Descriptor
     {
         return $this->digest;
     }
+
     /**
-     * 
+     *
      *
      * @param string $digest
      *
@@ -89,10 +97,12 @@ class DistributionNameJsonGetResponse200Descriptor
     public function setDigest(string $digest) : self
     {
         $this->digest = $digest;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -100,8 +110,9 @@ class DistributionNameJsonGetResponse200Descriptor
     {
         return $this->uRLs;
     }
+
     /**
-     * 
+     *
      *
      * @param string[] $uRLs
      *
@@ -110,6 +121,7 @@ class DistributionNameJsonGetResponse200Descriptor
     public function setURLs(array $uRLs) : self
     {
         $this->uRLs = $uRLs;
+
         return $this;
     }
 }

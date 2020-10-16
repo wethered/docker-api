@@ -19,7 +19,7 @@ class TaskSpecRestartPolicy
     /**
     * Maximum attempts to restart a given container before giving up
     (default value is 0, which is ignored).
-    
+
     *
     * @var int
     */
@@ -27,11 +27,12 @@ class TaskSpecRestartPolicy
     /**
     * Windows is the time window used to evaluate the restart policy
     (default value is 0, which is unbounded).
-    
+
     *
     * @var int
     */
     protected $window = 0;
+
     /**
      * Condition for restart.
      *
@@ -41,6 +42,7 @@ class TaskSpecRestartPolicy
     {
         return $this->condition;
     }
+
     /**
      * Condition for restart.
      *
@@ -51,8 +53,10 @@ class TaskSpecRestartPolicy
     public function setCondition(string $condition) : self
     {
         $this->condition = $condition;
+
         return $this;
     }
+
     /**
      * Delay between restart attempts.
      *
@@ -62,6 +66,7 @@ class TaskSpecRestartPolicy
     {
         return $this->delay;
     }
+
     /**
      * Delay between restart attempts.
      *
@@ -72,12 +77,14 @@ class TaskSpecRestartPolicy
     public function setDelay(int $delay) : self
     {
         $this->delay = $delay;
+
         return $this;
     }
+
     /**
     * Maximum attempts to restart a given container before giving up
     (default value is 0, which is ignored).
-    
+
     *
     * @return int
     */
@@ -85,10 +92,11 @@ class TaskSpecRestartPolicy
     {
         return $this->maxAttempts;
     }
+
     /**
     * Maximum attempts to restart a given container before giving up
     (default value is 0, which is ignored).
-    
+
     *
     * @param int $maxAttempts
     *
@@ -97,12 +105,14 @@ class TaskSpecRestartPolicy
     public function setMaxAttempts(int $maxAttempts) : self
     {
         $this->maxAttempts = $maxAttempts;
+
         return $this;
     }
+
     /**
     * Windows is the time window used to evaluate the restart policy
     (default value is 0, which is unbounded).
-    
+
     *
     * @return int
     */
@@ -110,10 +120,11 @@ class TaskSpecRestartPolicy
     {
         return $this->window;
     }
+
     /**
     * Windows is the time window used to evaluate the restart policy
     (default value is 0, which is unbounded).
-    
+
     *
     * @param int $window
     *
@@ -122,6 +133,7 @@ class TaskSpecRestartPolicy
     public function setWindow(int $window) : self
     {
         $this->window = $window;
+
         return $this;
     }
 }

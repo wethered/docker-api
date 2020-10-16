@@ -7,26 +7,26 @@ class ContainerList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     /**
     * Returns a list of containers. For details on the format, see the
     [inspect endpoint](#operation/ContainerInspect).
-    
+
     Note that it uses a different, smaller representation of a container
     than inspecting a single container. For example, the list of linked
     containers is not propagated .
-    
+
     *
     * @param array $queryParameters {
     *     @var bool $all Return all containers. By default, only running containers are shown.
-    
+
     *     @var int $limit Return this number of most recently created containers, including
     non-running ones.
-    
+
     *     @var bool $size Return the size of container as fields `SizeRw` and `SizeRootFs`.
-    
+
     *     @var string $filters Filters to process on the container list, encoded as JSON (a
     `map[string][]string`). For example, `{"status": ["paused"]}` will
     only return paused containers.
-    
+
     Available filters:
-    
+
     - `ancestor`=(`<image-name>[:<tag>]`, `<image id>`, or `<image@digest>`)
     - `before`=(`<container id>` or `<container name>`)
     - `expose`=(`<port>[/<proto>]`|`<startport-endport>/[<proto>]`)
@@ -42,42 +42,50 @@ class ContainerList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     - `since`=(`<container id>` or `<container name>`)
     - `status=`(`created`|`restarting`|`running`|`removing`|`paused`|`exited`|`dead`)
     - `volume`=(`<volume name>` or `<mount point destination>`)
-    
+
     * }
     */
-    public function __construct(array $queryParameters = array())
+    public function __construct(array $queryParameters = [])
     {
         $this->queryParameters = $queryParameters;
     }
+
     use \Jane\OpenApiRuntime\Client\EndpointTrait;
+
     public function getMethod() : string
     {
         return 'GET';
     }
+
     public function getUri() : string
     {
         return '/containers/json';
     }
+
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
-        return array(array(), null);
+        return [[], null];
     }
+
     public function getExtraHeaders() : array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
+
     protected function getQueryOptionsResolver() : \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(array('all', 'limit', 'size', 'filters'));
-        $optionsResolver->setRequired(array());
-        $optionsResolver->setDefaults(array('all' => false, 'size' => false));
-        $optionsResolver->setAllowedTypes('all', array('bool'));
-        $optionsResolver->setAllowedTypes('limit', array('int'));
-        $optionsResolver->setAllowedTypes('size', array('bool'));
-        $optionsResolver->setAllowedTypes('filters', array('string'));
+        $optionsResolver->setDefined(['all', 'limit', 'size', 'filters']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults(['all' => false, 'size' => false]);
+        $optionsResolver->setAllowedTypes('all', ['bool']);
+        $optionsResolver->setAllowedTypes('limit', ['int']);
+        $optionsResolver->setAllowedTypes('size', ['bool']);
+        $optionsResolver->setAllowedTypes('filters', ['string']);
+
         return $optionsResolver;
     }
+
     /**
      * {@inheritdoc}
      *
@@ -98,8 +106,9 @@ class ContainerList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
             throw new \WeTheRed\DockerApi\Exception\ContainerListInternalServerErrorException($serializer->deserialize($body, 'WeTheRed\\DockerApi\\Model\\ErrorResponse', 'json'));
         }
     }
+
     public function getAuthenticationScopes() : array
     {
-        return array();
+        return [];
     }
 }

@@ -11,50 +11,58 @@ class ImageList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
     *     @var bool $all Show all images. Only images from a final layer (no children) are shown by default.
     *     @var string $filters A JSON encoded value of the filters (a `map[string][]string`) to
     process on the images list.
-    
+
     Available filters:
-    
+
     - `before`=(`<image-name>[:<tag>]`,  `<image id>` or `<image@digest>`)
     - `dangling=true`
     - `label=key` or `label="key=value"` of an image label
     - `reference`=(`<image-name>[:<tag>]`)
     - `since`=(`<image-name>[:<tag>]`,  `<image id>` or `<image@digest>`)
-    
+
     *     @var bool $digests Show digest information as a `RepoDigests` field on each image.
     * }
     */
-    public function __construct(array $queryParameters = array())
+    public function __construct(array $queryParameters = [])
     {
         $this->queryParameters = $queryParameters;
     }
+
     use \Jane\OpenApiRuntime\Client\EndpointTrait;
+
     public function getMethod() : string
     {
         return 'GET';
     }
+
     public function getUri() : string
     {
         return '/images/json';
     }
+
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
-        return array(array(), null);
+        return [[], null];
     }
+
     public function getExtraHeaders() : array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
+
     protected function getQueryOptionsResolver() : \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(array('all', 'filters', 'digests'));
-        $optionsResolver->setRequired(array());
-        $optionsResolver->setDefaults(array('all' => false, 'digests' => false));
-        $optionsResolver->setAllowedTypes('all', array('bool'));
-        $optionsResolver->setAllowedTypes('filters', array('string'));
-        $optionsResolver->setAllowedTypes('digests', array('bool'));
+        $optionsResolver->setDefined(['all', 'filters', 'digests']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults(['all' => false, 'digests' => false]);
+        $optionsResolver->setAllowedTypes('all', ['bool']);
+        $optionsResolver->setAllowedTypes('filters', ['string']);
+        $optionsResolver->setAllowedTypes('digests', ['bool']);
+
         return $optionsResolver;
     }
+
     /**
      * {@inheritdoc}
      *
@@ -71,8 +79,9 @@ class ImageList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
             throw new \WeTheRed\DockerApi\Exception\ImageListInternalServerErrorException($serializer->deserialize($body, 'WeTheRed\\DockerApi\\Model\\ErrorResponse', 'json'));
         }
     }
+
     public function getAuthenticationScopes() : array
     {
-        return array();
+        return [];
     }
 }

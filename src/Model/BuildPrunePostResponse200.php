@@ -5,7 +5,7 @@ namespace WeTheRed\DockerApi\Model;
 class BuildPrunePostResponse200
 {
     /**
-     * 
+     *
      *
      * @var string[]
      */
@@ -16,8 +16,9 @@ class BuildPrunePostResponse200
      * @var int
      */
     protected $spaceReclaimed;
+
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -25,8 +26,9 @@ class BuildPrunePostResponse200
     {
         return $this->cachesDeleted;
     }
+
     /**
-     * 
+     *
      *
      * @param string[] $cachesDeleted
      *
@@ -35,8 +37,10 @@ class BuildPrunePostResponse200
     public function setCachesDeleted(array $cachesDeleted) : self
     {
         $this->cachesDeleted = $cachesDeleted;
+
         return $this;
     }
+
     /**
      * Disk space reclaimed in bytes
      *
@@ -46,6 +50,7 @@ class BuildPrunePostResponse200
     {
         return $this->spaceReclaimed;
     }
+
     /**
      * Disk space reclaimed in bytes
      *
@@ -56,6 +61,7 @@ class BuildPrunePostResponse200
     public function setSpaceReclaimed(int $spaceReclaimed) : self
     {
         $this->spaceReclaimed = $spaceReclaimed;
+
         return $this;
     }
 }

@@ -52,6 +52,7 @@ class ServicesCreatePostBody
      * @var EndpointSpec
      */
     protected $endpointSpec;
+
     /**
      * Name of the service.
      *
@@ -61,6 +62,7 @@ class ServicesCreatePostBody
     {
         return $this->name;
     }
+
     /**
      * Name of the service.
      *
@@ -71,8 +73,10 @@ class ServicesCreatePostBody
     public function setName(string $name) : self
     {
         $this->name = $name;
+
         return $this;
     }
+
     /**
      * User-defined key/value metadata.
      *
@@ -82,6 +86,7 @@ class ServicesCreatePostBody
     {
         return $this->labels;
     }
+
     /**
      * User-defined key/value metadata.
      *
@@ -92,8 +97,10 @@ class ServicesCreatePostBody
     public function setLabels(iterable $labels) : self
     {
         $this->labels = $labels;
+
         return $this;
     }
+
     /**
      * User modifiable task configuration.
      *
@@ -103,6 +110,7 @@ class ServicesCreatePostBody
     {
         return $this->taskTemplate;
     }
+
     /**
      * User modifiable task configuration.
      *
@@ -113,8 +121,10 @@ class ServicesCreatePostBody
     public function setTaskTemplate(TaskSpec $taskTemplate) : self
     {
         $this->taskTemplate = $taskTemplate;
+
         return $this;
     }
+
     /**
      * Scheduling mode for the service.
      *
@@ -124,6 +134,7 @@ class ServicesCreatePostBody
     {
         return $this->mode;
     }
+
     /**
      * Scheduling mode for the service.
      *
@@ -134,8 +145,10 @@ class ServicesCreatePostBody
     public function setMode(ServiceSpecMode $mode) : self
     {
         $this->mode = $mode;
+
         return $this;
     }
+
     /**
      * Specification for the update strategy of the service.
      *
@@ -145,6 +158,7 @@ class ServicesCreatePostBody
     {
         return $this->updateConfig;
     }
+
     /**
      * Specification for the update strategy of the service.
      *
@@ -155,8 +169,10 @@ class ServicesCreatePostBody
     public function setUpdateConfig(ServiceSpecUpdateConfig $updateConfig) : self
     {
         $this->updateConfig = $updateConfig;
+
         return $this;
     }
+
     /**
      * Specification for the rollback strategy of the service.
      *
@@ -166,6 +182,7 @@ class ServicesCreatePostBody
     {
         return $this->rollbackConfig;
     }
+
     /**
      * Specification for the rollback strategy of the service.
      *
@@ -176,8 +193,10 @@ class ServicesCreatePostBody
     public function setRollbackConfig(ServiceSpecRollbackConfig $rollbackConfig) : self
     {
         $this->rollbackConfig = $rollbackConfig;
+
         return $this;
     }
+
     /**
      * Specifies which networks the service should attach to.
      *
@@ -187,6 +206,7 @@ class ServicesCreatePostBody
     {
         return $this->networks;
     }
+
     /**
      * Specifies which networks the service should attach to.
      *
@@ -197,8 +217,10 @@ class ServicesCreatePostBody
     public function setNetworks(array $networks) : self
     {
         $this->networks = $networks;
+
         return $this;
     }
+
     /**
      * Properties that can be configured to access and load balance a service.
      *
@@ -208,6 +230,7 @@ class ServicesCreatePostBody
     {
         return $this->endpointSpec;
     }
+
     /**
      * Properties that can be configured to access and load balance a service.
      *
@@ -218,6 +241,7 @@ class ServicesCreatePostBody
     public function setEndpointSpec(EndpointSpec $endpointSpec) : self
     {
         $this->endpointSpec = $endpointSpec;
+
         return $this;
     }
 }

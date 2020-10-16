@@ -16,6 +16,7 @@ class VolumesGetResponse200
      * @var string[]
      */
     protected $warnings;
+
     /**
      * List of volumes
      *
@@ -25,6 +26,7 @@ class VolumesGetResponse200
     {
         return $this->volumes;
     }
+
     /**
      * List of volumes
      *
@@ -35,8 +37,10 @@ class VolumesGetResponse200
     public function setVolumes(array $volumes) : self
     {
         $this->volumes = $volumes;
+
         return $this;
     }
+
     /**
      * Warnings that occurred when fetching the list of volumes.
      *
@@ -46,6 +50,7 @@ class VolumesGetResponse200
     {
         return $this->warnings;
     }
+
     /**
      * Warnings that occurred when fetching the list of volumes.
      *
@@ -56,6 +61,7 @@ class VolumesGetResponse200
     public function setWarnings(array $warnings) : self
     {
         $this->warnings = $warnings;
+
         return $this;
     }
 }

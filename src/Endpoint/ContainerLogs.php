@@ -5,12 +5,13 @@ namespace WeTheRed\DockerApi\Endpoint;
 class ContainerLogs extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Endpoint
 {
     protected $id;
+
     /**
     * Get `stdout` and `stderr` logs from a container.
-    
+
     Note: This endpoint works only for containers with the `json-file` or
     `journald` logging driver.
-    
+
     *
     * @param string $id ID or name of the container
     * @param array $queryParameters {
@@ -22,46 +23,54 @@ class ContainerLogs extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     *     @var bool $timestamps Add timestamps to every log line
     *     @var string $tail Only return this number of log lines from the end of the logs.
     Specify as an integer or `all` to output all log lines.
-    
+
     * }
     */
-    public function __construct(string $id, array $queryParameters = array())
+    public function __construct(string $id, array $queryParameters = [])
     {
         $this->id = $id;
         $this->queryParameters = $queryParameters;
     }
+
     use \Jane\OpenApiRuntime\Client\EndpointTrait;
+
     public function getMethod() : string
     {
         return 'GET';
     }
+
     public function getUri() : string
     {
-        return str_replace(array('{id}'), array($this->id), '/containers/{id}/logs');
+        return str_replace(['{id}'], [$this->id], '/containers/{id}/logs');
     }
+
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
-        return array(array(), null);
+        return [[], null];
     }
+
     public function getExtraHeaders() : array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
+
     protected function getQueryOptionsResolver() : \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(array('follow', 'stdout', 'stderr', 'since', 'until', 'timestamps', 'tail'));
-        $optionsResolver->setRequired(array());
-        $optionsResolver->setDefaults(array('follow' => false, 'stdout' => false, 'stderr' => false, 'since' => 0, 'until' => 0, 'timestamps' => false, 'tail' => 'all'));
-        $optionsResolver->setAllowedTypes('follow', array('bool'));
-        $optionsResolver->setAllowedTypes('stdout', array('bool'));
-        $optionsResolver->setAllowedTypes('stderr', array('bool'));
-        $optionsResolver->setAllowedTypes('since', array('int'));
-        $optionsResolver->setAllowedTypes('until', array('int'));
-        $optionsResolver->setAllowedTypes('timestamps', array('bool'));
-        $optionsResolver->setAllowedTypes('tail', array('string'));
+        $optionsResolver->setDefined(['follow', 'stdout', 'stderr', 'since', 'until', 'timestamps', 'tail']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults(['follow' => false, 'stdout' => false, 'stderr' => false, 'since' => 0, 'until' => 0, 'timestamps' => false, 'tail' => 'all']);
+        $optionsResolver->setAllowedTypes('follow', ['bool']);
+        $optionsResolver->setAllowedTypes('stdout', ['bool']);
+        $optionsResolver->setAllowedTypes('stderr', ['bool']);
+        $optionsResolver->setAllowedTypes('since', ['int']);
+        $optionsResolver->setAllowedTypes('until', ['int']);
+        $optionsResolver->setAllowedTypes('timestamps', ['bool']);
+        $optionsResolver->setAllowedTypes('tail', ['string']);
+
         return $optionsResolver;
     }
+
     /**
      * {@inheritdoc}
      *
@@ -82,8 +91,9 @@ class ContainerLogs extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
             throw new \WeTheRed\DockerApi\Exception\ContainerLogsInternalServerErrorException($serializer->deserialize($body, 'WeTheRed\\DockerApi\\Model\\ErrorResponse', 'json'));
         }
     }
+
     public function getAuthenticationScopes() : array
     {
-        return array();
+        return [];
     }
 }

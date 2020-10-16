@@ -16,6 +16,7 @@ class VolumesPrunePostResponse200
      * @var int
      */
     protected $spaceReclaimed;
+
     /**
      * Volumes that were deleted
      *
@@ -25,6 +26,7 @@ class VolumesPrunePostResponse200
     {
         return $this->volumesDeleted;
     }
+
     /**
      * Volumes that were deleted
      *
@@ -35,8 +37,10 @@ class VolumesPrunePostResponse200
     public function setVolumesDeleted(array $volumesDeleted) : self
     {
         $this->volumesDeleted = $volumesDeleted;
+
         return $this;
     }
+
     /**
      * Disk space reclaimed in bytes
      *
@@ -46,6 +50,7 @@ class VolumesPrunePostResponse200
     {
         return $this->spaceReclaimed;
     }
+
     /**
      * Disk space reclaimed in bytes
      *
@@ -56,6 +61,7 @@ class VolumesPrunePostResponse200
     public function setSpaceReclaimed(int $spaceReclaimed) : self
     {
         $this->spaceReclaimed = $spaceReclaimed;
+
         return $this;
     }
 }

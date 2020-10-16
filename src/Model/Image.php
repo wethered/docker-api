@@ -5,43 +5,43 @@ namespace WeTheRed\DockerApi\Model;
 class Image
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $id;
     /**
-     * 
+     *
      *
      * @var string[]
      */
     protected $repoTags;
     /**
-     * 
+     *
      *
      * @var string[]
      */
     protected $repoDigests;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $parent;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $comment;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $created;
     /**
-     * 
+     *
      *
      * @var string
      */
@@ -53,13 +53,13 @@ class Image
      */
     protected $containerConfig;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $dockerVersion;
     /**
-     * 
+     *
      *
      * @var string
      */
@@ -71,31 +71,31 @@ class Image
      */
     protected $config;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $architecture;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $os;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $osVersion;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $size;
     /**
-     * 
+     *
      *
      * @var int
      */
@@ -107,19 +107,20 @@ class Image
      */
     protected $graphDriver;
     /**
-     * 
+     *
      *
      * @var ImageRootFS
      */
     protected $rootFS;
     /**
-     * 
+     *
      *
      * @var ImageMetadata
      */
     protected $metadata;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -127,8 +128,9 @@ class Image
     {
         return $this->id;
     }
+
     /**
-     * 
+     *
      *
      * @param string $id
      *
@@ -137,10 +139,12 @@ class Image
     public function setId(string $id) : self
     {
         $this->id = $id;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -148,8 +152,9 @@ class Image
     {
         return $this->repoTags;
     }
+
     /**
-     * 
+     *
      *
      * @param string[] $repoTags
      *
@@ -158,10 +163,12 @@ class Image
     public function setRepoTags(array $repoTags) : self
     {
         $this->repoTags = $repoTags;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -169,8 +176,9 @@ class Image
     {
         return $this->repoDigests;
     }
+
     /**
-     * 
+     *
      *
      * @param string[] $repoDigests
      *
@@ -179,10 +187,12 @@ class Image
     public function setRepoDigests(array $repoDigests) : self
     {
         $this->repoDigests = $repoDigests;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -190,8 +200,9 @@ class Image
     {
         return $this->parent;
     }
+
     /**
-     * 
+     *
      *
      * @param string $parent
      *
@@ -200,10 +211,12 @@ class Image
     public function setParent(string $parent) : self
     {
         $this->parent = $parent;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -211,8 +224,9 @@ class Image
     {
         return $this->comment;
     }
+
     /**
-     * 
+     *
      *
      * @param string $comment
      *
@@ -221,10 +235,12 @@ class Image
     public function setComment(string $comment) : self
     {
         $this->comment = $comment;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -232,8 +248,9 @@ class Image
     {
         return $this->created;
     }
+
     /**
-     * 
+     *
      *
      * @param string $created
      *
@@ -242,10 +259,12 @@ class Image
     public function setCreated(string $created) : self
     {
         $this->created = $created;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -253,8 +272,9 @@ class Image
     {
         return $this->container;
     }
+
     /**
-     * 
+     *
      *
      * @param string $container
      *
@@ -263,8 +283,10 @@ class Image
     public function setContainer(string $container) : self
     {
         $this->container = $container;
+
         return $this;
     }
+
     /**
      * Configuration for a container that is portable between hosts
      *
@@ -274,6 +296,7 @@ class Image
     {
         return $this->containerConfig;
     }
+
     /**
      * Configuration for a container that is portable between hosts
      *
@@ -284,10 +307,12 @@ class Image
     public function setContainerConfig(ContainerConfig $containerConfig) : self
     {
         $this->containerConfig = $containerConfig;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -295,8 +320,9 @@ class Image
     {
         return $this->dockerVersion;
     }
+
     /**
-     * 
+     *
      *
      * @param string $dockerVersion
      *
@@ -305,10 +331,12 @@ class Image
     public function setDockerVersion(string $dockerVersion) : self
     {
         $this->dockerVersion = $dockerVersion;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -316,8 +344,9 @@ class Image
     {
         return $this->author;
     }
+
     /**
-     * 
+     *
      *
      * @param string $author
      *
@@ -326,8 +355,10 @@ class Image
     public function setAuthor(string $author) : self
     {
         $this->author = $author;
+
         return $this;
     }
+
     /**
      * Configuration for a container that is portable between hosts
      *
@@ -337,6 +368,7 @@ class Image
     {
         return $this->config;
     }
+
     /**
      * Configuration for a container that is portable between hosts
      *
@@ -347,10 +379,12 @@ class Image
     public function setConfig(ContainerConfig $config) : self
     {
         $this->config = $config;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -358,8 +392,9 @@ class Image
     {
         return $this->architecture;
     }
+
     /**
-     * 
+     *
      *
      * @param string $architecture
      *
@@ -368,10 +403,12 @@ class Image
     public function setArchitecture(string $architecture) : self
     {
         $this->architecture = $architecture;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -379,8 +416,9 @@ class Image
     {
         return $this->os;
     }
+
     /**
-     * 
+     *
      *
      * @param string $os
      *
@@ -389,10 +427,12 @@ class Image
     public function setOs(string $os) : self
     {
         $this->os = $os;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -400,8 +440,9 @@ class Image
     {
         return $this->osVersion;
     }
+
     /**
-     * 
+     *
      *
      * @param string $osVersion
      *
@@ -410,10 +451,12 @@ class Image
     public function setOsVersion(string $osVersion) : self
     {
         $this->osVersion = $osVersion;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -421,8 +464,9 @@ class Image
     {
         return $this->size;
     }
+
     /**
-     * 
+     *
      *
      * @param int $size
      *
@@ -431,10 +475,12 @@ class Image
     public function setSize(int $size) : self
     {
         $this->size = $size;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -442,8 +488,9 @@ class Image
     {
         return $this->virtualSize;
     }
+
     /**
-     * 
+     *
      *
      * @param int $virtualSize
      *
@@ -452,8 +499,10 @@ class Image
     public function setVirtualSize(int $virtualSize) : self
     {
         $this->virtualSize = $virtualSize;
+
         return $this;
     }
+
     /**
      * Information about a container's graph driver.
      *
@@ -463,6 +512,7 @@ class Image
     {
         return $this->graphDriver;
     }
+
     /**
      * Information about a container's graph driver.
      *
@@ -473,10 +523,12 @@ class Image
     public function setGraphDriver(GraphDriverData $graphDriver) : self
     {
         $this->graphDriver = $graphDriver;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return ImageRootFS
      */
@@ -484,8 +536,9 @@ class Image
     {
         return $this->rootFS;
     }
+
     /**
-     * 
+     *
      *
      * @param ImageRootFS $rootFS
      *
@@ -494,10 +547,12 @@ class Image
     public function setRootFS(ImageRootFS $rootFS) : self
     {
         $this->rootFS = $rootFS;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return ImageMetadata
      */
@@ -505,8 +560,9 @@ class Image
     {
         return $this->metadata;
     }
+
     /**
-     * 
+     *
      *
      * @param ImageMetadata $metadata
      *
@@ -515,6 +571,7 @@ class Image
     public function setMetadata(ImageMetadata $metadata) : self
     {
         $this->metadata = $metadata;
+
         return $this;
     }
 }

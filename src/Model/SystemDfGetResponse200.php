@@ -5,37 +5,38 @@ namespace WeTheRed\DockerApi\Model;
 class SystemDfGetResponse200
 {
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $layersSize;
     /**
-     * 
+     *
      *
      * @var ImageSummary[]
      */
     protected $images;
     /**
-     * 
+     *
      *
      * @var ContainerSummaryItem[][]
      */
     protected $containers;
     /**
-     * 
+     *
      *
      * @var Volume[]
      */
     protected $volumes;
     /**
-     * 
+     *
      *
      * @var BuildCache[]
      */
     protected $buildCache;
+
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -43,8 +44,9 @@ class SystemDfGetResponse200
     {
         return $this->layersSize;
     }
+
     /**
-     * 
+     *
      *
      * @param int $layersSize
      *
@@ -53,10 +55,12 @@ class SystemDfGetResponse200
     public function setLayersSize(int $layersSize) : self
     {
         $this->layersSize = $layersSize;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return ImageSummary[]
      */
@@ -64,8 +68,9 @@ class SystemDfGetResponse200
     {
         return $this->images;
     }
+
     /**
-     * 
+     *
      *
      * @param ImageSummary[] $images
      *
@@ -74,10 +79,12 @@ class SystemDfGetResponse200
     public function setImages(array $images) : self
     {
         $this->images = $images;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return ContainerSummaryItem[][]
      */
@@ -85,8 +92,9 @@ class SystemDfGetResponse200
     {
         return $this->containers;
     }
+
     /**
-     * 
+     *
      *
      * @param ContainerSummaryItem[][] $containers
      *
@@ -95,10 +103,12 @@ class SystemDfGetResponse200
     public function setContainers(array $containers) : self
     {
         $this->containers = $containers;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return Volume[]
      */
@@ -106,8 +116,9 @@ class SystemDfGetResponse200
     {
         return $this->volumes;
     }
+
     /**
-     * 
+     *
      *
      * @param Volume[] $volumes
      *
@@ -116,10 +127,12 @@ class SystemDfGetResponse200
     public function setVolumes(array $volumes) : self
     {
         $this->volumes = $volumes;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return BuildCache[]
      */
@@ -127,8 +140,9 @@ class SystemDfGetResponse200
     {
         return $this->buildCache;
     }
+
     /**
-     * 
+     *
      *
      * @param BuildCache[] $buildCache
      *
@@ -137,6 +151,7 @@ class SystemDfGetResponse200
     public function setBuildCache(array $buildCache) : self
     {
         $this->buildCache = $buildCache;
+
         return $this;
     }
 }

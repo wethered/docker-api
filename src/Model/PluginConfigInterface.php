@@ -5,13 +5,13 @@ namespace WeTheRed\DockerApi\Model;
 class PluginConfigInterface
 {
     /**
-     * 
+     *
      *
      * @var PluginInterfaceType[]
      */
     protected $types;
     /**
-     * 
+     *
      *
      * @var string
      */
@@ -22,8 +22,9 @@ class PluginConfigInterface
      * @var string
      */
     protected $protocolScheme;
+
     /**
-     * 
+     *
      *
      * @return PluginInterfaceType[]
      */
@@ -31,8 +32,9 @@ class PluginConfigInterface
     {
         return $this->types;
     }
+
     /**
-     * 
+     *
      *
      * @param PluginInterfaceType[] $types
      *
@@ -41,10 +43,12 @@ class PluginConfigInterface
     public function setTypes(array $types) : self
     {
         $this->types = $types;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -52,8 +56,9 @@ class PluginConfigInterface
     {
         return $this->socket;
     }
+
     /**
-     * 
+     *
      *
      * @param string $socket
      *
@@ -62,8 +67,10 @@ class PluginConfigInterface
     public function setSocket(string $socket) : self
     {
         $this->socket = $socket;
+
         return $this;
     }
+
     /**
      * Protocol to use for clients connecting to the plugin.
      *
@@ -73,6 +80,7 @@ class PluginConfigInterface
     {
         return $this->protocolScheme;
     }
+
     /**
      * Protocol to use for clients connecting to the plugin.
      *
@@ -83,6 +91,7 @@ class PluginConfigInterface
     public function setProtocolScheme(string $protocolScheme) : self
     {
         $this->protocolScheme = $protocolScheme;
+
         return $this;
     }
 }

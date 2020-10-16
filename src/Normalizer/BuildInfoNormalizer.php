@@ -2,29 +2,32 @@
 
 namespace WeTheRed\DockerApi\Normalizer;
 
-use Jane\JsonSchemaRuntime\Reference;
 use Jane\JsonSchemaRuntime\Normalizer\CheckArray;
-use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Jane\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 class BuildInfoNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
     use CheckArray;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
         return $type === 'WeTheRed\\DockerApi\\Model\\BuildInfo';
     }
+
     public function supportsNormalization($data, $format = null)
     {
         return is_object($data) && get_class($data) === 'WeTheRed\\DockerApi\\Model\\BuildInfo';
     }
-    public function denormalize($data, $class, $format = null, array $context = array())
+
+    public function denormalize($data, $class, $format = null, array $context = [])
     {
         if (isset($data['$ref'])) {
             return new Reference($data['$ref'], $context['document-origin']);
@@ -57,11 +60,13 @@ class BuildInfoNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (\array_key_exists('aux', $data)) {
             $object->setAux($this->denormalizer->denormalize($data['aux'], 'WeTheRed\\DockerApi\\Model\\ImageID', 'json', $context));
         }
+
         return $object;
     }
-    public function normalize($object, $format = null, array $context = array())
+
+    public function normalize($object, $format = null, array $context = [])
     {
-        $data = array();
+        $data = [];
         if (null !== $object->getId()) {
             $data['id'] = $object->getId();
         }
@@ -86,6 +91,7 @@ class BuildInfoNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (null !== $object->getAux()) {
             $data['aux'] = $this->normalizer->normalize($object->getAux(), 'json', $context);
         }
+
         return $data;
     }
 }

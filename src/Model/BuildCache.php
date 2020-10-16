@@ -5,37 +5,37 @@ namespace WeTheRed\DockerApi\Model;
 class BuildCache
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $iD;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $parent;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $type;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $description;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $inUse;
     /**
-     * 
+     *
      *
      * @var bool
      */
@@ -49,7 +49,7 @@ class BuildCache
     /**
     * Date and time at which the build cache was created in
     [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format with nano-seconds.
-    
+
     *
     * @var string
     */
@@ -57,19 +57,20 @@ class BuildCache
     /**
     * Date and time at which the build cache was last used in
     [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format with nano-seconds.
-    
+
     *
     * @var string|null
     */
     protected $lastUsedAt;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $usageCount;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -77,8 +78,9 @@ class BuildCache
     {
         return $this->iD;
     }
+
     /**
-     * 
+     *
      *
      * @param string $iD
      *
@@ -87,10 +89,12 @@ class BuildCache
     public function setID(string $iD) : self
     {
         $this->iD = $iD;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -98,8 +102,9 @@ class BuildCache
     {
         return $this->parent;
     }
+
     /**
-     * 
+     *
      *
      * @param string $parent
      *
@@ -108,10 +113,12 @@ class BuildCache
     public function setParent(string $parent) : self
     {
         $this->parent = $parent;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -119,8 +126,9 @@ class BuildCache
     {
         return $this->type;
     }
+
     /**
-     * 
+     *
      *
      * @param string $type
      *
@@ -129,10 +137,12 @@ class BuildCache
     public function setType(string $type) : self
     {
         $this->type = $type;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -140,8 +150,9 @@ class BuildCache
     {
         return $this->description;
     }
+
     /**
-     * 
+     *
      *
      * @param string $description
      *
@@ -150,10 +161,12 @@ class BuildCache
     public function setDescription(string $description) : self
     {
         $this->description = $description;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -161,8 +174,9 @@ class BuildCache
     {
         return $this->inUse;
     }
+
     /**
-     * 
+     *
      *
      * @param bool $inUse
      *
@@ -171,10 +185,12 @@ class BuildCache
     public function setInUse(bool $inUse) : self
     {
         $this->inUse = $inUse;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -182,8 +198,9 @@ class BuildCache
     {
         return $this->shared;
     }
+
     /**
-     * 
+     *
      *
      * @param bool $shared
      *
@@ -192,8 +209,10 @@ class BuildCache
     public function setShared(bool $shared) : self
     {
         $this->shared = $shared;
+
         return $this;
     }
+
     /**
      * Amount of disk space used by the build cache (in bytes).
      *
@@ -203,6 +222,7 @@ class BuildCache
     {
         return $this->size;
     }
+
     /**
      * Amount of disk space used by the build cache (in bytes).
      *
@@ -213,12 +233,14 @@ class BuildCache
     public function setSize(int $size) : self
     {
         $this->size = $size;
+
         return $this;
     }
+
     /**
     * Date and time at which the build cache was created in
     [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format with nano-seconds.
-    
+
     *
     * @return string
     */
@@ -226,10 +248,11 @@ class BuildCache
     {
         return $this->createdAt;
     }
+
     /**
     * Date and time at which the build cache was created in
     [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format with nano-seconds.
-    
+
     *
     * @param string $createdAt
     *
@@ -238,12 +261,14 @@ class BuildCache
     public function setCreatedAt(string $createdAt) : self
     {
         $this->createdAt = $createdAt;
+
         return $this;
     }
+
     /**
     * Date and time at which the build cache was last used in
     [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format with nano-seconds.
-    
+
     *
     * @return string|null
     */
@@ -251,10 +276,11 @@ class BuildCache
     {
         return $this->lastUsedAt;
     }
+
     /**
     * Date and time at which the build cache was last used in
     [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format with nano-seconds.
-    
+
     *
     * @param string|null $lastUsedAt
     *
@@ -263,10 +289,12 @@ class BuildCache
     public function setLastUsedAt(?string $lastUsedAt) : self
     {
         $this->lastUsedAt = $lastUsedAt;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -274,8 +302,9 @@ class BuildCache
     {
         return $this->usageCount;
     }
+
     /**
-     * 
+     *
      *
      * @param int $usageCount
      *
@@ -284,6 +313,7 @@ class BuildCache
     public function setUsageCount(int $usageCount) : self
     {
         $this->usageCount = $usageCount;
+
         return $this;
     }
 }

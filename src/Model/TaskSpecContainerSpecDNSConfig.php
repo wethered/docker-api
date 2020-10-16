@@ -19,11 +19,12 @@ class TaskSpecContainerSpecDNSConfig
     /**
     * A list of internal resolver variables to be modified (e.g.,
     `debug`, `ndots:3`, etc.).
-    
+
     *
     * @var string[]
     */
     protected $options;
+
     /**
      * The IP addresses of the name servers.
      *
@@ -33,6 +34,7 @@ class TaskSpecContainerSpecDNSConfig
     {
         return $this->nameservers;
     }
+
     /**
      * The IP addresses of the name servers.
      *
@@ -43,8 +45,10 @@ class TaskSpecContainerSpecDNSConfig
     public function setNameservers(array $nameservers) : self
     {
         $this->nameservers = $nameservers;
+
         return $this;
     }
+
     /**
      * A search list for host-name lookup.
      *
@@ -54,6 +58,7 @@ class TaskSpecContainerSpecDNSConfig
     {
         return $this->search;
     }
+
     /**
      * A search list for host-name lookup.
      *
@@ -64,12 +69,14 @@ class TaskSpecContainerSpecDNSConfig
     public function setSearch(array $search) : self
     {
         $this->search = $search;
+
         return $this;
     }
+
     /**
     * A list of internal resolver variables to be modified (e.g.,
     `debug`, `ndots:3`, etc.).
-    
+
     *
     * @return string[]
     */
@@ -77,10 +84,11 @@ class TaskSpecContainerSpecDNSConfig
     {
         return $this->options;
     }
+
     /**
     * A list of internal resolver variables to be modified (e.g.,
     `debug`, `ndots:3`, etc.).
-    
+
     *
     * @param string[] $options
     *
@@ -89,6 +97,7 @@ class TaskSpecContainerSpecDNSConfig
     public function setOptions(array $options) : self
     {
         $this->options = $options;
+
         return $this;
     }
 }

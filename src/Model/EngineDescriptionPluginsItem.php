@@ -5,19 +5,20 @@ namespace WeTheRed\DockerApi\Model;
 class EngineDescriptionPluginsItem
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $type;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $name;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -25,8 +26,9 @@ class EngineDescriptionPluginsItem
     {
         return $this->type;
     }
+
     /**
-     * 
+     *
      *
      * @param string $type
      *
@@ -35,10 +37,12 @@ class EngineDescriptionPluginsItem
     public function setType(string $type) : self
     {
         $this->type = $type;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -46,8 +50,9 @@ class EngineDescriptionPluginsItem
     {
         return $this->name;
     }
+
     /**
-     * 
+     *
      *
      * @param string $name
      *
@@ -56,6 +61,7 @@ class EngineDescriptionPluginsItem
     public function setName(string $name) : self
     {
         $this->name = $name;
+
         return $this;
     }
 }

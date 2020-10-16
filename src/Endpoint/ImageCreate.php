@@ -18,58 +18,68 @@ class ImageCreate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     * }
     * @param array $headerParameters {
     *     @var string $X-Registry-Auth A base64url-encoded auth configuration.
-    
+
     Refer to the [authentication section](#section/Authentication) for
     details.
-    
+
     * }
     */
-    public function __construct(string $inputImage, array $queryParameters = array(), array $headerParameters = array())
+    public function __construct(string $inputImage, array $queryParameters = [], array $headerParameters = [])
     {
         $this->body = $inputImage;
         $this->queryParameters = $queryParameters;
         $this->headerParameters = $headerParameters;
     }
+
     use \Jane\OpenApiRuntime\Client\EndpointTrait;
+
     public function getMethod() : string
     {
         return 'POST';
     }
+
     public function getUri() : string
     {
         return '/images/create';
     }
+
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
-        return array(array(), $this->body);
+        return [[], $this->body];
     }
+
     public function getExtraHeaders() : array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
+
     protected function getQueryOptionsResolver() : \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(array('fromImage', 'fromSrc', 'repo', 'tag', 'message', 'platform'));
-        $optionsResolver->setRequired(array());
-        $optionsResolver->setDefaults(array('platform' => ''));
-        $optionsResolver->setAllowedTypes('fromImage', array('string'));
-        $optionsResolver->setAllowedTypes('fromSrc', array('string'));
-        $optionsResolver->setAllowedTypes('repo', array('string'));
-        $optionsResolver->setAllowedTypes('tag', array('string'));
-        $optionsResolver->setAllowedTypes('message', array('string'));
-        $optionsResolver->setAllowedTypes('platform', array('string'));
+        $optionsResolver->setDefined(['fromImage', 'fromSrc', 'repo', 'tag', 'message', 'platform']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults(['platform' => '']);
+        $optionsResolver->setAllowedTypes('fromImage', ['string']);
+        $optionsResolver->setAllowedTypes('fromSrc', ['string']);
+        $optionsResolver->setAllowedTypes('repo', ['string']);
+        $optionsResolver->setAllowedTypes('tag', ['string']);
+        $optionsResolver->setAllowedTypes('message', ['string']);
+        $optionsResolver->setAllowedTypes('platform', ['string']);
+
         return $optionsResolver;
     }
+
     protected function getHeadersOptionsResolver() : \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getHeadersOptionsResolver();
-        $optionsResolver->setDefined(array('X-Registry-Auth'));
-        $optionsResolver->setRequired(array());
-        $optionsResolver->setDefaults(array());
-        $optionsResolver->setAllowedTypes('X-Registry-Auth', array('string'));
+        $optionsResolver->setDefined(['X-Registry-Auth']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('X-Registry-Auth', ['string']);
+
         return $optionsResolver;
     }
+
     /**
      * {@inheritdoc}
      *
@@ -90,8 +100,9 @@ class ImageCreate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
             throw new \WeTheRed\DockerApi\Exception\ImageCreateInternalServerErrorException($serializer->deserialize($body, 'WeTheRed\\DockerApi\\Model\\ErrorResponse', 'json'));
         }
     }
+
     public function getAuthenticationScopes() : array
     {
-        return array();
+        return [];
     }
 }

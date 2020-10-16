@@ -2,29 +2,32 @@
 
 namespace WeTheRed\DockerApi\Normalizer;
 
-use Jane\JsonSchemaRuntime\Reference;
 use Jane\JsonSchemaRuntime\Normalizer\CheckArray;
-use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Jane\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 class BuildCacheNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
     use CheckArray;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
         return $type === 'WeTheRed\\DockerApi\\Model\\BuildCache';
     }
+
     public function supportsNormalization($data, $format = null)
     {
         return is_object($data) && get_class($data) === 'WeTheRed\\DockerApi\\Model\\BuildCache';
     }
-    public function denormalize($data, $class, $format = null, array $context = array())
+
+    public function denormalize($data, $class, $format = null, array $context = [])
     {
         if (isset($data['$ref'])) {
             return new Reference($data['$ref'], $context['document-origin']);
@@ -59,18 +62,19 @@ class BuildCacheNormalizer implements DenormalizerInterface, NormalizerInterface
         }
         if (\array_key_exists('LastUsedAt', $data) && $data['LastUsedAt'] !== null) {
             $object->setLastUsedAt($data['LastUsedAt']);
-        }
-        elseif (\array_key_exists('LastUsedAt', $data) && $data['LastUsedAt'] === null) {
+        } elseif (\array_key_exists('LastUsedAt', $data) && $data['LastUsedAt'] === null) {
             $object->setLastUsedAt(null);
         }
         if (\array_key_exists('UsageCount', $data)) {
             $object->setUsageCount($data['UsageCount']);
         }
+
         return $object;
     }
-    public function normalize($object, $format = null, array $context = array())
+
+    public function normalize($object, $format = null, array $context = [])
     {
-        $data = array();
+        $data = [];
         if (null !== $object->getID()) {
             $data['ID'] = $object->getID();
         }
@@ -99,6 +103,7 @@ class BuildCacheNormalizer implements DenormalizerInterface, NormalizerInterface
         if (null !== $object->getUsageCount()) {
             $data['UsageCount'] = $object->getUsageCount();
         }
+
         return $data;
     }
 }

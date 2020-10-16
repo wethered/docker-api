@@ -12,11 +12,11 @@ class IPAM
     protected $driver = 'default';
     /**
     * List of IPAM configuration options, specified as a map:
-    
+
     ```
     {"Subnet": <CIDR>, "IPRange": <CIDR>, "Gateway": <IP address>, "AuxAddress": <device_name:IP address>}
     ```
-    
+
     *
     * @var string[][]
     */
@@ -27,6 +27,7 @@ class IPAM
      * @var string[]
      */
     protected $options;
+
     /**
      * Name of the IPAM driver to use.
      *
@@ -36,6 +37,7 @@ class IPAM
     {
         return $this->driver;
     }
+
     /**
      * Name of the IPAM driver to use.
      *
@@ -46,15 +48,17 @@ class IPAM
     public function setDriver(string $driver) : self
     {
         $this->driver = $driver;
+
         return $this;
     }
+
     /**
     * List of IPAM configuration options, specified as a map:
-    
+
     ```
     {"Subnet": <CIDR>, "IPRange": <CIDR>, "Gateway": <IP address>, "AuxAddress": <device_name:IP address>}
     ```
-    
+
     *
     * @return string[][]
     */
@@ -62,13 +66,14 @@ class IPAM
     {
         return $this->config;
     }
+
     /**
     * List of IPAM configuration options, specified as a map:
-    
+
     ```
     {"Subnet": <CIDR>, "IPRange": <CIDR>, "Gateway": <IP address>, "AuxAddress": <device_name:IP address>}
     ```
-    
+
     *
     * @param string[][] $config
     *
@@ -77,8 +82,10 @@ class IPAM
     public function setConfig(array $config) : self
     {
         $this->config = $config;
+
         return $this;
     }
+
     /**
      * Driver-specific options, specified as a map.
      *
@@ -88,6 +95,7 @@ class IPAM
     {
         return $this->options;
     }
+
     /**
      * Driver-specific options, specified as a map.
      *
@@ -98,6 +106,7 @@ class IPAM
     public function setOptions(iterable $options) : self
     {
         $this->options = $options;
+
         return $this;
     }
 }

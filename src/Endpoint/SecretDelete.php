@@ -5,8 +5,9 @@ namespace WeTheRed\DockerApi\Endpoint;
 class SecretDelete extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Endpoint
 {
     protected $id;
+
     /**
-     * 
+     *
      *
      * @param string $id ID of the secret
      */
@@ -14,23 +15,29 @@ class SecretDelete extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
     {
         $this->id = $id;
     }
+
     use \Jane\OpenApiRuntime\Client\EndpointTrait;
+
     public function getMethod() : string
     {
         return 'DELETE';
     }
+
     public function getUri() : string
     {
-        return str_replace(array('{id}'), array($this->id), '/secrets/{id}');
+        return str_replace(['{id}'], [$this->id], '/secrets/{id}');
     }
+
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
-        return array(array(), null);
+        return [[], null];
     }
+
     public function getExtraHeaders() : array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
+
     /**
      * {@inheritdoc}
      *
@@ -55,8 +62,9 @@ class SecretDelete extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
             throw new \WeTheRed\DockerApi\Exception\SecretDeleteServiceUnavailableException($serializer->deserialize($body, 'WeTheRed\\DockerApi\\Model\\ErrorResponse', 'json'));
         }
     }
+
     public function getAuthenticationScopes() : array
     {
-        return array();
+        return [];
     }
 }

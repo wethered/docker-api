@@ -23,11 +23,12 @@ class Port
      */
     protected $publicPort;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $type;
+
     /**
      * Host IP address that the container's port is mapped to
      *
@@ -37,6 +38,7 @@ class Port
     {
         return $this->iP;
     }
+
     /**
      * Host IP address that the container's port is mapped to
      *
@@ -47,8 +49,10 @@ class Port
     public function setIP(string $iP) : self
     {
         $this->iP = $iP;
+
         return $this;
     }
+
     /**
      * Port on the container
      *
@@ -58,6 +62,7 @@ class Port
     {
         return $this->privatePort;
     }
+
     /**
      * Port on the container
      *
@@ -68,8 +73,10 @@ class Port
     public function setPrivatePort(int $privatePort) : self
     {
         $this->privatePort = $privatePort;
+
         return $this;
     }
+
     /**
      * Port exposed on the host
      *
@@ -79,6 +86,7 @@ class Port
     {
         return $this->publicPort;
     }
+
     /**
      * Port exposed on the host
      *
@@ -89,10 +97,12 @@ class Port
     public function setPublicPort(int $publicPort) : self
     {
         $this->publicPort = $publicPort;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -100,8 +110,9 @@ class Port
     {
         return $this->type;
     }
+
     /**
-     * 
+     *
      *
      * @param string $type
      *
@@ -110,6 +121,7 @@ class Port
     public function setType(string $type) : self
     {
         $this->type = $type;
+
         return $this;
     }
 }

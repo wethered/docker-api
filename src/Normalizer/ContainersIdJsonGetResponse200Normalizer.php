@@ -2,29 +2,32 @@
 
 namespace WeTheRed\DockerApi\Normalizer;
 
-use Jane\JsonSchemaRuntime\Reference;
 use Jane\JsonSchemaRuntime\Normalizer\CheckArray;
-use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Jane\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 class ContainersIdJsonGetResponse200Normalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
     use CheckArray;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
         return $type === 'WeTheRed\\DockerApi\\Model\\ContainersIdJsonGetResponse200';
     }
+
     public function supportsNormalization($data, $format = null)
     {
         return is_object($data) && get_class($data) === 'WeTheRed\\DockerApi\\Model\\ContainersIdJsonGetResponse200';
     }
-    public function denormalize($data, $class, $format = null, array $context = array())
+
+    public function denormalize($data, $class, $format = null, array $context = [])
     {
         if (isset($data['$ref'])) {
             return new Reference($data['$ref'], $context['document-origin']);
@@ -43,7 +46,7 @@ class ContainersIdJsonGetResponse200Normalizer implements DenormalizerInterface,
             $object->setPath($data['Path']);
         }
         if (\array_key_exists('Args', $data)) {
-            $values = array();
+            $values = [];
             foreach ($data['Args'] as $value) {
                 $values[] = $value;
             }
@@ -92,13 +95,12 @@ class ContainersIdJsonGetResponse200Normalizer implements DenormalizerInterface,
             $object->setAppArmorProfile($data['AppArmorProfile']);
         }
         if (\array_key_exists('ExecIDs', $data) && $data['ExecIDs'] !== null) {
-            $values_1 = array();
+            $values_1 = [];
             foreach ($data['ExecIDs'] as $value_1) {
                 $values_1[] = $value_1;
             }
             $object->setExecIDs($values_1);
-        }
-        elseif (\array_key_exists('ExecIDs', $data) && $data['ExecIDs'] === null) {
+        } elseif (\array_key_exists('ExecIDs', $data) && $data['ExecIDs'] === null) {
             $object->setExecIDs(null);
         }
         if (\array_key_exists('HostConfig', $data)) {
@@ -114,7 +116,7 @@ class ContainersIdJsonGetResponse200Normalizer implements DenormalizerInterface,
             $object->setSizeRootFs($data['SizeRootFs']);
         }
         if (\array_key_exists('Mounts', $data)) {
-            $values_2 = array();
+            $values_2 = [];
             foreach ($data['Mounts'] as $value_2) {
                 $values_2[] = $this->denormalizer->denormalize($value_2, 'WeTheRed\\DockerApi\\Model\\MountPoint', 'json', $context);
             }
@@ -126,11 +128,13 @@ class ContainersIdJsonGetResponse200Normalizer implements DenormalizerInterface,
         if (\array_key_exists('NetworkSettings', $data)) {
             $object->setNetworkSettings($this->denormalizer->denormalize($data['NetworkSettings'], 'WeTheRed\\DockerApi\\Model\\NetworkSettings', 'json', $context));
         }
+
         return $object;
     }
-    public function normalize($object, $format = null, array $context = array())
+
+    public function normalize($object, $format = null, array $context = [])
     {
-        $data = array();
+        $data = [];
         if (null !== $object->getId()) {
             $data['Id'] = $object->getId();
         }
@@ -141,7 +145,7 @@ class ContainersIdJsonGetResponse200Normalizer implements DenormalizerInterface,
             $data['Path'] = $object->getPath();
         }
         if (null !== $object->getArgs()) {
-            $values = array();
+            $values = [];
             foreach ($object->getArgs() as $value) {
                 $values[] = $value;
             }
@@ -190,7 +194,7 @@ class ContainersIdJsonGetResponse200Normalizer implements DenormalizerInterface,
             $data['AppArmorProfile'] = $object->getAppArmorProfile();
         }
         if (null !== $object->getExecIDs()) {
-            $values_1 = array();
+            $values_1 = [];
             foreach ($object->getExecIDs() as $value_1) {
                 $values_1[] = $value_1;
             }
@@ -209,7 +213,7 @@ class ContainersIdJsonGetResponse200Normalizer implements DenormalizerInterface,
             $data['SizeRootFs'] = $object->getSizeRootFs();
         }
         if (null !== $object->getMounts()) {
-            $values_2 = array();
+            $values_2 = [];
             foreach ($object->getMounts() as $value_2) {
                 $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
             }
@@ -221,6 +225,7 @@ class ContainersIdJsonGetResponse200Normalizer implements DenormalizerInterface,
         if (null !== $object->getNetworkSettings()) {
             $data['NetworkSettings'] = $this->normalizer->normalize($object->getNetworkSettings(), 'json', $context);
         }
+
         return $data;
     }
 }

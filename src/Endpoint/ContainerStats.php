@@ -5,18 +5,19 @@ namespace WeTheRed\DockerApi\Endpoint;
 class ContainerStats extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Endpoint
 {
     protected $id;
+
     /**
     * This endpoint returns a live stream of a container’s resource usage
     statistics.
-    
+
     The `precpu_stats` is the CPU statistic of the *previous* read, and is
     used to calculate the CPU usage percentage. It is not an exact copy
     of the `cpu_stats` field.
-    
+
     If either `precpu_stats.online_cpus` or `cpu_stats.online_cpus` is
     nil then for compatibility with older daemons the length of the
     corresponding `cpu_usage.percpu_usage` array should be used.
-    
+
     To calculate the values shown by the `stats` command of the docker cli tool
     the following formulas can be used:
     * used_memory = `memory_stats.usage - memory_stats.stats.cache`
@@ -26,46 +27,54 @@ class ContainerStats extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
     * system_cpu_delta = `cpu_stats.system_cpu_usage - precpu_stats.system_cpu_usage`
     * number_cpus = `lenght(cpu_stats.cpu_usage.percpu_usage)` or `cpu_stats.online_cpus`
     * CPU usage % = `(cpu_delta / system_cpu_delta) * number_cpus * 100.0`
-    
+
     *
     * @param string $id ID or name of the container
     * @param array $queryParameters {
     *     @var bool $stream Stream the output. If false, the stats will be output once and then
     it will disconnect.
-    
+
     * }
     */
-    public function __construct(string $id, array $queryParameters = array())
+    public function __construct(string $id, array $queryParameters = [])
     {
         $this->id = $id;
         $this->queryParameters = $queryParameters;
     }
+
     use \Jane\OpenApiRuntime\Client\EndpointTrait;
+
     public function getMethod() : string
     {
         return 'GET';
     }
+
     public function getUri() : string
     {
-        return str_replace(array('{id}'), array($this->id), '/containers/{id}/stats');
+        return str_replace(['{id}'], [$this->id], '/containers/{id}/stats');
     }
+
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
-        return array(array(), null);
+        return [[], null];
     }
+
     public function getExtraHeaders() : array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
+
     protected function getQueryOptionsResolver() : \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(array('stream'));
-        $optionsResolver->setRequired(array());
-        $optionsResolver->setDefaults(array('stream' => true));
-        $optionsResolver->setAllowedTypes('stream', array('bool'));
+        $optionsResolver->setDefined(['stream']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults(['stream' => true]);
+        $optionsResolver->setAllowedTypes('stream', ['bool']);
+
         return $optionsResolver;
     }
+
     /**
      * {@inheritdoc}
      *
@@ -86,8 +95,9 @@ class ContainerStats extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
             throw new \WeTheRed\DockerApi\Exception\ContainerStatsInternalServerErrorException($serializer->deserialize($body, 'WeTheRed\\DockerApi\\Model\\ErrorResponse', 'json'));
         }
     }
+
     public function getAuthenticationScopes() : array
     {
-        return array();
+        return [];
     }
 }

@@ -2,29 +2,32 @@
 
 namespace WeTheRed\DockerApi\Normalizer;
 
-use Jane\JsonSchemaRuntime\Reference;
 use Jane\JsonSchemaRuntime\Normalizer\CheckArray;
-use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Jane\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 class ContainerSummaryItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
     use CheckArray;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
         return $type === 'WeTheRed\\DockerApi\\Model\\ContainerSummaryItem';
     }
+
     public function supportsNormalization($data, $format = null)
     {
         return is_object($data) && get_class($data) === 'WeTheRed\\DockerApi\\Model\\ContainerSummaryItem';
     }
-    public function denormalize($data, $class, $format = null, array $context = array())
+
+    public function denormalize($data, $class, $format = null, array $context = [])
     {
         if (isset($data['$ref'])) {
             return new Reference($data['$ref'], $context['document-origin']);
@@ -37,7 +40,7 @@ class ContainerSummaryItemNormalizer implements DenormalizerInterface, Normalize
             $object->setId($data['Id']);
         }
         if (\array_key_exists('Names', $data)) {
-            $values = array();
+            $values = [];
             foreach ($data['Names'] as $value) {
                 $values[] = $value;
             }
@@ -56,7 +59,7 @@ class ContainerSummaryItemNormalizer implements DenormalizerInterface, Normalize
             $object->setCreated($data['Created']);
         }
         if (\array_key_exists('Ports', $data)) {
-            $values_1 = array();
+            $values_1 = [];
             foreach ($data['Ports'] as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, 'WeTheRed\\DockerApi\\Model\\Port', 'json', $context);
             }
@@ -69,7 +72,7 @@ class ContainerSummaryItemNormalizer implements DenormalizerInterface, Normalize
             $object->setSizeRootFs($data['SizeRootFs']);
         }
         if (\array_key_exists('Labels', $data)) {
-            $values_2 = new \ArrayObject(array(), \ArrayObject::ARRAY_AS_PROPS);
+            $values_2 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data['Labels'] as $key => $value_2) {
                 $values_2[$key] = $value_2;
             }
@@ -88,22 +91,24 @@ class ContainerSummaryItemNormalizer implements DenormalizerInterface, Normalize
             $object->setNetworkSettings($this->denormalizer->denormalize($data['NetworkSettings'], 'WeTheRed\\DockerApi\\Model\\ContainerSummaryItemNetworkSettings', 'json', $context));
         }
         if (\array_key_exists('Mounts', $data)) {
-            $values_3 = array();
+            $values_3 = [];
             foreach ($data['Mounts'] as $value_3) {
                 $values_3[] = $this->denormalizer->denormalize($value_3, 'WeTheRed\\DockerApi\\Model\\Mount', 'json', $context);
             }
             $object->setMounts($values_3);
         }
+
         return $object;
     }
-    public function normalize($object, $format = null, array $context = array())
+
+    public function normalize($object, $format = null, array $context = [])
     {
-        $data = array();
+        $data = [];
         if (null !== $object->getId()) {
             $data['Id'] = $object->getId();
         }
         if (null !== $object->getNames()) {
-            $values = array();
+            $values = [];
             foreach ($object->getNames() as $value) {
                 $values[] = $value;
             }
@@ -122,7 +127,7 @@ class ContainerSummaryItemNormalizer implements DenormalizerInterface, Normalize
             $data['Created'] = $object->getCreated();
         }
         if (null !== $object->getPorts()) {
-            $values_1 = array();
+            $values_1 = [];
             foreach ($object->getPorts() as $value_1) {
                 $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
@@ -135,7 +140,7 @@ class ContainerSummaryItemNormalizer implements DenormalizerInterface, Normalize
             $data['SizeRootFs'] = $object->getSizeRootFs();
         }
         if (null !== $object->getLabels()) {
-            $values_2 = array();
+            $values_2 = [];
             foreach ($object->getLabels() as $key => $value_2) {
                 $values_2[$key] = $value_2;
             }
@@ -154,12 +159,13 @@ class ContainerSummaryItemNormalizer implements DenormalizerInterface, Normalize
             $data['NetworkSettings'] = $this->normalizer->normalize($object->getNetworkSettings(), 'json', $context);
         }
         if (null !== $object->getMounts()) {
-            $values_3 = array();
+            $values_3 = [];
             foreach ($object->getMounts() as $value_3) {
                 $values_3[] = $this->normalizer->normalize($value_3, 'json', $context);
             }
             $data['Mounts'] = $values_3;
         }
+
         return $data;
     }
 }

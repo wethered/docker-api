@@ -42,9 +42,9 @@ class ContainerConfig
     protected $attachStderr = true;
     /**
     * An object mapping ports to an empty object in the form:
-    
+
     `{"<port>/<tcp|udp|sctp>": {}}`
-    
+
     *
     * @var mixed[]
     */
@@ -71,7 +71,7 @@ class ContainerConfig
     * A list of environment variables to set inside the container in the
     form `["VAR=value", ...]`. A variable without `=` is removed from the
     environment, rather than to have an empty value.
-    
+
     *
     * @var string[]
     */
@@ -103,7 +103,7 @@ class ContainerConfig
     /**
     * An object mapping mount point paths inside the container to empty
     objects.
-    
+
     *
     * @var mixed[]
     */
@@ -116,11 +116,11 @@ class ContainerConfig
     protected $workingDir;
     /**
     * The entry point for the container as a string or an array of strings.
-    
+
     If the array consists of exactly one empty string (`[""]`) then the
     entry point is reset to system default (i.e., the entry point used by
     docker when there is no `ENTRYPOINT` instruction in the `Dockerfile`).
-    
+
     *
     * @var string[]
     */
@@ -167,6 +167,7 @@ class ContainerConfig
      * @var string[]
      */
     protected $shell;
+
     /**
      * The hostname to use for the container, as a valid RFC 1123 hostname.
      *
@@ -176,6 +177,7 @@ class ContainerConfig
     {
         return $this->hostname;
     }
+
     /**
      * The hostname to use for the container, as a valid RFC 1123 hostname.
      *
@@ -186,8 +188,10 @@ class ContainerConfig
     public function setHostname(string $hostname) : self
     {
         $this->hostname = $hostname;
+
         return $this;
     }
+
     /**
      * The domain name to use for the container.
      *
@@ -197,6 +201,7 @@ class ContainerConfig
     {
         return $this->domainname;
     }
+
     /**
      * The domain name to use for the container.
      *
@@ -207,8 +212,10 @@ class ContainerConfig
     public function setDomainname(string $domainname) : self
     {
         $this->domainname = $domainname;
+
         return $this;
     }
+
     /**
      * The user that commands are run as inside the container.
      *
@@ -218,6 +225,7 @@ class ContainerConfig
     {
         return $this->user;
     }
+
     /**
      * The user that commands are run as inside the container.
      *
@@ -228,8 +236,10 @@ class ContainerConfig
     public function setUser(string $user) : self
     {
         $this->user = $user;
+
         return $this;
     }
+
     /**
      * Whether to attach to `stdin`.
      *
@@ -239,6 +249,7 @@ class ContainerConfig
     {
         return $this->attachStdin;
     }
+
     /**
      * Whether to attach to `stdin`.
      *
@@ -249,8 +260,10 @@ class ContainerConfig
     public function setAttachStdin(bool $attachStdin) : self
     {
         $this->attachStdin = $attachStdin;
+
         return $this;
     }
+
     /**
      * Whether to attach to `stdout`.
      *
@@ -260,6 +273,7 @@ class ContainerConfig
     {
         return $this->attachStdout;
     }
+
     /**
      * Whether to attach to `stdout`.
      *
@@ -270,8 +284,10 @@ class ContainerConfig
     public function setAttachStdout(bool $attachStdout) : self
     {
         $this->attachStdout = $attachStdout;
+
         return $this;
     }
+
     /**
      * Whether to attach to `stderr`.
      *
@@ -281,6 +297,7 @@ class ContainerConfig
     {
         return $this->attachStderr;
     }
+
     /**
      * Whether to attach to `stderr`.
      *
@@ -291,13 +308,15 @@ class ContainerConfig
     public function setAttachStderr(bool $attachStderr) : self
     {
         $this->attachStderr = $attachStderr;
+
         return $this;
     }
+
     /**
     * An object mapping ports to an empty object in the form:
-    
+
     `{"<port>/<tcp|udp|sctp>": {}}`
-    
+
     *
     * @return mixed[]
     */
@@ -305,11 +324,12 @@ class ContainerConfig
     {
         return $this->exposedPorts;
     }
+
     /**
     * An object mapping ports to an empty object in the form:
-    
+
     `{"<port>/<tcp|udp|sctp>": {}}`
-    
+
     *
     * @param mixed[] $exposedPorts
     *
@@ -318,8 +338,10 @@ class ContainerConfig
     public function setExposedPorts(iterable $exposedPorts) : self
     {
         $this->exposedPorts = $exposedPorts;
+
         return $this;
     }
+
     /**
      * Attach standard streams to a TTY, including `stdin` if it is not closed.
      *
@@ -329,6 +351,7 @@ class ContainerConfig
     {
         return $this->tty;
     }
+
     /**
      * Attach standard streams to a TTY, including `stdin` if it is not closed.
      *
@@ -339,8 +362,10 @@ class ContainerConfig
     public function setTty(bool $tty) : self
     {
         $this->tty = $tty;
+
         return $this;
     }
+
     /**
      * Open `stdin`
      *
@@ -350,6 +375,7 @@ class ContainerConfig
     {
         return $this->openStdin;
     }
+
     /**
      * Open `stdin`
      *
@@ -360,8 +386,10 @@ class ContainerConfig
     public function setOpenStdin(bool $openStdin) : self
     {
         $this->openStdin = $openStdin;
+
         return $this;
     }
+
     /**
      * Close `stdin` after one attached client disconnects
      *
@@ -371,6 +399,7 @@ class ContainerConfig
     {
         return $this->stdinOnce;
     }
+
     /**
      * Close `stdin` after one attached client disconnects
      *
@@ -381,13 +410,15 @@ class ContainerConfig
     public function setStdinOnce(bool $stdinOnce) : self
     {
         $this->stdinOnce = $stdinOnce;
+
         return $this;
     }
+
     /**
     * A list of environment variables to set inside the container in the
     form `["VAR=value", ...]`. A variable without `=` is removed from the
     environment, rather than to have an empty value.
-    
+
     *
     * @return string[]
     */
@@ -395,11 +426,12 @@ class ContainerConfig
     {
         return $this->env;
     }
+
     /**
     * A list of environment variables to set inside the container in the
     form `["VAR=value", ...]`. A variable without `=` is removed from the
     environment, rather than to have an empty value.
-    
+
     *
     * @param string[] $env
     *
@@ -408,8 +440,10 @@ class ContainerConfig
     public function setEnv(array $env) : self
     {
         $this->env = $env;
+
         return $this;
     }
+
     /**
      * Command to run specified as a string or an array of strings.
      *
@@ -419,6 +453,7 @@ class ContainerConfig
     {
         return $this->cmd;
     }
+
     /**
      * Command to run specified as a string or an array of strings.
      *
@@ -429,8 +464,10 @@ class ContainerConfig
     public function setCmd(array $cmd) : self
     {
         $this->cmd = $cmd;
+
         return $this;
     }
+
     /**
      * A test to perform to check that the container is healthy.
      *
@@ -440,6 +477,7 @@ class ContainerConfig
     {
         return $this->healthcheck;
     }
+
     /**
      * A test to perform to check that the container is healthy.
      *
@@ -450,8 +488,10 @@ class ContainerConfig
     public function setHealthcheck(HealthConfig $healthcheck) : self
     {
         $this->healthcheck = $healthcheck;
+
         return $this;
     }
+
     /**
      * Command is already escaped (Windows only)
      *
@@ -461,6 +501,7 @@ class ContainerConfig
     {
         return $this->argsEscaped;
     }
+
     /**
      * Command is already escaped (Windows only)
      *
@@ -471,8 +512,10 @@ class ContainerConfig
     public function setArgsEscaped(bool $argsEscaped) : self
     {
         $this->argsEscaped = $argsEscaped;
+
         return $this;
     }
+
     /**
      * The name of the image to use when creating the container/
      *
@@ -482,6 +525,7 @@ class ContainerConfig
     {
         return $this->image;
     }
+
     /**
      * The name of the image to use when creating the container/
      *
@@ -492,12 +536,14 @@ class ContainerConfig
     public function setImage(string $image) : self
     {
         $this->image = $image;
+
         return $this;
     }
+
     /**
     * An object mapping mount point paths inside the container to empty
     objects.
-    
+
     *
     * @return mixed[]
     */
@@ -505,10 +551,11 @@ class ContainerConfig
     {
         return $this->volumes;
     }
+
     /**
     * An object mapping mount point paths inside the container to empty
     objects.
-    
+
     *
     * @param mixed[] $volumes
     *
@@ -517,8 +564,10 @@ class ContainerConfig
     public function setVolumes(iterable $volumes) : self
     {
         $this->volumes = $volumes;
+
         return $this;
     }
+
     /**
      * The working directory for commands to run in.
      *
@@ -528,6 +577,7 @@ class ContainerConfig
     {
         return $this->workingDir;
     }
+
     /**
      * The working directory for commands to run in.
      *
@@ -538,15 +588,17 @@ class ContainerConfig
     public function setWorkingDir(string $workingDir) : self
     {
         $this->workingDir = $workingDir;
+
         return $this;
     }
+
     /**
     * The entry point for the container as a string or an array of strings.
-    
+
     If the array consists of exactly one empty string (`[""]`) then the
     entry point is reset to system default (i.e., the entry point used by
     docker when there is no `ENTRYPOINT` instruction in the `Dockerfile`).
-    
+
     *
     * @return string[]
     */
@@ -554,13 +606,14 @@ class ContainerConfig
     {
         return $this->entrypoint;
     }
+
     /**
     * The entry point for the container as a string or an array of strings.
-    
+
     If the array consists of exactly one empty string (`[""]`) then the
     entry point is reset to system default (i.e., the entry point used by
     docker when there is no `ENTRYPOINT` instruction in the `Dockerfile`).
-    
+
     *
     * @param string[] $entrypoint
     *
@@ -569,8 +622,10 @@ class ContainerConfig
     public function setEntrypoint(array $entrypoint) : self
     {
         $this->entrypoint = $entrypoint;
+
         return $this;
     }
+
     /**
      * Disable networking for the container.
      *
@@ -580,6 +635,7 @@ class ContainerConfig
     {
         return $this->networkDisabled;
     }
+
     /**
      * Disable networking for the container.
      *
@@ -590,8 +646,10 @@ class ContainerConfig
     public function setNetworkDisabled(bool $networkDisabled) : self
     {
         $this->networkDisabled = $networkDisabled;
+
         return $this;
     }
+
     /**
      * MAC address of the container.
      *
@@ -601,6 +659,7 @@ class ContainerConfig
     {
         return $this->macAddress;
     }
+
     /**
      * MAC address of the container.
      *
@@ -611,8 +670,10 @@ class ContainerConfig
     public function setMacAddress(string $macAddress) : self
     {
         $this->macAddress = $macAddress;
+
         return $this;
     }
+
     /**
      * `ONBUILD` metadata that were defined in the image's `Dockerfile`.
      *
@@ -622,6 +683,7 @@ class ContainerConfig
     {
         return $this->onBuild;
     }
+
     /**
      * `ONBUILD` metadata that were defined in the image's `Dockerfile`.
      *
@@ -632,8 +694,10 @@ class ContainerConfig
     public function setOnBuild(array $onBuild) : self
     {
         $this->onBuild = $onBuild;
+
         return $this;
     }
+
     /**
      * User-defined key/value metadata.
      *
@@ -643,6 +707,7 @@ class ContainerConfig
     {
         return $this->labels;
     }
+
     /**
      * User-defined key/value metadata.
      *
@@ -653,8 +718,10 @@ class ContainerConfig
     public function setLabels(iterable $labels) : self
     {
         $this->labels = $labels;
+
         return $this;
     }
+
     /**
      * Signal to stop a container as a string or unsigned integer.
      *
@@ -664,6 +731,7 @@ class ContainerConfig
     {
         return $this->stopSignal;
     }
+
     /**
      * Signal to stop a container as a string or unsigned integer.
      *
@@ -674,8 +742,10 @@ class ContainerConfig
     public function setStopSignal(string $stopSignal) : self
     {
         $this->stopSignal = $stopSignal;
+
         return $this;
     }
+
     /**
      * Timeout to stop a container in seconds.
      *
@@ -685,6 +755,7 @@ class ContainerConfig
     {
         return $this->stopTimeout;
     }
+
     /**
      * Timeout to stop a container in seconds.
      *
@@ -695,8 +766,10 @@ class ContainerConfig
     public function setStopTimeout(int $stopTimeout) : self
     {
         $this->stopTimeout = $stopTimeout;
+
         return $this;
     }
+
     /**
      * Shell for when `RUN`, `CMD`, and `ENTRYPOINT` uses a shell.
      *
@@ -706,6 +779,7 @@ class ContainerConfig
     {
         return $this->shell;
     }
+
     /**
      * Shell for when `RUN`, `CMD`, and `ENTRYPOINT` uses a shell.
      *
@@ -716,6 +790,7 @@ class ContainerConfig
     public function setShell(array $shell) : self
     {
         $this->shell = $shell;
+
         return $this;
     }
 }

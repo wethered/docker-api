@@ -5,31 +5,37 @@ namespace WeTheRed\DockerApi\Endpoint;
 class SecretCreate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Endpoint
 {
     /**
-     * 
      *
-     * @param \WeTheRed\DockerApi\Model\SecretsCreatePostBody $body 
+     *
+     * @param \WeTheRed\DockerApi\Model\SecretsCreatePostBody $body
      */
     public function __construct(\WeTheRed\DockerApi\Model\SecretsCreatePostBody $body)
     {
         $this->body = $body;
     }
+
     use \Jane\OpenApiRuntime\Client\EndpointTrait;
+
     public function getMethod() : string
     {
         return 'POST';
     }
+
     public function getUri() : string
     {
         return '/secrets/create';
     }
+
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
         return $this->getSerializedBody($serializer);
     }
+
     public function getExtraHeaders() : array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
+
     /**
      * {@inheritdoc}
      *
@@ -54,8 +60,9 @@ class SecretCreate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
             throw new \WeTheRed\DockerApi\Exception\SecretCreateServiceUnavailableException($serializer->deserialize($body, 'WeTheRed\\DockerApi\\Model\\ErrorResponse', 'json'));
         }
     }
+
     public function getAuthenticationScopes() : array
     {
-        return array();
+        return [];
     }
 }

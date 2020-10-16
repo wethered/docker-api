@@ -5,13 +5,13 @@ namespace WeTheRed\DockerApi\Model;
 class EndpointPortConfig
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $name;
     /**
-     * 
+     *
      *
      * @var string
      */
@@ -30,21 +30,22 @@ class EndpointPortConfig
     protected $publishedPort;
     /**
     * The mode in which port is published.
-    
+
     <p><br /></p>
-    
+
     - "ingress" makes the target port accessible on every node,
      regardless of whether there is a task for the service running on
      that node or not.
     - "host" bypasses the routing mesh and publish the port directly on
      the swarm node where that service is running.
-    
+
     *
     * @var string
     */
     protected $publishMode = 'ingress';
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -52,8 +53,9 @@ class EndpointPortConfig
     {
         return $this->name;
     }
+
     /**
-     * 
+     *
      *
      * @param string $name
      *
@@ -62,10 +64,12 @@ class EndpointPortConfig
     public function setName(string $name) : self
     {
         $this->name = $name;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -73,8 +77,9 @@ class EndpointPortConfig
     {
         return $this->protocol;
     }
+
     /**
-     * 
+     *
      *
      * @param string $protocol
      *
@@ -83,8 +88,10 @@ class EndpointPortConfig
     public function setProtocol(string $protocol) : self
     {
         $this->protocol = $protocol;
+
         return $this;
     }
+
     /**
      * The port inside the container.
      *
@@ -94,6 +101,7 @@ class EndpointPortConfig
     {
         return $this->targetPort;
     }
+
     /**
      * The port inside the container.
      *
@@ -104,8 +112,10 @@ class EndpointPortConfig
     public function setTargetPort(int $targetPort) : self
     {
         $this->targetPort = $targetPort;
+
         return $this;
     }
+
     /**
      * The port on the swarm hosts.
      *
@@ -115,6 +125,7 @@ class EndpointPortConfig
     {
         return $this->publishedPort;
     }
+
     /**
      * The port on the swarm hosts.
      *
@@ -125,19 +136,21 @@ class EndpointPortConfig
     public function setPublishedPort(int $publishedPort) : self
     {
         $this->publishedPort = $publishedPort;
+
         return $this;
     }
+
     /**
     * The mode in which port is published.
-    
+
     <p><br /></p>
-    
+
     - "ingress" makes the target port accessible on every node,
      regardless of whether there is a task for the service running on
      that node or not.
     - "host" bypasses the routing mesh and publish the port directly on
      the swarm node where that service is running.
-    
+
     *
     * @return string
     */
@@ -145,17 +158,18 @@ class EndpointPortConfig
     {
         return $this->publishMode;
     }
+
     /**
     * The mode in which port is published.
-    
+
     <p><br /></p>
-    
+
     - "ingress" makes the target port accessible on every node,
      regardless of whether there is a task for the service running on
      that node or not.
     - "host" bypasses the routing mesh and publish the port directly on
      the swarm node where that service is running.
-    
+
     *
     * @param string $publishMode
     *
@@ -164,6 +178,7 @@ class EndpointPortConfig
     public function setPublishMode(string $publishMode) : self
     {
         $this->publishMode = $publishMode;
+
         return $this;
     }
 }

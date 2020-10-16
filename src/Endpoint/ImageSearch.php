@@ -11,45 +11,53 @@ class ImageSearch extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     *     @var string $term Term to search
     *     @var int $limit Maximum number of results to return
     *     @var string $filters A JSON encoded value of the filters (a `map[string][]string`) to process on the images list. Available filters:
-    
+
     - `is-automated=(true|false)`
     - `is-official=(true|false)`
     - `stars=<number>` Matches images that has at least 'number' stars.
-    
+
     * }
     */
-    public function __construct(array $queryParameters = array())
+    public function __construct(array $queryParameters = [])
     {
         $this->queryParameters = $queryParameters;
     }
+
     use \Jane\OpenApiRuntime\Client\EndpointTrait;
+
     public function getMethod() : string
     {
         return 'GET';
     }
+
     public function getUri() : string
     {
         return '/images/search';
     }
+
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
-        return array(array(), null);
+        return [[], null];
     }
+
     public function getExtraHeaders() : array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
+
     protected function getQueryOptionsResolver() : \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(array('term', 'limit', 'filters'));
-        $optionsResolver->setRequired(array('term'));
-        $optionsResolver->setDefaults(array());
-        $optionsResolver->setAllowedTypes('term', array('string'));
-        $optionsResolver->setAllowedTypes('limit', array('int'));
-        $optionsResolver->setAllowedTypes('filters', array('string'));
+        $optionsResolver->setDefined(['term', 'limit', 'filters']);
+        $optionsResolver->setRequired(['term']);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('term', ['string']);
+        $optionsResolver->setAllowedTypes('limit', ['int']);
+        $optionsResolver->setAllowedTypes('filters', ['string']);
+
         return $optionsResolver;
     }
+
     /**
      * {@inheritdoc}
      *
@@ -66,8 +74,9 @@ class ImageSearch extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
             throw new \WeTheRed\DockerApi\Exception\ImageSearchInternalServerErrorException($serializer->deserialize($body, 'WeTheRed\\DockerApi\\Model\\ErrorResponse', 'json'));
         }
     }
+
     public function getAuthenticationScopes() : array
     {
-        return array();
+        return [];
     }
 }

@@ -10,6 +10,7 @@ class TaskSpecNetworkAttachmentSpec
      * @var string
      */
     protected $containerID;
+
     /**
      * ID of the container represented by this task
      *
@@ -19,6 +20,7 @@ class TaskSpecNetworkAttachmentSpec
     {
         return $this->containerID;
     }
+
     /**
      * ID of the container represented by this task
      *
@@ -29,6 +31,7 @@ class TaskSpecNetworkAttachmentSpec
     public function setContainerID(string $containerID) : self
     {
         $this->containerID = $containerID;
+
         return $this;
     }
 }

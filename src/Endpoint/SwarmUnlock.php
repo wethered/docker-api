@@ -5,31 +5,37 @@ namespace WeTheRed\DockerApi\Endpoint;
 class SwarmUnlock extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Endpoint
 {
     /**
-     * 
      *
-     * @param \WeTheRed\DockerApi\Model\SwarmUnlockPostBody $body 
+     *
+     * @param \WeTheRed\DockerApi\Model\SwarmUnlockPostBody $body
      */
     public function __construct(\WeTheRed\DockerApi\Model\SwarmUnlockPostBody $body)
     {
         $this->body = $body;
     }
+
     use \Jane\OpenApiRuntime\Client\EndpointTrait;
+
     public function getMethod() : string
     {
         return 'POST';
     }
+
     public function getUri() : string
     {
         return '/swarm/unlock';
     }
+
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
         return $this->getSerializedBody($serializer);
     }
+
     public function getExtraHeaders() : array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
+
     /**
      * {@inheritdoc}
      *
@@ -50,8 +56,9 @@ class SwarmUnlock extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
             throw new \WeTheRed\DockerApi\Exception\SwarmUnlockServiceUnavailableException($serializer->deserialize($body, 'WeTheRed\\DockerApi\\Model\\ErrorResponse', 'json'));
         }
     }
+
     public function getAuthenticationScopes() : array
     {
-        return array();
+        return [];
     }
 }

@@ -5,19 +5,20 @@ namespace WeTheRed\DockerApi\Model;
 class ServiceEndpointVirtualIPsItem
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $networkID;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $addr;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -25,8 +26,9 @@ class ServiceEndpointVirtualIPsItem
     {
         return $this->networkID;
     }
+
     /**
-     * 
+     *
      *
      * @param string $networkID
      *
@@ -35,10 +37,12 @@ class ServiceEndpointVirtualIPsItem
     public function setNetworkID(string $networkID) : self
     {
         $this->networkID = $networkID;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -46,8 +50,9 @@ class ServiceEndpointVirtualIPsItem
     {
         return $this->addr;
     }
+
     /**
-     * 
+     *
      *
      * @param string $addr
      *
@@ -56,6 +61,7 @@ class ServiceEndpointVirtualIPsItem
     public function setAddr(string $addr) : self
     {
         $this->addr = $addr;
+
         return $this;
     }
 }

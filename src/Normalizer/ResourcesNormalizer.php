@@ -2,29 +2,32 @@
 
 namespace WeTheRed\DockerApi\Normalizer;
 
-use Jane\JsonSchemaRuntime\Reference;
 use Jane\JsonSchemaRuntime\Normalizer\CheckArray;
-use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Jane\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 class ResourcesNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
     use CheckArray;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
         return $type === 'WeTheRed\\DockerApi\\Model\\Resources';
     }
+
     public function supportsNormalization($data, $format = null)
     {
         return is_object($data) && get_class($data) === 'WeTheRed\\DockerApi\\Model\\Resources';
     }
-    public function denormalize($data, $class, $format = null, array $context = array())
+
+    public function denormalize($data, $class, $format = null, array $context = [])
     {
         if (isset($data['$ref'])) {
             return new Reference($data['$ref'], $context['document-origin']);
@@ -46,35 +49,35 @@ class ResourcesNormalizer implements DenormalizerInterface, NormalizerInterface,
             $object->setBlkioWeight($data['BlkioWeight']);
         }
         if (\array_key_exists('BlkioWeightDevice', $data)) {
-            $values = array();
+            $values = [];
             foreach ($data['BlkioWeightDevice'] as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'WeTheRed\\DockerApi\\Model\\ResourcesBlkioWeightDeviceItem', 'json', $context);
             }
             $object->setBlkioWeightDevice($values);
         }
         if (\array_key_exists('BlkioDeviceReadBps', $data)) {
-            $values_1 = array();
+            $values_1 = [];
             foreach ($data['BlkioDeviceReadBps'] as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, 'WeTheRed\\DockerApi\\Model\\ThrottleDevice', 'json', $context);
             }
             $object->setBlkioDeviceReadBps($values_1);
         }
         if (\array_key_exists('BlkioDeviceWriteBps', $data)) {
-            $values_2 = array();
+            $values_2 = [];
             foreach ($data['BlkioDeviceWriteBps'] as $value_2) {
                 $values_2[] = $this->denormalizer->denormalize($value_2, 'WeTheRed\\DockerApi\\Model\\ThrottleDevice', 'json', $context);
             }
             $object->setBlkioDeviceWriteBps($values_2);
         }
         if (\array_key_exists('BlkioDeviceReadIOps', $data)) {
-            $values_3 = array();
+            $values_3 = [];
             foreach ($data['BlkioDeviceReadIOps'] as $value_3) {
                 $values_3[] = $this->denormalizer->denormalize($value_3, 'WeTheRed\\DockerApi\\Model\\ThrottleDevice', 'json', $context);
             }
             $object->setBlkioDeviceReadIOps($values_3);
         }
         if (\array_key_exists('BlkioDeviceWriteIOps', $data)) {
-            $values_4 = array();
+            $values_4 = [];
             foreach ($data['BlkioDeviceWriteIOps'] as $value_4) {
                 $values_4[] = $this->denormalizer->denormalize($value_4, 'WeTheRed\\DockerApi\\Model\\ThrottleDevice', 'json', $context);
             }
@@ -99,21 +102,21 @@ class ResourcesNormalizer implements DenormalizerInterface, NormalizerInterface,
             $object->setCpusetMems($data['CpusetMems']);
         }
         if (\array_key_exists('Devices', $data)) {
-            $values_5 = array();
+            $values_5 = [];
             foreach ($data['Devices'] as $value_5) {
                 $values_5[] = $this->denormalizer->denormalize($value_5, 'WeTheRed\\DockerApi\\Model\\DeviceMapping', 'json', $context);
             }
             $object->setDevices($values_5);
         }
         if (\array_key_exists('DeviceCgroupRules', $data)) {
-            $values_6 = array();
+            $values_6 = [];
             foreach ($data['DeviceCgroupRules'] as $value_6) {
                 $values_6[] = $value_6;
             }
             $object->setDeviceCgroupRules($values_6);
         }
         if (\array_key_exists('DeviceRequests', $data)) {
-            $values_7 = array();
+            $values_7 = [];
             foreach ($data['DeviceRequests'] as $value_7) {
                 $values_7[] = $this->denormalizer->denormalize($value_7, 'WeTheRed\\DockerApi\\Model\\DeviceRequest', 'json', $context);
             }
@@ -142,18 +145,16 @@ class ResourcesNormalizer implements DenormalizerInterface, NormalizerInterface,
         }
         if (\array_key_exists('Init', $data) && $data['Init'] !== null) {
             $object->setInit($data['Init']);
-        }
-        elseif (\array_key_exists('Init', $data) && $data['Init'] === null) {
+        } elseif (\array_key_exists('Init', $data) && $data['Init'] === null) {
             $object->setInit(null);
         }
         if (\array_key_exists('PidsLimit', $data) && $data['PidsLimit'] !== null) {
             $object->setPidsLimit($data['PidsLimit']);
-        }
-        elseif (\array_key_exists('PidsLimit', $data) && $data['PidsLimit'] === null) {
+        } elseif (\array_key_exists('PidsLimit', $data) && $data['PidsLimit'] === null) {
             $object->setPidsLimit(null);
         }
         if (\array_key_exists('Ulimits', $data)) {
-            $values_8 = array();
+            $values_8 = [];
             foreach ($data['Ulimits'] as $value_8) {
                 $values_8[] = $this->denormalizer->denormalize($value_8, 'WeTheRed\\DockerApi\\Model\\ResourcesUlimitsItem', 'json', $context);
             }
@@ -171,11 +172,13 @@ class ResourcesNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (\array_key_exists('IOMaximumBandwidth', $data)) {
             $object->setIOMaximumBandwidth($data['IOMaximumBandwidth']);
         }
+
         return $object;
     }
-    public function normalize($object, $format = null, array $context = array())
+
+    public function normalize($object, $format = null, array $context = [])
     {
-        $data = array();
+        $data = [];
         if (null !== $object->getCpuShares()) {
             $data['CpuShares'] = $object->getCpuShares();
         }
@@ -189,35 +192,35 @@ class ResourcesNormalizer implements DenormalizerInterface, NormalizerInterface,
             $data['BlkioWeight'] = $object->getBlkioWeight();
         }
         if (null !== $object->getBlkioWeightDevice()) {
-            $values = array();
+            $values = [];
             foreach ($object->getBlkioWeightDevice() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data['BlkioWeightDevice'] = $values;
         }
         if (null !== $object->getBlkioDeviceReadBps()) {
-            $values_1 = array();
+            $values_1 = [];
             foreach ($object->getBlkioDeviceReadBps() as $value_1) {
                 $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data['BlkioDeviceReadBps'] = $values_1;
         }
         if (null !== $object->getBlkioDeviceWriteBps()) {
-            $values_2 = array();
+            $values_2 = [];
             foreach ($object->getBlkioDeviceWriteBps() as $value_2) {
                 $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
             }
             $data['BlkioDeviceWriteBps'] = $values_2;
         }
         if (null !== $object->getBlkioDeviceReadIOps()) {
-            $values_3 = array();
+            $values_3 = [];
             foreach ($object->getBlkioDeviceReadIOps() as $value_3) {
                 $values_3[] = $this->normalizer->normalize($value_3, 'json', $context);
             }
             $data['BlkioDeviceReadIOps'] = $values_3;
         }
         if (null !== $object->getBlkioDeviceWriteIOps()) {
-            $values_4 = array();
+            $values_4 = [];
             foreach ($object->getBlkioDeviceWriteIOps() as $value_4) {
                 $values_4[] = $this->normalizer->normalize($value_4, 'json', $context);
             }
@@ -242,21 +245,21 @@ class ResourcesNormalizer implements DenormalizerInterface, NormalizerInterface,
             $data['CpusetMems'] = $object->getCpusetMems();
         }
         if (null !== $object->getDevices()) {
-            $values_5 = array();
+            $values_5 = [];
             foreach ($object->getDevices() as $value_5) {
                 $values_5[] = $this->normalizer->normalize($value_5, 'json', $context);
             }
             $data['Devices'] = $values_5;
         }
         if (null !== $object->getDeviceCgroupRules()) {
-            $values_6 = array();
+            $values_6 = [];
             foreach ($object->getDeviceCgroupRules() as $value_6) {
                 $values_6[] = $value_6;
             }
             $data['DeviceCgroupRules'] = $values_6;
         }
         if (null !== $object->getDeviceRequests()) {
-            $values_7 = array();
+            $values_7 = [];
             foreach ($object->getDeviceRequests() as $value_7) {
                 $values_7[] = $this->normalizer->normalize($value_7, 'json', $context);
             }
@@ -286,7 +289,7 @@ class ResourcesNormalizer implements DenormalizerInterface, NormalizerInterface,
         $data['Init'] = $object->getInit();
         $data['PidsLimit'] = $object->getPidsLimit();
         if (null !== $object->getUlimits()) {
-            $values_8 = array();
+            $values_8 = [];
             foreach ($object->getUlimits() as $value_8) {
                 $values_8[] = $this->normalizer->normalize($value_8, 'json', $context);
             }
@@ -304,6 +307,7 @@ class ResourcesNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (null !== $object->getIOMaximumBandwidth()) {
             $data['IOMaximumBandwidth'] = $object->getIOMaximumBandwidth();
         }
+
         return $data;
     }
 }

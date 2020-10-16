@@ -10,6 +10,7 @@ class IdResponse
      * @var string
      */
     protected $id;
+
     /**
      * The id of the newly created object.
      *
@@ -19,6 +20,7 @@ class IdResponse
     {
         return $this->id;
     }
+
     /**
      * The id of the newly created object.
      *
@@ -29,6 +31,7 @@ class IdResponse
     public function setId(string $id) : self
     {
         $this->id = $id;
+
         return $this;
     }
 }

@@ -2,29 +2,32 @@
 
 namespace WeTheRed\DockerApi\Normalizer;
 
-use Jane\JsonSchemaRuntime\Reference;
 use Jane\JsonSchemaRuntime\Normalizer\CheckArray;
-use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Jane\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 class SwarmInitPostBodyNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
     use CheckArray;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
         return $type === 'WeTheRed\\DockerApi\\Model\\SwarmInitPostBody';
     }
+
     public function supportsNormalization($data, $format = null)
     {
         return is_object($data) && get_class($data) === 'WeTheRed\\DockerApi\\Model\\SwarmInitPostBody';
     }
-    public function denormalize($data, $class, $format = null, array $context = array())
+
+    public function denormalize($data, $class, $format = null, array $context = [])
     {
         if (isset($data['$ref'])) {
             return new Reference($data['$ref'], $context['document-origin']);
@@ -46,7 +49,7 @@ class SwarmInitPostBodyNormalizer implements DenormalizerInterface, NormalizerIn
             $object->setDataPathPort($data['DataPathPort']);
         }
         if (\array_key_exists('DefaultAddrPool', $data)) {
-            $values = array();
+            $values = [];
             foreach ($data['DefaultAddrPool'] as $value) {
                 $values[] = $value;
             }
@@ -61,11 +64,13 @@ class SwarmInitPostBodyNormalizer implements DenormalizerInterface, NormalizerIn
         if (\array_key_exists('Spec', $data)) {
             $object->setSpec($this->denormalizer->denormalize($data['Spec'], 'WeTheRed\\DockerApi\\Model\\SwarmSpec', 'json', $context));
         }
+
         return $object;
     }
-    public function normalize($object, $format = null, array $context = array())
+
+    public function normalize($object, $format = null, array $context = [])
     {
-        $data = array();
+        $data = [];
         if (null !== $object->getListenAddr()) {
             $data['ListenAddr'] = $object->getListenAddr();
         }
@@ -79,7 +84,7 @@ class SwarmInitPostBodyNormalizer implements DenormalizerInterface, NormalizerIn
             $data['DataPathPort'] = $object->getDataPathPort();
         }
         if (null !== $object->getDefaultAddrPool()) {
-            $values = array();
+            $values = [];
             foreach ($object->getDefaultAddrPool() as $value) {
                 $values[] = $value;
             }
@@ -94,6 +99,7 @@ class SwarmInitPostBodyNormalizer implements DenormalizerInterface, NormalizerIn
         if (null !== $object->getSpec()) {
             $data['Spec'] = $this->normalizer->normalize($object->getSpec(), 'json', $context);
         }
+
         return $data;
     }
 }

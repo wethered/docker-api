@@ -7,7 +7,7 @@ class ContainersIdUpdatePostBody
     /**
     * An integer value representing this container's relative CPU weight
     versus other containers.
-    
+
     *
     * @var int
     */
@@ -23,7 +23,7 @@ class ContainersIdUpdatePostBody
     the path is not absolute, the path is considered to be relative to the
     `cgroups` path of the init process. Cgroups are created if they do not
     already exist.
-    
+
     *
     * @var string
     */
@@ -36,55 +36,55 @@ class ContainersIdUpdatePostBody
     protected $blkioWeight;
     /**
     * Block IO weight (relative device weight) in the form:
-    
+
     ```
     [{"Path": "device_path", "Weight": weight}]
     ```
-    
+
     *
     * @var ResourcesBlkioWeightDeviceItem[]
     */
     protected $blkioWeightDevice;
     /**
     * Limit read rate (bytes per second) from a device, in the form:
-    
+
     ```
     [{"Path": "device_path", "Rate": rate}]
     ```
-    
+
     *
     * @var ThrottleDevice[]
     */
     protected $blkioDeviceReadBps;
     /**
     * Limit write rate (bytes per second) to a device, in the form:
-    
+
     ```
     [{"Path": "device_path", "Rate": rate}]
     ```
-    
+
     *
     * @var ThrottleDevice[]
     */
     protected $blkioDeviceWriteBps;
     /**
     * Limit read rate (IO per second) from a device, in the form:
-    
+
     ```
     [{"Path": "device_path", "Rate": rate}]
     ```
-    
+
     *
     * @var ThrottleDevice[]
     */
     protected $blkioDeviceReadIOps;
     /**
     * Limit write rate (IO per second) to a device, in the form:
-    
+
     ```
     [{"Path": "device_path", "Rate": rate}]
     ```
-    
+
     *
     * @var ThrottleDevice[]
     */
@@ -104,7 +104,7 @@ class ContainersIdUpdatePostBody
     /**
     * The length of a CPU real-time period in microseconds. Set to 0 to
     allocate no time allocated to real-time tasks.
-    
+
     *
     * @var int
     */
@@ -112,7 +112,7 @@ class ContainersIdUpdatePostBody
     /**
     * The length of a CPU real-time runtime in microseconds. Set to 0 to
     allocate no time allocated to real-time tasks.
-    
+
     *
     * @var int
     */
@@ -126,7 +126,7 @@ class ContainersIdUpdatePostBody
     /**
     * Memory nodes (MEMs) in which to allow execution (0-3, 0,1). Only
     effective on NUMA systems.
-    
+
     *
     * @var string
     */
@@ -170,7 +170,7 @@ class ContainersIdUpdatePostBody
     /**
     * Total memory limit (memory + swap). Set as `-1` to enable unlimited
     swap.
-    
+
     *
     * @var int
     */
@@ -178,7 +178,7 @@ class ContainersIdUpdatePostBody
     /**
     * Tune a container's memory swappiness behavior. Accepts an integer
     between 0 and 100.
-    
+
     *
     * @var int
     */
@@ -199,7 +199,7 @@ class ContainersIdUpdatePostBody
     * Run an init inside the container that forwards signals and reaps
     processes. This field is omitted if empty, and the default (as
     configured on the daemon) is used.
-    
+
     *
     * @var bool|null
     */
@@ -207,40 +207,40 @@ class ContainersIdUpdatePostBody
     /**
     * Tune a container's PIDs limit. Set `0` or `-1` for unlimited, or `null`
     to not change.
-    
+
     *
     * @var int|null
     */
     protected $pidsLimit;
     /**
     * A list of resource limits to set in the container. For example:
-    
+
     ```
     {"Name": "nofile", "Soft": 1024, "Hard": 2048}
     ```
-    
+
     *
     * @var ResourcesUlimitsItem[]
     */
     protected $ulimits;
     /**
     * The number of usable CPUs (Windows only).
-    
+
     On Windows Server containers, the processor resource controls are
     mutually exclusive. The order of precedence is `CPUCount` first, then
     `CPUShares`, and `CPUPercent` last.
-    
+
     *
     * @var int
     */
     protected $cpuCount;
     /**
     * The usable percentage of the available CPUs (Windows only).
-    
+
     On Windows Server containers, the processor resource controls are
     mutually exclusive. The order of precedence is `CPUCount` first, then
     `CPUShares`, and `CPUPercent` last.
-    
+
     *
     * @var int
     */
@@ -254,7 +254,7 @@ class ContainersIdUpdatePostBody
     /**
     * Maximum IO in bytes per second for the container system drive
     (Windows only).
-    
+
     *
     * @var int
     */
@@ -262,18 +262,19 @@ class ContainersIdUpdatePostBody
     /**
     * The behavior to apply when the container exits. The default is not to
     restart.
-    
+
     An ever increasing delay (double the previous delay, starting at 100ms) is
     added before each restart to prevent flooding the server.
-    
+
     *
     * @var RestartPolicy
     */
     protected $restartPolicy;
+
     /**
     * An integer value representing this container's relative CPU weight
     versus other containers.
-    
+
     *
     * @return int
     */
@@ -281,10 +282,11 @@ class ContainersIdUpdatePostBody
     {
         return $this->cpuShares;
     }
+
     /**
     * An integer value representing this container's relative CPU weight
     versus other containers.
-    
+
     *
     * @param int $cpuShares
     *
@@ -293,8 +295,10 @@ class ContainersIdUpdatePostBody
     public function setCpuShares(int $cpuShares) : self
     {
         $this->cpuShares = $cpuShares;
+
         return $this;
     }
+
     /**
      * Memory limit in bytes.
      *
@@ -304,6 +308,7 @@ class ContainersIdUpdatePostBody
     {
         return $this->memory;
     }
+
     /**
      * Memory limit in bytes.
      *
@@ -314,14 +319,16 @@ class ContainersIdUpdatePostBody
     public function setMemory(int $memory) : self
     {
         $this->memory = $memory;
+
         return $this;
     }
+
     /**
     * Path to `cgroups` under which the container's `cgroup` is created. If
     the path is not absolute, the path is considered to be relative to the
     `cgroups` path of the init process. Cgroups are created if they do not
     already exist.
-    
+
     *
     * @return string
     */
@@ -329,12 +336,13 @@ class ContainersIdUpdatePostBody
     {
         return $this->cgroupParent;
     }
+
     /**
     * Path to `cgroups` under which the container's `cgroup` is created. If
     the path is not absolute, the path is considered to be relative to the
     `cgroups` path of the init process. Cgroups are created if they do not
     already exist.
-    
+
     *
     * @param string $cgroupParent
     *
@@ -343,8 +351,10 @@ class ContainersIdUpdatePostBody
     public function setCgroupParent(string $cgroupParent) : self
     {
         $this->cgroupParent = $cgroupParent;
+
         return $this;
     }
+
     /**
      * Block IO weight (relative weight).
      *
@@ -354,6 +364,7 @@ class ContainersIdUpdatePostBody
     {
         return $this->blkioWeight;
     }
+
     /**
      * Block IO weight (relative weight).
      *
@@ -364,15 +375,17 @@ class ContainersIdUpdatePostBody
     public function setBlkioWeight(int $blkioWeight) : self
     {
         $this->blkioWeight = $blkioWeight;
+
         return $this;
     }
+
     /**
     * Block IO weight (relative device weight) in the form:
-    
+
     ```
     [{"Path": "device_path", "Weight": weight}]
     ```
-    
+
     *
     * @return ResourcesBlkioWeightDeviceItem[]
     */
@@ -380,13 +393,14 @@ class ContainersIdUpdatePostBody
     {
         return $this->blkioWeightDevice;
     }
+
     /**
     * Block IO weight (relative device weight) in the form:
-    
+
     ```
     [{"Path": "device_path", "Weight": weight}]
     ```
-    
+
     *
     * @param ResourcesBlkioWeightDeviceItem[] $blkioWeightDevice
     *
@@ -395,15 +409,17 @@ class ContainersIdUpdatePostBody
     public function setBlkioWeightDevice(array $blkioWeightDevice) : self
     {
         $this->blkioWeightDevice = $blkioWeightDevice;
+
         return $this;
     }
+
     /**
     * Limit read rate (bytes per second) from a device, in the form:
-    
+
     ```
     [{"Path": "device_path", "Rate": rate}]
     ```
-    
+
     *
     * @return ThrottleDevice[]
     */
@@ -411,13 +427,14 @@ class ContainersIdUpdatePostBody
     {
         return $this->blkioDeviceReadBps;
     }
+
     /**
     * Limit read rate (bytes per second) from a device, in the form:
-    
+
     ```
     [{"Path": "device_path", "Rate": rate}]
     ```
-    
+
     *
     * @param ThrottleDevice[] $blkioDeviceReadBps
     *
@@ -426,15 +443,17 @@ class ContainersIdUpdatePostBody
     public function setBlkioDeviceReadBps(array $blkioDeviceReadBps) : self
     {
         $this->blkioDeviceReadBps = $blkioDeviceReadBps;
+
         return $this;
     }
+
     /**
     * Limit write rate (bytes per second) to a device, in the form:
-    
+
     ```
     [{"Path": "device_path", "Rate": rate}]
     ```
-    
+
     *
     * @return ThrottleDevice[]
     */
@@ -442,13 +461,14 @@ class ContainersIdUpdatePostBody
     {
         return $this->blkioDeviceWriteBps;
     }
+
     /**
     * Limit write rate (bytes per second) to a device, in the form:
-    
+
     ```
     [{"Path": "device_path", "Rate": rate}]
     ```
-    
+
     *
     * @param ThrottleDevice[] $blkioDeviceWriteBps
     *
@@ -457,15 +477,17 @@ class ContainersIdUpdatePostBody
     public function setBlkioDeviceWriteBps(array $blkioDeviceWriteBps) : self
     {
         $this->blkioDeviceWriteBps = $blkioDeviceWriteBps;
+
         return $this;
     }
+
     /**
     * Limit read rate (IO per second) from a device, in the form:
-    
+
     ```
     [{"Path": "device_path", "Rate": rate}]
     ```
-    
+
     *
     * @return ThrottleDevice[]
     */
@@ -473,13 +495,14 @@ class ContainersIdUpdatePostBody
     {
         return $this->blkioDeviceReadIOps;
     }
+
     /**
     * Limit read rate (IO per second) from a device, in the form:
-    
+
     ```
     [{"Path": "device_path", "Rate": rate}]
     ```
-    
+
     *
     * @param ThrottleDevice[] $blkioDeviceReadIOps
     *
@@ -488,15 +511,17 @@ class ContainersIdUpdatePostBody
     public function setBlkioDeviceReadIOps(array $blkioDeviceReadIOps) : self
     {
         $this->blkioDeviceReadIOps = $blkioDeviceReadIOps;
+
         return $this;
     }
+
     /**
     * Limit write rate (IO per second) to a device, in the form:
-    
+
     ```
     [{"Path": "device_path", "Rate": rate}]
     ```
-    
+
     *
     * @return ThrottleDevice[]
     */
@@ -504,13 +529,14 @@ class ContainersIdUpdatePostBody
     {
         return $this->blkioDeviceWriteIOps;
     }
+
     /**
     * Limit write rate (IO per second) to a device, in the form:
-    
+
     ```
     [{"Path": "device_path", "Rate": rate}]
     ```
-    
+
     *
     * @param ThrottleDevice[] $blkioDeviceWriteIOps
     *
@@ -519,8 +545,10 @@ class ContainersIdUpdatePostBody
     public function setBlkioDeviceWriteIOps(array $blkioDeviceWriteIOps) : self
     {
         $this->blkioDeviceWriteIOps = $blkioDeviceWriteIOps;
+
         return $this;
     }
+
     /**
      * The length of a CPU period in microseconds.
      *
@@ -530,6 +558,7 @@ class ContainersIdUpdatePostBody
     {
         return $this->cpuPeriod;
     }
+
     /**
      * The length of a CPU period in microseconds.
      *
@@ -540,8 +569,10 @@ class ContainersIdUpdatePostBody
     public function setCpuPeriod(int $cpuPeriod) : self
     {
         $this->cpuPeriod = $cpuPeriod;
+
         return $this;
     }
+
     /**
      * Microseconds of CPU time that the container can get in a CPU period.
      *
@@ -551,6 +582,7 @@ class ContainersIdUpdatePostBody
     {
         return $this->cpuQuota;
     }
+
     /**
      * Microseconds of CPU time that the container can get in a CPU period.
      *
@@ -561,12 +593,14 @@ class ContainersIdUpdatePostBody
     public function setCpuQuota(int $cpuQuota) : self
     {
         $this->cpuQuota = $cpuQuota;
+
         return $this;
     }
+
     /**
     * The length of a CPU real-time period in microseconds. Set to 0 to
     allocate no time allocated to real-time tasks.
-    
+
     *
     * @return int
     */
@@ -574,10 +608,11 @@ class ContainersIdUpdatePostBody
     {
         return $this->cpuRealtimePeriod;
     }
+
     /**
     * The length of a CPU real-time period in microseconds. Set to 0 to
     allocate no time allocated to real-time tasks.
-    
+
     *
     * @param int $cpuRealtimePeriod
     *
@@ -586,12 +621,14 @@ class ContainersIdUpdatePostBody
     public function setCpuRealtimePeriod(int $cpuRealtimePeriod) : self
     {
         $this->cpuRealtimePeriod = $cpuRealtimePeriod;
+
         return $this;
     }
+
     /**
     * The length of a CPU real-time runtime in microseconds. Set to 0 to
     allocate no time allocated to real-time tasks.
-    
+
     *
     * @return int
     */
@@ -599,10 +636,11 @@ class ContainersIdUpdatePostBody
     {
         return $this->cpuRealtimeRuntime;
     }
+
     /**
     * The length of a CPU real-time runtime in microseconds. Set to 0 to
     allocate no time allocated to real-time tasks.
-    
+
     *
     * @param int $cpuRealtimeRuntime
     *
@@ -611,8 +649,10 @@ class ContainersIdUpdatePostBody
     public function setCpuRealtimeRuntime(int $cpuRealtimeRuntime) : self
     {
         $this->cpuRealtimeRuntime = $cpuRealtimeRuntime;
+
         return $this;
     }
+
     /**
      * CPUs in which to allow execution (e.g., `0-3`, `0,1`).
      *
@@ -622,6 +662,7 @@ class ContainersIdUpdatePostBody
     {
         return $this->cpusetCpus;
     }
+
     /**
      * CPUs in which to allow execution (e.g., `0-3`, `0,1`).
      *
@@ -632,12 +673,14 @@ class ContainersIdUpdatePostBody
     public function setCpusetCpus(string $cpusetCpus) : self
     {
         $this->cpusetCpus = $cpusetCpus;
+
         return $this;
     }
+
     /**
     * Memory nodes (MEMs) in which to allow execution (0-3, 0,1). Only
     effective on NUMA systems.
-    
+
     *
     * @return string
     */
@@ -645,10 +688,11 @@ class ContainersIdUpdatePostBody
     {
         return $this->cpusetMems;
     }
+
     /**
     * Memory nodes (MEMs) in which to allow execution (0-3, 0,1). Only
     effective on NUMA systems.
-    
+
     *
     * @param string $cpusetMems
     *
@@ -657,8 +701,10 @@ class ContainersIdUpdatePostBody
     public function setCpusetMems(string $cpusetMems) : self
     {
         $this->cpusetMems = $cpusetMems;
+
         return $this;
     }
+
     /**
      * A list of devices to add to the container.
      *
@@ -668,6 +714,7 @@ class ContainersIdUpdatePostBody
     {
         return $this->devices;
     }
+
     /**
      * A list of devices to add to the container.
      *
@@ -678,8 +725,10 @@ class ContainersIdUpdatePostBody
     public function setDevices(array $devices) : self
     {
         $this->devices = $devices;
+
         return $this;
     }
+
     /**
      * a list of cgroup rules to apply to the container
      *
@@ -689,6 +738,7 @@ class ContainersIdUpdatePostBody
     {
         return $this->deviceCgroupRules;
     }
+
     /**
      * a list of cgroup rules to apply to the container
      *
@@ -699,8 +749,10 @@ class ContainersIdUpdatePostBody
     public function setDeviceCgroupRules(array $deviceCgroupRules) : self
     {
         $this->deviceCgroupRules = $deviceCgroupRules;
+
         return $this;
     }
+
     /**
      * A list of requests for devices to be sent to device drivers.
      *
@@ -710,6 +762,7 @@ class ContainersIdUpdatePostBody
     {
         return $this->deviceRequests;
     }
+
     /**
      * A list of requests for devices to be sent to device drivers.
      *
@@ -720,8 +773,10 @@ class ContainersIdUpdatePostBody
     public function setDeviceRequests(array $deviceRequests) : self
     {
         $this->deviceRequests = $deviceRequests;
+
         return $this;
     }
+
     /**
      * Kernel memory limit in bytes.
      *
@@ -731,6 +786,7 @@ class ContainersIdUpdatePostBody
     {
         return $this->kernelMemory;
     }
+
     /**
      * Kernel memory limit in bytes.
      *
@@ -741,8 +797,10 @@ class ContainersIdUpdatePostBody
     public function setKernelMemory(int $kernelMemory) : self
     {
         $this->kernelMemory = $kernelMemory;
+
         return $this;
     }
+
     /**
      * Hard limit for kernel TCP buffer memory (in bytes).
      *
@@ -752,6 +810,7 @@ class ContainersIdUpdatePostBody
     {
         return $this->kernelMemoryTCP;
     }
+
     /**
      * Hard limit for kernel TCP buffer memory (in bytes).
      *
@@ -762,8 +821,10 @@ class ContainersIdUpdatePostBody
     public function setKernelMemoryTCP(int $kernelMemoryTCP) : self
     {
         $this->kernelMemoryTCP = $kernelMemoryTCP;
+
         return $this;
     }
+
     /**
      * Memory soft limit in bytes.
      *
@@ -773,6 +834,7 @@ class ContainersIdUpdatePostBody
     {
         return $this->memoryReservation;
     }
+
     /**
      * Memory soft limit in bytes.
      *
@@ -783,12 +845,14 @@ class ContainersIdUpdatePostBody
     public function setMemoryReservation(int $memoryReservation) : self
     {
         $this->memoryReservation = $memoryReservation;
+
         return $this;
     }
+
     /**
     * Total memory limit (memory + swap). Set as `-1` to enable unlimited
     swap.
-    
+
     *
     * @return int
     */
@@ -796,10 +860,11 @@ class ContainersIdUpdatePostBody
     {
         return $this->memorySwap;
     }
+
     /**
     * Total memory limit (memory + swap). Set as `-1` to enable unlimited
     swap.
-    
+
     *
     * @param int $memorySwap
     *
@@ -808,12 +873,14 @@ class ContainersIdUpdatePostBody
     public function setMemorySwap(int $memorySwap) : self
     {
         $this->memorySwap = $memorySwap;
+
         return $this;
     }
+
     /**
     * Tune a container's memory swappiness behavior. Accepts an integer
     between 0 and 100.
-    
+
     *
     * @return int
     */
@@ -821,10 +888,11 @@ class ContainersIdUpdatePostBody
     {
         return $this->memorySwappiness;
     }
+
     /**
     * Tune a container's memory swappiness behavior. Accepts an integer
     between 0 and 100.
-    
+
     *
     * @param int $memorySwappiness
     *
@@ -833,8 +901,10 @@ class ContainersIdUpdatePostBody
     public function setMemorySwappiness(int $memorySwappiness) : self
     {
         $this->memorySwappiness = $memorySwappiness;
+
         return $this;
     }
+
     /**
      * CPU quota in units of 10<sup>-9</sup> CPUs.
      *
@@ -844,6 +914,7 @@ class ContainersIdUpdatePostBody
     {
         return $this->nanoCPUs;
     }
+
     /**
      * CPU quota in units of 10<sup>-9</sup> CPUs.
      *
@@ -854,8 +925,10 @@ class ContainersIdUpdatePostBody
     public function setNanoCPUs(int $nanoCPUs) : self
     {
         $this->nanoCPUs = $nanoCPUs;
+
         return $this;
     }
+
     /**
      * Disable OOM Killer for the container.
      *
@@ -865,6 +938,7 @@ class ContainersIdUpdatePostBody
     {
         return $this->oomKillDisable;
     }
+
     /**
      * Disable OOM Killer for the container.
      *
@@ -875,13 +949,15 @@ class ContainersIdUpdatePostBody
     public function setOomKillDisable(bool $oomKillDisable) : self
     {
         $this->oomKillDisable = $oomKillDisable;
+
         return $this;
     }
+
     /**
     * Run an init inside the container that forwards signals and reaps
     processes. This field is omitted if empty, and the default (as
     configured on the daemon) is used.
-    
+
     *
     * @return bool|null
     */
@@ -889,11 +965,12 @@ class ContainersIdUpdatePostBody
     {
         return $this->init;
     }
+
     /**
     * Run an init inside the container that forwards signals and reaps
     processes. This field is omitted if empty, and the default (as
     configured on the daemon) is used.
-    
+
     *
     * @param bool|null $init
     *
@@ -902,12 +979,14 @@ class ContainersIdUpdatePostBody
     public function setInit(?bool $init) : self
     {
         $this->init = $init;
+
         return $this;
     }
+
     /**
     * Tune a container's PIDs limit. Set `0` or `-1` for unlimited, or `null`
     to not change.
-    
+
     *
     * @return int|null
     */
@@ -915,10 +994,11 @@ class ContainersIdUpdatePostBody
     {
         return $this->pidsLimit;
     }
+
     /**
     * Tune a container's PIDs limit. Set `0` or `-1` for unlimited, or `null`
     to not change.
-    
+
     *
     * @param int|null $pidsLimit
     *
@@ -927,15 +1007,17 @@ class ContainersIdUpdatePostBody
     public function setPidsLimit(?int $pidsLimit) : self
     {
         $this->pidsLimit = $pidsLimit;
+
         return $this;
     }
+
     /**
     * A list of resource limits to set in the container. For example:
-    
+
     ```
     {"Name": "nofile", "Soft": 1024, "Hard": 2048}
     ```
-    
+
     *
     * @return ResourcesUlimitsItem[]
     */
@@ -943,13 +1025,14 @@ class ContainersIdUpdatePostBody
     {
         return $this->ulimits;
     }
+
     /**
     * A list of resource limits to set in the container. For example:
-    
+
     ```
     {"Name": "nofile", "Soft": 1024, "Hard": 2048}
     ```
-    
+
     *
     * @param ResourcesUlimitsItem[] $ulimits
     *
@@ -958,15 +1041,17 @@ class ContainersIdUpdatePostBody
     public function setUlimits(array $ulimits) : self
     {
         $this->ulimits = $ulimits;
+
         return $this;
     }
+
     /**
     * The number of usable CPUs (Windows only).
-    
+
     On Windows Server containers, the processor resource controls are
     mutually exclusive. The order of precedence is `CPUCount` first, then
     `CPUShares`, and `CPUPercent` last.
-    
+
     *
     * @return int
     */
@@ -974,13 +1059,14 @@ class ContainersIdUpdatePostBody
     {
         return $this->cpuCount;
     }
+
     /**
     * The number of usable CPUs (Windows only).
-    
+
     On Windows Server containers, the processor resource controls are
     mutually exclusive. The order of precedence is `CPUCount` first, then
     `CPUShares`, and `CPUPercent` last.
-    
+
     *
     * @param int $cpuCount
     *
@@ -989,15 +1075,17 @@ class ContainersIdUpdatePostBody
     public function setCpuCount(int $cpuCount) : self
     {
         $this->cpuCount = $cpuCount;
+
         return $this;
     }
+
     /**
     * The usable percentage of the available CPUs (Windows only).
-    
+
     On Windows Server containers, the processor resource controls are
     mutually exclusive. The order of precedence is `CPUCount` first, then
     `CPUShares`, and `CPUPercent` last.
-    
+
     *
     * @return int
     */
@@ -1005,13 +1093,14 @@ class ContainersIdUpdatePostBody
     {
         return $this->cpuPercent;
     }
+
     /**
     * The usable percentage of the available CPUs (Windows only).
-    
+
     On Windows Server containers, the processor resource controls are
     mutually exclusive. The order of precedence is `CPUCount` first, then
     `CPUShares`, and `CPUPercent` last.
-    
+
     *
     * @param int $cpuPercent
     *
@@ -1020,8 +1109,10 @@ class ContainersIdUpdatePostBody
     public function setCpuPercent(int $cpuPercent) : self
     {
         $this->cpuPercent = $cpuPercent;
+
         return $this;
     }
+
     /**
      * Maximum IOps for the container system drive (Windows only)
      *
@@ -1031,6 +1122,7 @@ class ContainersIdUpdatePostBody
     {
         return $this->iOMaximumIOps;
     }
+
     /**
      * Maximum IOps for the container system drive (Windows only)
      *
@@ -1041,12 +1133,14 @@ class ContainersIdUpdatePostBody
     public function setIOMaximumIOps(int $iOMaximumIOps) : self
     {
         $this->iOMaximumIOps = $iOMaximumIOps;
+
         return $this;
     }
+
     /**
     * Maximum IO in bytes per second for the container system drive
     (Windows only).
-    
+
     *
     * @return int
     */
@@ -1054,10 +1148,11 @@ class ContainersIdUpdatePostBody
     {
         return $this->iOMaximumBandwidth;
     }
+
     /**
     * Maximum IO in bytes per second for the container system drive
     (Windows only).
-    
+
     *
     * @param int $iOMaximumBandwidth
     *
@@ -1066,15 +1161,17 @@ class ContainersIdUpdatePostBody
     public function setIOMaximumBandwidth(int $iOMaximumBandwidth) : self
     {
         $this->iOMaximumBandwidth = $iOMaximumBandwidth;
+
         return $this;
     }
+
     /**
     * The behavior to apply when the container exits. The default is not to
     restart.
-    
+
     An ever increasing delay (double the previous delay, starting at 100ms) is
     added before each restart to prevent flooding the server.
-    
+
     *
     * @return RestartPolicy
     */
@@ -1082,13 +1179,14 @@ class ContainersIdUpdatePostBody
     {
         return $this->restartPolicy;
     }
+
     /**
     * The behavior to apply when the container exits. The default is not to
     restart.
-    
+
     An ever increasing delay (double the previous delay, starting at 100ms) is
     added before each restart to prevent flooding the server.
-    
+
     *
     * @param RestartPolicy $restartPolicy
     *
@@ -1097,6 +1195,7 @@ class ContainersIdUpdatePostBody
     public function setRestartPolicy(RestartPolicy $restartPolicy) : self
     {
         $this->restartPolicy = $restartPolicy;
+
         return $this;
     }
 }

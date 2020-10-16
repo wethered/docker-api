@@ -6,13 +6,13 @@ class ImageBuild extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
 {
     /**
     * Build an image from a tar archive with a `Dockerfile` in it.
-    
+
     The `Dockerfile` specifies how the image is built from the tar archive. It is typically in the archive's root, but can be at a different path or have a different name by specifying the `dockerfile` parameter. [See the `Dockerfile` reference for more information](https://docs.docker.com/engine/reference/builder/).
-    
+
     The Docker daemon performs a preliminary validation of the `Dockerfile` before starting the build, and returns an error if the syntax is incorrect. After that, each instruction is run one-by-one until the ID of the new image is output.
-    
+
     The build is canceled if the client drops the connection by quitting or being killed.
-    
+
     *
     * @param string|resource|\Psr\Http\Message\StreamInterface $inputStream A tar archive compressed with one of the following algorithms: identity (no compression), gzip, bzip2, xz.
     * @param array $queryParameters {
@@ -33,11 +33,11 @@ class ImageBuild extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     *     @var int $cpuperiod The length of a CPU period in microseconds.
     *     @var int $cpuquota Microseconds of CPU time that the container can get in a CPU period.
     *     @var string $buildargs JSON map of string pairs for build-time variables. Users pass these values at build-time. Docker uses the buildargs as the environment context for commands run via the `Dockerfile` RUN instruction, or for variable expansion in other `Dockerfile` instructions. This is not meant for passing secret values.
-    
+
     For example, the build arg `FOO=bar` would become `{"FOO":"bar"}` in JSON. This would result in the the query parameter `buildargs={"FOO":"bar"}`. Note that `{"FOO":"bar"}` should be URI component encoded.
-    
+
     [Read more about the buildargs instruction.](https://docs.docker.com/engine/reference/builder/#arg)
-    
+
     *     @var int $shmsize Size of `/dev/shm` in bytes. The size must be greater than 0. If omitted the system uses 64MB.
     *     @var bool $squash Squash the resulting images layers into a single layer. *(Experimental release only.)*
     *     @var string $labels Arbitrary key/value labels to set on the image, as a JSON map of string pairs.
@@ -45,17 +45,17 @@ class ImageBuild extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     standard values are: `bridge`, `host`, `none`, and `container:<name|id>`.
     Any other value is taken as a custom network's name or ID to which this
     container should connect to.
-    
+
     *     @var string $platform Platform in the format os[/arch[/variant]]
     *     @var string $target Target build stage
     *     @var string $outputs BuildKit output configuration
     * }
     * @param array $headerParameters {
-    *     @var string $Content-type 
+    *     @var string $Content-type
     *     @var string $X-Registry-Config This is a base64-encoded JSON object with auth configurations for multiple registries that a build may refer to.
-    
+
     The key is a registry URL, and the value is an auth configuration object, [as described in the authentication section](#section/Authentication). For example:
-    
+
     ```
     {
      "docker.example.com": {
@@ -68,76 +68,86 @@ class ImageBuild extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      }
     }
     ```
-    
+
     Only the registry domain name (and port if not the default 443) are required. However, for legacy reasons, the Docker Hub registry must be specified with both a `https://` prefix and a `/v1/` suffix even though Docker will prefer to use the v2 registry API.
-    
+
     * }
     */
-    public function __construct($inputStream, array $queryParameters = array(), array $headerParameters = array())
+    public function __construct($inputStream, array $queryParameters = [], array $headerParameters = [])
     {
         $this->body = $inputStream;
         $this->queryParameters = $queryParameters;
         $this->headerParameters = $headerParameters;
     }
+
     use \Jane\OpenApiRuntime\Client\EndpointTrait;
+
     public function getMethod() : string
     {
         return 'POST';
     }
+
     public function getUri() : string
     {
         return '/build';
     }
+
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
-        return array(array(), $this->body);
+        return [[], $this->body];
     }
+
     public function getExtraHeaders() : array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
+
     protected function getQueryOptionsResolver() : \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(array('dockerfile', 't', 'extrahosts', 'remote', 'q', 'nocache', 'cachefrom', 'pull', 'rm', 'forcerm', 'memory', 'memswap', 'cpushares', 'cpusetcpus', 'cpuperiod', 'cpuquota', 'buildargs', 'shmsize', 'squash', 'labels', 'networkmode', 'platform', 'target', 'outputs'));
-        $optionsResolver->setRequired(array());
-        $optionsResolver->setDefaults(array('dockerfile' => 'Dockerfile', 'q' => false, 'nocache' => false, 'rm' => true, 'forcerm' => false, 'platform' => '', 'target' => '', 'outputs' => ''));
-        $optionsResolver->setAllowedTypes('dockerfile', array('string'));
-        $optionsResolver->setAllowedTypes('t', array('string'));
-        $optionsResolver->setAllowedTypes('extrahosts', array('string'));
-        $optionsResolver->setAllowedTypes('remote', array('string'));
-        $optionsResolver->setAllowedTypes('q', array('bool'));
-        $optionsResolver->setAllowedTypes('nocache', array('bool'));
-        $optionsResolver->setAllowedTypes('cachefrom', array('string'));
-        $optionsResolver->setAllowedTypes('pull', array('string'));
-        $optionsResolver->setAllowedTypes('rm', array('bool'));
-        $optionsResolver->setAllowedTypes('forcerm', array('bool'));
-        $optionsResolver->setAllowedTypes('memory', array('int'));
-        $optionsResolver->setAllowedTypes('memswap', array('int'));
-        $optionsResolver->setAllowedTypes('cpushares', array('int'));
-        $optionsResolver->setAllowedTypes('cpusetcpus', array('string'));
-        $optionsResolver->setAllowedTypes('cpuperiod', array('int'));
-        $optionsResolver->setAllowedTypes('cpuquota', array('int'));
-        $optionsResolver->setAllowedTypes('buildargs', array('string'));
-        $optionsResolver->setAllowedTypes('shmsize', array('int'));
-        $optionsResolver->setAllowedTypes('squash', array('bool'));
-        $optionsResolver->setAllowedTypes('labels', array('string'));
-        $optionsResolver->setAllowedTypes('networkmode', array('string'));
-        $optionsResolver->setAllowedTypes('platform', array('string'));
-        $optionsResolver->setAllowedTypes('target', array('string'));
-        $optionsResolver->setAllowedTypes('outputs', array('string'));
+        $optionsResolver->setDefined(['dockerfile', 't', 'extrahosts', 'remote', 'q', 'nocache', 'cachefrom', 'pull', 'rm', 'forcerm', 'memory', 'memswap', 'cpushares', 'cpusetcpus', 'cpuperiod', 'cpuquota', 'buildargs', 'shmsize', 'squash', 'labels', 'networkmode', 'platform', 'target', 'outputs']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults(['dockerfile' => 'Dockerfile', 'q' => false, 'nocache' => false, 'rm' => true, 'forcerm' => false, 'platform' => '', 'target' => '', 'outputs' => '']);
+        $optionsResolver->setAllowedTypes('dockerfile', ['string']);
+        $optionsResolver->setAllowedTypes('t', ['string']);
+        $optionsResolver->setAllowedTypes('extrahosts', ['string']);
+        $optionsResolver->setAllowedTypes('remote', ['string']);
+        $optionsResolver->setAllowedTypes('q', ['bool']);
+        $optionsResolver->setAllowedTypes('nocache', ['bool']);
+        $optionsResolver->setAllowedTypes('cachefrom', ['string']);
+        $optionsResolver->setAllowedTypes('pull', ['string']);
+        $optionsResolver->setAllowedTypes('rm', ['bool']);
+        $optionsResolver->setAllowedTypes('forcerm', ['bool']);
+        $optionsResolver->setAllowedTypes('memory', ['int']);
+        $optionsResolver->setAllowedTypes('memswap', ['int']);
+        $optionsResolver->setAllowedTypes('cpushares', ['int']);
+        $optionsResolver->setAllowedTypes('cpusetcpus', ['string']);
+        $optionsResolver->setAllowedTypes('cpuperiod', ['int']);
+        $optionsResolver->setAllowedTypes('cpuquota', ['int']);
+        $optionsResolver->setAllowedTypes('buildargs', ['string']);
+        $optionsResolver->setAllowedTypes('shmsize', ['int']);
+        $optionsResolver->setAllowedTypes('squash', ['bool']);
+        $optionsResolver->setAllowedTypes('labels', ['string']);
+        $optionsResolver->setAllowedTypes('networkmode', ['string']);
+        $optionsResolver->setAllowedTypes('platform', ['string']);
+        $optionsResolver->setAllowedTypes('target', ['string']);
+        $optionsResolver->setAllowedTypes('outputs', ['string']);
+
         return $optionsResolver;
     }
+
     protected function getHeadersOptionsResolver() : \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getHeadersOptionsResolver();
-        $optionsResolver->setDefined(array('Content-type', 'X-Registry-Config'));
-        $optionsResolver->setRequired(array());
-        $optionsResolver->setDefaults(array('Content-type' => 'application/x-tar'));
-        $optionsResolver->setAllowedTypes('Content-type', array('string'));
-        $optionsResolver->setAllowedTypes('X-Registry-Config', array('string'));
+        $optionsResolver->setDefined(['Content-type', 'X-Registry-Config']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults(['Content-type' => 'application/x-tar']);
+        $optionsResolver->setAllowedTypes('Content-type', ['string']);
+        $optionsResolver->setAllowedTypes('X-Registry-Config', ['string']);
+
         return $optionsResolver;
     }
+
     /**
      * {@inheritdoc}
      *
@@ -158,8 +168,9 @@ class ImageBuild extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
             throw new \WeTheRed\DockerApi\Exception\ImageBuildInternalServerErrorException($serializer->deserialize($body, 'WeTheRed\\DockerApi\\Model\\ErrorResponse', 'json'));
         }
     }
+
     public function getAuthenticationScopes() : array
     {
-        return array();
+        return [];
     }
 }

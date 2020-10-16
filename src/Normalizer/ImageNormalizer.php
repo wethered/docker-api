@@ -2,29 +2,32 @@
 
 namespace WeTheRed\DockerApi\Normalizer;
 
-use Jane\JsonSchemaRuntime\Reference;
 use Jane\JsonSchemaRuntime\Normalizer\CheckArray;
-use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Jane\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 class ImageNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
     use CheckArray;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
         return $type === 'WeTheRed\\DockerApi\\Model\\Image';
     }
+
     public function supportsNormalization($data, $format = null)
     {
         return is_object($data) && get_class($data) === 'WeTheRed\\DockerApi\\Model\\Image';
     }
-    public function denormalize($data, $class, $format = null, array $context = array())
+
+    public function denormalize($data, $class, $format = null, array $context = [])
     {
         if (isset($data['$ref'])) {
             return new Reference($data['$ref'], $context['document-origin']);
@@ -37,14 +40,14 @@ class ImageNormalizer implements DenormalizerInterface, NormalizerInterface, Den
             $object->setId($data['Id']);
         }
         if (\array_key_exists('RepoTags', $data)) {
-            $values = array();
+            $values = [];
             foreach ($data['RepoTags'] as $value) {
                 $values[] = $value;
             }
             $object->setRepoTags($values);
         }
         if (\array_key_exists('RepoDigests', $data)) {
-            $values_1 = array();
+            $values_1 = [];
             foreach ($data['RepoDigests'] as $value_1) {
                 $values_1[] = $value_1;
             }
@@ -98,23 +101,25 @@ class ImageNormalizer implements DenormalizerInterface, NormalizerInterface, Den
         if (\array_key_exists('Metadata', $data)) {
             $object->setMetadata($this->denormalizer->denormalize($data['Metadata'], 'WeTheRed\\DockerApi\\Model\\ImageMetadata', 'json', $context));
         }
+
         return $object;
     }
-    public function normalize($object, $format = null, array $context = array())
+
+    public function normalize($object, $format = null, array $context = [])
     {
-        $data = array();
+        $data = [];
         if (null !== $object->getId()) {
             $data['Id'] = $object->getId();
         }
         if (null !== $object->getRepoTags()) {
-            $values = array();
+            $values = [];
             foreach ($object->getRepoTags() as $value) {
                 $values[] = $value;
             }
             $data['RepoTags'] = $values;
         }
         if (null !== $object->getRepoDigests()) {
-            $values_1 = array();
+            $values_1 = [];
             foreach ($object->getRepoDigests() as $value_1) {
                 $values_1[] = $value_1;
             }
@@ -168,6 +173,7 @@ class ImageNormalizer implements DenormalizerInterface, NormalizerInterface, Den
         if (null !== $object->getMetadata()) {
             $data['Metadata'] = $this->normalizer->normalize($object->getMetadata(), 'json', $context);
         }
+
         return $data;
     }
 }

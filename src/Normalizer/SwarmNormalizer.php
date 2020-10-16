@@ -2,29 +2,32 @@
 
 namespace WeTheRed\DockerApi\Normalizer;
 
-use Jane\JsonSchemaRuntime\Reference;
 use Jane\JsonSchemaRuntime\Normalizer\CheckArray;
-use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Jane\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 class SwarmNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
     use CheckArray;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
         return $type === 'WeTheRed\\DockerApi\\Model\\Swarm';
     }
+
     public function supportsNormalization($data, $format = null)
     {
         return is_object($data) && get_class($data) === 'WeTheRed\\DockerApi\\Model\\Swarm';
     }
-    public function denormalize($data, $class, $format = null, array $context = array())
+
+    public function denormalize($data, $class, $format = null, array $context = [])
     {
         if (isset($data['$ref'])) {
             return new Reference($data['$ref'], $context['document-origin']);
@@ -58,7 +61,7 @@ class SwarmNormalizer implements DenormalizerInterface, NormalizerInterface, Den
             $object->setDataPathPort($data['DataPathPort']);
         }
         if (\array_key_exists('DefaultAddrPool', $data)) {
-            $values = array();
+            $values = [];
             foreach ($data['DefaultAddrPool'] as $value) {
                 $values[] = $value;
             }
@@ -70,11 +73,13 @@ class SwarmNormalizer implements DenormalizerInterface, NormalizerInterface, Den
         if (\array_key_exists('JoinTokens', $data)) {
             $object->setJoinTokens($this->denormalizer->denormalize($data['JoinTokens'], 'WeTheRed\\DockerApi\\Model\\JoinTokens', 'json', $context));
         }
+
         return $object;
     }
-    public function normalize($object, $format = null, array $context = array())
+
+    public function normalize($object, $format = null, array $context = [])
     {
-        $data = array();
+        $data = [];
         if (null !== $object->getID()) {
             $data['ID'] = $object->getID();
         }
@@ -100,7 +105,7 @@ class SwarmNormalizer implements DenormalizerInterface, NormalizerInterface, Den
             $data['DataPathPort'] = $object->getDataPathPort();
         }
         if (null !== $object->getDefaultAddrPool()) {
-            $values = array();
+            $values = [];
             foreach ($object->getDefaultAddrPool() as $value) {
                 $values[] = $value;
             }
@@ -112,6 +117,7 @@ class SwarmNormalizer implements DenormalizerInterface, NormalizerInterface, Den
         if (null !== $object->getJoinTokens()) {
             $data['JoinTokens'] = $this->normalizer->normalize($object->getJoinTokens(), 'json', $context);
         }
+
         return $data;
     }
 }

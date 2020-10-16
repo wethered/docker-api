@@ -9,7 +9,7 @@ class VolumeUsageData
     is only available for volumes created with the `"local"` volume
     driver. For volumes created with other volume drivers, this field
     is set to `-1` ("not available")
-    
+
     *
     * @var int
     */
@@ -17,17 +17,18 @@ class VolumeUsageData
     /**
     * The number of containers referencing this volume. This field
     is set to `-1` if the reference-count is not available.
-    
+
     *
     * @var int
     */
     protected $refCount = -1;
+
     /**
     * Amount of disk space used by the volume (in bytes). This information
     is only available for volumes created with the `"local"` volume
     driver. For volumes created with other volume drivers, this field
     is set to `-1` ("not available")
-    
+
     *
     * @return int
     */
@@ -35,12 +36,13 @@ class VolumeUsageData
     {
         return $this->size;
     }
+
     /**
     * Amount of disk space used by the volume (in bytes). This information
     is only available for volumes created with the `"local"` volume
     driver. For volumes created with other volume drivers, this field
     is set to `-1` ("not available")
-    
+
     *
     * @param int $size
     *
@@ -49,12 +51,14 @@ class VolumeUsageData
     public function setSize(int $size) : self
     {
         $this->size = $size;
+
         return $this;
     }
+
     /**
     * The number of containers referencing this volume. This field
     is set to `-1` if the reference-count is not available.
-    
+
     *
     * @return int
     */
@@ -62,10 +66,11 @@ class VolumeUsageData
     {
         return $this->refCount;
     }
+
     /**
     * The number of containers referencing this volume. This field
     is set to `-1` if the reference-count is not available.
-    
+
     *
     * @param int $refCount
     *
@@ -74,6 +79,7 @@ class VolumeUsageData
     public function setRefCount(int $refCount) : self
     {
         $this->refCount = $refCount;
+
         return $this;
     }
 }

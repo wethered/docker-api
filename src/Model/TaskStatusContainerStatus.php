@@ -5,25 +5,26 @@ namespace WeTheRed\DockerApi\Model;
 class TaskStatusContainerStatus
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $containerID;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $pID;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $exitCode;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -31,8 +32,9 @@ class TaskStatusContainerStatus
     {
         return $this->containerID;
     }
+
     /**
-     * 
+     *
      *
      * @param string $containerID
      *
@@ -41,10 +43,12 @@ class TaskStatusContainerStatus
     public function setContainerID(string $containerID) : self
     {
         $this->containerID = $containerID;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -52,8 +56,9 @@ class TaskStatusContainerStatus
     {
         return $this->pID;
     }
+
     /**
-     * 
+     *
      *
      * @param int $pID
      *
@@ -62,10 +67,12 @@ class TaskStatusContainerStatus
     public function setPID(int $pID) : self
     {
         $this->pID = $pID;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -73,8 +80,9 @@ class TaskStatusContainerStatus
     {
         return $this->exitCode;
     }
+
     /**
-     * 
+     *
      *
      * @param int $exitCode
      *
@@ -83,6 +91,7 @@ class TaskStatusContainerStatus
     public function setExitCode(int $exitCode) : self
     {
         $this->exitCode = $exitCode;
+
         return $this;
     }
 }

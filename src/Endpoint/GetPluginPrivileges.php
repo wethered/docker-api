@@ -5,44 +5,52 @@ namespace WeTheRed\DockerApi\Endpoint;
 class GetPluginPrivileges extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Endpoint
 {
     /**
-    * 
+    *
     *
     * @param array $queryParameters {
     *     @var string $remote The name of the plugin. The `:latest` tag is optional, and is the
     default if omitted.
-    
+
     * }
     */
-    public function __construct(array $queryParameters = array())
+    public function __construct(array $queryParameters = [])
     {
         $this->queryParameters = $queryParameters;
     }
+
     use \Jane\OpenApiRuntime\Client\EndpointTrait;
+
     public function getMethod() : string
     {
         return 'GET';
     }
+
     public function getUri() : string
     {
         return '/plugins/privileges';
     }
+
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
-        return array(array(), null);
+        return [[], null];
     }
+
     public function getExtraHeaders() : array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
+
     protected function getQueryOptionsResolver() : \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(array('remote'));
-        $optionsResolver->setRequired(array('remote'));
-        $optionsResolver->setDefaults(array());
-        $optionsResolver->setAllowedTypes('remote', array('string'));
+        $optionsResolver->setDefined(['remote']);
+        $optionsResolver->setRequired(['remote']);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('remote', ['string']);
+
         return $optionsResolver;
     }
+
     /**
      * {@inheritdoc}
      *
@@ -59,8 +67,9 @@ class GetPluginPrivileges extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
             throw new \WeTheRed\DockerApi\Exception\GetPluginPrivilegesInternalServerErrorException($serializer->deserialize($body, 'WeTheRed\\DockerApi\\Model\\ErrorResponse', 'json'));
         }
     }
+
     public function getAuthenticationScopes() : array
     {
-        return array();
+        return [];
     }
 }

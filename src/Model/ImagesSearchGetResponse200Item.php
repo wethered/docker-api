@@ -5,37 +5,38 @@ namespace WeTheRed\DockerApi\Model;
 class ImagesSearchGetResponse200Item
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $description;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $isOfficial;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $isAutomated;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $name;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $starCount;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -43,8 +44,9 @@ class ImagesSearchGetResponse200Item
     {
         return $this->description;
     }
+
     /**
-     * 
+     *
      *
      * @param string $description
      *
@@ -53,10 +55,12 @@ class ImagesSearchGetResponse200Item
     public function setDescription(string $description) : self
     {
         $this->description = $description;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -64,8 +68,9 @@ class ImagesSearchGetResponse200Item
     {
         return $this->isOfficial;
     }
+
     /**
-     * 
+     *
      *
      * @param bool $isOfficial
      *
@@ -74,10 +79,12 @@ class ImagesSearchGetResponse200Item
     public function setIsOfficial(bool $isOfficial) : self
     {
         $this->isOfficial = $isOfficial;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -85,8 +92,9 @@ class ImagesSearchGetResponse200Item
     {
         return $this->isAutomated;
     }
+
     /**
-     * 
+     *
      *
      * @param bool $isAutomated
      *
@@ -95,10 +103,12 @@ class ImagesSearchGetResponse200Item
     public function setIsAutomated(bool $isAutomated) : self
     {
         $this->isAutomated = $isAutomated;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -106,8 +116,9 @@ class ImagesSearchGetResponse200Item
     {
         return $this->name;
     }
+
     /**
-     * 
+     *
      *
      * @param string $name
      *
@@ -116,10 +127,12 @@ class ImagesSearchGetResponse200Item
     public function setName(string $name) : self
     {
         $this->name = $name;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -127,8 +140,9 @@ class ImagesSearchGetResponse200Item
     {
         return $this->starCount;
     }
+
     /**
-     * 
+     *
      *
      * @param int $starCount
      *
@@ -137,6 +151,7 @@ class ImagesSearchGetResponse200Item
     public function setStarCount(int $starCount) : self
     {
         $this->starCount = $starCount;
+
         return $this;
     }
 }

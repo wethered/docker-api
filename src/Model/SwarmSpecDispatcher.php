@@ -10,6 +10,7 @@ class SwarmSpecDispatcher
      * @var int
      */
     protected $heartbeatPeriod;
+
     /**
      * The delay for an agent to send a heartbeat to the dispatcher.
      *
@@ -19,6 +20,7 @@ class SwarmSpecDispatcher
     {
         return $this->heartbeatPeriod;
     }
+
     /**
      * The delay for an agent to send a heartbeat to the dispatcher.
      *
@@ -29,6 +31,7 @@ class SwarmSpecDispatcher
     public function setHeartbeatPeriod(int $heartbeatPeriod) : self
     {
         $this->heartbeatPeriod = $heartbeatPeriod;
+
         return $this;
     }
 }

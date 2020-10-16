@@ -77,7 +77,7 @@ class ContainerSummaryItem
      */
     protected $status;
     /**
-     * 
+     *
      *
      * @var ContainerSummaryItemHostConfig
      */
@@ -89,11 +89,12 @@ class ContainerSummaryItem
      */
     protected $networkSettings;
     /**
-     * 
+     *
      *
      * @var Mount[]
      */
     protected $mounts;
+
     /**
      * The ID of this container
      *
@@ -103,6 +104,7 @@ class ContainerSummaryItem
     {
         return $this->id;
     }
+
     /**
      * The ID of this container
      *
@@ -113,8 +115,10 @@ class ContainerSummaryItem
     public function setId(string $id) : self
     {
         $this->id = $id;
+
         return $this;
     }
+
     /**
      * The names that this container has been given
      *
@@ -124,6 +128,7 @@ class ContainerSummaryItem
     {
         return $this->names;
     }
+
     /**
      * The names that this container has been given
      *
@@ -134,8 +139,10 @@ class ContainerSummaryItem
     public function setNames(array $names) : self
     {
         $this->names = $names;
+
         return $this;
     }
+
     /**
      * The name of the image used when creating this container
      *
@@ -145,6 +152,7 @@ class ContainerSummaryItem
     {
         return $this->image;
     }
+
     /**
      * The name of the image used when creating this container
      *
@@ -155,8 +163,10 @@ class ContainerSummaryItem
     public function setImage(string $image) : self
     {
         $this->image = $image;
+
         return $this;
     }
+
     /**
      * The ID of the image that this container was created from
      *
@@ -166,6 +176,7 @@ class ContainerSummaryItem
     {
         return $this->imageID;
     }
+
     /**
      * The ID of the image that this container was created from
      *
@@ -176,8 +187,10 @@ class ContainerSummaryItem
     public function setImageID(string $imageID) : self
     {
         $this->imageID = $imageID;
+
         return $this;
     }
+
     /**
      * Command to run when starting the container
      *
@@ -187,6 +200,7 @@ class ContainerSummaryItem
     {
         return $this->command;
     }
+
     /**
      * Command to run when starting the container
      *
@@ -197,8 +211,10 @@ class ContainerSummaryItem
     public function setCommand(string $command) : self
     {
         $this->command = $command;
+
         return $this;
     }
+
     /**
      * When the container was created
      *
@@ -208,6 +224,7 @@ class ContainerSummaryItem
     {
         return $this->created;
     }
+
     /**
      * When the container was created
      *
@@ -218,8 +235,10 @@ class ContainerSummaryItem
     public function setCreated(int $created) : self
     {
         $this->created = $created;
+
         return $this;
     }
+
     /**
      * The ports exposed by this container
      *
@@ -229,6 +248,7 @@ class ContainerSummaryItem
     {
         return $this->ports;
     }
+
     /**
      * The ports exposed by this container
      *
@@ -239,8 +259,10 @@ class ContainerSummaryItem
     public function setPorts(array $ports) : self
     {
         $this->ports = $ports;
+
         return $this;
     }
+
     /**
      * The size of files that have been created or changed by this container
      *
@@ -250,6 +272,7 @@ class ContainerSummaryItem
     {
         return $this->sizeRw;
     }
+
     /**
      * The size of files that have been created or changed by this container
      *
@@ -260,8 +283,10 @@ class ContainerSummaryItem
     public function setSizeRw(int $sizeRw) : self
     {
         $this->sizeRw = $sizeRw;
+
         return $this;
     }
+
     /**
      * The total size of all the files in this container
      *
@@ -271,6 +296,7 @@ class ContainerSummaryItem
     {
         return $this->sizeRootFs;
     }
+
     /**
      * The total size of all the files in this container
      *
@@ -281,8 +307,10 @@ class ContainerSummaryItem
     public function setSizeRootFs(int $sizeRootFs) : self
     {
         $this->sizeRootFs = $sizeRootFs;
+
         return $this;
     }
+
     /**
      * User-defined key/value metadata.
      *
@@ -292,6 +320,7 @@ class ContainerSummaryItem
     {
         return $this->labels;
     }
+
     /**
      * User-defined key/value metadata.
      *
@@ -302,8 +331,10 @@ class ContainerSummaryItem
     public function setLabels(iterable $labels) : self
     {
         $this->labels = $labels;
+
         return $this;
     }
+
     /**
      * The state of this container (e.g. `Exited`)
      *
@@ -313,6 +344,7 @@ class ContainerSummaryItem
     {
         return $this->state;
     }
+
     /**
      * The state of this container (e.g. `Exited`)
      *
@@ -323,8 +355,10 @@ class ContainerSummaryItem
     public function setState(string $state) : self
     {
         $this->state = $state;
+
         return $this;
     }
+
     /**
      * Additional human-readable status of this container (e.g. `Exit 0`)
      *
@@ -334,6 +368,7 @@ class ContainerSummaryItem
     {
         return $this->status;
     }
+
     /**
      * Additional human-readable status of this container (e.g. `Exit 0`)
      *
@@ -344,10 +379,12 @@ class ContainerSummaryItem
     public function setStatus(string $status) : self
     {
         $this->status = $status;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return ContainerSummaryItemHostConfig
      */
@@ -355,8 +392,9 @@ class ContainerSummaryItem
     {
         return $this->hostConfig;
     }
+
     /**
-     * 
+     *
      *
      * @param ContainerSummaryItemHostConfig $hostConfig
      *
@@ -365,8 +403,10 @@ class ContainerSummaryItem
     public function setHostConfig(ContainerSummaryItemHostConfig $hostConfig) : self
     {
         $this->hostConfig = $hostConfig;
+
         return $this;
     }
+
     /**
      * A summary of the container's network settings
      *
@@ -376,6 +416,7 @@ class ContainerSummaryItem
     {
         return $this->networkSettings;
     }
+
     /**
      * A summary of the container's network settings
      *
@@ -386,10 +427,12 @@ class ContainerSummaryItem
     public function setNetworkSettings(ContainerSummaryItemNetworkSettings $networkSettings) : self
     {
         $this->networkSettings = $networkSettings;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return Mount[]
      */
@@ -397,8 +440,9 @@ class ContainerSummaryItem
     {
         return $this->mounts;
     }
+
     /**
-     * 
+     *
      *
      * @param Mount[] $mounts
      *
@@ -407,6 +451,7 @@ class ContainerSummaryItem
     public function setMounts(array $mounts) : self
     {
         $this->mounts = $mounts;
+
         return $this;
     }
 }

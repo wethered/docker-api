@@ -5,19 +5,20 @@ namespace WeTheRed\DockerApi\Model;
 class ProgressDetail
 {
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $current;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $total;
+
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -25,8 +26,9 @@ class ProgressDetail
     {
         return $this->current;
     }
+
     /**
-     * 
+     *
      *
      * @param int $current
      *
@@ -35,10 +37,12 @@ class ProgressDetail
     public function setCurrent(int $current) : self
     {
         $this->current = $current;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -46,8 +50,9 @@ class ProgressDetail
     {
         return $this->total;
     }
+
     /**
-     * 
+     *
      *
      * @param int $total
      *
@@ -56,6 +61,7 @@ class ProgressDetail
     public function setTotal(int $total) : self
     {
         $this->total = $total;
+
         return $this;
     }
 }

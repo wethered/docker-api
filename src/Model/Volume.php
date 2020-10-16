@@ -32,10 +32,10 @@ class Volume
     * Low-level details about the volume, provided by the volume driver.
     Details are returned as a map with key/value pairs:
     `{"key":"value","key2":"value2"}`.
-    
+
     The `Status` field is optional, and is omitted if the volume driver
     does not support this feature.
-    
+
     *
     * @var mixed[]
     */
@@ -49,7 +49,7 @@ class Volume
     /**
     * The level at which the volume exists. Either `global` for cluster-wide,
     or `local` for machine level.
-    
+
     *
     * @var string
     */
@@ -63,11 +63,12 @@ class Volume
     /**
     * Usage details about the volume. This information is used by the
     `GET /system/df` endpoint, and omitted in other endpoints.
-    
+
     *
     * @var VolumeUsageData|null
     */
     protected $usageData;
+
     /**
      * Name of the volume.
      *
@@ -77,6 +78,7 @@ class Volume
     {
         return $this->name;
     }
+
     /**
      * Name of the volume.
      *
@@ -87,8 +89,10 @@ class Volume
     public function setName(string $name) : self
     {
         $this->name = $name;
+
         return $this;
     }
+
     /**
      * Name of the volume driver used by the volume.
      *
@@ -98,6 +102,7 @@ class Volume
     {
         return $this->driver;
     }
+
     /**
      * Name of the volume driver used by the volume.
      *
@@ -108,8 +113,10 @@ class Volume
     public function setDriver(string $driver) : self
     {
         $this->driver = $driver;
+
         return $this;
     }
+
     /**
      * Mount path of the volume on the host.
      *
@@ -119,6 +126,7 @@ class Volume
     {
         return $this->mountpoint;
     }
+
     /**
      * Mount path of the volume on the host.
      *
@@ -129,8 +137,10 @@ class Volume
     public function setMountpoint(string $mountpoint) : self
     {
         $this->mountpoint = $mountpoint;
+
         return $this;
     }
+
     /**
      * Date/Time the volume was created.
      *
@@ -140,6 +150,7 @@ class Volume
     {
         return $this->createdAt;
     }
+
     /**
      * Date/Time the volume was created.
      *
@@ -150,16 +161,18 @@ class Volume
     public function setCreatedAt(string $createdAt) : self
     {
         $this->createdAt = $createdAt;
+
         return $this;
     }
+
     /**
     * Low-level details about the volume, provided by the volume driver.
     Details are returned as a map with key/value pairs:
     `{"key":"value","key2":"value2"}`.
-    
+
     The `Status` field is optional, and is omitted if the volume driver
     does not support this feature.
-    
+
     *
     * @return mixed[]
     */
@@ -167,14 +180,15 @@ class Volume
     {
         return $this->status;
     }
+
     /**
     * Low-level details about the volume, provided by the volume driver.
     Details are returned as a map with key/value pairs:
     `{"key":"value","key2":"value2"}`.
-    
+
     The `Status` field is optional, and is omitted if the volume driver
     does not support this feature.
-    
+
     *
     * @param mixed[] $status
     *
@@ -183,8 +197,10 @@ class Volume
     public function setStatus(iterable $status) : self
     {
         $this->status = $status;
+
         return $this;
     }
+
     /**
      * User-defined key/value metadata.
      *
@@ -194,6 +210,7 @@ class Volume
     {
         return $this->labels;
     }
+
     /**
      * User-defined key/value metadata.
      *
@@ -204,12 +221,14 @@ class Volume
     public function setLabels(iterable $labels) : self
     {
         $this->labels = $labels;
+
         return $this;
     }
+
     /**
     * The level at which the volume exists. Either `global` for cluster-wide,
     or `local` for machine level.
-    
+
     *
     * @return string
     */
@@ -217,10 +236,11 @@ class Volume
     {
         return $this->scope;
     }
+
     /**
     * The level at which the volume exists. Either `global` for cluster-wide,
     or `local` for machine level.
-    
+
     *
     * @param string $scope
     *
@@ -229,8 +249,10 @@ class Volume
     public function setScope(string $scope) : self
     {
         $this->scope = $scope;
+
         return $this;
     }
+
     /**
      * The driver specific options used when creating the volume.
      *
@@ -240,6 +262,7 @@ class Volume
     {
         return $this->options;
     }
+
     /**
      * The driver specific options used when creating the volume.
      *
@@ -250,12 +273,14 @@ class Volume
     public function setOptions(iterable $options) : self
     {
         $this->options = $options;
+
         return $this;
     }
+
     /**
     * Usage details about the volume. This information is used by the
     `GET /system/df` endpoint, and omitted in other endpoints.
-    
+
     *
     * @return VolumeUsageData|null
     */
@@ -263,10 +288,11 @@ class Volume
     {
         return $this->usageData;
     }
+
     /**
     * Usage details about the volume. This information is used by the
     `GET /system/df` endpoint, and omitted in other endpoints.
-    
+
     *
     * @param VolumeUsageData|null $usageData
     *
@@ -275,6 +301,7 @@ class Volume
     public function setUsageData(?VolumeUsageData $usageData) : self
     {
         $this->usageData = $usageData;
+
         return $this;
     }
 }

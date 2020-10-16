@@ -5,13 +5,14 @@ namespace WeTheRed\DockerApi\Model;
 class ContainerSummaryItemNetworkSettings
 {
     /**
-     * 
+     *
      *
      * @var EndpointSettings[]
      */
     protected $networks;
+
     /**
-     * 
+     *
      *
      * @return EndpointSettings[]
      */
@@ -19,8 +20,9 @@ class ContainerSummaryItemNetworkSettings
     {
         return $this->networks;
     }
+
     /**
-     * 
+     *
      *
      * @param EndpointSettings[] $networks
      *
@@ -29,6 +31,7 @@ class ContainerSummaryItemNetworkSettings
     public function setNetworks(iterable $networks) : self
     {
         $this->networks = $networks;
+
         return $this;
     }
 }

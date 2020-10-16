@@ -10,6 +10,7 @@ class ErrorResponse
      * @var string
      */
     protected $message;
+
     /**
      * The error message.
      *
@@ -19,6 +20,7 @@ class ErrorResponse
     {
         return $this->message;
     }
+
     /**
      * The error message.
      *
@@ -29,6 +31,7 @@ class ErrorResponse
     public function setMessage(string $message) : self
     {
         $this->message = $message;
+
         return $this;
     }
 }

@@ -5,43 +5,44 @@ namespace WeTheRed\DockerApi\Model;
 class DistributionNameJsonGetResponse200PlatformsItem
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $architecture;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $oS;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $oSVersion;
     /**
-     * 
+     *
      *
      * @var string[]
      */
     protected $oSFeatures;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $variant;
     /**
-     * 
+     *
      *
      * @var string[]
      */
     protected $features;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -49,8 +50,9 @@ class DistributionNameJsonGetResponse200PlatformsItem
     {
         return $this->architecture;
     }
+
     /**
-     * 
+     *
      *
      * @param string $architecture
      *
@@ -59,10 +61,12 @@ class DistributionNameJsonGetResponse200PlatformsItem
     public function setArchitecture(string $architecture) : self
     {
         $this->architecture = $architecture;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -70,8 +74,9 @@ class DistributionNameJsonGetResponse200PlatformsItem
     {
         return $this->oS;
     }
+
     /**
-     * 
+     *
      *
      * @param string $oS
      *
@@ -80,10 +85,12 @@ class DistributionNameJsonGetResponse200PlatformsItem
     public function setOS(string $oS) : self
     {
         $this->oS = $oS;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -91,8 +98,9 @@ class DistributionNameJsonGetResponse200PlatformsItem
     {
         return $this->oSVersion;
     }
+
     /**
-     * 
+     *
      *
      * @param string $oSVersion
      *
@@ -101,10 +109,12 @@ class DistributionNameJsonGetResponse200PlatformsItem
     public function setOSVersion(string $oSVersion) : self
     {
         $this->oSVersion = $oSVersion;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -112,8 +122,9 @@ class DistributionNameJsonGetResponse200PlatformsItem
     {
         return $this->oSFeatures;
     }
+
     /**
-     * 
+     *
      *
      * @param string[] $oSFeatures
      *
@@ -122,10 +133,12 @@ class DistributionNameJsonGetResponse200PlatformsItem
     public function setOSFeatures(array $oSFeatures) : self
     {
         $this->oSFeatures = $oSFeatures;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -133,8 +146,9 @@ class DistributionNameJsonGetResponse200PlatformsItem
     {
         return $this->variant;
     }
+
     /**
-     * 
+     *
      *
      * @param string $variant
      *
@@ -143,10 +157,12 @@ class DistributionNameJsonGetResponse200PlatformsItem
     public function setVariant(string $variant) : self
     {
         $this->variant = $variant;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -154,8 +170,9 @@ class DistributionNameJsonGetResponse200PlatformsItem
     {
         return $this->features;
     }
+
     /**
-     * 
+     *
      *
      * @param string[] $features
      *
@@ -164,6 +181,7 @@ class DistributionNameJsonGetResponse200PlatformsItem
     public function setFeatures(array $features) : self
     {
         $this->features = $features;
+
         return $this;
     }
 }

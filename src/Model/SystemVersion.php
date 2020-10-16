@@ -5,7 +5,7 @@ namespace WeTheRed\DockerApi\Model;
 class SystemVersion
 {
     /**
-     * 
+     *
      *
      * @var SystemVersionPlatform
      */
@@ -43,7 +43,7 @@ class SystemVersion
     /**
     * The version Go used to compile the daemon, and the version of the Go
     runtime in use.
-    
+
     *
     * @var string
     */
@@ -62,18 +62,18 @@ class SystemVersion
     protected $arch;
     /**
     * The kernel version (`uname -r`) that the daemon is running on.
-    
+
     This field is omitted when empty.
-    
+
     *
     * @var string
     */
     protected $kernelVersion;
     /**
     * Indicates if the daemon is started with experimental features enabled.
-    
+
     This field is omitted when empty / false.
-    
+
     *
     * @var bool
     */
@@ -84,8 +84,9 @@ class SystemVersion
      * @var string
      */
     protected $buildTime;
+
     /**
-     * 
+     *
      *
      * @return SystemVersionPlatform
      */
@@ -93,8 +94,9 @@ class SystemVersion
     {
         return $this->platform;
     }
+
     /**
-     * 
+     *
      *
      * @param SystemVersionPlatform $platform
      *
@@ -103,8 +105,10 @@ class SystemVersion
     public function setPlatform(SystemVersionPlatform $platform) : self
     {
         $this->platform = $platform;
+
         return $this;
     }
+
     /**
      * Information about system components
      *
@@ -114,6 +118,7 @@ class SystemVersion
     {
         return $this->components;
     }
+
     /**
      * Information about system components
      *
@@ -124,8 +129,10 @@ class SystemVersion
     public function setComponents(array $components) : self
     {
         $this->components = $components;
+
         return $this;
     }
+
     /**
      * The version of the daemon
      *
@@ -135,6 +142,7 @@ class SystemVersion
     {
         return $this->version;
     }
+
     /**
      * The version of the daemon
      *
@@ -145,8 +153,10 @@ class SystemVersion
     public function setVersion(string $version) : self
     {
         $this->version = $version;
+
         return $this;
     }
+
     /**
      * The default (and highest) API version that is supported by the daemon
      *
@@ -156,6 +166,7 @@ class SystemVersion
     {
         return $this->apiVersion;
     }
+
     /**
      * The default (and highest) API version that is supported by the daemon
      *
@@ -166,8 +177,10 @@ class SystemVersion
     public function setApiVersion(string $apiVersion) : self
     {
         $this->apiVersion = $apiVersion;
+
         return $this;
     }
+
     /**
      * The minimum API version that is supported by the daemon
      *
@@ -177,6 +190,7 @@ class SystemVersion
     {
         return $this->minAPIVersion;
     }
+
     /**
      * The minimum API version that is supported by the daemon
      *
@@ -187,8 +201,10 @@ class SystemVersion
     public function setMinAPIVersion(string $minAPIVersion) : self
     {
         $this->minAPIVersion = $minAPIVersion;
+
         return $this;
     }
+
     /**
      * The Git commit of the source code that was used to build the daemon
      *
@@ -198,6 +214,7 @@ class SystemVersion
     {
         return $this->gitCommit;
     }
+
     /**
      * The Git commit of the source code that was used to build the daemon
      *
@@ -208,12 +225,14 @@ class SystemVersion
     public function setGitCommit(string $gitCommit) : self
     {
         $this->gitCommit = $gitCommit;
+
         return $this;
     }
+
     /**
     * The version Go used to compile the daemon, and the version of the Go
     runtime in use.
-    
+
     *
     * @return string
     */
@@ -221,10 +240,11 @@ class SystemVersion
     {
         return $this->goVersion;
     }
+
     /**
     * The version Go used to compile the daemon, and the version of the Go
     runtime in use.
-    
+
     *
     * @param string $goVersion
     *
@@ -233,8 +253,10 @@ class SystemVersion
     public function setGoVersion(string $goVersion) : self
     {
         $this->goVersion = $goVersion;
+
         return $this;
     }
+
     /**
      * The operating system that the daemon is running on ("linux" or "windows")
      *
@@ -244,6 +266,7 @@ class SystemVersion
     {
         return $this->os;
     }
+
     /**
      * The operating system that the daemon is running on ("linux" or "windows")
      *
@@ -254,8 +277,10 @@ class SystemVersion
     public function setOs(string $os) : self
     {
         $this->os = $os;
+
         return $this;
     }
+
     /**
      * The architecture that the daemon is running on
      *
@@ -265,6 +290,7 @@ class SystemVersion
     {
         return $this->arch;
     }
+
     /**
      * The architecture that the daemon is running on
      *
@@ -275,13 +301,15 @@ class SystemVersion
     public function setArch(string $arch) : self
     {
         $this->arch = $arch;
+
         return $this;
     }
+
     /**
     * The kernel version (`uname -r`) that the daemon is running on.
-    
+
     This field is omitted when empty.
-    
+
     *
     * @return string
     */
@@ -289,11 +317,12 @@ class SystemVersion
     {
         return $this->kernelVersion;
     }
+
     /**
     * The kernel version (`uname -r`) that the daemon is running on.
-    
+
     This field is omitted when empty.
-    
+
     *
     * @param string $kernelVersion
     *
@@ -302,13 +331,15 @@ class SystemVersion
     public function setKernelVersion(string $kernelVersion) : self
     {
         $this->kernelVersion = $kernelVersion;
+
         return $this;
     }
+
     /**
     * Indicates if the daemon is started with experimental features enabled.
-    
+
     This field is omitted when empty / false.
-    
+
     *
     * @return bool
     */
@@ -316,11 +347,12 @@ class SystemVersion
     {
         return $this->experimental;
     }
+
     /**
     * Indicates if the daemon is started with experimental features enabled.
-    
+
     This field is omitted when empty / false.
-    
+
     *
     * @param bool $experimental
     *
@@ -329,8 +361,10 @@ class SystemVersion
     public function setExperimental(bool $experimental) : self
     {
         $this->experimental = $experimental;
+
         return $this;
     }
+
     /**
      * The date and time that the daemon was compiled.
      *
@@ -340,6 +374,7 @@ class SystemVersion
     {
         return $this->buildTime;
     }
+
     /**
      * The date and time that the daemon was compiled.
      *
@@ -350,6 +385,7 @@ class SystemVersion
     public function setBuildTime(string $buildTime) : self
     {
         $this->buildTime = $buildTime;
+
         return $this;
     }
 }

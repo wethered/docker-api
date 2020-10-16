@@ -5,31 +5,37 @@ namespace WeTheRed\DockerApi\Endpoint;
 class SwarmInit extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Endpoint
 {
     /**
-     * 
      *
-     * @param \WeTheRed\DockerApi\Model\SwarmInitPostBody $body 
+     *
+     * @param \WeTheRed\DockerApi\Model\SwarmInitPostBody $body
      */
     public function __construct(\WeTheRed\DockerApi\Model\SwarmInitPostBody $body)
     {
         $this->body = $body;
     }
+
     use \Jane\OpenApiRuntime\Client\EndpointTrait;
+
     public function getMethod() : string
     {
         return 'POST';
     }
+
     public function getUri() : string
     {
         return '/swarm/init';
     }
+
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
         return $this->getSerializedBody($serializer);
     }
+
     public function getExtraHeaders() : array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
+
     /**
      * {@inheritdoc}
      *
@@ -54,8 +60,9 @@ class SwarmInit extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
             throw new \WeTheRed\DockerApi\Exception\SwarmInitServiceUnavailableException($serializer->deserialize($body, 'WeTheRed\\DockerApi\\Model\\ErrorResponse', 'json'));
         }
     }
+
     public function getAuthenticationScopes() : array
     {
-        return array();
+        return [];
     }
 }

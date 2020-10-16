@@ -6,12 +6,12 @@ class Health
 {
     /**
     * Status is one of `none`, `starting`, `healthy` or `unhealthy`
-    
+
     - "none"      Indicates there is no healthcheck
     - "starting"  Starting indicates that the container is not yet ready
     - "healthy"   Healthy indicates that the container is running correctly
     - "unhealthy" Unhealthy indicates that the container has a problem
-    
+
     *
     * @var string
     */
@@ -28,14 +28,15 @@ class Health
      * @var HealthcheckResult[]
      */
     protected $log;
+
     /**
     * Status is one of `none`, `starting`, `healthy` or `unhealthy`
-    
+
     - "none"      Indicates there is no healthcheck
     - "starting"  Starting indicates that the container is not yet ready
     - "healthy"   Healthy indicates that the container is running correctly
     - "unhealthy" Unhealthy indicates that the container has a problem
-    
+
     *
     * @return string
     */
@@ -43,14 +44,15 @@ class Health
     {
         return $this->status;
     }
+
     /**
     * Status is one of `none`, `starting`, `healthy` or `unhealthy`
-    
+
     - "none"      Indicates there is no healthcheck
     - "starting"  Starting indicates that the container is not yet ready
     - "healthy"   Healthy indicates that the container is running correctly
     - "unhealthy" Unhealthy indicates that the container has a problem
-    
+
     *
     * @param string $status
     *
@@ -59,8 +61,10 @@ class Health
     public function setStatus(string $status) : self
     {
         $this->status = $status;
+
         return $this;
     }
+
     /**
      * FailingStreak is the number of consecutive failures
      *
@@ -70,6 +74,7 @@ class Health
     {
         return $this->failingStreak;
     }
+
     /**
      * FailingStreak is the number of consecutive failures
      *
@@ -80,8 +85,10 @@ class Health
     public function setFailingStreak(int $failingStreak) : self
     {
         $this->failingStreak = $failingStreak;
+
         return $this;
     }
+
     /**
      * Log contains the last few results (oldest first)
      *
@@ -91,6 +98,7 @@ class Health
     {
         return $this->log;
     }
+
     /**
      * Log contains the last few results (oldest first)
      *
@@ -101,6 +109,7 @@ class Health
     public function setLog(array $log) : self
     {
         $this->log = $log;
+
         return $this;
     }
 }

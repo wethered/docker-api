@@ -16,6 +16,7 @@ class TaskSpecContainerSpecPrivileges
      * @var TaskSpecContainerSpecPrivilegesSELinuxContext
      */
     protected $sELinuxContext;
+
     /**
      * CredentialSpec for managed service account (Windows only)
      *
@@ -25,6 +26,7 @@ class TaskSpecContainerSpecPrivileges
     {
         return $this->credentialSpec;
     }
+
     /**
      * CredentialSpec for managed service account (Windows only)
      *
@@ -35,8 +37,10 @@ class TaskSpecContainerSpecPrivileges
     public function setCredentialSpec(TaskSpecContainerSpecPrivilegesCredentialSpec $credentialSpec) : self
     {
         $this->credentialSpec = $credentialSpec;
+
         return $this;
     }
+
     /**
      * SELinux labels of the container
      *
@@ -46,6 +50,7 @@ class TaskSpecContainerSpecPrivileges
     {
         return $this->sELinuxContext;
     }
+
     /**
      * SELinux labels of the container
      *
@@ -56,6 +61,7 @@ class TaskSpecContainerSpecPrivileges
     public function setSELinuxContext(TaskSpecContainerSpecPrivilegesSELinuxContext $sELinuxContext) : self
     {
         $this->sELinuxContext = $sELinuxContext;
+
         return $this;
     }
 }

@@ -5,37 +5,38 @@ namespace WeTheRed\DockerApi\Model;
 class TaskStatus
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $timestamp;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $state;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $message;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $err;
     /**
-     * 
+     *
      *
      * @var TaskStatusContainerStatus
      */
     protected $containerStatus;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -43,8 +44,9 @@ class TaskStatus
     {
         return $this->timestamp;
     }
+
     /**
-     * 
+     *
      *
      * @param string $timestamp
      *
@@ -53,10 +55,12 @@ class TaskStatus
     public function setTimestamp(string $timestamp) : self
     {
         $this->timestamp = $timestamp;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -64,8 +68,9 @@ class TaskStatus
     {
         return $this->state;
     }
+
     /**
-     * 
+     *
      *
      * @param string $state
      *
@@ -74,10 +79,12 @@ class TaskStatus
     public function setState(string $state) : self
     {
         $this->state = $state;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -85,8 +92,9 @@ class TaskStatus
     {
         return $this->message;
     }
+
     /**
-     * 
+     *
      *
      * @param string $message
      *
@@ -95,10 +103,12 @@ class TaskStatus
     public function setMessage(string $message) : self
     {
         $this->message = $message;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -106,8 +116,9 @@ class TaskStatus
     {
         return $this->err;
     }
+
     /**
-     * 
+     *
      *
      * @param string $err
      *
@@ -116,10 +127,12 @@ class TaskStatus
     public function setErr(string $err) : self
     {
         $this->err = $err;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return TaskStatusContainerStatus
      */
@@ -127,8 +140,9 @@ class TaskStatus
     {
         return $this->containerStatus;
     }
+
     /**
-     * 
+     *
      *
      * @param TaskStatusContainerStatus $containerStatus
      *
@@ -137,6 +151,7 @@ class TaskStatus
     public function setContainerStatus(TaskStatusContainerStatus $containerStatus) : self
     {
         $this->containerStatus = $containerStatus;
+
         return $this;
     }
 }

@@ -16,6 +16,7 @@ class MountTmpfsOptions
      * @var int
      */
     protected $mode;
+
     /**
      * The size for the tmpfs mount in bytes.
      *
@@ -25,6 +26,7 @@ class MountTmpfsOptions
     {
         return $this->sizeBytes;
     }
+
     /**
      * The size for the tmpfs mount in bytes.
      *
@@ -35,8 +37,10 @@ class MountTmpfsOptions
     public function setSizeBytes(int $sizeBytes) : self
     {
         $this->sizeBytes = $sizeBytes;
+
         return $this;
     }
+
     /**
      * The permission mode for the tmpfs mount in an integer.
      *
@@ -46,6 +50,7 @@ class MountTmpfsOptions
     {
         return $this->mode;
     }
+
     /**
      * The permission mode for the tmpfs mount in an integer.
      *
@@ -56,6 +61,7 @@ class MountTmpfsOptions
     public function setMode(int $mode) : self
     {
         $this->mode = $mode;
+
         return $this;
     }
 }

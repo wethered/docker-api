@@ -5,25 +5,26 @@ namespace WeTheRed\DockerApi\Model;
 class DeviceMapping
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $pathOnHost;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $pathInContainer;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $cgroupPermissions;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -31,8 +32,9 @@ class DeviceMapping
     {
         return $this->pathOnHost;
     }
+
     /**
-     * 
+     *
      *
      * @param string $pathOnHost
      *
@@ -41,10 +43,12 @@ class DeviceMapping
     public function setPathOnHost(string $pathOnHost) : self
     {
         $this->pathOnHost = $pathOnHost;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -52,8 +56,9 @@ class DeviceMapping
     {
         return $this->pathInContainer;
     }
+
     /**
-     * 
+     *
      *
      * @param string $pathInContainer
      *
@@ -62,10 +67,12 @@ class DeviceMapping
     public function setPathInContainer(string $pathInContainer) : self
     {
         $this->pathInContainer = $pathInContainer;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -73,8 +80,9 @@ class DeviceMapping
     {
         return $this->cgroupPermissions;
     }
+
     /**
-     * 
+     *
      *
      * @param string $cgroupPermissions
      *
@@ -83,6 +91,7 @@ class DeviceMapping
     public function setCgroupPermissions(string $cgroupPermissions) : self
     {
         $this->cgroupPermissions = $cgroupPermissions;
+
         return $this;
     }
 }

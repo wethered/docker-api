@@ -10,6 +10,7 @@ class NetworkingConfig
      * @var EndpointSettings[]
      */
     protected $endpointsConfig;
+
     /**
      * A mapping of network name to endpoint configuration for that network.
      *
@@ -19,6 +20,7 @@ class NetworkingConfig
     {
         return $this->endpointsConfig;
     }
+
     /**
      * A mapping of network name to endpoint configuration for that network.
      *
@@ -29,6 +31,7 @@ class NetworkingConfig
     public function setEndpointsConfig(iterable $endpointsConfig) : self
     {
         $this->endpointsConfig = $endpointsConfig;
+
         return $this;
     }
 }

@@ -7,7 +7,7 @@ class TLSInfo
     /**
     * The root CA certificate(s) that are used to validate leaf TLS
     certificates.
-    
+
     *
     * @var string
     */
@@ -24,10 +24,11 @@ class TLSInfo
      * @var string
      */
     protected $certIssuerPublicKey;
+
     /**
     * The root CA certificate(s) that are used to validate leaf TLS
     certificates.
-    
+
     *
     * @return string
     */
@@ -35,10 +36,11 @@ class TLSInfo
     {
         return $this->trustRoot;
     }
+
     /**
     * The root CA certificate(s) that are used to validate leaf TLS
     certificates.
-    
+
     *
     * @param string $trustRoot
     *
@@ -47,8 +49,10 @@ class TLSInfo
     public function setTrustRoot(string $trustRoot) : self
     {
         $this->trustRoot = $trustRoot;
+
         return $this;
     }
+
     /**
      * The base64-url-safe-encoded raw subject bytes of the issuer.
      *
@@ -58,6 +62,7 @@ class TLSInfo
     {
         return $this->certIssuerSubject;
     }
+
     /**
      * The base64-url-safe-encoded raw subject bytes of the issuer.
      *
@@ -68,8 +73,10 @@ class TLSInfo
     public function setCertIssuerSubject(string $certIssuerSubject) : self
     {
         $this->certIssuerSubject = $certIssuerSubject;
+
         return $this;
     }
+
     /**
      * The base64-url-safe-encoded raw public key bytes of the issuer.
      *
@@ -79,6 +86,7 @@ class TLSInfo
     {
         return $this->certIssuerPublicKey;
     }
+
     /**
      * The base64-url-safe-encoded raw public key bytes of the issuer.
      *
@@ -89,6 +97,7 @@ class TLSInfo
     public function setCertIssuerPublicKey(string $certIssuerPublicKey) : self
     {
         $this->certIssuerPublicKey = $certIssuerPublicKey;
+
         return $this;
     }
 }

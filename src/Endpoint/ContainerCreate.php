@@ -5,46 +5,54 @@ namespace WeTheRed\DockerApi\Endpoint;
 class ContainerCreate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Endpoint
 {
     /**
-    * 
+    *
     *
     * @param \WeTheRed\DockerApi\Model\ContainersCreatePostBody $body Container to create
     * @param array $queryParameters {
     *     @var string $name Assign the specified name to the container. Must match
     `/?[a-zA-Z0-9][a-zA-Z0-9_.-]+`.
-    
+
     * }
     */
-    public function __construct(\WeTheRed\DockerApi\Model\ContainersCreatePostBody $body, array $queryParameters = array())
+    public function __construct(\WeTheRed\DockerApi\Model\ContainersCreatePostBody $body, array $queryParameters = [])
     {
         $this->body = $body;
         $this->queryParameters = $queryParameters;
     }
+
     use \Jane\OpenApiRuntime\Client\EndpointTrait;
+
     public function getMethod() : string
     {
         return 'POST';
     }
+
     public function getUri() : string
     {
         return '/containers/create';
     }
+
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
         return $this->getSerializedBody($serializer);
     }
+
     public function getExtraHeaders() : array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
+
     protected function getQueryOptionsResolver() : \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(array('name'));
-        $optionsResolver->setRequired(array());
-        $optionsResolver->setDefaults(array());
-        $optionsResolver->setAllowedTypes('name', array('string'));
+        $optionsResolver->setDefined(['name']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('name', ['string']);
+
         return $optionsResolver;
     }
+
     /**
      * {@inheritdoc}
      *
@@ -73,8 +81,9 @@ class ContainerCreate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
             throw new \WeTheRed\DockerApi\Exception\ContainerCreateInternalServerErrorException($serializer->deserialize($body, 'WeTheRed\\DockerApi\\Model\\ErrorResponse', 'json'));
         }
     }
+
     public function getAuthenticationScopes() : array
     {
-        return array();
+        return [];
     }
 }

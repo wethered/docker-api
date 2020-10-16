@@ -5,25 +5,26 @@ namespace WeTheRed\DockerApi\Model;
 class PluginsNameUpgradePostBodyItem
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $name;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $description;
     /**
-     * 
+     *
      *
      * @var string[]
      */
     protected $value;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -31,8 +32,9 @@ class PluginsNameUpgradePostBodyItem
     {
         return $this->name;
     }
+
     /**
-     * 
+     *
      *
      * @param string $name
      *
@@ -41,10 +43,12 @@ class PluginsNameUpgradePostBodyItem
     public function setName(string $name) : self
     {
         $this->name = $name;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -52,8 +56,9 @@ class PluginsNameUpgradePostBodyItem
     {
         return $this->description;
     }
+
     /**
-     * 
+     *
      *
      * @param string $description
      *
@@ -62,10 +67,12 @@ class PluginsNameUpgradePostBodyItem
     public function setDescription(string $description) : self
     {
         $this->description = $description;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -73,8 +80,9 @@ class PluginsNameUpgradePostBodyItem
     {
         return $this->value;
     }
+
     /**
-     * 
+     *
      *
      * @param string[] $value
      *
@@ -83,6 +91,7 @@ class PluginsNameUpgradePostBodyItem
     public function setValue(array $value) : self
     {
         $this->value = $value;
+
         return $this;
     }
 }

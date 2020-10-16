@@ -5,49 +5,57 @@ namespace WeTheRed\DockerApi\Endpoint;
 class ServiceCreate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Endpoint
 {
     /**
-    * 
     *
-    * @param \WeTheRed\DockerApi\Model\ServicesCreatePostBody $body 
+    *
+    * @param \WeTheRed\DockerApi\Model\ServicesCreatePostBody $body
     * @param array $headerParameters {
     *     @var string $X-Registry-Auth A base64url-encoded auth configuration for pulling from private
     registries.
-    
+
     Refer to the [authentication section](#section/Authentication) for
     details.
-    
+
     * }
     */
-    public function __construct(\WeTheRed\DockerApi\Model\ServicesCreatePostBody $body, array $headerParameters = array())
+    public function __construct(\WeTheRed\DockerApi\Model\ServicesCreatePostBody $body, array $headerParameters = [])
     {
         $this->body = $body;
         $this->headerParameters = $headerParameters;
     }
+
     use \Jane\OpenApiRuntime\Client\EndpointTrait;
+
     public function getMethod() : string
     {
         return 'POST';
     }
+
     public function getUri() : string
     {
         return '/services/create';
     }
+
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
         return $this->getSerializedBody($serializer);
     }
+
     public function getExtraHeaders() : array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
+
     protected function getHeadersOptionsResolver() : \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getHeadersOptionsResolver();
-        $optionsResolver->setDefined(array('X-Registry-Auth'));
-        $optionsResolver->setRequired(array());
-        $optionsResolver->setDefaults(array());
-        $optionsResolver->setAllowedTypes('X-Registry-Auth', array('string'));
+        $optionsResolver->setDefined(['X-Registry-Auth']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('X-Registry-Auth', ['string']);
+
         return $optionsResolver;
     }
+
     /**
      * {@inheritdoc}
      *
@@ -80,8 +88,9 @@ class ServiceCreate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
             throw new \WeTheRed\DockerApi\Exception\ServiceCreateServiceUnavailableException($serializer->deserialize($body, 'WeTheRed\\DockerApi\\Model\\ErrorResponse', 'json'));
         }
     }
+
     public function getAuthenticationScopes() : array
     {
-        return array();
+        return [];
     }
 }

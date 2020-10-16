@@ -5,67 +5,68 @@ namespace WeTheRed\DockerApi\Model;
 class ImageSummary
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $id;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $parentId;
     /**
-     * 
+     *
      *
      * @var string[]
      */
     protected $repoTags;
     /**
-     * 
+     *
      *
      * @var string[]
      */
     protected $repoDigests;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $created;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $size;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $sharedSize;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $virtualSize;
     /**
-     * 
+     *
      *
      * @var string[]
      */
     protected $labels;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $containers;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -73,8 +74,9 @@ class ImageSummary
     {
         return $this->id;
     }
+
     /**
-     * 
+     *
      *
      * @param string $id
      *
@@ -83,10 +85,12 @@ class ImageSummary
     public function setId(string $id) : self
     {
         $this->id = $id;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -94,8 +98,9 @@ class ImageSummary
     {
         return $this->parentId;
     }
+
     /**
-     * 
+     *
      *
      * @param string $parentId
      *
@@ -104,10 +109,12 @@ class ImageSummary
     public function setParentId(string $parentId) : self
     {
         $this->parentId = $parentId;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -115,8 +122,9 @@ class ImageSummary
     {
         return $this->repoTags;
     }
+
     /**
-     * 
+     *
      *
      * @param string[] $repoTags
      *
@@ -125,10 +133,12 @@ class ImageSummary
     public function setRepoTags(array $repoTags) : self
     {
         $this->repoTags = $repoTags;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -136,8 +146,9 @@ class ImageSummary
     {
         return $this->repoDigests;
     }
+
     /**
-     * 
+     *
      *
      * @param string[] $repoDigests
      *
@@ -146,10 +157,12 @@ class ImageSummary
     public function setRepoDigests(array $repoDigests) : self
     {
         $this->repoDigests = $repoDigests;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -157,8 +170,9 @@ class ImageSummary
     {
         return $this->created;
     }
+
     /**
-     * 
+     *
      *
      * @param int $created
      *
@@ -167,10 +181,12 @@ class ImageSummary
     public function setCreated(int $created) : self
     {
         $this->created = $created;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -178,8 +194,9 @@ class ImageSummary
     {
         return $this->size;
     }
+
     /**
-     * 
+     *
      *
      * @param int $size
      *
@@ -188,10 +205,12 @@ class ImageSummary
     public function setSize(int $size) : self
     {
         $this->size = $size;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -199,8 +218,9 @@ class ImageSummary
     {
         return $this->sharedSize;
     }
+
     /**
-     * 
+     *
      *
      * @param int $sharedSize
      *
@@ -209,10 +229,12 @@ class ImageSummary
     public function setSharedSize(int $sharedSize) : self
     {
         $this->sharedSize = $sharedSize;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -220,8 +242,9 @@ class ImageSummary
     {
         return $this->virtualSize;
     }
+
     /**
-     * 
+     *
      *
      * @param int $virtualSize
      *
@@ -230,10 +253,12 @@ class ImageSummary
     public function setVirtualSize(int $virtualSize) : self
     {
         $this->virtualSize = $virtualSize;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -241,8 +266,9 @@ class ImageSummary
     {
         return $this->labels;
     }
+
     /**
-     * 
+     *
      *
      * @param string[] $labels
      *
@@ -251,10 +277,12 @@ class ImageSummary
     public function setLabels(iterable $labels) : self
     {
         $this->labels = $labels;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -262,8 +290,9 @@ class ImageSummary
     {
         return $this->containers;
     }
+
     /**
-     * 
+     *
      *
      * @param int $containers
      *
@@ -272,6 +301,7 @@ class ImageSummary
     public function setContainers(int $containers) : self
     {
         $this->containers = $containers;
+
         return $this;
     }
 }

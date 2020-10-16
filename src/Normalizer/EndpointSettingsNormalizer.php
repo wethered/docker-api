@@ -2,29 +2,32 @@
 
 namespace WeTheRed\DockerApi\Normalizer;
 
-use Jane\JsonSchemaRuntime\Reference;
 use Jane\JsonSchemaRuntime\Normalizer\CheckArray;
-use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Jane\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 class EndpointSettingsNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
     use CheckArray;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
         return $type === 'WeTheRed\\DockerApi\\Model\\EndpointSettings';
     }
+
     public function supportsNormalization($data, $format = null)
     {
         return is_object($data) && get_class($data) === 'WeTheRed\\DockerApi\\Model\\EndpointSettings';
     }
-    public function denormalize($data, $class, $format = null, array $context = array())
+
+    public function denormalize($data, $class, $format = null, array $context = [])
     {
         if (isset($data['$ref'])) {
             return new Reference($data['$ref'], $context['document-origin']);
@@ -35,19 +38,18 @@ class EndpointSettingsNormalizer implements DenormalizerInterface, NormalizerInt
         $object = new \WeTheRed\DockerApi\Model\EndpointSettings();
         if (\array_key_exists('IPAMConfig', $data) && $data['IPAMConfig'] !== null) {
             $object->setIPAMConfig($this->denormalizer->denormalize($data['IPAMConfig'], 'WeTheRed\\DockerApi\\Model\\EndpointIPAMConfig', 'json', $context));
-        }
-        elseif (\array_key_exists('IPAMConfig', $data) && $data['IPAMConfig'] === null) {
+        } elseif (\array_key_exists('IPAMConfig', $data) && $data['IPAMConfig'] === null) {
             $object->setIPAMConfig(null);
         }
         if (\array_key_exists('Links', $data)) {
-            $values = array();
+            $values = [];
             foreach ($data['Links'] as $value) {
                 $values[] = $value;
             }
             $object->setLinks($values);
         }
         if (\array_key_exists('Aliases', $data)) {
-            $values_1 = array();
+            $values_1 = [];
             foreach ($data['Aliases'] as $value_1) {
                 $values_1[] = $value_1;
             }
@@ -81,32 +83,33 @@ class EndpointSettingsNormalizer implements DenormalizerInterface, NormalizerInt
             $object->setMacAddress($data['MacAddress']);
         }
         if (\array_key_exists('DriverOpts', $data) && $data['DriverOpts'] !== null) {
-            $values_2 = new \ArrayObject(array(), \ArrayObject::ARRAY_AS_PROPS);
+            $values_2 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data['DriverOpts'] as $key => $value_2) {
                 $values_2[$key] = $value_2;
             }
             $object->setDriverOpts($values_2);
-        }
-        elseif (\array_key_exists('DriverOpts', $data) && $data['DriverOpts'] === null) {
+        } elseif (\array_key_exists('DriverOpts', $data) && $data['DriverOpts'] === null) {
             $object->setDriverOpts(null);
         }
+
         return $object;
     }
-    public function normalize($object, $format = null, array $context = array())
+
+    public function normalize($object, $format = null, array $context = [])
     {
-        $data = array();
+        $data = [];
         if (null !== $object->getIPAMConfig()) {
             $data['IPAMConfig'] = $this->normalizer->normalize($object->getIPAMConfig(), 'json', $context);
         }
         if (null !== $object->getLinks()) {
-            $values = array();
+            $values = [];
             foreach ($object->getLinks() as $value) {
                 $values[] = $value;
             }
             $data['Links'] = $values;
         }
         if (null !== $object->getAliases()) {
-            $values_1 = array();
+            $values_1 = [];
             foreach ($object->getAliases() as $value_1) {
                 $values_1[] = $value_1;
             }
@@ -140,12 +143,13 @@ class EndpointSettingsNormalizer implements DenormalizerInterface, NormalizerInt
             $data['MacAddress'] = $object->getMacAddress();
         }
         if (null !== $object->getDriverOpts()) {
-            $values_2 = array();
+            $values_2 = [];
             foreach ($object->getDriverOpts() as $key => $value_2) {
                 $values_2[$key] = $value_2;
             }
             $data['DriverOpts'] = $values_2;
         }
+
         return $data;
     }
 }

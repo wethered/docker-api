@@ -5,43 +5,43 @@ namespace WeTheRed\DockerApi\Model;
 class BuildInfo
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $id;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $stream;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $error;
     /**
-     * 
+     *
      *
      * @var ErrorDetail
      */
     protected $errorDetail;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $status;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $progress;
     /**
-     * 
+     *
      *
      * @var ProgressDetail
      */
@@ -52,8 +52,9 @@ class BuildInfo
      * @var ImageID
      */
     protected $aux;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -61,8 +62,9 @@ class BuildInfo
     {
         return $this->id;
     }
+
     /**
-     * 
+     *
      *
      * @param string $id
      *
@@ -71,10 +73,12 @@ class BuildInfo
     public function setId(string $id) : self
     {
         $this->id = $id;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -82,8 +86,9 @@ class BuildInfo
     {
         return $this->stream;
     }
+
     /**
-     * 
+     *
      *
      * @param string $stream
      *
@@ -92,10 +97,12 @@ class BuildInfo
     public function setStream(string $stream) : self
     {
         $this->stream = $stream;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -103,8 +110,9 @@ class BuildInfo
     {
         return $this->error;
     }
+
     /**
-     * 
+     *
      *
      * @param string $error
      *
@@ -113,10 +121,12 @@ class BuildInfo
     public function setError(string $error) : self
     {
         $this->error = $error;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return ErrorDetail
      */
@@ -124,8 +134,9 @@ class BuildInfo
     {
         return $this->errorDetail;
     }
+
     /**
-     * 
+     *
      *
      * @param ErrorDetail $errorDetail
      *
@@ -134,10 +145,12 @@ class BuildInfo
     public function setErrorDetail(ErrorDetail $errorDetail) : self
     {
         $this->errorDetail = $errorDetail;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -145,8 +158,9 @@ class BuildInfo
     {
         return $this->status;
     }
+
     /**
-     * 
+     *
      *
      * @param string $status
      *
@@ -155,10 +169,12 @@ class BuildInfo
     public function setStatus(string $status) : self
     {
         $this->status = $status;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -166,8 +182,9 @@ class BuildInfo
     {
         return $this->progress;
     }
+
     /**
-     * 
+     *
      *
      * @param string $progress
      *
@@ -176,10 +193,12 @@ class BuildInfo
     public function setProgress(string $progress) : self
     {
         $this->progress = $progress;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return ProgressDetail
      */
@@ -187,8 +206,9 @@ class BuildInfo
     {
         return $this->progressDetail;
     }
+
     /**
-     * 
+     *
      *
      * @param ProgressDetail $progressDetail
      *
@@ -197,8 +217,10 @@ class BuildInfo
     public function setProgressDetail(ProgressDetail $progressDetail) : self
     {
         $this->progressDetail = $progressDetail;
+
         return $this;
     }
+
     /**
      * Image ID or Digest
      *
@@ -208,6 +230,7 @@ class BuildInfo
     {
         return $this->aux;
     }
+
     /**
      * Image ID or Digest
      *
@@ -218,6 +241,7 @@ class BuildInfo
     public function setAux(ImageID $aux) : self
     {
         $this->aux = $aux;
+
         return $this;
     }
 }

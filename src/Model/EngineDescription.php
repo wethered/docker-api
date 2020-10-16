@@ -5,25 +5,26 @@ namespace WeTheRed\DockerApi\Model;
 class EngineDescription
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $engineVersion;
     /**
-     * 
+     *
      *
      * @var string[]
      */
     protected $labels;
     /**
-     * 
+     *
      *
      * @var EngineDescriptionPluginsItem[]
      */
     protected $plugins;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -31,8 +32,9 @@ class EngineDescription
     {
         return $this->engineVersion;
     }
+
     /**
-     * 
+     *
      *
      * @param string $engineVersion
      *
@@ -41,10 +43,12 @@ class EngineDescription
     public function setEngineVersion(string $engineVersion) : self
     {
         $this->engineVersion = $engineVersion;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -52,8 +56,9 @@ class EngineDescription
     {
         return $this->labels;
     }
+
     /**
-     * 
+     *
      *
      * @param string[] $labels
      *
@@ -62,10 +67,12 @@ class EngineDescription
     public function setLabels(iterable $labels) : self
     {
         $this->labels = $labels;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return EngineDescriptionPluginsItem[]
      */
@@ -73,8 +80,9 @@ class EngineDescription
     {
         return $this->plugins;
     }
+
     /**
-     * 
+     *
      *
      * @param EngineDescriptionPluginsItem[] $plugins
      *
@@ -83,6 +91,7 @@ class EngineDescription
     public function setPlugins(array $plugins) : self
     {
         $this->plugins = $plugins;
+
         return $this;
     }
 }

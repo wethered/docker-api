@@ -2,29 +2,32 @@
 
 namespace WeTheRed\DockerApi\Normalizer;
 
-use Jane\JsonSchemaRuntime\Reference;
 use Jane\JsonSchemaRuntime\Normalizer\CheckArray;
-use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Jane\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 class SystemDfGetResponse200Normalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
     use CheckArray;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
         return $type === 'WeTheRed\\DockerApi\\Model\\SystemDfGetResponse200';
     }
+
     public function supportsNormalization($data, $format = null)
     {
         return is_object($data) && get_class($data) === 'WeTheRed\\DockerApi\\Model\\SystemDfGetResponse200';
     }
-    public function denormalize($data, $class, $format = null, array $context = array())
+
+    public function denormalize($data, $class, $format = null, array $context = [])
     {
         if (isset($data['$ref'])) {
             return new Reference($data['$ref'], $context['document-origin']);
@@ -37,16 +40,16 @@ class SystemDfGetResponse200Normalizer implements DenormalizerInterface, Normali
             $object->setLayersSize($data['LayersSize']);
         }
         if (\array_key_exists('Images', $data)) {
-            $values = array();
+            $values = [];
             foreach ($data['Images'] as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'WeTheRed\\DockerApi\\Model\\ImageSummary', 'json', $context);
             }
             $object->setImages($values);
         }
         if (\array_key_exists('Containers', $data)) {
-            $values_1 = array();
+            $values_1 = [];
             foreach ($data['Containers'] as $value_1) {
-                $values_2 = array();
+                $values_2 = [];
                 foreach ($value_1 as $value_2) {
                     $values_2[] = $this->denormalizer->denormalize($value_2, 'WeTheRed\\DockerApi\\Model\\ContainerSummaryItem', 'json', $context);
                 }
@@ -55,38 +58,40 @@ class SystemDfGetResponse200Normalizer implements DenormalizerInterface, Normali
             $object->setContainers($values_1);
         }
         if (\array_key_exists('Volumes', $data)) {
-            $values_3 = array();
+            $values_3 = [];
             foreach ($data['Volumes'] as $value_3) {
                 $values_3[] = $this->denormalizer->denormalize($value_3, 'WeTheRed\\DockerApi\\Model\\Volume', 'json', $context);
             }
             $object->setVolumes($values_3);
         }
         if (\array_key_exists('BuildCache', $data)) {
-            $values_4 = array();
+            $values_4 = [];
             foreach ($data['BuildCache'] as $value_4) {
                 $values_4[] = $this->denormalizer->denormalize($value_4, 'WeTheRed\\DockerApi\\Model\\BuildCache', 'json', $context);
             }
             $object->setBuildCache($values_4);
         }
+
         return $object;
     }
-    public function normalize($object, $format = null, array $context = array())
+
+    public function normalize($object, $format = null, array $context = [])
     {
-        $data = array();
+        $data = [];
         if (null !== $object->getLayersSize()) {
             $data['LayersSize'] = $object->getLayersSize();
         }
         if (null !== $object->getImages()) {
-            $values = array();
+            $values = [];
             foreach ($object->getImages() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data['Images'] = $values;
         }
         if (null !== $object->getContainers()) {
-            $values_1 = array();
+            $values_1 = [];
             foreach ($object->getContainers() as $value_1) {
-                $values_2 = array();
+                $values_2 = [];
                 foreach ($value_1 as $value_2) {
                     $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
                 }
@@ -95,19 +100,20 @@ class SystemDfGetResponse200Normalizer implements DenormalizerInterface, Normali
             $data['Containers'] = $values_1;
         }
         if (null !== $object->getVolumes()) {
-            $values_3 = array();
+            $values_3 = [];
             foreach ($object->getVolumes() as $value_3) {
                 $values_3[] = $this->normalizer->normalize($value_3, 'json', $context);
             }
             $data['Volumes'] = $values_3;
         }
         if (null !== $object->getBuildCache()) {
-            $values_4 = array();
+            $values_4 = [];
             foreach ($object->getBuildCache() as $value_4) {
                 $values_4[] = $this->normalizer->normalize($value_4, 'json', $context);
             }
             $data['BuildCache'] = $values_4;
         }
+
         return $data;
     }
 }

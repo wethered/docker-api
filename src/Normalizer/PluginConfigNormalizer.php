@@ -2,29 +2,32 @@
 
 namespace WeTheRed\DockerApi\Normalizer;
 
-use Jane\JsonSchemaRuntime\Reference;
 use Jane\JsonSchemaRuntime\Normalizer\CheckArray;
-use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Jane\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 class PluginConfigNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
     use CheckArray;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
         return $type === 'WeTheRed\\DockerApi\\Model\\PluginConfig';
     }
+
     public function supportsNormalization($data, $format = null)
     {
         return is_object($data) && get_class($data) === 'WeTheRed\\DockerApi\\Model\\PluginConfig';
     }
-    public function denormalize($data, $class, $format = null, array $context = array())
+
+    public function denormalize($data, $class, $format = null, array $context = [])
     {
         if (isset($data['$ref'])) {
             return new Reference($data['$ref'], $context['document-origin']);
@@ -46,7 +49,7 @@ class PluginConfigNormalizer implements DenormalizerInterface, NormalizerInterfa
             $object->setInterface($this->denormalizer->denormalize($data['Interface'], 'WeTheRed\\DockerApi\\Model\\PluginConfigInterface', 'json', $context));
         }
         if (\array_key_exists('Entrypoint', $data)) {
-            $values = array();
+            $values = [];
             foreach ($data['Entrypoint'] as $value) {
                 $values[] = $value;
             }
@@ -74,14 +77,14 @@ class PluginConfigNormalizer implements DenormalizerInterface, NormalizerInterfa
             $object->setPidHost($data['PidHost']);
         }
         if (\array_key_exists('Mounts', $data)) {
-            $values_1 = array();
+            $values_1 = [];
             foreach ($data['Mounts'] as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, 'WeTheRed\\DockerApi\\Model\\PluginMount', 'json', $context);
             }
             $object->setMounts($values_1);
         }
         if (\array_key_exists('Env', $data)) {
-            $values_2 = array();
+            $values_2 = [];
             foreach ($data['Env'] as $value_2) {
                 $values_2[] = $this->denormalizer->denormalize($value_2, 'WeTheRed\\DockerApi\\Model\\PluginEnv', 'json', $context);
             }
@@ -93,11 +96,13 @@ class PluginConfigNormalizer implements DenormalizerInterface, NormalizerInterfa
         if (\array_key_exists('rootfs', $data)) {
             $object->setRootfs($this->denormalizer->denormalize($data['rootfs'], 'WeTheRed\\DockerApi\\Model\\PluginConfigRootfs', 'json', $context));
         }
+
         return $object;
     }
-    public function normalize($object, $format = null, array $context = array())
+
+    public function normalize($object, $format = null, array $context = [])
     {
-        $data = array();
+        $data = [];
         if (null !== $object->getDockerVersion()) {
             $data['DockerVersion'] = $object->getDockerVersion();
         }
@@ -111,7 +116,7 @@ class PluginConfigNormalizer implements DenormalizerInterface, NormalizerInterfa
             $data['Interface'] = $this->normalizer->normalize($object->getInterface(), 'json', $context);
         }
         if (null !== $object->getEntrypoint()) {
-            $values = array();
+            $values = [];
             foreach ($object->getEntrypoint() as $value) {
                 $values[] = $value;
             }
@@ -139,14 +144,14 @@ class PluginConfigNormalizer implements DenormalizerInterface, NormalizerInterfa
             $data['PidHost'] = $object->getPidHost();
         }
         if (null !== $object->getMounts()) {
-            $values_1 = array();
+            $values_1 = [];
             foreach ($object->getMounts() as $value_1) {
                 $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data['Mounts'] = $values_1;
         }
         if (null !== $object->getEnv()) {
-            $values_2 = array();
+            $values_2 = [];
             foreach ($object->getEnv() as $value_2) {
                 $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
             }
@@ -158,6 +163,7 @@ class PluginConfigNormalizer implements DenormalizerInterface, NormalizerInterfa
         if (null !== $object->getRootfs()) {
             $data['rootfs'] = $this->normalizer->normalize($object->getRootfs(), 'json', $context);
         }
+
         return $data;
     }
 }

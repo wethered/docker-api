@@ -5,7 +5,7 @@ namespace WeTheRed\DockerApi\Model;
 class NodeDescription
 {
     /**
-     * 
+     *
      *
      * @var string
      */
@@ -19,7 +19,7 @@ class NodeDescription
     /**
     * An object describing the resources which can be advertised by a node and
     requested by a task.
-    
+
     *
     * @var ResourceObject
     */
@@ -33,13 +33,14 @@ class NodeDescription
     /**
     * Information about the issuer of leaf TLS certificates and the trusted root
     CA certificate.
-    
+
     *
     * @var TLSInfo
     */
     protected $tLSInfo;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -47,8 +48,9 @@ class NodeDescription
     {
         return $this->hostname;
     }
+
     /**
-     * 
+     *
      *
      * @param string $hostname
      *
@@ -57,8 +59,10 @@ class NodeDescription
     public function setHostname(string $hostname) : self
     {
         $this->hostname = $hostname;
+
         return $this;
     }
+
     /**
      * Platform represents the platform (Arch/OS).
      *
@@ -68,6 +72,7 @@ class NodeDescription
     {
         return $this->platform;
     }
+
     /**
      * Platform represents the platform (Arch/OS).
      *
@@ -78,12 +83,14 @@ class NodeDescription
     public function setPlatform(Platform $platform) : self
     {
         $this->platform = $platform;
+
         return $this;
     }
+
     /**
     * An object describing the resources which can be advertised by a node and
     requested by a task.
-    
+
     *
     * @return ResourceObject
     */
@@ -91,10 +98,11 @@ class NodeDescription
     {
         return $this->resources;
     }
+
     /**
     * An object describing the resources which can be advertised by a node and
     requested by a task.
-    
+
     *
     * @param ResourceObject $resources
     *
@@ -103,8 +111,10 @@ class NodeDescription
     public function setResources(ResourceObject $resources) : self
     {
         $this->resources = $resources;
+
         return $this;
     }
+
     /**
      * EngineDescription provides information about an engine.
      *
@@ -114,6 +124,7 @@ class NodeDescription
     {
         return $this->engine;
     }
+
     /**
      * EngineDescription provides information about an engine.
      *
@@ -124,12 +135,14 @@ class NodeDescription
     public function setEngine(EngineDescription $engine) : self
     {
         $this->engine = $engine;
+
         return $this;
     }
+
     /**
     * Information about the issuer of leaf TLS certificates and the trusted root
     CA certificate.
-    
+
     *
     * @return TLSInfo
     */
@@ -137,10 +150,11 @@ class NodeDescription
     {
         return $this->tLSInfo;
     }
+
     /**
     * Information about the issuer of leaf TLS certificates and the trusted root
     CA certificate.
-    
+
     *
     * @param TLSInfo $tLSInfo
     *
@@ -149,6 +163,7 @@ class NodeDescription
     public function setTLSInfo(TLSInfo $tLSInfo) : self
     {
         $this->tLSInfo = $tLSInfo;
+
         return $this;
     }
 }

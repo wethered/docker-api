@@ -5,13 +5,14 @@ namespace WeTheRed\DockerApi\Model;
 class ContainersIdUpdatePostResponse200
 {
     /**
-     * 
+     *
      *
      * @var string[]
      */
     protected $warnings;
+
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -19,8 +20,9 @@ class ContainersIdUpdatePostResponse200
     {
         return $this->warnings;
     }
+
     /**
-     * 
+     *
      *
      * @param string[] $warnings
      *
@@ -29,6 +31,7 @@ class ContainersIdUpdatePostResponse200
     public function setWarnings(array $warnings) : self
     {
         $this->warnings = $warnings;
+
         return $this;
     }
 }

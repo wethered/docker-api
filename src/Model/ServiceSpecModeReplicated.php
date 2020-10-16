@@ -5,13 +5,14 @@ namespace WeTheRed\DockerApi\Model;
 class ServiceSpecModeReplicated
 {
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $replicas;
+
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -19,8 +20,9 @@ class ServiceSpecModeReplicated
     {
         return $this->replicas;
     }
+
     /**
-     * 
+     *
      *
      * @param int $replicas
      *
@@ -29,6 +31,7 @@ class ServiceSpecModeReplicated
     public function setReplicas(int $replicas) : self
     {
         $this->replicas = $replicas;
+
         return $this;
     }
 }

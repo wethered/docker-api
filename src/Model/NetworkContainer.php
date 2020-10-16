@@ -5,37 +5,38 @@ namespace WeTheRed\DockerApi\Model;
 class NetworkContainer
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $name;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $endpointID;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $macAddress;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $iPv4Address;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $iPv6Address;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -43,8 +44,9 @@ class NetworkContainer
     {
         return $this->name;
     }
+
     /**
-     * 
+     *
      *
      * @param string $name
      *
@@ -53,10 +55,12 @@ class NetworkContainer
     public function setName(string $name) : self
     {
         $this->name = $name;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -64,8 +68,9 @@ class NetworkContainer
     {
         return $this->endpointID;
     }
+
     /**
-     * 
+     *
      *
      * @param string $endpointID
      *
@@ -74,10 +79,12 @@ class NetworkContainer
     public function setEndpointID(string $endpointID) : self
     {
         $this->endpointID = $endpointID;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -85,8 +92,9 @@ class NetworkContainer
     {
         return $this->macAddress;
     }
+
     /**
-     * 
+     *
      *
      * @param string $macAddress
      *
@@ -95,10 +103,12 @@ class NetworkContainer
     public function setMacAddress(string $macAddress) : self
     {
         $this->macAddress = $macAddress;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -106,8 +116,9 @@ class NetworkContainer
     {
         return $this->iPv4Address;
     }
+
     /**
-     * 
+     *
      *
      * @param string $iPv4Address
      *
@@ -116,10 +127,12 @@ class NetworkContainer
     public function setIPv4Address(string $iPv4Address) : self
     {
         $this->iPv4Address = $iPv4Address;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -127,8 +140,9 @@ class NetworkContainer
     {
         return $this->iPv6Address;
     }
+
     /**
-     * 
+     *
      *
      * @param string $iPv6Address
      *
@@ -137,6 +151,7 @@ class NetworkContainer
     public function setIPv6Address(string $iPv6Address) : self
     {
         $this->iPv6Address = $iPv6Address;
+
         return $this;
     }
 }

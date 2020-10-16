@@ -5,31 +5,32 @@ namespace WeTheRed\DockerApi\Model;
 class PushImageInfo
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $error;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $status;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $progress;
     /**
-     * 
+     *
      *
      * @var ProgressDetail
      */
     protected $progressDetail;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -37,8 +38,9 @@ class PushImageInfo
     {
         return $this->error;
     }
+
     /**
-     * 
+     *
      *
      * @param string $error
      *
@@ -47,10 +49,12 @@ class PushImageInfo
     public function setError(string $error) : self
     {
         $this->error = $error;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -58,8 +62,9 @@ class PushImageInfo
     {
         return $this->status;
     }
+
     /**
-     * 
+     *
      *
      * @param string $status
      *
@@ -68,10 +73,12 @@ class PushImageInfo
     public function setStatus(string $status) : self
     {
         $this->status = $status;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -79,8 +86,9 @@ class PushImageInfo
     {
         return $this->progress;
     }
+
     /**
-     * 
+     *
      *
      * @param string $progress
      *
@@ -89,10 +97,12 @@ class PushImageInfo
     public function setProgress(string $progress) : self
     {
         $this->progress = $progress;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return ProgressDetail
      */
@@ -100,8 +110,9 @@ class PushImageInfo
     {
         return $this->progressDetail;
     }
+
     /**
-     * 
+     *
      *
      * @param ProgressDetail $progressDetail
      *
@@ -110,6 +121,7 @@ class PushImageInfo
     public function setProgressDetail(ProgressDetail $progressDetail) : self
     {
         $this->progressDetail = $progressDetail;
+
         return $this;
     }
 }

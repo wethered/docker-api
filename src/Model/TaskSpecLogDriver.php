@@ -5,19 +5,20 @@ namespace WeTheRed\DockerApi\Model;
 class TaskSpecLogDriver
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $name;
     /**
-     * 
+     *
      *
      * @var string[]
      */
     protected $options;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -25,8 +26,9 @@ class TaskSpecLogDriver
     {
         return $this->name;
     }
+
     /**
-     * 
+     *
      *
      * @param string $name
      *
@@ -35,10 +37,12 @@ class TaskSpecLogDriver
     public function setName(string $name) : self
     {
         $this->name = $name;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -46,8 +50,9 @@ class TaskSpecLogDriver
     {
         return $this->options;
     }
+
     /**
-     * 
+     *
      *
      * @param string[] $options
      *
@@ -56,6 +61,7 @@ class TaskSpecLogDriver
     public function setOptions(iterable $options) : self
     {
         $this->options = $options;
+
         return $this;
     }
 }

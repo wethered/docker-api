@@ -2,29 +2,32 @@
 
 namespace WeTheRed\DockerApi\Normalizer;
 
-use Jane\JsonSchemaRuntime\Reference;
 use Jane\JsonSchemaRuntime\Normalizer\CheckArray;
-use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Jane\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 class NetworkNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
     use CheckArray;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
         return $type === 'WeTheRed\\DockerApi\\Model\\Network';
     }
+
     public function supportsNormalization($data, $format = null)
     {
         return is_object($data) && get_class($data) === 'WeTheRed\\DockerApi\\Model\\Network';
     }
-    public function denormalize($data, $class, $format = null, array $context = array())
+
+    public function denormalize($data, $class, $format = null, array $context = [])
     {
         if (isset($data['$ref'])) {
             return new Reference($data['$ref'], $context['document-origin']);
@@ -64,31 +67,33 @@ class NetworkNormalizer implements DenormalizerInterface, NormalizerInterface, D
             $object->setIngress($data['Ingress']);
         }
         if (\array_key_exists('Containers', $data)) {
-            $values = new \ArrayObject(array(), \ArrayObject::ARRAY_AS_PROPS);
+            $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data['Containers'] as $key => $value) {
                 $values[$key] = $this->denormalizer->denormalize($value, 'WeTheRed\\DockerApi\\Model\\NetworkContainer', 'json', $context);
             }
             $object->setContainers($values);
         }
         if (\array_key_exists('Options', $data)) {
-            $values_1 = new \ArrayObject(array(), \ArrayObject::ARRAY_AS_PROPS);
+            $values_1 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data['Options'] as $key_1 => $value_1) {
                 $values_1[$key_1] = $value_1;
             }
             $object->setOptions($values_1);
         }
         if (\array_key_exists('Labels', $data)) {
-            $values_2 = new \ArrayObject(array(), \ArrayObject::ARRAY_AS_PROPS);
+            $values_2 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data['Labels'] as $key_2 => $value_2) {
                 $values_2[$key_2] = $value_2;
             }
             $object->setLabels($values_2);
         }
+
         return $object;
     }
-    public function normalize($object, $format = null, array $context = array())
+
+    public function normalize($object, $format = null, array $context = [])
     {
-        $data = array();
+        $data = [];
         if (null !== $object->getName()) {
             $data['Name'] = $object->getName();
         }
@@ -120,26 +125,27 @@ class NetworkNormalizer implements DenormalizerInterface, NormalizerInterface, D
             $data['Ingress'] = $object->getIngress();
         }
         if (null !== $object->getContainers()) {
-            $values = array();
+            $values = [];
             foreach ($object->getContainers() as $key => $value) {
                 $values[$key] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data['Containers'] = $values;
         }
         if (null !== $object->getOptions()) {
-            $values_1 = array();
+            $values_1 = [];
             foreach ($object->getOptions() as $key_1 => $value_1) {
                 $values_1[$key_1] = $value_1;
             }
             $data['Options'] = $values_1;
         }
         if (null !== $object->getLabels()) {
-            $values_2 = array();
+            $values_2 = [];
             foreach ($object->getLabels() as $key_2 => $value_2) {
                 $values_2[$key_2] = $value_2;
             }
             $data['Labels'] = $values_2;
         }
+
         return $data;
     }
 }

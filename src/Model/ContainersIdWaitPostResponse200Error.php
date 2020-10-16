@@ -10,6 +10,7 @@ class ContainersIdWaitPostResponse200Error
      * @var string
      */
     protected $message;
+
     /**
      * Details of an error
      *
@@ -19,6 +20,7 @@ class ContainersIdWaitPostResponse200Error
     {
         return $this->message;
     }
+
     /**
      * Details of an error
      *
@@ -29,6 +31,7 @@ class ContainersIdWaitPostResponse200Error
     public function setMessage(string $message) : self
     {
         $this->message = $message;
+
         return $this;
     }
 }

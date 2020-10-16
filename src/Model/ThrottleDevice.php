@@ -16,6 +16,7 @@ class ThrottleDevice
      * @var int
      */
     protected $rate;
+
     /**
      * Device path
      *
@@ -25,6 +26,7 @@ class ThrottleDevice
     {
         return $this->path;
     }
+
     /**
      * Device path
      *
@@ -35,8 +37,10 @@ class ThrottleDevice
     public function setPath(string $path) : self
     {
         $this->path = $path;
+
         return $this;
     }
+
     /**
      * Rate
      *
@@ -46,6 +50,7 @@ class ThrottleDevice
     {
         return $this->rate;
     }
+
     /**
      * Rate
      *
@@ -56,6 +61,7 @@ class ThrottleDevice
     public function setRate(int $rate) : self
     {
         $this->rate = $rate;
+
         return $this;
     }
 }

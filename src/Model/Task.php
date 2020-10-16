@@ -14,26 +14,26 @@ class Task
     * The version number of the object such as node, service, etc. This is needed
     to avoid conflicting writes. The client must send the version number along
     with the modified specification when updating these objects.
-    
+
     This approach ensures safe concurrency and determinism in that the change
     on the object may not be applied if the version number has changed from the
     last read. In other words, if two update requests specify the same base
     version, only one of the requests can succeed. As a result, two separate
     update requests that happen at the same time will not unintentionally
     overwrite each other.
-    
+
     *
     * @var ObjectVersion
     */
     protected $version;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $createdAt;
     /**
-     * 
+     *
      *
      * @var string
      */
@@ -63,7 +63,7 @@ class Task
      */
     protected $serviceID;
     /**
-     * 
+     *
      *
      * @var int
      */
@@ -77,23 +77,24 @@ class Task
     /**
     * User-defined resources can be either Integer resources (e.g, `SSD=3`) or
     String resources (e.g, `GPU=UUID1`).
-    
+
     *
     * @var GenericResourcesItem[]
     */
     protected $assignedGenericResources;
     /**
-     * 
+     *
      *
      * @var TaskStatus
      */
     protected $status;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $desiredState;
+
     /**
      * The ID of the task.
      *
@@ -103,6 +104,7 @@ class Task
     {
         return $this->iD;
     }
+
     /**
      * The ID of the task.
      *
@@ -113,20 +115,22 @@ class Task
     public function setID(string $iD) : self
     {
         $this->iD = $iD;
+
         return $this;
     }
+
     /**
     * The version number of the object such as node, service, etc. This is needed
     to avoid conflicting writes. The client must send the version number along
     with the modified specification when updating these objects.
-    
+
     This approach ensures safe concurrency and determinism in that the change
     on the object may not be applied if the version number has changed from the
     last read. In other words, if two update requests specify the same base
     version, only one of the requests can succeed. As a result, two separate
     update requests that happen at the same time will not unintentionally
     overwrite each other.
-    
+
     *
     * @return ObjectVersion
     */
@@ -134,18 +138,19 @@ class Task
     {
         return $this->version;
     }
+
     /**
     * The version number of the object such as node, service, etc. This is needed
     to avoid conflicting writes. The client must send the version number along
     with the modified specification when updating these objects.
-    
+
     This approach ensures safe concurrency and determinism in that the change
     on the object may not be applied if the version number has changed from the
     last read. In other words, if two update requests specify the same base
     version, only one of the requests can succeed. As a result, two separate
     update requests that happen at the same time will not unintentionally
     overwrite each other.
-    
+
     *
     * @param ObjectVersion $version
     *
@@ -154,10 +159,12 @@ class Task
     public function setVersion(ObjectVersion $version) : self
     {
         $this->version = $version;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -165,8 +172,9 @@ class Task
     {
         return $this->createdAt;
     }
+
     /**
-     * 
+     *
      *
      * @param string $createdAt
      *
@@ -175,10 +183,12 @@ class Task
     public function setCreatedAt(string $createdAt) : self
     {
         $this->createdAt = $createdAt;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -186,8 +196,9 @@ class Task
     {
         return $this->updatedAt;
     }
+
     /**
-     * 
+     *
      *
      * @param string $updatedAt
      *
@@ -196,8 +207,10 @@ class Task
     public function setUpdatedAt(string $updatedAt) : self
     {
         $this->updatedAt = $updatedAt;
+
         return $this;
     }
+
     /**
      * Name of the task.
      *
@@ -207,6 +220,7 @@ class Task
     {
         return $this->name;
     }
+
     /**
      * Name of the task.
      *
@@ -217,8 +231,10 @@ class Task
     public function setName(string $name) : self
     {
         $this->name = $name;
+
         return $this;
     }
+
     /**
      * User-defined key/value metadata.
      *
@@ -228,6 +244,7 @@ class Task
     {
         return $this->labels;
     }
+
     /**
      * User-defined key/value metadata.
      *
@@ -238,8 +255,10 @@ class Task
     public function setLabels(iterable $labels) : self
     {
         $this->labels = $labels;
+
         return $this;
     }
+
     /**
      * User modifiable task configuration.
      *
@@ -249,6 +268,7 @@ class Task
     {
         return $this->spec;
     }
+
     /**
      * User modifiable task configuration.
      *
@@ -259,8 +279,10 @@ class Task
     public function setSpec(TaskSpec $spec) : self
     {
         $this->spec = $spec;
+
         return $this;
     }
+
     /**
      * The ID of the service this task is part of.
      *
@@ -270,6 +292,7 @@ class Task
     {
         return $this->serviceID;
     }
+
     /**
      * The ID of the service this task is part of.
      *
@@ -280,10 +303,12 @@ class Task
     public function setServiceID(string $serviceID) : self
     {
         $this->serviceID = $serviceID;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -291,8 +316,9 @@ class Task
     {
         return $this->slot;
     }
+
     /**
-     * 
+     *
      *
      * @param int $slot
      *
@@ -301,8 +327,10 @@ class Task
     public function setSlot(int $slot) : self
     {
         $this->slot = $slot;
+
         return $this;
     }
+
     /**
      * The ID of the node that this task is on.
      *
@@ -312,6 +340,7 @@ class Task
     {
         return $this->nodeID;
     }
+
     /**
      * The ID of the node that this task is on.
      *
@@ -322,12 +351,14 @@ class Task
     public function setNodeID(string $nodeID) : self
     {
         $this->nodeID = $nodeID;
+
         return $this;
     }
+
     /**
     * User-defined resources can be either Integer resources (e.g, `SSD=3`) or
     String resources (e.g, `GPU=UUID1`).
-    
+
     *
     * @return GenericResourcesItem[]
     */
@@ -335,10 +366,11 @@ class Task
     {
         return $this->assignedGenericResources;
     }
+
     /**
     * User-defined resources can be either Integer resources (e.g, `SSD=3`) or
     String resources (e.g, `GPU=UUID1`).
-    
+
     *
     * @param GenericResourcesItem[] $assignedGenericResources
     *
@@ -347,10 +379,12 @@ class Task
     public function setAssignedGenericResources(array $assignedGenericResources) : self
     {
         $this->assignedGenericResources = $assignedGenericResources;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return TaskStatus
      */
@@ -358,8 +392,9 @@ class Task
     {
         return $this->status;
     }
+
     /**
-     * 
+     *
      *
      * @param TaskStatus $status
      *
@@ -368,10 +403,12 @@ class Task
     public function setStatus(TaskStatus $status) : self
     {
         $this->status = $status;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -379,8 +416,9 @@ class Task
     {
         return $this->desiredState;
     }
+
     /**
-     * 
+     *
      *
      * @param string $desiredState
      *
@@ -389,6 +427,7 @@ class Task
     public function setDesiredState(string $desiredState) : self
     {
         $this->desiredState = $desiredState;
+
         return $this;
     }
 }

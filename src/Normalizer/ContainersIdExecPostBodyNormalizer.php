@@ -2,29 +2,32 @@
 
 namespace WeTheRed\DockerApi\Normalizer;
 
-use Jane\JsonSchemaRuntime\Reference;
 use Jane\JsonSchemaRuntime\Normalizer\CheckArray;
-use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Jane\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 class ContainersIdExecPostBodyNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
     use CheckArray;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
         return $type === 'WeTheRed\\DockerApi\\Model\\ContainersIdExecPostBody';
     }
+
     public function supportsNormalization($data, $format = null)
     {
         return is_object($data) && get_class($data) === 'WeTheRed\\DockerApi\\Model\\ContainersIdExecPostBody';
     }
-    public function denormalize($data, $class, $format = null, array $context = array())
+
+    public function denormalize($data, $class, $format = null, array $context = [])
     {
         if (isset($data['$ref'])) {
             return new Reference($data['$ref'], $context['document-origin']);
@@ -49,14 +52,14 @@ class ContainersIdExecPostBodyNormalizer implements DenormalizerInterface, Norma
             $object->setTty($data['Tty']);
         }
         if (\array_key_exists('Env', $data)) {
-            $values = array();
+            $values = [];
             foreach ($data['Env'] as $value) {
                 $values[] = $value;
             }
             $object->setEnv($values);
         }
         if (\array_key_exists('Cmd', $data)) {
-            $values_1 = array();
+            $values_1 = [];
             foreach ($data['Cmd'] as $value_1) {
                 $values_1[] = $value_1;
             }
@@ -71,11 +74,13 @@ class ContainersIdExecPostBodyNormalizer implements DenormalizerInterface, Norma
         if (\array_key_exists('WorkingDir', $data)) {
             $object->setWorkingDir($data['WorkingDir']);
         }
+
         return $object;
     }
-    public function normalize($object, $format = null, array $context = array())
+
+    public function normalize($object, $format = null, array $context = [])
     {
-        $data = array();
+        $data = [];
         if (null !== $object->getAttachStdin()) {
             $data['AttachStdin'] = $object->getAttachStdin();
         }
@@ -92,14 +97,14 @@ class ContainersIdExecPostBodyNormalizer implements DenormalizerInterface, Norma
             $data['Tty'] = $object->getTty();
         }
         if (null !== $object->getEnv()) {
-            $values = array();
+            $values = [];
             foreach ($object->getEnv() as $value) {
                 $values[] = $value;
             }
             $data['Env'] = $values;
         }
         if (null !== $object->getCmd()) {
-            $values_1 = array();
+            $values_1 = [];
             foreach ($object->getCmd() as $value_1) {
                 $values_1[] = $value_1;
             }
@@ -114,6 +119,7 @@ class ContainersIdExecPostBodyNormalizer implements DenormalizerInterface, Norma
         if (null !== $object->getWorkingDir()) {
             $data['WorkingDir'] = $object->getWorkingDir();
         }
+
         return $data;
     }
 }

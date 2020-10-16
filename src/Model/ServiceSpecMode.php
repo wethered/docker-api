@@ -5,19 +5,20 @@ namespace WeTheRed\DockerApi\Model;
 class ServiceSpecMode
 {
     /**
-     * 
+     *
      *
      * @var ServiceSpecModeReplicated
      */
     protected $replicated;
     /**
-     * 
+     *
      *
      * @var mixed
      */
     protected $global;
+
     /**
-     * 
+     *
      *
      * @return ServiceSpecModeReplicated
      */
@@ -25,8 +26,9 @@ class ServiceSpecMode
     {
         return $this->replicated;
     }
+
     /**
-     * 
+     *
      *
      * @param ServiceSpecModeReplicated $replicated
      *
@@ -35,10 +37,12 @@ class ServiceSpecMode
     public function setReplicated(ServiceSpecModeReplicated $replicated) : self
     {
         $this->replicated = $replicated;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return mixed
      */
@@ -46,8 +50,9 @@ class ServiceSpecMode
     {
         return $this->global;
     }
+
     /**
-     * 
+     *
      *
      * @param mixed $global
      *
@@ -56,6 +61,7 @@ class ServiceSpecMode
     public function setGlobal($global) : self
     {
         $this->global = $global;
+
         return $this;
     }
 }

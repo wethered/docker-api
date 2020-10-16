@@ -28,6 +28,7 @@ class NodeSpec
      * @var string
      */
     protected $availability;
+
     /**
      * Name for the node.
      *
@@ -37,6 +38,7 @@ class NodeSpec
     {
         return $this->name;
     }
+
     /**
      * Name for the node.
      *
@@ -47,8 +49,10 @@ class NodeSpec
     public function setName(string $name) : self
     {
         $this->name = $name;
+
         return $this;
     }
+
     /**
      * User-defined key/value metadata.
      *
@@ -58,6 +62,7 @@ class NodeSpec
     {
         return $this->labels;
     }
+
     /**
      * User-defined key/value metadata.
      *
@@ -68,8 +73,10 @@ class NodeSpec
     public function setLabels(iterable $labels) : self
     {
         $this->labels = $labels;
+
         return $this;
     }
+
     /**
      * Role of the node.
      *
@@ -79,6 +86,7 @@ class NodeSpec
     {
         return $this->role;
     }
+
     /**
      * Role of the node.
      *
@@ -89,8 +97,10 @@ class NodeSpec
     public function setRole(string $role) : self
     {
         $this->role = $role;
+
         return $this;
     }
+
     /**
      * Availability of the node.
      *
@@ -100,6 +110,7 @@ class NodeSpec
     {
         return $this->availability;
     }
+
     /**
      * Availability of the node.
      *
@@ -110,6 +121,7 @@ class NodeSpec
     public function setAvailability(string $availability) : self
     {
         $this->availability = $availability;
+
         return $this;
     }
 }

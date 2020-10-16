@@ -16,6 +16,7 @@ class EventsGetResponse200Actor
      * @var string[]
      */
     protected $attributes;
+
     /**
      * The ID of the object emitting the event
      *
@@ -25,6 +26,7 @@ class EventsGetResponse200Actor
     {
         return $this->iD;
     }
+
     /**
      * The ID of the object emitting the event
      *
@@ -35,8 +37,10 @@ class EventsGetResponse200Actor
     public function setID(string $iD) : self
     {
         $this->iD = $iD;
+
         return $this;
     }
+
     /**
      * Various key/value attributes of the object, depending on its type
      *
@@ -46,6 +50,7 @@ class EventsGetResponse200Actor
     {
         return $this->attributes;
     }
+
     /**
      * Various key/value attributes of the object, depending on its type
      *
@@ -56,6 +61,7 @@ class EventsGetResponse200Actor
     public function setAttributes(iterable $attributes) : self
     {
         $this->attributes = $attributes;
+
         return $this;
     }
 }

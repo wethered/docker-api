@@ -16,6 +16,7 @@ class ServicesCreatePostResponse201
      * @var string
      */
     protected $warning;
+
     /**
      * The ID of the created service.
      *
@@ -25,6 +26,7 @@ class ServicesCreatePostResponse201
     {
         return $this->iD;
     }
+
     /**
      * The ID of the created service.
      *
@@ -35,8 +37,10 @@ class ServicesCreatePostResponse201
     public function setID(string $iD) : self
     {
         $this->iD = $iD;
+
         return $this;
     }
+
     /**
      * Optional warning message
      *
@@ -46,6 +50,7 @@ class ServicesCreatePostResponse201
     {
         return $this->warning;
     }
+
     /**
      * Optional warning message
      *
@@ -56,6 +61,7 @@ class ServicesCreatePostResponse201
     public function setWarning(string $warning) : self
     {
         $this->warning = $warning;
+
         return $this;
     }
 }

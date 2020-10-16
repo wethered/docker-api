@@ -5,13 +5,14 @@ namespace WeTheRed\DockerApi\Model;
 class ContainerSummaryItemHostConfig
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $networkMode;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -19,8 +20,9 @@ class ContainerSummaryItemHostConfig
     {
         return $this->networkMode;
     }
+
     /**
-     * 
+     *
      *
      * @param string $networkMode
      *
@@ -29,6 +31,7 @@ class ContainerSummaryItemHostConfig
     public function setNetworkMode(string $networkMode) : self
     {
         $this->networkMode = $networkMode;
+
         return $this;
     }
 }

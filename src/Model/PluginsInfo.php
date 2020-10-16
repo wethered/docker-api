@@ -28,6 +28,7 @@ class PluginsInfo
      * @var string[]
      */
     protected $log;
+
     /**
      * Names of available volume-drivers, and network-driver plugins.
      *
@@ -37,6 +38,7 @@ class PluginsInfo
     {
         return $this->volume;
     }
+
     /**
      * Names of available volume-drivers, and network-driver plugins.
      *
@@ -47,8 +49,10 @@ class PluginsInfo
     public function setVolume(array $volume) : self
     {
         $this->volume = $volume;
+
         return $this;
     }
+
     /**
      * Names of available network-drivers, and network-driver plugins.
      *
@@ -58,6 +62,7 @@ class PluginsInfo
     {
         return $this->network;
     }
+
     /**
      * Names of available network-drivers, and network-driver plugins.
      *
@@ -68,8 +73,10 @@ class PluginsInfo
     public function setNetwork(array $network) : self
     {
         $this->network = $network;
+
         return $this;
     }
+
     /**
      * Names of available authorization plugins.
      *
@@ -79,6 +86,7 @@ class PluginsInfo
     {
         return $this->authorization;
     }
+
     /**
      * Names of available authorization plugins.
      *
@@ -89,8 +97,10 @@ class PluginsInfo
     public function setAuthorization(array $authorization) : self
     {
         $this->authorization = $authorization;
+
         return $this;
     }
+
     /**
      * Names of available logging-drivers, and logging-driver plugins.
      *
@@ -100,6 +110,7 @@ class PluginsInfo
     {
         return $this->log;
     }
+
     /**
      * Names of available logging-drivers, and logging-driver plugins.
      *
@@ -110,6 +121,7 @@ class PluginsInfo
     public function setLog(array $log) : self
     {
         $this->log = $log;
+
         return $this;
     }
 }

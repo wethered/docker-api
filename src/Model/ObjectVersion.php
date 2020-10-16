@@ -5,13 +5,14 @@ namespace WeTheRed\DockerApi\Model;
 class ObjectVersion
 {
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $index;
+
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -19,8 +20,9 @@ class ObjectVersion
     {
         return $this->index;
     }
+
     /**
-     * 
+     *
      *
      * @param int $index
      *
@@ -29,6 +31,7 @@ class ObjectVersion
     public function setIndex(int $index) : self
     {
         $this->index = $index;
+
         return $this;
     }
 }

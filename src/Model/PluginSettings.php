@@ -5,31 +5,32 @@ namespace WeTheRed\DockerApi\Model;
 class PluginSettings
 {
     /**
-     * 
+     *
      *
      * @var PluginMount[]
      */
     protected $mounts;
     /**
-     * 
+     *
      *
      * @var string[]
      */
     protected $env;
     /**
-     * 
+     *
      *
      * @var string[]
      */
     protected $args;
     /**
-     * 
+     *
      *
      * @var PluginDevice[]
      */
     protected $devices;
+
     /**
-     * 
+     *
      *
      * @return PluginMount[]
      */
@@ -37,8 +38,9 @@ class PluginSettings
     {
         return $this->mounts;
     }
+
     /**
-     * 
+     *
      *
      * @param PluginMount[] $mounts
      *
@@ -47,10 +49,12 @@ class PluginSettings
     public function setMounts(array $mounts) : self
     {
         $this->mounts = $mounts;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -58,8 +62,9 @@ class PluginSettings
     {
         return $this->env;
     }
+
     /**
-     * 
+     *
      *
      * @param string[] $env
      *
@@ -68,10 +73,12 @@ class PluginSettings
     public function setEnv(array $env) : self
     {
         $this->env = $env;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -79,8 +86,9 @@ class PluginSettings
     {
         return $this->args;
     }
+
     /**
-     * 
+     *
      *
      * @param string[] $args
      *
@@ -89,10 +97,12 @@ class PluginSettings
     public function setArgs(array $args) : self
     {
         $this->args = $args;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return PluginDevice[]
      */
@@ -100,8 +110,9 @@ class PluginSettings
     {
         return $this->devices;
     }
+
     /**
-     * 
+     *
      *
      * @param PluginDevice[] $devices
      *
@@ -110,6 +121,7 @@ class PluginSettings
     public function setDevices(array $devices) : self
     {
         $this->devices = $devices;
+
         return $this;
     }
 }

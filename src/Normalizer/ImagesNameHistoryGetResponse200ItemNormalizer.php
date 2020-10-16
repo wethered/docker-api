@@ -2,29 +2,32 @@
 
 namespace WeTheRed\DockerApi\Normalizer;
 
-use Jane\JsonSchemaRuntime\Reference;
 use Jane\JsonSchemaRuntime\Normalizer\CheckArray;
-use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Jane\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 class ImagesNameHistoryGetResponse200ItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
     use CheckArray;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
         return $type === 'WeTheRed\\DockerApi\\Model\\ImagesNameHistoryGetResponse200Item';
     }
+
     public function supportsNormalization($data, $format = null)
     {
         return is_object($data) && get_class($data) === 'WeTheRed\\DockerApi\\Model\\ImagesNameHistoryGetResponse200Item';
     }
-    public function denormalize($data, $class, $format = null, array $context = array())
+
+    public function denormalize($data, $class, $format = null, array $context = [])
     {
         if (isset($data['$ref'])) {
             return new Reference($data['$ref'], $context['document-origin']);
@@ -43,7 +46,7 @@ class ImagesNameHistoryGetResponse200ItemNormalizer implements DenormalizerInter
             $object->setCreatedBy($data['CreatedBy']);
         }
         if (\array_key_exists('Tags', $data)) {
-            $values = array();
+            $values = [];
             foreach ($data['Tags'] as $value) {
                 $values[] = $value;
             }
@@ -55,11 +58,13 @@ class ImagesNameHistoryGetResponse200ItemNormalizer implements DenormalizerInter
         if (\array_key_exists('Comment', $data)) {
             $object->setComment($data['Comment']);
         }
+
         return $object;
     }
-    public function normalize($object, $format = null, array $context = array())
+
+    public function normalize($object, $format = null, array $context = [])
     {
-        $data = array();
+        $data = [];
         if (null !== $object->getId()) {
             $data['Id'] = $object->getId();
         }
@@ -70,7 +75,7 @@ class ImagesNameHistoryGetResponse200ItemNormalizer implements DenormalizerInter
             $data['CreatedBy'] = $object->getCreatedBy();
         }
         if (null !== $object->getTags()) {
-            $values = array();
+            $values = [];
             foreach ($object->getTags() as $value) {
                 $values[] = $value;
             }
@@ -82,6 +87,7 @@ class ImagesNameHistoryGetResponse200ItemNormalizer implements DenormalizerInter
         if (null !== $object->getComment()) {
             $data['Comment'] = $object->getComment();
         }
+
         return $data;
     }
 }

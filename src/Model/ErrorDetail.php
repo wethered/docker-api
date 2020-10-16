@@ -5,19 +5,20 @@ namespace WeTheRed\DockerApi\Model;
 class ErrorDetail
 {
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $code;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $message;
+
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -25,8 +26,9 @@ class ErrorDetail
     {
         return $this->code;
     }
+
     /**
-     * 
+     *
      *
      * @param int $code
      *
@@ -35,10 +37,12 @@ class ErrorDetail
     public function setCode(int $code) : self
     {
         $this->code = $code;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -46,8 +50,9 @@ class ErrorDetail
     {
         return $this->message;
     }
+
     /**
-     * 
+     *
      *
      * @param string $message
      *
@@ -56,6 +61,7 @@ class ErrorDetail
     public function setMessage(string $message) : self
     {
         $this->message = $message;
+
         return $this;
     }
 }
