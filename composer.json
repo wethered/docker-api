@@ -11,26 +11,28 @@
         {
             "name": "Kadir Yamamoto",
             "email": "me@yamakadi.com",
-            "homepage": "https://spatie.be",
+            "homepage": "https://wethe.red",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^7.4"
+        "php": "^7.4",
+        "jane-php/open-api-runtime": "~6.1.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",
+        "jane-php/open-api-2": "~6.1.0",
         "phpunit/phpunit": "^9.3",
         "vimeo/psalm": "^3.11"
     },
     "autoload": {
         "psr-4": {
-            "Wethered\\DockerApi\\": "src"
+            "WeTheRed\\DockerApi\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Wethered\\DockerApi\\Tests\\": "tests"
+            "WeTheRed\\DockerApi\\Tests\\": "tests"
         }
     },
     "scripts": {

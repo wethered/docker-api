@@ -1,6 +1,6 @@
 <?php
 
-namespace Wethered\DockerApi\Tests;
+namespace WeTheRed\DockerApi\Tests;
 
 use PHPUnit\Framework\TestCase;
 

@@ -18,8 +18,8 @@ composer require wethered/docker-api
 ## Usage
 
 ``` php
-$skeleton = new Wethered\DockerApi();
-echo $skeleton->echoPhrase('Hello, Wethered!');
+$skeleton = new WeTheRed\DockerApi();
+echo $skeleton->echoPhrase('Hello, WeTheRed!');
 ```
 
 ## Testing
