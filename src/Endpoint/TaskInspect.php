@@ -5,8 +5,9 @@ namespace WeTheRed\DockerApi\Endpoint;
 class TaskInspect extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Endpoint
 {
     protected $id;
+
     /**
-     * 
+     *
      *
      * @param string $id ID of the task
      */
@@ -14,23 +15,29 @@ class TaskInspect extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     {
         $this->id = $id;
     }
+
     use \Jane\OpenApiRuntime\Client\EndpointTrait;
+
     public function getMethod() : string
     {
         return 'GET';
     }
+
     public function getUri() : string
     {
-        return str_replace(array('{id}'), array($this->id), '/tasks/{id}');
+        return str_replace(['{id}'], [$this->id], '/tasks/{id}');
     }
+
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
-        return array(array(), null);
+        return [[], null];
     }
+
     public function getExtraHeaders() : array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
+
     /**
      * {@inheritdoc}
      *
@@ -55,8 +62,9 @@ class TaskInspect extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
             throw new \WeTheRed\DockerApi\Exception\TaskInspectServiceUnavailableException($serializer->deserialize($body, 'WeTheRed\\DockerApi\\Model\\ErrorResponse', 'json'));
         }
     }
+
     public function getAuthenticationScopes() : array
     {
-        return array();
+        return [];
     }
 }

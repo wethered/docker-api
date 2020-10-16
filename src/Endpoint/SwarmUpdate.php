@@ -5,52 +5,60 @@ namespace WeTheRed\DockerApi\Endpoint;
 class SwarmUpdate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Endpoint
 {
     /**
-    * 
     *
-    * @param \WeTheRed\DockerApi\Model\SwarmSpec $body 
+    *
+    * @param \WeTheRed\DockerApi\Model\SwarmSpec $body
     * @param array $queryParameters {
     *     @var int $version The version number of the swarm object being updated. This is
     required to avoid conflicting writes.
-    
+
     *     @var bool $rotateWorkerToken Rotate the worker join token.
     *     @var bool $rotateManagerToken Rotate the manager join token.
     *     @var bool $rotateManagerUnlockKey Rotate the manager unlock key.
     * }
     */
-    public function __construct(\WeTheRed\DockerApi\Model\SwarmSpec $body, array $queryParameters = array())
+    public function __construct(\WeTheRed\DockerApi\Model\SwarmSpec $body, array $queryParameters = [])
     {
         $this->body = $body;
         $this->queryParameters = $queryParameters;
     }
+
     use \Jane\OpenApiRuntime\Client\EndpointTrait;
+
     public function getMethod() : string
     {
         return 'POST';
     }
+
     public function getUri() : string
     {
         return '/swarm/update';
     }
+
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
         return $this->getSerializedBody($serializer);
     }
+
     public function getExtraHeaders() : array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
+
     protected function getQueryOptionsResolver() : \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(array('version', 'rotateWorkerToken', 'rotateManagerToken', 'rotateManagerUnlockKey'));
-        $optionsResolver->setRequired(array('version'));
-        $optionsResolver->setDefaults(array('rotateWorkerToken' => false, 'rotateManagerToken' => false, 'rotateManagerUnlockKey' => false));
-        $optionsResolver->setAllowedTypes('version', array('int'));
-        $optionsResolver->setAllowedTypes('rotateWorkerToken', array('bool'));
-        $optionsResolver->setAllowedTypes('rotateManagerToken', array('bool'));
-        $optionsResolver->setAllowedTypes('rotateManagerUnlockKey', array('bool'));
+        $optionsResolver->setDefined(['version', 'rotateWorkerToken', 'rotateManagerToken', 'rotateManagerUnlockKey']);
+        $optionsResolver->setRequired(['version']);
+        $optionsResolver->setDefaults(['rotateWorkerToken' => false, 'rotateManagerToken' => false, 'rotateManagerUnlockKey' => false]);
+        $optionsResolver->setAllowedTypes('version', ['int']);
+        $optionsResolver->setAllowedTypes('rotateWorkerToken', ['bool']);
+        $optionsResolver->setAllowedTypes('rotateManagerToken', ['bool']);
+        $optionsResolver->setAllowedTypes('rotateManagerUnlockKey', ['bool']);
+
         return $optionsResolver;
     }
+
     /**
      * {@inheritdoc}
      *
@@ -75,8 +83,9 @@ class SwarmUpdate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
             throw new \WeTheRed\DockerApi\Exception\SwarmUpdateServiceUnavailableException($serializer->deserialize($body, 'WeTheRed\\DockerApi\\Model\\ErrorResponse', 'json'));
         }
     }
+
     public function getAuthenticationScopes() : array
     {
-        return array();
+        return [];
     }
 }

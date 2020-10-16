@@ -10,6 +10,7 @@ class TaskSpecPlacementPreferencesItemSpread
      * @var string
      */
     protected $spreadDescriptor;
+
     /**
      * label descriptor, such as `engine.labels.az`.
      *
@@ -19,6 +20,7 @@ class TaskSpecPlacementPreferencesItemSpread
     {
         return $this->spreadDescriptor;
     }
+
     /**
      * label descriptor, such as `engine.labels.az`.
      *
@@ -29,6 +31,7 @@ class TaskSpecPlacementPreferencesItemSpread
     public function setSpreadDescriptor(string $spreadDescriptor) : self
     {
         $this->spreadDescriptor = $spreadDescriptor;
+
         return $this;
     }
 }

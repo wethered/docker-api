@@ -2,29 +2,32 @@
 
 namespace WeTheRed\DockerApi\Normalizer;
 
-use Jane\JsonSchemaRuntime\Reference;
 use Jane\JsonSchemaRuntime\Normalizer\CheckArray;
-use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Jane\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 class TaskNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
     use CheckArray;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
         return $type === 'WeTheRed\\DockerApi\\Model\\Task';
     }
+
     public function supportsNormalization($data, $format = null)
     {
         return is_object($data) && get_class($data) === 'WeTheRed\\DockerApi\\Model\\Task';
     }
-    public function denormalize($data, $class, $format = null, array $context = array())
+
+    public function denormalize($data, $class, $format = null, array $context = [])
     {
         if (isset($data['$ref'])) {
             return new Reference($data['$ref'], $context['document-origin']);
@@ -49,7 +52,7 @@ class TaskNormalizer implements DenormalizerInterface, NormalizerInterface, Deno
             $object->setName($data['Name']);
         }
         if (\array_key_exists('Labels', $data)) {
-            $values = new \ArrayObject(array(), \ArrayObject::ARRAY_AS_PROPS);
+            $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data['Labels'] as $key => $value) {
                 $values[$key] = $value;
             }
@@ -68,7 +71,7 @@ class TaskNormalizer implements DenormalizerInterface, NormalizerInterface, Deno
             $object->setNodeID($data['NodeID']);
         }
         if (\array_key_exists('AssignedGenericResources', $data)) {
-            $values_1 = array();
+            $values_1 = [];
             foreach ($data['AssignedGenericResources'] as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, 'WeTheRed\\DockerApi\\Model\\GenericResourcesItem', 'json', $context);
             }
@@ -80,11 +83,13 @@ class TaskNormalizer implements DenormalizerInterface, NormalizerInterface, Deno
         if (\array_key_exists('DesiredState', $data)) {
             $object->setDesiredState($data['DesiredState']);
         }
+
         return $object;
     }
-    public function normalize($object, $format = null, array $context = array())
+
+    public function normalize($object, $format = null, array $context = [])
     {
-        $data = array();
+        $data = [];
         if (null !== $object->getID()) {
             $data['ID'] = $object->getID();
         }
@@ -101,7 +106,7 @@ class TaskNormalizer implements DenormalizerInterface, NormalizerInterface, Deno
             $data['Name'] = $object->getName();
         }
         if (null !== $object->getLabels()) {
-            $values = array();
+            $values = [];
             foreach ($object->getLabels() as $key => $value) {
                 $values[$key] = $value;
             }
@@ -120,7 +125,7 @@ class TaskNormalizer implements DenormalizerInterface, NormalizerInterface, Deno
             $data['NodeID'] = $object->getNodeID();
         }
         if (null !== $object->getAssignedGenericResources()) {
-            $values_1 = array();
+            $values_1 = [];
             foreach ($object->getAssignedGenericResources() as $value_1) {
                 $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
@@ -132,6 +137,7 @@ class TaskNormalizer implements DenormalizerInterface, NormalizerInterface, Deno
         if (null !== $object->getDesiredState()) {
             $data['DesiredState'] = $object->getDesiredState();
         }
+
         return $data;
     }
 }

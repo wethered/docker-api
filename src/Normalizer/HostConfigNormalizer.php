@@ -2,29 +2,32 @@
 
 namespace WeTheRed\DockerApi\Normalizer;
 
-use Jane\JsonSchemaRuntime\Reference;
 use Jane\JsonSchemaRuntime\Normalizer\CheckArray;
-use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Jane\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 class HostConfigNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
     use CheckArray;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
         return $type === 'WeTheRed\\DockerApi\\Model\\HostConfig';
     }
+
     public function supportsNormalization($data, $format = null)
     {
         return is_object($data) && get_class($data) === 'WeTheRed\\DockerApi\\Model\\HostConfig';
     }
-    public function denormalize($data, $class, $format = null, array $context = array())
+
+    public function denormalize($data, $class, $format = null, array $context = [])
     {
         if (isset($data['$ref'])) {
             return new Reference($data['$ref'], $context['document-origin']);
@@ -46,35 +49,35 @@ class HostConfigNormalizer implements DenormalizerInterface, NormalizerInterface
             $object->setBlkioWeight($data['BlkioWeight']);
         }
         if (\array_key_exists('BlkioWeightDevice', $data)) {
-            $values = array();
+            $values = [];
             foreach ($data['BlkioWeightDevice'] as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'WeTheRed\\DockerApi\\Model\\ResourcesBlkioWeightDeviceItem', 'json', $context);
             }
             $object->setBlkioWeightDevice($values);
         }
         if (\array_key_exists('BlkioDeviceReadBps', $data)) {
-            $values_1 = array();
+            $values_1 = [];
             foreach ($data['BlkioDeviceReadBps'] as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, 'WeTheRed\\DockerApi\\Model\\ThrottleDevice', 'json', $context);
             }
             $object->setBlkioDeviceReadBps($values_1);
         }
         if (\array_key_exists('BlkioDeviceWriteBps', $data)) {
-            $values_2 = array();
+            $values_2 = [];
             foreach ($data['BlkioDeviceWriteBps'] as $value_2) {
                 $values_2[] = $this->denormalizer->denormalize($value_2, 'WeTheRed\\DockerApi\\Model\\ThrottleDevice', 'json', $context);
             }
             $object->setBlkioDeviceWriteBps($values_2);
         }
         if (\array_key_exists('BlkioDeviceReadIOps', $data)) {
-            $values_3 = array();
+            $values_3 = [];
             foreach ($data['BlkioDeviceReadIOps'] as $value_3) {
                 $values_3[] = $this->denormalizer->denormalize($value_3, 'WeTheRed\\DockerApi\\Model\\ThrottleDevice', 'json', $context);
             }
             $object->setBlkioDeviceReadIOps($values_3);
         }
         if (\array_key_exists('BlkioDeviceWriteIOps', $data)) {
-            $values_4 = array();
+            $values_4 = [];
             foreach ($data['BlkioDeviceWriteIOps'] as $value_4) {
                 $values_4[] = $this->denormalizer->denormalize($value_4, 'WeTheRed\\DockerApi\\Model\\ThrottleDevice', 'json', $context);
             }
@@ -99,21 +102,21 @@ class HostConfigNormalizer implements DenormalizerInterface, NormalizerInterface
             $object->setCpusetMems($data['CpusetMems']);
         }
         if (\array_key_exists('Devices', $data)) {
-            $values_5 = array();
+            $values_5 = [];
             foreach ($data['Devices'] as $value_5) {
                 $values_5[] = $this->denormalizer->denormalize($value_5, 'WeTheRed\\DockerApi\\Model\\DeviceMapping', 'json', $context);
             }
             $object->setDevices($values_5);
         }
         if (\array_key_exists('DeviceCgroupRules', $data)) {
-            $values_6 = array();
+            $values_6 = [];
             foreach ($data['DeviceCgroupRules'] as $value_6) {
                 $values_6[] = $value_6;
             }
             $object->setDeviceCgroupRules($values_6);
         }
         if (\array_key_exists('DeviceRequests', $data)) {
-            $values_7 = array();
+            $values_7 = [];
             foreach ($data['DeviceRequests'] as $value_7) {
                 $values_7[] = $this->denormalizer->denormalize($value_7, 'WeTheRed\\DockerApi\\Model\\DeviceRequest', 'json', $context);
             }
@@ -142,18 +145,16 @@ class HostConfigNormalizer implements DenormalizerInterface, NormalizerInterface
         }
         if (\array_key_exists('Init', $data) && $data['Init'] !== null) {
             $object->setInit($data['Init']);
-        }
-        elseif (\array_key_exists('Init', $data) && $data['Init'] === null) {
+        } elseif (\array_key_exists('Init', $data) && $data['Init'] === null) {
             $object->setInit(null);
         }
         if (\array_key_exists('PidsLimit', $data) && $data['PidsLimit'] !== null) {
             $object->setPidsLimit($data['PidsLimit']);
-        }
-        elseif (\array_key_exists('PidsLimit', $data) && $data['PidsLimit'] === null) {
+        } elseif (\array_key_exists('PidsLimit', $data) && $data['PidsLimit'] === null) {
             $object->setPidsLimit(null);
         }
         if (\array_key_exists('Ulimits', $data)) {
-            $values_8 = array();
+            $values_8 = [];
             foreach ($data['Ulimits'] as $value_8) {
                 $values_8[] = $this->denormalizer->denormalize($value_8, 'WeTheRed\\DockerApi\\Model\\ResourcesUlimitsItem', 'json', $context);
             }
@@ -172,7 +173,7 @@ class HostConfigNormalizer implements DenormalizerInterface, NormalizerInterface
             $object->setIOMaximumBandwidth($data['IOMaximumBandwidth']);
         }
         if (\array_key_exists('Binds', $data)) {
-            $values_9 = array();
+            $values_9 = [];
             foreach ($data['Binds'] as $value_9) {
                 $values_9[] = $value_9;
             }
@@ -188,9 +189,9 @@ class HostConfigNormalizer implements DenormalizerInterface, NormalizerInterface
             $object->setNetworkMode($data['NetworkMode']);
         }
         if (\array_key_exists('PortBindings', $data)) {
-            $values_10 = new \ArrayObject(array(), \ArrayObject::ARRAY_AS_PROPS);
+            $values_10 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data['PortBindings'] as $key => $value_10) {
-                $values_11 = array();
+                $values_11 = [];
                 foreach ($value_10 as $value_11) {
                     $values_11[] = $this->denormalizer->denormalize($value_11, 'WeTheRed\\DockerApi\\Model\\PortBinding', 'json', $context);
                 }
@@ -208,70 +209,70 @@ class HostConfigNormalizer implements DenormalizerInterface, NormalizerInterface
             $object->setVolumeDriver($data['VolumeDriver']);
         }
         if (\array_key_exists('VolumesFrom', $data)) {
-            $values_12 = array();
+            $values_12 = [];
             foreach ($data['VolumesFrom'] as $value_12) {
                 $values_12[] = $value_12;
             }
             $object->setVolumesFrom($values_12);
         }
         if (\array_key_exists('Mounts', $data)) {
-            $values_13 = array();
+            $values_13 = [];
             foreach ($data['Mounts'] as $value_13) {
                 $values_13[] = $this->denormalizer->denormalize($value_13, 'WeTheRed\\DockerApi\\Model\\Mount', 'json', $context);
             }
             $object->setMounts($values_13);
         }
         if (\array_key_exists('Capabilities', $data)) {
-            $values_14 = array();
+            $values_14 = [];
             foreach ($data['Capabilities'] as $value_14) {
                 $values_14[] = $value_14;
             }
             $object->setCapabilities($values_14);
         }
         if (\array_key_exists('CapAdd', $data)) {
-            $values_15 = array();
+            $values_15 = [];
             foreach ($data['CapAdd'] as $value_15) {
                 $values_15[] = $value_15;
             }
             $object->setCapAdd($values_15);
         }
         if (\array_key_exists('CapDrop', $data)) {
-            $values_16 = array();
+            $values_16 = [];
             foreach ($data['CapDrop'] as $value_16) {
                 $values_16[] = $value_16;
             }
             $object->setCapDrop($values_16);
         }
         if (\array_key_exists('Dns', $data)) {
-            $values_17 = array();
+            $values_17 = [];
             foreach ($data['Dns'] as $value_17) {
                 $values_17[] = $value_17;
             }
             $object->setDns($values_17);
         }
         if (\array_key_exists('DnsOptions', $data)) {
-            $values_18 = array();
+            $values_18 = [];
             foreach ($data['DnsOptions'] as $value_18) {
                 $values_18[] = $value_18;
             }
             $object->setDnsOptions($values_18);
         }
         if (\array_key_exists('DnsSearch', $data)) {
-            $values_19 = array();
+            $values_19 = [];
             foreach ($data['DnsSearch'] as $value_19) {
                 $values_19[] = $value_19;
             }
             $object->setDnsSearch($values_19);
         }
         if (\array_key_exists('ExtraHosts', $data)) {
-            $values_20 = array();
+            $values_20 = [];
             foreach ($data['ExtraHosts'] as $value_20) {
                 $values_20[] = $value_20;
             }
             $object->setExtraHosts($values_20);
         }
         if (\array_key_exists('GroupAdd', $data)) {
-            $values_21 = array();
+            $values_21 = [];
             foreach ($data['GroupAdd'] as $value_21) {
                 $values_21[] = $value_21;
             }
@@ -284,7 +285,7 @@ class HostConfigNormalizer implements DenormalizerInterface, NormalizerInterface
             $object->setCgroup($data['Cgroup']);
         }
         if (\array_key_exists('Links', $data)) {
-            $values_22 = array();
+            $values_22 = [];
             foreach ($data['Links'] as $value_22) {
                 $values_22[] = $value_22;
             }
@@ -306,21 +307,21 @@ class HostConfigNormalizer implements DenormalizerInterface, NormalizerInterface
             $object->setReadonlyRootfs($data['ReadonlyRootfs']);
         }
         if (\array_key_exists('SecurityOpt', $data)) {
-            $values_23 = array();
+            $values_23 = [];
             foreach ($data['SecurityOpt'] as $value_23) {
                 $values_23[] = $value_23;
             }
             $object->setSecurityOpt($values_23);
         }
         if (\array_key_exists('StorageOpt', $data)) {
-            $values_24 = new \ArrayObject(array(), \ArrayObject::ARRAY_AS_PROPS);
+            $values_24 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data['StorageOpt'] as $key_1 => $value_24) {
                 $values_24[$key_1] = $value_24;
             }
             $object->setStorageOpt($values_24);
         }
         if (\array_key_exists('Tmpfs', $data)) {
-            $values_25 = new \ArrayObject(array(), \ArrayObject::ARRAY_AS_PROPS);
+            $values_25 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data['Tmpfs'] as $key_2 => $value_25) {
                 $values_25[$key_2] = $value_25;
             }
@@ -336,7 +337,7 @@ class HostConfigNormalizer implements DenormalizerInterface, NormalizerInterface
             $object->setShmSize($data['ShmSize']);
         }
         if (\array_key_exists('Sysctls', $data)) {
-            $values_26 = new \ArrayObject(array(), \ArrayObject::ARRAY_AS_PROPS);
+            $values_26 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data['Sysctls'] as $key_3 => $value_26) {
                 $values_26[$key_3] = $value_26;
             }
@@ -346,7 +347,7 @@ class HostConfigNormalizer implements DenormalizerInterface, NormalizerInterface
             $object->setRuntime($data['Runtime']);
         }
         if (\array_key_exists('ConsoleSize', $data)) {
-            $values_27 = array();
+            $values_27 = [];
             foreach ($data['ConsoleSize'] as $value_27) {
                 $values_27[] = $value_27;
             }
@@ -356,24 +357,26 @@ class HostConfigNormalizer implements DenormalizerInterface, NormalizerInterface
             $object->setIsolation($data['Isolation']);
         }
         if (\array_key_exists('MaskedPaths', $data)) {
-            $values_28 = array();
+            $values_28 = [];
             foreach ($data['MaskedPaths'] as $value_28) {
                 $values_28[] = $value_28;
             }
             $object->setMaskedPaths($values_28);
         }
         if (\array_key_exists('ReadonlyPaths', $data)) {
-            $values_29 = array();
+            $values_29 = [];
             foreach ($data['ReadonlyPaths'] as $value_29) {
                 $values_29[] = $value_29;
             }
             $object->setReadonlyPaths($values_29);
         }
+
         return $object;
     }
-    public function normalize($object, $format = null, array $context = array())
+
+    public function normalize($object, $format = null, array $context = [])
     {
-        $data = array();
+        $data = [];
         if (null !== $object->getCpuShares()) {
             $data['CpuShares'] = $object->getCpuShares();
         }
@@ -387,35 +390,35 @@ class HostConfigNormalizer implements DenormalizerInterface, NormalizerInterface
             $data['BlkioWeight'] = $object->getBlkioWeight();
         }
         if (null !== $object->getBlkioWeightDevice()) {
-            $values = array();
+            $values = [];
             foreach ($object->getBlkioWeightDevice() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data['BlkioWeightDevice'] = $values;
         }
         if (null !== $object->getBlkioDeviceReadBps()) {
-            $values_1 = array();
+            $values_1 = [];
             foreach ($object->getBlkioDeviceReadBps() as $value_1) {
                 $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data['BlkioDeviceReadBps'] = $values_1;
         }
         if (null !== $object->getBlkioDeviceWriteBps()) {
-            $values_2 = array();
+            $values_2 = [];
             foreach ($object->getBlkioDeviceWriteBps() as $value_2) {
                 $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
             }
             $data['BlkioDeviceWriteBps'] = $values_2;
         }
         if (null !== $object->getBlkioDeviceReadIOps()) {
-            $values_3 = array();
+            $values_3 = [];
             foreach ($object->getBlkioDeviceReadIOps() as $value_3) {
                 $values_3[] = $this->normalizer->normalize($value_3, 'json', $context);
             }
             $data['BlkioDeviceReadIOps'] = $values_3;
         }
         if (null !== $object->getBlkioDeviceWriteIOps()) {
-            $values_4 = array();
+            $values_4 = [];
             foreach ($object->getBlkioDeviceWriteIOps() as $value_4) {
                 $values_4[] = $this->normalizer->normalize($value_4, 'json', $context);
             }
@@ -440,21 +443,21 @@ class HostConfigNormalizer implements DenormalizerInterface, NormalizerInterface
             $data['CpusetMems'] = $object->getCpusetMems();
         }
         if (null !== $object->getDevices()) {
-            $values_5 = array();
+            $values_5 = [];
             foreach ($object->getDevices() as $value_5) {
                 $values_5[] = $this->normalizer->normalize($value_5, 'json', $context);
             }
             $data['Devices'] = $values_5;
         }
         if (null !== $object->getDeviceCgroupRules()) {
-            $values_6 = array();
+            $values_6 = [];
             foreach ($object->getDeviceCgroupRules() as $value_6) {
                 $values_6[] = $value_6;
             }
             $data['DeviceCgroupRules'] = $values_6;
         }
         if (null !== $object->getDeviceRequests()) {
-            $values_7 = array();
+            $values_7 = [];
             foreach ($object->getDeviceRequests() as $value_7) {
                 $values_7[] = $this->normalizer->normalize($value_7, 'json', $context);
             }
@@ -484,7 +487,7 @@ class HostConfigNormalizer implements DenormalizerInterface, NormalizerInterface
         $data['Init'] = $object->getInit();
         $data['PidsLimit'] = $object->getPidsLimit();
         if (null !== $object->getUlimits()) {
-            $values_8 = array();
+            $values_8 = [];
             foreach ($object->getUlimits() as $value_8) {
                 $values_8[] = $this->normalizer->normalize($value_8, 'json', $context);
             }
@@ -503,7 +506,7 @@ class HostConfigNormalizer implements DenormalizerInterface, NormalizerInterface
             $data['IOMaximumBandwidth'] = $object->getIOMaximumBandwidth();
         }
         if (null !== $object->getBinds()) {
-            $values_9 = array();
+            $values_9 = [];
             foreach ($object->getBinds() as $value_9) {
                 $values_9[] = $value_9;
             }
@@ -519,9 +522,9 @@ class HostConfigNormalizer implements DenormalizerInterface, NormalizerInterface
             $data['NetworkMode'] = $object->getNetworkMode();
         }
         if (null !== $object->getPortBindings()) {
-            $values_10 = array();
+            $values_10 = [];
             foreach ($object->getPortBindings() as $key => $value_10) {
-                $values_11 = array();
+                $values_11 = [];
                 foreach ($value_10 as $value_11) {
                     $values_11[] = $this->normalizer->normalize($value_11, 'json', $context);
                 }
@@ -539,70 +542,70 @@ class HostConfigNormalizer implements DenormalizerInterface, NormalizerInterface
             $data['VolumeDriver'] = $object->getVolumeDriver();
         }
         if (null !== $object->getVolumesFrom()) {
-            $values_12 = array();
+            $values_12 = [];
             foreach ($object->getVolumesFrom() as $value_12) {
                 $values_12[] = $value_12;
             }
             $data['VolumesFrom'] = $values_12;
         }
         if (null !== $object->getMounts()) {
-            $values_13 = array();
+            $values_13 = [];
             foreach ($object->getMounts() as $value_13) {
                 $values_13[] = $this->normalizer->normalize($value_13, 'json', $context);
             }
             $data['Mounts'] = $values_13;
         }
         if (null !== $object->getCapabilities()) {
-            $values_14 = array();
+            $values_14 = [];
             foreach ($object->getCapabilities() as $value_14) {
                 $values_14[] = $value_14;
             }
             $data['Capabilities'] = $values_14;
         }
         if (null !== $object->getCapAdd()) {
-            $values_15 = array();
+            $values_15 = [];
             foreach ($object->getCapAdd() as $value_15) {
                 $values_15[] = $value_15;
             }
             $data['CapAdd'] = $values_15;
         }
         if (null !== $object->getCapDrop()) {
-            $values_16 = array();
+            $values_16 = [];
             foreach ($object->getCapDrop() as $value_16) {
                 $values_16[] = $value_16;
             }
             $data['CapDrop'] = $values_16;
         }
         if (null !== $object->getDns()) {
-            $values_17 = array();
+            $values_17 = [];
             foreach ($object->getDns() as $value_17) {
                 $values_17[] = $value_17;
             }
             $data['Dns'] = $values_17;
         }
         if (null !== $object->getDnsOptions()) {
-            $values_18 = array();
+            $values_18 = [];
             foreach ($object->getDnsOptions() as $value_18) {
                 $values_18[] = $value_18;
             }
             $data['DnsOptions'] = $values_18;
         }
         if (null !== $object->getDnsSearch()) {
-            $values_19 = array();
+            $values_19 = [];
             foreach ($object->getDnsSearch() as $value_19) {
                 $values_19[] = $value_19;
             }
             $data['DnsSearch'] = $values_19;
         }
         if (null !== $object->getExtraHosts()) {
-            $values_20 = array();
+            $values_20 = [];
             foreach ($object->getExtraHosts() as $value_20) {
                 $values_20[] = $value_20;
             }
             $data['ExtraHosts'] = $values_20;
         }
         if (null !== $object->getGroupAdd()) {
-            $values_21 = array();
+            $values_21 = [];
             foreach ($object->getGroupAdd() as $value_21) {
                 $values_21[] = $value_21;
             }
@@ -615,7 +618,7 @@ class HostConfigNormalizer implements DenormalizerInterface, NormalizerInterface
             $data['Cgroup'] = $object->getCgroup();
         }
         if (null !== $object->getLinks()) {
-            $values_22 = array();
+            $values_22 = [];
             foreach ($object->getLinks() as $value_22) {
                 $values_22[] = $value_22;
             }
@@ -637,21 +640,21 @@ class HostConfigNormalizer implements DenormalizerInterface, NormalizerInterface
             $data['ReadonlyRootfs'] = $object->getReadonlyRootfs();
         }
         if (null !== $object->getSecurityOpt()) {
-            $values_23 = array();
+            $values_23 = [];
             foreach ($object->getSecurityOpt() as $value_23) {
                 $values_23[] = $value_23;
             }
             $data['SecurityOpt'] = $values_23;
         }
         if (null !== $object->getStorageOpt()) {
-            $values_24 = array();
+            $values_24 = [];
             foreach ($object->getStorageOpt() as $key_1 => $value_24) {
                 $values_24[$key_1] = $value_24;
             }
             $data['StorageOpt'] = $values_24;
         }
         if (null !== $object->getTmpfs()) {
-            $values_25 = array();
+            $values_25 = [];
             foreach ($object->getTmpfs() as $key_2 => $value_25) {
                 $values_25[$key_2] = $value_25;
             }
@@ -667,7 +670,7 @@ class HostConfigNormalizer implements DenormalizerInterface, NormalizerInterface
             $data['ShmSize'] = $object->getShmSize();
         }
         if (null !== $object->getSysctls()) {
-            $values_26 = array();
+            $values_26 = [];
             foreach ($object->getSysctls() as $key_3 => $value_26) {
                 $values_26[$key_3] = $value_26;
             }
@@ -677,7 +680,7 @@ class HostConfigNormalizer implements DenormalizerInterface, NormalizerInterface
             $data['Runtime'] = $object->getRuntime();
         }
         if (null !== $object->getConsoleSize()) {
-            $values_27 = array();
+            $values_27 = [];
             foreach ($object->getConsoleSize() as $value_27) {
                 $values_27[] = $value_27;
             }
@@ -687,19 +690,20 @@ class HostConfigNormalizer implements DenormalizerInterface, NormalizerInterface
             $data['Isolation'] = $object->getIsolation();
         }
         if (null !== $object->getMaskedPaths()) {
-            $values_28 = array();
+            $values_28 = [];
             foreach ($object->getMaskedPaths() as $value_28) {
                 $values_28[] = $value_28;
             }
             $data['MaskedPaths'] = $values_28;
         }
         if (null !== $object->getReadonlyPaths()) {
-            $values_29 = array();
+            $values_29 = [];
             foreach ($object->getReadonlyPaths() as $value_29) {
                 $values_29[] = $value_29;
             }
             $data['ReadonlyPaths'] = $values_29;
         }
+
         return $data;
     }
 }

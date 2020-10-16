@@ -5,7 +5,7 @@ namespace WeTheRed\DockerApi\Endpoint;
 class VolumeCreate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Endpoint
 {
     /**
-     * 
+     *
      *
      * @param \WeTheRed\DockerApi\Model\VolumesCreatePostBody $volumeConfig Volume configuration
      */
@@ -13,23 +13,29 @@ class VolumeCreate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
     {
         $this->body = $volumeConfig;
     }
+
     use \Jane\OpenApiRuntime\Client\EndpointTrait;
+
     public function getMethod() : string
     {
         return 'POST';
     }
+
     public function getUri() : string
     {
         return '/volumes/create';
     }
+
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
         return $this->getSerializedBody($serializer);
     }
+
     public function getExtraHeaders() : array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
+
     /**
      * {@inheritdoc}
      *
@@ -46,8 +52,9 @@ class VolumeCreate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
             throw new \WeTheRed\DockerApi\Exception\VolumeCreateInternalServerErrorException($serializer->deserialize($body, 'WeTheRed\\DockerApi\\Model\\ErrorResponse', 'json'));
         }
     }
+
     public function getAuthenticationScopes() : array
     {
-        return array();
+        return [];
     }
 }

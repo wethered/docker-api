@@ -31,7 +31,7 @@ class ContainersIdJsonGetResponse200
     /**
     * ContainerState stores container's running state. It's part of ContainerJSONBase
     and will be returned by the "inspect" command.
-    
+
     *
     * @var ContainerState
     */
@@ -43,25 +43,25 @@ class ContainersIdJsonGetResponse200
      */
     protected $image;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $resolvConfPath;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $hostnamePath;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $hostsPath;
     /**
-     * 
+     *
      *
      * @var string
      */
@@ -73,43 +73,43 @@ class ContainersIdJsonGetResponse200
      */
     protected $node;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $name;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $restartCount;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $driver;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $platform;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $mountLabel;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $processLabel;
     /**
-     * 
+     *
      *
      * @var string
      */
@@ -135,7 +135,7 @@ class ContainersIdJsonGetResponse200
     /**
     * The size of files that have been created or changed by this
     container.
-    
+
     *
     * @var int
     */
@@ -147,7 +147,7 @@ class ContainersIdJsonGetResponse200
      */
     protected $sizeRootFs;
     /**
-     * 
+     *
      *
      * @var MountPoint[]
      */
@@ -164,6 +164,7 @@ class ContainersIdJsonGetResponse200
      * @var NetworkSettings
      */
     protected $networkSettings;
+
     /**
      * The ID of the container
      *
@@ -173,6 +174,7 @@ class ContainersIdJsonGetResponse200
     {
         return $this->id;
     }
+
     /**
      * The ID of the container
      *
@@ -183,8 +185,10 @@ class ContainersIdJsonGetResponse200
     public function setId(string $id) : self
     {
         $this->id = $id;
+
         return $this;
     }
+
     /**
      * The time the container was created
      *
@@ -194,6 +198,7 @@ class ContainersIdJsonGetResponse200
     {
         return $this->created;
     }
+
     /**
      * The time the container was created
      *
@@ -204,8 +209,10 @@ class ContainersIdJsonGetResponse200
     public function setCreated(string $created) : self
     {
         $this->created = $created;
+
         return $this;
     }
+
     /**
      * The path to the command being run
      *
@@ -215,6 +222,7 @@ class ContainersIdJsonGetResponse200
     {
         return $this->path;
     }
+
     /**
      * The path to the command being run
      *
@@ -225,8 +233,10 @@ class ContainersIdJsonGetResponse200
     public function setPath(string $path) : self
     {
         $this->path = $path;
+
         return $this;
     }
+
     /**
      * The arguments to the command being run
      *
@@ -236,6 +246,7 @@ class ContainersIdJsonGetResponse200
     {
         return $this->args;
     }
+
     /**
      * The arguments to the command being run
      *
@@ -246,12 +257,14 @@ class ContainersIdJsonGetResponse200
     public function setArgs(array $args) : self
     {
         $this->args = $args;
+
         return $this;
     }
+
     /**
     * ContainerState stores container's running state. It's part of ContainerJSONBase
     and will be returned by the "inspect" command.
-    
+
     *
     * @return ContainerState
     */
@@ -259,10 +272,11 @@ class ContainersIdJsonGetResponse200
     {
         return $this->state;
     }
+
     /**
     * ContainerState stores container's running state. It's part of ContainerJSONBase
     and will be returned by the "inspect" command.
-    
+
     *
     * @param ContainerState $state
     *
@@ -271,8 +285,10 @@ class ContainersIdJsonGetResponse200
     public function setState(ContainerState $state) : self
     {
         $this->state = $state;
+
         return $this;
     }
+
     /**
      * The container's image ID
      *
@@ -282,6 +298,7 @@ class ContainersIdJsonGetResponse200
     {
         return $this->image;
     }
+
     /**
      * The container's image ID
      *
@@ -292,10 +309,12 @@ class ContainersIdJsonGetResponse200
     public function setImage(string $image) : self
     {
         $this->image = $image;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -303,8 +322,9 @@ class ContainersIdJsonGetResponse200
     {
         return $this->resolvConfPath;
     }
+
     /**
-     * 
+     *
      *
      * @param string $resolvConfPath
      *
@@ -313,10 +333,12 @@ class ContainersIdJsonGetResponse200
     public function setResolvConfPath(string $resolvConfPath) : self
     {
         $this->resolvConfPath = $resolvConfPath;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -324,8 +346,9 @@ class ContainersIdJsonGetResponse200
     {
         return $this->hostnamePath;
     }
+
     /**
-     * 
+     *
      *
      * @param string $hostnamePath
      *
@@ -334,10 +357,12 @@ class ContainersIdJsonGetResponse200
     public function setHostnamePath(string $hostnamePath) : self
     {
         $this->hostnamePath = $hostnamePath;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -345,8 +370,9 @@ class ContainersIdJsonGetResponse200
     {
         return $this->hostsPath;
     }
+
     /**
-     * 
+     *
      *
      * @param string $hostsPath
      *
@@ -355,10 +381,12 @@ class ContainersIdJsonGetResponse200
     public function setHostsPath(string $hostsPath) : self
     {
         $this->hostsPath = $hostsPath;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -366,8 +394,9 @@ class ContainersIdJsonGetResponse200
     {
         return $this->logPath;
     }
+
     /**
-     * 
+     *
      *
      * @param string $logPath
      *
@@ -376,8 +405,10 @@ class ContainersIdJsonGetResponse200
     public function setLogPath(string $logPath) : self
     {
         $this->logPath = $logPath;
+
         return $this;
     }
+
     /**
      * TODO
      *
@@ -387,6 +418,7 @@ class ContainersIdJsonGetResponse200
     {
         return $this->node;
     }
+
     /**
      * TODO
      *
@@ -397,10 +429,12 @@ class ContainersIdJsonGetResponse200
     public function setNode($node) : self
     {
         $this->node = $node;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -408,8 +442,9 @@ class ContainersIdJsonGetResponse200
     {
         return $this->name;
     }
+
     /**
-     * 
+     *
      *
      * @param string $name
      *
@@ -418,10 +453,12 @@ class ContainersIdJsonGetResponse200
     public function setName(string $name) : self
     {
         $this->name = $name;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -429,8 +466,9 @@ class ContainersIdJsonGetResponse200
     {
         return $this->restartCount;
     }
+
     /**
-     * 
+     *
      *
      * @param int $restartCount
      *
@@ -439,10 +477,12 @@ class ContainersIdJsonGetResponse200
     public function setRestartCount(int $restartCount) : self
     {
         $this->restartCount = $restartCount;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -450,8 +490,9 @@ class ContainersIdJsonGetResponse200
     {
         return $this->driver;
     }
+
     /**
-     * 
+     *
      *
      * @param string $driver
      *
@@ -460,10 +501,12 @@ class ContainersIdJsonGetResponse200
     public function setDriver(string $driver) : self
     {
         $this->driver = $driver;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -471,8 +514,9 @@ class ContainersIdJsonGetResponse200
     {
         return $this->platform;
     }
+
     /**
-     * 
+     *
      *
      * @param string $platform
      *
@@ -481,10 +525,12 @@ class ContainersIdJsonGetResponse200
     public function setPlatform(string $platform) : self
     {
         $this->platform = $platform;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -492,8 +538,9 @@ class ContainersIdJsonGetResponse200
     {
         return $this->mountLabel;
     }
+
     /**
-     * 
+     *
      *
      * @param string $mountLabel
      *
@@ -502,10 +549,12 @@ class ContainersIdJsonGetResponse200
     public function setMountLabel(string $mountLabel) : self
     {
         $this->mountLabel = $mountLabel;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -513,8 +562,9 @@ class ContainersIdJsonGetResponse200
     {
         return $this->processLabel;
     }
+
     /**
-     * 
+     *
      *
      * @param string $processLabel
      *
@@ -523,10 +573,12 @@ class ContainersIdJsonGetResponse200
     public function setProcessLabel(string $processLabel) : self
     {
         $this->processLabel = $processLabel;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -534,8 +586,9 @@ class ContainersIdJsonGetResponse200
     {
         return $this->appArmorProfile;
     }
+
     /**
-     * 
+     *
      *
      * @param string $appArmorProfile
      *
@@ -544,8 +597,10 @@ class ContainersIdJsonGetResponse200
     public function setAppArmorProfile(string $appArmorProfile) : self
     {
         $this->appArmorProfile = $appArmorProfile;
+
         return $this;
     }
+
     /**
      * IDs of exec instances that are running in the container.
      *
@@ -555,6 +610,7 @@ class ContainersIdJsonGetResponse200
     {
         return $this->execIDs;
     }
+
     /**
      * IDs of exec instances that are running in the container.
      *
@@ -565,8 +621,10 @@ class ContainersIdJsonGetResponse200
     public function setExecIDs(?array $execIDs) : self
     {
         $this->execIDs = $execIDs;
+
         return $this;
     }
+
     /**
      * Container configuration that depends on the host we are running on
      *
@@ -576,6 +634,7 @@ class ContainersIdJsonGetResponse200
     {
         return $this->hostConfig;
     }
+
     /**
      * Container configuration that depends on the host we are running on
      *
@@ -586,8 +645,10 @@ class ContainersIdJsonGetResponse200
     public function setHostConfig(HostConfig $hostConfig) : self
     {
         $this->hostConfig = $hostConfig;
+
         return $this;
     }
+
     /**
      * Information about a container's graph driver.
      *
@@ -597,6 +658,7 @@ class ContainersIdJsonGetResponse200
     {
         return $this->graphDriver;
     }
+
     /**
      * Information about a container's graph driver.
      *
@@ -607,12 +669,14 @@ class ContainersIdJsonGetResponse200
     public function setGraphDriver(GraphDriverData $graphDriver) : self
     {
         $this->graphDriver = $graphDriver;
+
         return $this;
     }
+
     /**
     * The size of files that have been created or changed by this
     container.
-    
+
     *
     * @return int
     */
@@ -620,10 +684,11 @@ class ContainersIdJsonGetResponse200
     {
         return $this->sizeRw;
     }
+
     /**
     * The size of files that have been created or changed by this
     container.
-    
+
     *
     * @param int $sizeRw
     *
@@ -632,8 +697,10 @@ class ContainersIdJsonGetResponse200
     public function setSizeRw(int $sizeRw) : self
     {
         $this->sizeRw = $sizeRw;
+
         return $this;
     }
+
     /**
      * The total size of all the files in this container.
      *
@@ -643,6 +710,7 @@ class ContainersIdJsonGetResponse200
     {
         return $this->sizeRootFs;
     }
+
     /**
      * The total size of all the files in this container.
      *
@@ -653,10 +721,12 @@ class ContainersIdJsonGetResponse200
     public function setSizeRootFs(int $sizeRootFs) : self
     {
         $this->sizeRootFs = $sizeRootFs;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return MountPoint[]
      */
@@ -664,8 +734,9 @@ class ContainersIdJsonGetResponse200
     {
         return $this->mounts;
     }
+
     /**
-     * 
+     *
      *
      * @param MountPoint[] $mounts
      *
@@ -674,8 +745,10 @@ class ContainersIdJsonGetResponse200
     public function setMounts(array $mounts) : self
     {
         $this->mounts = $mounts;
+
         return $this;
     }
+
     /**
      * Configuration for a container that is portable between hosts
      *
@@ -685,6 +758,7 @@ class ContainersIdJsonGetResponse200
     {
         return $this->config;
     }
+
     /**
      * Configuration for a container that is portable between hosts
      *
@@ -695,8 +769,10 @@ class ContainersIdJsonGetResponse200
     public function setConfig(ContainerConfig $config) : self
     {
         $this->config = $config;
+
         return $this;
     }
+
     /**
      * NetworkSettings exposes the network settings in the API
      *
@@ -706,6 +782,7 @@ class ContainersIdJsonGetResponse200
     {
         return $this->networkSettings;
     }
+
     /**
      * NetworkSettings exposes the network settings in the API
      *
@@ -716,6 +793,7 @@ class ContainersIdJsonGetResponse200
     public function setNetworkSettings(NetworkSettings $networkSettings) : self
     {
         $this->networkSettings = $networkSettings;
+
         return $this;
     }
 }

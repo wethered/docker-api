@@ -5,19 +5,20 @@ namespace WeTheRed\DockerApi\Model;
 class GenericResourcesItemNamedResourceSpec
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $kind;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $value;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -25,8 +26,9 @@ class GenericResourcesItemNamedResourceSpec
     {
         return $this->kind;
     }
+
     /**
-     * 
+     *
      *
      * @param string $kind
      *
@@ -35,10 +37,12 @@ class GenericResourcesItemNamedResourceSpec
     public function setKind(string $kind) : self
     {
         $this->kind = $kind;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -46,8 +50,9 @@ class GenericResourcesItemNamedResourceSpec
     {
         return $this->value;
     }
+
     /**
-     * 
+     *
      *
      * @param string $value
      *
@@ -56,6 +61,7 @@ class GenericResourcesItemNamedResourceSpec
     public function setValue(string $value) : self
     {
         $this->value = $value;
+
         return $this;
     }
 }

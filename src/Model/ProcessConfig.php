@@ -5,37 +5,38 @@ namespace WeTheRed\DockerApi\Model;
 class ProcessConfig
 {
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $privileged;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $user;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $tty;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $entrypoint;
     /**
-     * 
+     *
      *
      * @var string[]
      */
     protected $arguments;
+
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -43,8 +44,9 @@ class ProcessConfig
     {
         return $this->privileged;
     }
+
     /**
-     * 
+     *
      *
      * @param bool $privileged
      *
@@ -53,10 +55,12 @@ class ProcessConfig
     public function setPrivileged(bool $privileged) : self
     {
         $this->privileged = $privileged;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -64,8 +68,9 @@ class ProcessConfig
     {
         return $this->user;
     }
+
     /**
-     * 
+     *
      *
      * @param string $user
      *
@@ -74,10 +79,12 @@ class ProcessConfig
     public function setUser(string $user) : self
     {
         $this->user = $user;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -85,8 +92,9 @@ class ProcessConfig
     {
         return $this->tty;
     }
+
     /**
-     * 
+     *
      *
      * @param bool $tty
      *
@@ -95,10 +103,12 @@ class ProcessConfig
     public function setTty(bool $tty) : self
     {
         $this->tty = $tty;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -106,8 +116,9 @@ class ProcessConfig
     {
         return $this->entrypoint;
     }
+
     /**
-     * 
+     *
      *
      * @param string $entrypoint
      *
@@ -116,10 +127,12 @@ class ProcessConfig
     public function setEntrypoint(string $entrypoint) : self
     {
         $this->entrypoint = $entrypoint;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -127,8 +140,9 @@ class ProcessConfig
     {
         return $this->arguments;
     }
+
     /**
-     * 
+     *
      *
      * @param string[] $arguments
      *
@@ -137,6 +151,7 @@ class ProcessConfig
     public function setArguments(array $arguments) : self
     {
         $this->arguments = $arguments;
+
         return $this;
     }
 }

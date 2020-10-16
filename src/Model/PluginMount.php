@@ -5,49 +5,50 @@ namespace WeTheRed\DockerApi\Model;
 class PluginMount
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $name;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $description;
     /**
-     * 
+     *
      *
      * @var string[]
      */
     protected $settable;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $source;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $destination;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $type;
     /**
-     * 
+     *
      *
      * @var string[]
      */
     protected $options;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -55,8 +56,9 @@ class PluginMount
     {
         return $this->name;
     }
+
     /**
-     * 
+     *
      *
      * @param string $name
      *
@@ -65,10 +67,12 @@ class PluginMount
     public function setName(string $name) : self
     {
         $this->name = $name;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -76,8 +80,9 @@ class PluginMount
     {
         return $this->description;
     }
+
     /**
-     * 
+     *
      *
      * @param string $description
      *
@@ -86,10 +91,12 @@ class PluginMount
     public function setDescription(string $description) : self
     {
         $this->description = $description;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -97,8 +104,9 @@ class PluginMount
     {
         return $this->settable;
     }
+
     /**
-     * 
+     *
      *
      * @param string[] $settable
      *
@@ -107,10 +115,12 @@ class PluginMount
     public function setSettable(array $settable) : self
     {
         $this->settable = $settable;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -118,8 +128,9 @@ class PluginMount
     {
         return $this->source;
     }
+
     /**
-     * 
+     *
      *
      * @param string $source
      *
@@ -128,10 +139,12 @@ class PluginMount
     public function setSource(string $source) : self
     {
         $this->source = $source;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -139,8 +152,9 @@ class PluginMount
     {
         return $this->destination;
     }
+
     /**
-     * 
+     *
      *
      * @param string $destination
      *
@@ -149,10 +163,12 @@ class PluginMount
     public function setDestination(string $destination) : self
     {
         $this->destination = $destination;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -160,8 +176,9 @@ class PluginMount
     {
         return $this->type;
     }
+
     /**
-     * 
+     *
      *
      * @param string $type
      *
@@ -170,10 +187,12 @@ class PluginMount
     public function setType(string $type) : self
     {
         $this->type = $type;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -181,8 +200,9 @@ class PluginMount
     {
         return $this->options;
     }
+
     /**
-     * 
+     *
      *
      * @param string[] $options
      *
@@ -191,6 +211,7 @@ class PluginMount
     public function setOptions(array $options) : self
     {
         $this->options = $options;
+
         return $this;
     }
 }

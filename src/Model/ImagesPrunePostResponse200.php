@@ -16,6 +16,7 @@ class ImagesPrunePostResponse200
      * @var int
      */
     protected $spaceReclaimed;
+
     /**
      * Images that were deleted
      *
@@ -25,6 +26,7 @@ class ImagesPrunePostResponse200
     {
         return $this->imagesDeleted;
     }
+
     /**
      * Images that were deleted
      *
@@ -35,8 +37,10 @@ class ImagesPrunePostResponse200
     public function setImagesDeleted(array $imagesDeleted) : self
     {
         $this->imagesDeleted = $imagesDeleted;
+
         return $this;
     }
+
     /**
      * Disk space reclaimed in bytes
      *
@@ -46,6 +50,7 @@ class ImagesPrunePostResponse200
     {
         return $this->spaceReclaimed;
     }
+
     /**
      * Disk space reclaimed in bytes
      *
@@ -56,6 +61,7 @@ class ImagesPrunePostResponse200
     public function setSpaceReclaimed(int $spaceReclaimed) : self
     {
         $this->spaceReclaimed = $spaceReclaimed;
+
         return $this;
     }
 }

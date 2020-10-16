@@ -5,85 +5,86 @@ namespace WeTheRed\DockerApi\Model;
 class Network
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $name;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $id;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $created;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $scope;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $driver;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $enableIPv6;
     /**
-     * 
+     *
      *
      * @var IPAM
      */
     protected $iPAM;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $internal;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $attachable;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $ingress;
     /**
-     * 
+     *
      *
      * @var NetworkContainer[]
      */
     protected $containers;
     /**
-     * 
+     *
      *
      * @var string[]
      */
     protected $options;
     /**
-     * 
+     *
      *
      * @var string[]
      */
     protected $labels;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -91,8 +92,9 @@ class Network
     {
         return $this->name;
     }
+
     /**
-     * 
+     *
      *
      * @param string $name
      *
@@ -101,10 +103,12 @@ class Network
     public function setName(string $name) : self
     {
         $this->name = $name;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -112,8 +116,9 @@ class Network
     {
         return $this->id;
     }
+
     /**
-     * 
+     *
      *
      * @param string $id
      *
@@ -122,10 +127,12 @@ class Network
     public function setId(string $id) : self
     {
         $this->id = $id;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -133,8 +140,9 @@ class Network
     {
         return $this->created;
     }
+
     /**
-     * 
+     *
      *
      * @param string $created
      *
@@ -143,10 +151,12 @@ class Network
     public function setCreated(string $created) : self
     {
         $this->created = $created;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -154,8 +164,9 @@ class Network
     {
         return $this->scope;
     }
+
     /**
-     * 
+     *
      *
      * @param string $scope
      *
@@ -164,10 +175,12 @@ class Network
     public function setScope(string $scope) : self
     {
         $this->scope = $scope;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -175,8 +188,9 @@ class Network
     {
         return $this->driver;
     }
+
     /**
-     * 
+     *
      *
      * @param string $driver
      *
@@ -185,10 +199,12 @@ class Network
     public function setDriver(string $driver) : self
     {
         $this->driver = $driver;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -196,8 +212,9 @@ class Network
     {
         return $this->enableIPv6;
     }
+
     /**
-     * 
+     *
      *
      * @param bool $enableIPv6
      *
@@ -206,10 +223,12 @@ class Network
     public function setEnableIPv6(bool $enableIPv6) : self
     {
         $this->enableIPv6 = $enableIPv6;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return IPAM
      */
@@ -217,8 +236,9 @@ class Network
     {
         return $this->iPAM;
     }
+
     /**
-     * 
+     *
      *
      * @param IPAM $iPAM
      *
@@ -227,10 +247,12 @@ class Network
     public function setIPAM(IPAM $iPAM) : self
     {
         $this->iPAM = $iPAM;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -238,8 +260,9 @@ class Network
     {
         return $this->internal;
     }
+
     /**
-     * 
+     *
      *
      * @param bool $internal
      *
@@ -248,10 +271,12 @@ class Network
     public function setInternal(bool $internal) : self
     {
         $this->internal = $internal;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -259,8 +284,9 @@ class Network
     {
         return $this->attachable;
     }
+
     /**
-     * 
+     *
      *
      * @param bool $attachable
      *
@@ -269,10 +295,12 @@ class Network
     public function setAttachable(bool $attachable) : self
     {
         $this->attachable = $attachable;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -280,8 +308,9 @@ class Network
     {
         return $this->ingress;
     }
+
     /**
-     * 
+     *
      *
      * @param bool $ingress
      *
@@ -290,10 +319,12 @@ class Network
     public function setIngress(bool $ingress) : self
     {
         $this->ingress = $ingress;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return NetworkContainer[]
      */
@@ -301,8 +332,9 @@ class Network
     {
         return $this->containers;
     }
+
     /**
-     * 
+     *
      *
      * @param NetworkContainer[] $containers
      *
@@ -311,10 +343,12 @@ class Network
     public function setContainers(iterable $containers) : self
     {
         $this->containers = $containers;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -322,8 +356,9 @@ class Network
     {
         return $this->options;
     }
+
     /**
-     * 
+     *
      *
      * @param string[] $options
      *
@@ -332,10 +367,12 @@ class Network
     public function setOptions(iterable $options) : self
     {
         $this->options = $options;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -343,8 +380,9 @@ class Network
     {
         return $this->labels;
     }
+
     /**
-     * 
+     *
      *
      * @param string[] $labels
      *
@@ -353,6 +391,7 @@ class Network
     public function setLabels(iterable $labels) : self
     {
         $this->labels = $labels;
+
         return $this;
     }
 }

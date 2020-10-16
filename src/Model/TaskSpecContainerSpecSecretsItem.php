@@ -13,7 +13,7 @@ class TaskSpecContainerSpecSecretsItem
     /**
     * SecretID represents the ID of the specific secret that we're
     referencing.
-    
+
     *
     * @var string
     */
@@ -22,11 +22,12 @@ class TaskSpecContainerSpecSecretsItem
     * SecretName is the name of the secret that this references,
     but this is just provided for lookup/display purposes. The
     secret in the reference will be identified by its ID.
-    
+
     *
     * @var string
     */
     protected $secretName;
+
     /**
      * File represents a specific target that is backed by a file.
      *
@@ -36,6 +37,7 @@ class TaskSpecContainerSpecSecretsItem
     {
         return $this->file;
     }
+
     /**
      * File represents a specific target that is backed by a file.
      *
@@ -46,12 +48,14 @@ class TaskSpecContainerSpecSecretsItem
     public function setFile(TaskSpecContainerSpecSecretsItemFile $file) : self
     {
         $this->file = $file;
+
         return $this;
     }
+
     /**
     * SecretID represents the ID of the specific secret that we're
     referencing.
-    
+
     *
     * @return string
     */
@@ -59,10 +63,11 @@ class TaskSpecContainerSpecSecretsItem
     {
         return $this->secretID;
     }
+
     /**
     * SecretID represents the ID of the specific secret that we're
     referencing.
-    
+
     *
     * @param string $secretID
     *
@@ -71,13 +76,15 @@ class TaskSpecContainerSpecSecretsItem
     public function setSecretID(string $secretID) : self
     {
         $this->secretID = $secretID;
+
         return $this;
     }
+
     /**
     * SecretName is the name of the secret that this references,
     but this is just provided for lookup/display purposes. The
     secret in the reference will be identified by its ID.
-    
+
     *
     * @return string
     */
@@ -85,11 +92,12 @@ class TaskSpecContainerSpecSecretsItem
     {
         return $this->secretName;
     }
+
     /**
     * SecretName is the name of the secret that this references,
     but this is just provided for lookup/display purposes. The
     secret in the reference will be identified by its ID.
-    
+
     *
     * @param string $secretName
     *
@@ -98,6 +106,7 @@ class TaskSpecContainerSpecSecretsItem
     public function setSecretName(string $secretName) : self
     {
         $this->secretName = $secretName;
+
         return $this;
     }
 }

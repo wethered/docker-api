@@ -5,19 +5,20 @@ namespace WeTheRed\DockerApi\Model;
 class HostConfigLogConfig
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $type;
     /**
-     * 
+     *
      *
      * @var string[]
      */
     protected $config;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -25,8 +26,9 @@ class HostConfigLogConfig
     {
         return $this->type;
     }
+
     /**
-     * 
+     *
      *
      * @param string $type
      *
@@ -35,10 +37,12 @@ class HostConfigLogConfig
     public function setType(string $type) : self
     {
         $this->type = $type;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -46,8 +50,9 @@ class HostConfigLogConfig
     {
         return $this->config;
     }
+
     /**
-     * 
+     *
      *
      * @param string[] $config
      *
@@ -56,6 +61,7 @@ class HostConfigLogConfig
     public function setConfig(iterable $config) : self
     {
         $this->config = $config;
+
         return $this;
     }
 }

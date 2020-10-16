@@ -11,17 +11,18 @@ class ServiceEndpoint
      */
     protected $spec;
     /**
-     * 
+     *
      *
      * @var EndpointPortConfig[]
      */
     protected $ports;
     /**
-     * 
+     *
      *
      * @var ServiceEndpointVirtualIPsItem[]
      */
     protected $virtualIPs;
+
     /**
      * Properties that can be configured to access and load balance a service.
      *
@@ -31,6 +32,7 @@ class ServiceEndpoint
     {
         return $this->spec;
     }
+
     /**
      * Properties that can be configured to access and load balance a service.
      *
@@ -41,10 +43,12 @@ class ServiceEndpoint
     public function setSpec(EndpointSpec $spec) : self
     {
         $this->spec = $spec;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return EndpointPortConfig[]
      */
@@ -52,8 +56,9 @@ class ServiceEndpoint
     {
         return $this->ports;
     }
+
     /**
-     * 
+     *
      *
      * @param EndpointPortConfig[] $ports
      *
@@ -62,10 +67,12 @@ class ServiceEndpoint
     public function setPorts(array $ports) : self
     {
         $this->ports = $ports;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return ServiceEndpointVirtualIPsItem[]
      */
@@ -73,8 +80,9 @@ class ServiceEndpoint
     {
         return $this->virtualIPs;
     }
+
     /**
-     * 
+     *
      *
      * @param ServiceEndpointVirtualIPsItem[] $virtualIPs
      *
@@ -83,6 +91,7 @@ class ServiceEndpoint
     public function setVirtualIPs(array $virtualIPs) : self
     {
         $this->virtualIPs = $virtualIPs;
+
         return $this;
     }
 }

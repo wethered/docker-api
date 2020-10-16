@@ -6,11 +6,11 @@ class TaskSpecContainerSpecConfigsItem
 {
     /**
     * File represents a specific target that is backed by a file.
-    
+
     <p><br /><p>
-    
+
     > **Note**: `Configs.File` and `Configs.Runtime` are mutually exclusive
-    
+
     *
     * @var TaskSpecContainerSpecConfigsItemFile
     */
@@ -18,12 +18,12 @@ class TaskSpecContainerSpecConfigsItem
     /**
     * Runtime represents a target that is not mounted into the
     container but is used by the task
-    
+
     <p><br /><p>
-    
+
     > **Note**: `Configs.File` and `Configs.Runtime` are mutually
     > exclusive
-    
+
     *
     * @var mixed
     */
@@ -31,7 +31,7 @@ class TaskSpecContainerSpecConfigsItem
     /**
     * ConfigID represents the ID of the specific config that we're
     referencing.
-    
+
     *
     * @var string
     */
@@ -40,18 +40,19 @@ class TaskSpecContainerSpecConfigsItem
     * ConfigName is the name of the config that this references,
     but this is just provided for lookup/display purposes. The
     config in the reference will be identified by its ID.
-    
+
     *
     * @var string
     */
     protected $configName;
+
     /**
     * File represents a specific target that is backed by a file.
-    
+
     <p><br /><p>
-    
+
     > **Note**: `Configs.File` and `Configs.Runtime` are mutually exclusive
-    
+
     *
     * @return TaskSpecContainerSpecConfigsItemFile
     */
@@ -59,13 +60,14 @@ class TaskSpecContainerSpecConfigsItem
     {
         return $this->file;
     }
+
     /**
     * File represents a specific target that is backed by a file.
-    
+
     <p><br /><p>
-    
+
     > **Note**: `Configs.File` and `Configs.Runtime` are mutually exclusive
-    
+
     *
     * @param TaskSpecContainerSpecConfigsItemFile $file
     *
@@ -74,17 +76,19 @@ class TaskSpecContainerSpecConfigsItem
     public function setFile(TaskSpecContainerSpecConfigsItemFile $file) : self
     {
         $this->file = $file;
+
         return $this;
     }
+
     /**
     * Runtime represents a target that is not mounted into the
     container but is used by the task
-    
+
     <p><br /><p>
-    
+
     > **Note**: `Configs.File` and `Configs.Runtime` are mutually
     > exclusive
-    
+
     *
     * @return mixed
     */
@@ -92,15 +96,16 @@ class TaskSpecContainerSpecConfigsItem
     {
         return $this->runtime;
     }
+
     /**
     * Runtime represents a target that is not mounted into the
     container but is used by the task
-    
+
     <p><br /><p>
-    
+
     > **Note**: `Configs.File` and `Configs.Runtime` are mutually
     > exclusive
-    
+
     *
     * @param mixed $runtime
     *
@@ -109,12 +114,14 @@ class TaskSpecContainerSpecConfigsItem
     public function setRuntime($runtime) : self
     {
         $this->runtime = $runtime;
+
         return $this;
     }
+
     /**
     * ConfigID represents the ID of the specific config that we're
     referencing.
-    
+
     *
     * @return string
     */
@@ -122,10 +129,11 @@ class TaskSpecContainerSpecConfigsItem
     {
         return $this->configID;
     }
+
     /**
     * ConfigID represents the ID of the specific config that we're
     referencing.
-    
+
     *
     * @param string $configID
     *
@@ -134,13 +142,15 @@ class TaskSpecContainerSpecConfigsItem
     public function setConfigID(string $configID) : self
     {
         $this->configID = $configID;
+
         return $this;
     }
+
     /**
     * ConfigName is the name of the config that this references,
     but this is just provided for lookup/display purposes. The
     config in the reference will be identified by its ID.
-    
+
     *
     * @return string
     */
@@ -148,11 +158,12 @@ class TaskSpecContainerSpecConfigsItem
     {
         return $this->configName;
     }
+
     /**
     * ConfigName is the name of the config that this references,
     but this is just provided for lookup/display purposes. The
     config in the reference will be identified by its ID.
-    
+
     *
     * @param string $configName
     *
@@ -161,6 +172,7 @@ class TaskSpecContainerSpecConfigsItem
     public function setConfigName(string $configName) : self
     {
         $this->configName = $configName;
+
         return $this;
     }
 }

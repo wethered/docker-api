@@ -5,37 +5,38 @@ namespace WeTheRed\DockerApi\Model;
 class CreateImageInfo
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $id;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $error;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $status;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $progress;
     /**
-     * 
+     *
      *
      * @var ProgressDetail
      */
     protected $progressDetail;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -43,8 +44,9 @@ class CreateImageInfo
     {
         return $this->id;
     }
+
     /**
-     * 
+     *
      *
      * @param string $id
      *
@@ -53,10 +55,12 @@ class CreateImageInfo
     public function setId(string $id) : self
     {
         $this->id = $id;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -64,8 +68,9 @@ class CreateImageInfo
     {
         return $this->error;
     }
+
     /**
-     * 
+     *
      *
      * @param string $error
      *
@@ -74,10 +79,12 @@ class CreateImageInfo
     public function setError(string $error) : self
     {
         $this->error = $error;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -85,8 +92,9 @@ class CreateImageInfo
     {
         return $this->status;
     }
+
     /**
-     * 
+     *
      *
      * @param string $status
      *
@@ -95,10 +103,12 @@ class CreateImageInfo
     public function setStatus(string $status) : self
     {
         $this->status = $status;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -106,8 +116,9 @@ class CreateImageInfo
     {
         return $this->progress;
     }
+
     /**
-     * 
+     *
      *
      * @param string $progress
      *
@@ -116,10 +127,12 @@ class CreateImageInfo
     public function setProgress(string $progress) : self
     {
         $this->progress = $progress;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return ProgressDetail
      */
@@ -127,8 +140,9 @@ class CreateImageInfo
     {
         return $this->progressDetail;
     }
+
     /**
-     * 
+     *
      *
      * @param ProgressDetail $progressDetail
      *
@@ -137,6 +151,7 @@ class CreateImageInfo
     public function setProgressDetail(ProgressDetail $progressDetail) : self
     {
         $this->progressDetail = $progressDetail;
+
         return $this;
     }
 }

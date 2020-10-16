@@ -2,29 +2,32 @@
 
 namespace WeTheRed\DockerApi\Normalizer;
 
-use Jane\JsonSchemaRuntime\Reference;
 use Jane\JsonSchemaRuntime\Normalizer\CheckArray;
-use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Jane\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 class TaskSpecNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
     use CheckArray;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
         return $type === 'WeTheRed\\DockerApi\\Model\\TaskSpec';
     }
+
     public function supportsNormalization($data, $format = null)
     {
         return is_object($data) && get_class($data) === 'WeTheRed\\DockerApi\\Model\\TaskSpec';
     }
-    public function denormalize($data, $class, $format = null, array $context = array())
+
+    public function denormalize($data, $class, $format = null, array $context = [])
     {
         if (isset($data['$ref'])) {
             return new Reference($data['$ref'], $context['document-origin']);
@@ -58,7 +61,7 @@ class TaskSpecNormalizer implements DenormalizerInterface, NormalizerInterface, 
             $object->setRuntime($data['Runtime']);
         }
         if (\array_key_exists('Networks', $data)) {
-            $values = array();
+            $values = [];
             foreach ($data['Networks'] as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'WeTheRed\\DockerApi\\Model\\NetworkAttachmentConfig', 'json', $context);
             }
@@ -67,11 +70,13 @@ class TaskSpecNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (\array_key_exists('LogDriver', $data)) {
             $object->setLogDriver($this->denormalizer->denormalize($data['LogDriver'], 'WeTheRed\\DockerApi\\Model\\TaskSpecLogDriver', 'json', $context));
         }
+
         return $object;
     }
-    public function normalize($object, $format = null, array $context = array())
+
+    public function normalize($object, $format = null, array $context = [])
     {
-        $data = array();
+        $data = [];
         if (null !== $object->getPluginSpec()) {
             $data['PluginSpec'] = $this->normalizer->normalize($object->getPluginSpec(), 'json', $context);
         }
@@ -97,7 +102,7 @@ class TaskSpecNormalizer implements DenormalizerInterface, NormalizerInterface, 
             $data['Runtime'] = $object->getRuntime();
         }
         if (null !== $object->getNetworks()) {
-            $values = array();
+            $values = [];
             foreach ($object->getNetworks() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
@@ -106,6 +111,7 @@ class TaskSpecNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (null !== $object->getLogDriver()) {
             $data['LogDriver'] = $this->normalizer->normalize($object->getLogDriver(), 'json', $context);
         }
+
         return $data;
     }
 }

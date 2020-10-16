@@ -13,11 +13,12 @@ class EndpointSpec
     /**
     * List of exposed ports that this service is accessible on from the
     outside. Ports can only be provided if `vip` resolution mode is used.
-    
+
     *
     * @var EndpointPortConfig[]
     */
     protected $ports;
+
     /**
      * The mode of resolution to use for internal load balancing between tasks.
      *
@@ -27,6 +28,7 @@ class EndpointSpec
     {
         return $this->mode;
     }
+
     /**
      * The mode of resolution to use for internal load balancing between tasks.
      *
@@ -37,12 +39,14 @@ class EndpointSpec
     public function setMode(string $mode) : self
     {
         $this->mode = $mode;
+
         return $this;
     }
+
     /**
     * List of exposed ports that this service is accessible on from the
     outside. Ports can only be provided if `vip` resolution mode is used.
-    
+
     *
     * @return EndpointPortConfig[]
     */
@@ -50,10 +54,11 @@ class EndpointSpec
     {
         return $this->ports;
     }
+
     /**
     * List of exposed ports that this service is accessible on from the
     outside. Ports can only be provided if `vip` resolution mode is used.
-    
+
     *
     * @param EndpointPortConfig[] $ports
     *
@@ -62,6 +67,7 @@ class EndpointSpec
     public function setPorts(array $ports) : self
     {
         $this->ports = $ports;
+
         return $this;
     }
 }

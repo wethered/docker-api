@@ -31,7 +31,7 @@ class TaskSpecContainerSpec
     /**
     * The hostname to use for the container, as a valid
     [RFC 1123](https://tools.ietf.org/html/rfc1123) hostname.
-    
+
     *
     * @var string
     */
@@ -87,7 +87,7 @@ class TaskSpecContainerSpec
     /**
     * Specification for mounts to be added to containers created as part
     of the service.
-    
+
     *
     * @var Mount[]
     */
@@ -101,7 +101,7 @@ class TaskSpecContainerSpec
     /**
     * Amount of time to wait for the container to terminate before
     forcefully killing it.
-    
+
     *
     * @var int
     */
@@ -117,9 +117,9 @@ class TaskSpecContainerSpec
     file. The format of extra hosts is specified in the
     [hosts(5)](http://man7.org/linux/man-pages/man5/hosts.5.html)
     man page:
-    
+
        IP_address canonical_hostname [aliases...]
-    
+
     *
     * @var string[]
     */
@@ -127,7 +127,7 @@ class TaskSpecContainerSpec
     /**
     * Specification for DNS related configurations in resolver configuration
     file (`resolv.conf`).
-    
+
     *
     * @var TaskSpecContainerSpecDNSConfig
     */
@@ -135,7 +135,7 @@ class TaskSpecContainerSpec
     /**
     * Secrets contains references to zero or more secrets that will be
     exposed to the service.
-    
+
     *
     * @var TaskSpecContainerSpecSecretsItem[]
     */
@@ -143,7 +143,7 @@ class TaskSpecContainerSpec
     /**
     * Configs contains references to zero or more configs that will be
     exposed to the service.
-    
+
     *
     * @var TaskSpecContainerSpecConfigsItem[]
     */
@@ -151,7 +151,7 @@ class TaskSpecContainerSpec
     /**
     * Isolation technology of the containers running the service.
     (Windows only)
-    
+
     *
     * @var string
     */
@@ -160,7 +160,7 @@ class TaskSpecContainerSpec
     * Run an init inside the container that forwards signals and reaps
     processes. This field is omitted if empty, and the default (as
     configured on the daemon) is used.
-    
+
     *
     * @var bool|null
     */
@@ -173,11 +173,12 @@ class TaskSpecContainerSpec
     suitability for a clustered environment, and it's up to the user
     to determine whether a given sysctl will work properly in a
     Service.
-    
+
     *
     * @var string[]
     */
     protected $sysctls;
+
     /**
      * The image name to use for the container
      *
@@ -187,6 +188,7 @@ class TaskSpecContainerSpec
     {
         return $this->image;
     }
+
     /**
      * The image name to use for the container
      *
@@ -197,8 +199,10 @@ class TaskSpecContainerSpec
     public function setImage(string $image) : self
     {
         $this->image = $image;
+
         return $this;
     }
+
     /**
      * User-defined key/value data.
      *
@@ -208,6 +212,7 @@ class TaskSpecContainerSpec
     {
         return $this->labels;
     }
+
     /**
      * User-defined key/value data.
      *
@@ -218,8 +223,10 @@ class TaskSpecContainerSpec
     public function setLabels(iterable $labels) : self
     {
         $this->labels = $labels;
+
         return $this;
     }
+
     /**
      * The command to be run in the image.
      *
@@ -229,6 +236,7 @@ class TaskSpecContainerSpec
     {
         return $this->command;
     }
+
     /**
      * The command to be run in the image.
      *
@@ -239,8 +247,10 @@ class TaskSpecContainerSpec
     public function setCommand(array $command) : self
     {
         $this->command = $command;
+
         return $this;
     }
+
     /**
      * Arguments to the command.
      *
@@ -250,6 +260,7 @@ class TaskSpecContainerSpec
     {
         return $this->args;
     }
+
     /**
      * Arguments to the command.
      *
@@ -260,12 +271,14 @@ class TaskSpecContainerSpec
     public function setArgs(array $args) : self
     {
         $this->args = $args;
+
         return $this;
     }
+
     /**
     * The hostname to use for the container, as a valid
     [RFC 1123](https://tools.ietf.org/html/rfc1123) hostname.
-    
+
     *
     * @return string
     */
@@ -273,10 +286,11 @@ class TaskSpecContainerSpec
     {
         return $this->hostname;
     }
+
     /**
     * The hostname to use for the container, as a valid
     [RFC 1123](https://tools.ietf.org/html/rfc1123) hostname.
-    
+
     *
     * @param string $hostname
     *
@@ -285,8 +299,10 @@ class TaskSpecContainerSpec
     public function setHostname(string $hostname) : self
     {
         $this->hostname = $hostname;
+
         return $this;
     }
+
     /**
      * A list of environment variables in the form `VAR=value`.
      *
@@ -296,6 +312,7 @@ class TaskSpecContainerSpec
     {
         return $this->env;
     }
+
     /**
      * A list of environment variables in the form `VAR=value`.
      *
@@ -306,8 +323,10 @@ class TaskSpecContainerSpec
     public function setEnv(array $env) : self
     {
         $this->env = $env;
+
         return $this;
     }
+
     /**
      * The working directory for commands to run in.
      *
@@ -317,6 +336,7 @@ class TaskSpecContainerSpec
     {
         return $this->dir;
     }
+
     /**
      * The working directory for commands to run in.
      *
@@ -327,8 +347,10 @@ class TaskSpecContainerSpec
     public function setDir(string $dir) : self
     {
         $this->dir = $dir;
+
         return $this;
     }
+
     /**
      * The user inside the container.
      *
@@ -338,6 +360,7 @@ class TaskSpecContainerSpec
     {
         return $this->user;
     }
+
     /**
      * The user inside the container.
      *
@@ -348,8 +371,10 @@ class TaskSpecContainerSpec
     public function setUser(string $user) : self
     {
         $this->user = $user;
+
         return $this;
     }
+
     /**
      * A list of additional groups that the container process will run as.
      *
@@ -359,6 +384,7 @@ class TaskSpecContainerSpec
     {
         return $this->groups;
     }
+
     /**
      * A list of additional groups that the container process will run as.
      *
@@ -369,8 +395,10 @@ class TaskSpecContainerSpec
     public function setGroups(array $groups) : self
     {
         $this->groups = $groups;
+
         return $this;
     }
+
     /**
      * Security options for the container
      *
@@ -380,6 +408,7 @@ class TaskSpecContainerSpec
     {
         return $this->privileges;
     }
+
     /**
      * Security options for the container
      *
@@ -390,8 +419,10 @@ class TaskSpecContainerSpec
     public function setPrivileges(TaskSpecContainerSpecPrivileges $privileges) : self
     {
         $this->privileges = $privileges;
+
         return $this;
     }
+
     /**
      * Whether a pseudo-TTY should be allocated.
      *
@@ -401,6 +432,7 @@ class TaskSpecContainerSpec
     {
         return $this->tTY;
     }
+
     /**
      * Whether a pseudo-TTY should be allocated.
      *
@@ -411,8 +443,10 @@ class TaskSpecContainerSpec
     public function setTTY(bool $tTY) : self
     {
         $this->tTY = $tTY;
+
         return $this;
     }
+
     /**
      * Open `stdin`
      *
@@ -422,6 +456,7 @@ class TaskSpecContainerSpec
     {
         return $this->openStdin;
     }
+
     /**
      * Open `stdin`
      *
@@ -432,8 +467,10 @@ class TaskSpecContainerSpec
     public function setOpenStdin(bool $openStdin) : self
     {
         $this->openStdin = $openStdin;
+
         return $this;
     }
+
     /**
      * Mount the container's root filesystem as read only.
      *
@@ -443,6 +480,7 @@ class TaskSpecContainerSpec
     {
         return $this->readOnly;
     }
+
     /**
      * Mount the container's root filesystem as read only.
      *
@@ -453,12 +491,14 @@ class TaskSpecContainerSpec
     public function setReadOnly(bool $readOnly) : self
     {
         $this->readOnly = $readOnly;
+
         return $this;
     }
+
     /**
     * Specification for mounts to be added to containers created as part
     of the service.
-    
+
     *
     * @return Mount[]
     */
@@ -466,10 +506,11 @@ class TaskSpecContainerSpec
     {
         return $this->mounts;
     }
+
     /**
     * Specification for mounts to be added to containers created as part
     of the service.
-    
+
     *
     * @param Mount[] $mounts
     *
@@ -478,8 +519,10 @@ class TaskSpecContainerSpec
     public function setMounts(array $mounts) : self
     {
         $this->mounts = $mounts;
+
         return $this;
     }
+
     /**
      * Signal to stop the container.
      *
@@ -489,6 +532,7 @@ class TaskSpecContainerSpec
     {
         return $this->stopSignal;
     }
+
     /**
      * Signal to stop the container.
      *
@@ -499,12 +543,14 @@ class TaskSpecContainerSpec
     public function setStopSignal(string $stopSignal) : self
     {
         $this->stopSignal = $stopSignal;
+
         return $this;
     }
+
     /**
     * Amount of time to wait for the container to terminate before
     forcefully killing it.
-    
+
     *
     * @return int
     */
@@ -512,10 +558,11 @@ class TaskSpecContainerSpec
     {
         return $this->stopGracePeriod;
     }
+
     /**
     * Amount of time to wait for the container to terminate before
     forcefully killing it.
-    
+
     *
     * @param int $stopGracePeriod
     *
@@ -524,8 +571,10 @@ class TaskSpecContainerSpec
     public function setStopGracePeriod(int $stopGracePeriod) : self
     {
         $this->stopGracePeriod = $stopGracePeriod;
+
         return $this;
     }
+
     /**
      * A test to perform to check that the container is healthy.
      *
@@ -535,6 +584,7 @@ class TaskSpecContainerSpec
     {
         return $this->healthCheck;
     }
+
     /**
      * A test to perform to check that the container is healthy.
      *
@@ -545,16 +595,18 @@ class TaskSpecContainerSpec
     public function setHealthCheck(HealthConfig $healthCheck) : self
     {
         $this->healthCheck = $healthCheck;
+
         return $this;
     }
+
     /**
     * A list of hostname/IP mappings to add to the container's `hosts`
     file. The format of extra hosts is specified in the
     [hosts(5)](http://man7.org/linux/man-pages/man5/hosts.5.html)
     man page:
-    
+
        IP_address canonical_hostname [aliases...]
-    
+
     *
     * @return string[]
     */
@@ -562,14 +614,15 @@ class TaskSpecContainerSpec
     {
         return $this->hosts;
     }
+
     /**
     * A list of hostname/IP mappings to add to the container's `hosts`
     file. The format of extra hosts is specified in the
     [hosts(5)](http://man7.org/linux/man-pages/man5/hosts.5.html)
     man page:
-    
+
        IP_address canonical_hostname [aliases...]
-    
+
     *
     * @param string[] $hosts
     *
@@ -578,12 +631,14 @@ class TaskSpecContainerSpec
     public function setHosts(array $hosts) : self
     {
         $this->hosts = $hosts;
+
         return $this;
     }
+
     /**
     * Specification for DNS related configurations in resolver configuration
     file (`resolv.conf`).
-    
+
     *
     * @return TaskSpecContainerSpecDNSConfig
     */
@@ -591,10 +646,11 @@ class TaskSpecContainerSpec
     {
         return $this->dNSConfig;
     }
+
     /**
     * Specification for DNS related configurations in resolver configuration
     file (`resolv.conf`).
-    
+
     *
     * @param TaskSpecContainerSpecDNSConfig $dNSConfig
     *
@@ -603,12 +659,14 @@ class TaskSpecContainerSpec
     public function setDNSConfig(TaskSpecContainerSpecDNSConfig $dNSConfig) : self
     {
         $this->dNSConfig = $dNSConfig;
+
         return $this;
     }
+
     /**
     * Secrets contains references to zero or more secrets that will be
     exposed to the service.
-    
+
     *
     * @return TaskSpecContainerSpecSecretsItem[]
     */
@@ -616,10 +674,11 @@ class TaskSpecContainerSpec
     {
         return $this->secrets;
     }
+
     /**
     * Secrets contains references to zero or more secrets that will be
     exposed to the service.
-    
+
     *
     * @param TaskSpecContainerSpecSecretsItem[] $secrets
     *
@@ -628,12 +687,14 @@ class TaskSpecContainerSpec
     public function setSecrets(array $secrets) : self
     {
         $this->secrets = $secrets;
+
         return $this;
     }
+
     /**
     * Configs contains references to zero or more configs that will be
     exposed to the service.
-    
+
     *
     * @return TaskSpecContainerSpecConfigsItem[]
     */
@@ -641,10 +702,11 @@ class TaskSpecContainerSpec
     {
         return $this->configs;
     }
+
     /**
     * Configs contains references to zero or more configs that will be
     exposed to the service.
-    
+
     *
     * @param TaskSpecContainerSpecConfigsItem[] $configs
     *
@@ -653,12 +715,14 @@ class TaskSpecContainerSpec
     public function setConfigs(array $configs) : self
     {
         $this->configs = $configs;
+
         return $this;
     }
+
     /**
     * Isolation technology of the containers running the service.
     (Windows only)
-    
+
     *
     * @return string
     */
@@ -666,10 +730,11 @@ class TaskSpecContainerSpec
     {
         return $this->isolation;
     }
+
     /**
     * Isolation technology of the containers running the service.
     (Windows only)
-    
+
     *
     * @param string $isolation
     *
@@ -678,13 +743,15 @@ class TaskSpecContainerSpec
     public function setIsolation(string $isolation) : self
     {
         $this->isolation = $isolation;
+
         return $this;
     }
+
     /**
     * Run an init inside the container that forwards signals and reaps
     processes. This field is omitted if empty, and the default (as
     configured on the daemon) is used.
-    
+
     *
     * @return bool|null
     */
@@ -692,11 +759,12 @@ class TaskSpecContainerSpec
     {
         return $this->init;
     }
+
     /**
     * Run an init inside the container that forwards signals and reaps
     processes. This field is omitted if empty, and the default (as
     configured on the daemon) is used.
-    
+
     *
     * @param bool|null $init
     *
@@ -705,8 +773,10 @@ class TaskSpecContainerSpec
     public function setInit(?bool $init) : self
     {
         $this->init = $init;
+
         return $this;
     }
+
     /**
     * Set kernel namedspaced parameters (sysctls) in the container.
     The Sysctls option on services accepts the same sysctls as the
@@ -715,7 +785,7 @@ class TaskSpecContainerSpec
     suitability for a clustered environment, and it's up to the user
     to determine whether a given sysctl will work properly in a
     Service.
-    
+
     *
     * @return string[]
     */
@@ -723,6 +793,7 @@ class TaskSpecContainerSpec
     {
         return $this->sysctls;
     }
+
     /**
     * Set kernel namedspaced parameters (sysctls) in the container.
     The Sysctls option on services accepts the same sysctls as the
@@ -731,7 +802,7 @@ class TaskSpecContainerSpec
     suitability for a clustered environment, and it's up to the user
     to determine whether a given sysctl will work properly in a
     Service.
-    
+
     *
     * @param string[] $sysctls
     *
@@ -740,6 +811,7 @@ class TaskSpecContainerSpec
     public function setSysctls(iterable $sysctls) : self
     {
         $this->sysctls = $sysctls;
+
         return $this;
     }
 }

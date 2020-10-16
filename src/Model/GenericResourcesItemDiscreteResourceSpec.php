@@ -5,19 +5,20 @@ namespace WeTheRed\DockerApi\Model;
 class GenericResourcesItemDiscreteResourceSpec
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $kind;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $value;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -25,8 +26,9 @@ class GenericResourcesItemDiscreteResourceSpec
     {
         return $this->kind;
     }
+
     /**
-     * 
+     *
      *
      * @param string $kind
      *
@@ -35,10 +37,12 @@ class GenericResourcesItemDiscreteResourceSpec
     public function setKind(string $kind) : self
     {
         $this->kind = $kind;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -46,8 +50,9 @@ class GenericResourcesItemDiscreteResourceSpec
     {
         return $this->value;
     }
+
     /**
-     * 
+     *
      *
      * @param int $value
      *
@@ -56,6 +61,7 @@ class GenericResourcesItemDiscreteResourceSpec
     public function setValue(int $value) : self
     {
         $this->value = $value;
+
         return $this;
     }
 }

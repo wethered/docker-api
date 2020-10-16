@@ -5,8 +5,9 @@ namespace WeTheRed\DockerApi\Endpoint;
 class PluginInspect extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Endpoint
 {
     protected $name;
+
     /**
-     * 
+     *
      *
      * @param string $name The name of the plugin. The `:latest` tag is optional, and is the
     default if omitted.
@@ -15,23 +16,29 @@ class PluginInspect extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     {
         $this->name = $name;
     }
+
     use \Jane\OpenApiRuntime\Client\EndpointTrait;
+
     public function getMethod() : string
     {
         return 'GET';
     }
+
     public function getUri() : string
     {
-        return str_replace(array('{name}'), array($this->name), '/plugins/{name}/json');
+        return str_replace(['{name}'], [$this->name], '/plugins/{name}/json');
     }
+
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
-        return array(array(), null);
+        return [[], null];
     }
+
     public function getExtraHeaders() : array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
+
     /**
      * {@inheritdoc}
      *
@@ -52,8 +59,9 @@ class PluginInspect extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
             throw new \WeTheRed\DockerApi\Exception\PluginInspectInternalServerErrorException($serializer->deserialize($body, 'WeTheRed\\DockerApi\\Model\\ErrorResponse', 'json'));
         }
     }
+
     public function getAuthenticationScopes() : array
     {
-        return array();
+        return [];
     }
 }

@@ -11,11 +11,12 @@ class NetworksCreatePostResponse201
      */
     protected $id;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $warning;
+
     /**
      * The ID of the created network.
      *
@@ -25,6 +26,7 @@ class NetworksCreatePostResponse201
     {
         return $this->id;
     }
+
     /**
      * The ID of the created network.
      *
@@ -35,10 +37,12 @@ class NetworksCreatePostResponse201
     public function setId(string $id) : self
     {
         $this->id = $id;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -46,8 +50,9 @@ class NetworksCreatePostResponse201
     {
         return $this->warning;
     }
+
     /**
-     * 
+     *
      *
      * @param string $warning
      *
@@ -56,6 +61,7 @@ class NetworksCreatePostResponse201
     public function setWarning(string $warning) : self
     {
         $this->warning = $warning;
+
         return $this;
     }
 }

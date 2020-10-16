@@ -5,19 +5,20 @@ namespace WeTheRed\DockerApi\Model;
 class GenericResourcesItem
 {
     /**
-     * 
+     *
      *
      * @var GenericResourcesItemNamedResourceSpec
      */
     protected $namedResourceSpec;
     /**
-     * 
+     *
      *
      * @var GenericResourcesItemDiscreteResourceSpec
      */
     protected $discreteResourceSpec;
+
     /**
-     * 
+     *
      *
      * @return GenericResourcesItemNamedResourceSpec
      */
@@ -25,8 +26,9 @@ class GenericResourcesItem
     {
         return $this->namedResourceSpec;
     }
+
     /**
-     * 
+     *
      *
      * @param GenericResourcesItemNamedResourceSpec $namedResourceSpec
      *
@@ -35,10 +37,12 @@ class GenericResourcesItem
     public function setNamedResourceSpec(GenericResourcesItemNamedResourceSpec $namedResourceSpec) : self
     {
         $this->namedResourceSpec = $namedResourceSpec;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return GenericResourcesItemDiscreteResourceSpec
      */
@@ -46,8 +50,9 @@ class GenericResourcesItem
     {
         return $this->discreteResourceSpec;
     }
+
     /**
-     * 
+     *
      *
      * @param GenericResourcesItemDiscreteResourceSpec $discreteResourceSpec
      *
@@ -56,6 +61,7 @@ class GenericResourcesItem
     public function setDiscreteResourceSpec(GenericResourcesItemDiscreteResourceSpec $discreteResourceSpec) : self
     {
         $this->discreteResourceSpec = $discreteResourceSpec;
+
         return $this;
     }
 }

@@ -52,6 +52,7 @@ class SwarmSpec
      * @var SwarmSpecTaskDefaults
      */
     protected $taskDefaults;
+
     /**
      * Name of the swarm.
      *
@@ -61,6 +62,7 @@ class SwarmSpec
     {
         return $this->name;
     }
+
     /**
      * Name of the swarm.
      *
@@ -71,8 +73,10 @@ class SwarmSpec
     public function setName(string $name) : self
     {
         $this->name = $name;
+
         return $this;
     }
+
     /**
      * User-defined key/value metadata.
      *
@@ -82,6 +86,7 @@ class SwarmSpec
     {
         return $this->labels;
     }
+
     /**
      * User-defined key/value metadata.
      *
@@ -92,8 +97,10 @@ class SwarmSpec
     public function setLabels(iterable $labels) : self
     {
         $this->labels = $labels;
+
         return $this;
     }
+
     /**
      * Orchestration configuration.
      *
@@ -103,6 +110,7 @@ class SwarmSpec
     {
         return $this->orchestration;
     }
+
     /**
      * Orchestration configuration.
      *
@@ -113,8 +121,10 @@ class SwarmSpec
     public function setOrchestration(?SwarmSpecOrchestration $orchestration) : self
     {
         $this->orchestration = $orchestration;
+
         return $this;
     }
+
     /**
      * Raft configuration.
      *
@@ -124,6 +134,7 @@ class SwarmSpec
     {
         return $this->raft;
     }
+
     /**
      * Raft configuration.
      *
@@ -134,8 +145,10 @@ class SwarmSpec
     public function setRaft(SwarmSpecRaft $raft) : self
     {
         $this->raft = $raft;
+
         return $this;
     }
+
     /**
      * Dispatcher configuration.
      *
@@ -145,6 +158,7 @@ class SwarmSpec
     {
         return $this->dispatcher;
     }
+
     /**
      * Dispatcher configuration.
      *
@@ -155,8 +169,10 @@ class SwarmSpec
     public function setDispatcher(?SwarmSpecDispatcher $dispatcher) : self
     {
         $this->dispatcher = $dispatcher;
+
         return $this;
     }
+
     /**
      * CA configuration.
      *
@@ -166,6 +182,7 @@ class SwarmSpec
     {
         return $this->cAConfig;
     }
+
     /**
      * CA configuration.
      *
@@ -176,8 +193,10 @@ class SwarmSpec
     public function setCAConfig(?SwarmSpecCAConfig $cAConfig) : self
     {
         $this->cAConfig = $cAConfig;
+
         return $this;
     }
+
     /**
      * Parameters related to encryption-at-rest.
      *
@@ -187,6 +206,7 @@ class SwarmSpec
     {
         return $this->encryptionConfig;
     }
+
     /**
      * Parameters related to encryption-at-rest.
      *
@@ -197,8 +217,10 @@ class SwarmSpec
     public function setEncryptionConfig(SwarmSpecEncryptionConfig $encryptionConfig) : self
     {
         $this->encryptionConfig = $encryptionConfig;
+
         return $this;
     }
+
     /**
      * Defaults for creating tasks in this cluster.
      *
@@ -208,6 +230,7 @@ class SwarmSpec
     {
         return $this->taskDefaults;
     }
+
     /**
      * Defaults for creating tasks in this cluster.
      *
@@ -218,6 +241,7 @@ class SwarmSpec
     public function setTaskDefaults(SwarmSpecTaskDefaults $taskDefaults) : self
     {
         $this->taskDefaults = $taskDefaults;
+
         return $this;
     }
 }

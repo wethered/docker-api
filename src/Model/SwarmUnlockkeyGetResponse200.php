@@ -10,6 +10,7 @@ class SwarmUnlockkeyGetResponse200
      * @var string
      */
     protected $unlockKey;
+
     /**
      * The swarm's unlock key.
      *
@@ -19,6 +20,7 @@ class SwarmUnlockkeyGetResponse200
     {
         return $this->unlockKey;
     }
+
     /**
      * The swarm's unlock key.
      *
@@ -29,6 +31,7 @@ class SwarmUnlockkeyGetResponse200
     public function setUnlockKey(string $unlockKey) : self
     {
         $this->unlockKey = $unlockKey;
+
         return $this;
     }
 }

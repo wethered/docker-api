@@ -5,19 +5,19 @@ namespace WeTheRed\DockerApi\Model;
 class DeviceRequest
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $driver;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $count;
     /**
-     * 
+     *
      *
      * @var string[]
      */
@@ -31,13 +31,14 @@ class DeviceRequest
     /**
     * Driver-specific options, specified as a key/value pairs. These options
     are passed directly to the driver.
-    
+
     *
     * @var string[]
     */
     protected $options;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -45,8 +46,9 @@ class DeviceRequest
     {
         return $this->driver;
     }
+
     /**
-     * 
+     *
      *
      * @param string $driver
      *
@@ -55,10 +57,12 @@ class DeviceRequest
     public function setDriver(string $driver) : self
     {
         $this->driver = $driver;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -66,8 +70,9 @@ class DeviceRequest
     {
         return $this->count;
     }
+
     /**
-     * 
+     *
      *
      * @param int $count
      *
@@ -76,10 +81,12 @@ class DeviceRequest
     public function setCount(int $count) : self
     {
         $this->count = $count;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -87,8 +94,9 @@ class DeviceRequest
     {
         return $this->deviceIDs;
     }
+
     /**
-     * 
+     *
      *
      * @param string[] $deviceIDs
      *
@@ -97,8 +105,10 @@ class DeviceRequest
     public function setDeviceIDs(array $deviceIDs) : self
     {
         $this->deviceIDs = $deviceIDs;
+
         return $this;
     }
+
     /**
      * A list of capabilities; an OR list of AND lists of capabilities.
      *
@@ -108,6 +118,7 @@ class DeviceRequest
     {
         return $this->capabilities;
     }
+
     /**
      * A list of capabilities; an OR list of AND lists of capabilities.
      *
@@ -118,12 +129,14 @@ class DeviceRequest
     public function setCapabilities(array $capabilities) : self
     {
         $this->capabilities = $capabilities;
+
         return $this;
     }
+
     /**
     * Driver-specific options, specified as a key/value pairs. These options
     are passed directly to the driver.
-    
+
     *
     * @return string[]
     */
@@ -131,10 +144,11 @@ class DeviceRequest
     {
         return $this->options;
     }
+
     /**
     * Driver-specific options, specified as a key/value pairs. These options
     are passed directly to the driver.
-    
+
     *
     * @param string[] $options
     *
@@ -143,6 +157,7 @@ class DeviceRequest
     public function setOptions(iterable $options) : self
     {
         $this->options = $options;
+
         return $this;
     }
 }

@@ -5,31 +5,32 @@ namespace WeTheRed\DockerApi\Model;
 class PluginDevice
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $name;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $description;
     /**
-     * 
+     *
      *
      * @var string[]
      */
     protected $settable;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $path;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -37,8 +38,9 @@ class PluginDevice
     {
         return $this->name;
     }
+
     /**
-     * 
+     *
      *
      * @param string $name
      *
@@ -47,10 +49,12 @@ class PluginDevice
     public function setName(string $name) : self
     {
         $this->name = $name;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -58,8 +62,9 @@ class PluginDevice
     {
         return $this->description;
     }
+
     /**
-     * 
+     *
      *
      * @param string $description
      *
@@ -68,10 +73,12 @@ class PluginDevice
     public function setDescription(string $description) : self
     {
         $this->description = $description;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -79,8 +86,9 @@ class PluginDevice
     {
         return $this->settable;
     }
+
     /**
-     * 
+     *
      *
      * @param string[] $settable
      *
@@ -89,10 +97,12 @@ class PluginDevice
     public function setSettable(array $settable) : self
     {
         $this->settable = $settable;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -100,8 +110,9 @@ class PluginDevice
     {
         return $this->path;
     }
+
     /**
-     * 
+     *
      *
      * @param string $path
      *
@@ -110,6 +121,7 @@ class PluginDevice
     public function setPath(string $path) : self
     {
         $this->path = $path;
+
         return $this;
     }
 }

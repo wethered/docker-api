@@ -13,11 +13,12 @@ class ContainersIdTopGetResponse200
     /**
     * Each process running in the container, where each is process
     is an array of values corresponding to the titles.
-    
+
     *
     * @var string[][]
     */
     protected $processes;
+
     /**
      * The ps column titles
      *
@@ -27,6 +28,7 @@ class ContainersIdTopGetResponse200
     {
         return $this->titles;
     }
+
     /**
      * The ps column titles
      *
@@ -37,12 +39,14 @@ class ContainersIdTopGetResponse200
     public function setTitles(array $titles) : self
     {
         $this->titles = $titles;
+
         return $this;
     }
+
     /**
     * Each process running in the container, where each is process
     is an array of values corresponding to the titles.
-    
+
     *
     * @return string[][]
     */
@@ -50,10 +54,11 @@ class ContainersIdTopGetResponse200
     {
         return $this->processes;
     }
+
     /**
     * Each process running in the container, where each is process
     is an array of values corresponding to the titles.
-    
+
     *
     * @param string[][] $processes
     *
@@ -62,6 +67,7 @@ class ContainersIdTopGetResponse200
     public function setProcesses(array $processes) : self
     {
         $this->processes = $processes;
+
         return $this;
     }
 }

@@ -8,16 +8,17 @@ class ContainersIdArchiveGetResponse400
     * The error message. Either "must specify path parameter"
     (path cannot be empty) or "not a directory" (path was
     asserted to be a directory but exists as a file).
-    
+
     *
     * @var string
     */
     protected $message;
+
     /**
     * The error message. Either "must specify path parameter"
     (path cannot be empty) or "not a directory" (path was
     asserted to be a directory but exists as a file).
-    
+
     *
     * @return string
     */
@@ -25,11 +26,12 @@ class ContainersIdArchiveGetResponse400
     {
         return $this->message;
     }
+
     /**
     * The error message. Either "must specify path parameter"
     (path cannot be empty) or "not a directory" (path was
     asserted to be a directory but exists as a file).
-    
+
     *
     * @param string $message
     *
@@ -38,6 +40,7 @@ class ContainersIdArchiveGetResponse400
     public function setMessage(string $message) : self
     {
         $this->message = $message;
+
         return $this;
     }
 }

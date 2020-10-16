@@ -19,7 +19,7 @@ class VolumesCreatePostBody
     /**
     * A mapping of driver options and values. These options are
     passed directly to the driver and are driver specific.
-    
+
     *
     * @var string[]
     */
@@ -30,6 +30,7 @@ class VolumesCreatePostBody
      * @var string[]
      */
     protected $labels;
+
     /**
      * The new volume's name. If not specified, Docker generates a name.
      *
@@ -39,6 +40,7 @@ class VolumesCreatePostBody
     {
         return $this->name;
     }
+
     /**
      * The new volume's name. If not specified, Docker generates a name.
      *
@@ -49,8 +51,10 @@ class VolumesCreatePostBody
     public function setName(string $name) : self
     {
         $this->name = $name;
+
         return $this;
     }
+
     /**
      * Name of the volume driver to use.
      *
@@ -60,6 +64,7 @@ class VolumesCreatePostBody
     {
         return $this->driver;
     }
+
     /**
      * Name of the volume driver to use.
      *
@@ -70,12 +75,14 @@ class VolumesCreatePostBody
     public function setDriver(string $driver) : self
     {
         $this->driver = $driver;
+
         return $this;
     }
+
     /**
     * A mapping of driver options and values. These options are
     passed directly to the driver and are driver specific.
-    
+
     *
     * @return string[]
     */
@@ -83,10 +90,11 @@ class VolumesCreatePostBody
     {
         return $this->driverOpts;
     }
+
     /**
     * A mapping of driver options and values. These options are
     passed directly to the driver and are driver specific.
-    
+
     *
     * @param string[] $driverOpts
     *
@@ -95,8 +103,10 @@ class VolumesCreatePostBody
     public function setDriverOpts(iterable $driverOpts) : self
     {
         $this->driverOpts = $driverOpts;
+
         return $this;
     }
+
     /**
      * User-defined key/value metadata.
      *
@@ -106,6 +116,7 @@ class VolumesCreatePostBody
     {
         return $this->labels;
     }
+
     /**
      * User-defined key/value metadata.
      *
@@ -116,6 +127,7 @@ class VolumesCreatePostBody
     public function setLabels(iterable $labels) : self
     {
         $this->labels = $labels;
+
         return $this;
     }
 }

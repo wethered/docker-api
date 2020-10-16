@@ -5,13 +5,14 @@ namespace WeTheRed\DockerApi\Model;
 class ImageID
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $iD;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -19,8 +20,9 @@ class ImageID
     {
         return $this->iD;
     }
+
     /**
-     * 
+     *
      *
      * @param string $iD
      *
@@ -29,6 +31,7 @@ class ImageID
     public function setID(string $iD) : self
     {
         $this->iD = $iD;
+
         return $this;
     }
 }

@@ -2,29 +2,32 @@
 
 namespace WeTheRed\DockerApi\Normalizer;
 
-use Jane\JsonSchemaRuntime\Reference;
 use Jane\JsonSchemaRuntime\Normalizer\CheckArray;
-use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Jane\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 class IndexInfoNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
     use CheckArray;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
         return $type === 'WeTheRed\\DockerApi\\Model\\IndexInfo';
     }
+
     public function supportsNormalization($data, $format = null)
     {
         return is_object($data) && get_class($data) === 'WeTheRed\\DockerApi\\Model\\IndexInfo';
     }
-    public function denormalize($data, $class, $format = null, array $context = array())
+
+    public function denormalize($data, $class, $format = null, array $context = [])
     {
         if (isset($data['$ref'])) {
             return new Reference($data['$ref'], $context['document-origin']);
@@ -37,7 +40,7 @@ class IndexInfoNormalizer implements DenormalizerInterface, NormalizerInterface,
             $object->setName($data['Name']);
         }
         if (\array_key_exists('Mirrors', $data)) {
-            $values = array();
+            $values = [];
             foreach ($data['Mirrors'] as $value) {
                 $values[] = $value;
             }
@@ -49,16 +52,18 @@ class IndexInfoNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (\array_key_exists('Official', $data)) {
             $object->setOfficial($data['Official']);
         }
+
         return $object;
     }
-    public function normalize($object, $format = null, array $context = array())
+
+    public function normalize($object, $format = null, array $context = [])
     {
-        $data = array();
+        $data = [];
         if (null !== $object->getName()) {
             $data['Name'] = $object->getName();
         }
         if (null !== $object->getMirrors()) {
-            $values = array();
+            $values = [];
             foreach ($object->getMirrors() as $value) {
                 $values[] = $value;
             }
@@ -70,6 +75,7 @@ class IndexInfoNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (null !== $object->getOfficial()) {
             $data['Official'] = $object->getOfficial();
         }
+
         return $data;
     }
 }

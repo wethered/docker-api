@@ -7,15 +7,16 @@ class SwarmSpecEncryptionConfig
     /**
     * If set, generate a key and use it to lock data stored on the
     managers.
-    
+
     *
     * @var bool
     */
     protected $autoLockManagers;
+
     /**
     * If set, generate a key and use it to lock data stored on the
     managers.
-    
+
     *
     * @return bool
     */
@@ -23,10 +24,11 @@ class SwarmSpecEncryptionConfig
     {
         return $this->autoLockManagers;
     }
+
     /**
     * If set, generate a key and use it to lock data stored on the
     managers.
-    
+
     *
     * @param bool $autoLockManagers
     *
@@ -35,6 +37,7 @@ class SwarmSpecEncryptionConfig
     public function setAutoLockManagers(bool $autoLockManagers) : self
     {
         $this->autoLockManagers = $autoLockManagers;
+
         return $this;
     }
 }

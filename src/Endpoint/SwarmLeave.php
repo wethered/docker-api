@@ -5,44 +5,52 @@ namespace WeTheRed\DockerApi\Endpoint;
 class SwarmLeave extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Endpoint
 {
     /**
-    * 
+    *
     *
     * @param array $queryParameters {
     *     @var bool $force Force leave swarm, even if this is the last manager or that it will
     break the cluster.
-    
+
     * }
     */
-    public function __construct(array $queryParameters = array())
+    public function __construct(array $queryParameters = [])
     {
         $this->queryParameters = $queryParameters;
     }
+
     use \Jane\OpenApiRuntime\Client\EndpointTrait;
+
     public function getMethod() : string
     {
         return 'POST';
     }
+
     public function getUri() : string
     {
         return '/swarm/leave';
     }
+
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
-        return array(array(), null);
+        return [[], null];
     }
+
     public function getExtraHeaders() : array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
+
     protected function getQueryOptionsResolver() : \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(array('force'));
-        $optionsResolver->setRequired(array());
-        $optionsResolver->setDefaults(array('force' => false));
-        $optionsResolver->setAllowedTypes('force', array('bool'));
+        $optionsResolver->setDefined(['force']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults(['force' => false]);
+        $optionsResolver->setAllowedTypes('force', ['bool']);
+
         return $optionsResolver;
     }
+
     /**
      * {@inheritdoc}
      *
@@ -63,8 +71,9 @@ class SwarmLeave extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
             throw new \WeTheRed\DockerApi\Exception\SwarmLeaveServiceUnavailableException($serializer->deserialize($body, 'WeTheRed\\DockerApi\\Model\\ErrorResponse', 'json'));
         }
     }
+
     public function getAuthenticationScopes() : array
     {
-        return array();
+        return [];
     }
 }

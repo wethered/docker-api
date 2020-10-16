@@ -5,6 +5,7 @@ namespace WeTheRed\DockerApi\Endpoint;
 class ContainerExport extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Endpoint
 {
     protected $id;
+
     /**
      * Export the contents of a container as a tarball.
      *
@@ -14,23 +15,29 @@ class ContainerExport extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
     {
         $this->id = $id;
     }
+
     use \Jane\OpenApiRuntime\Client\EndpointTrait;
+
     public function getMethod() : string
     {
         return 'GET';
     }
+
     public function getUri() : string
     {
-        return str_replace(array('{id}'), array($this->id), '/containers/{id}/export');
+        return str_replace(['{id}'], [$this->id], '/containers/{id}/export');
     }
+
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
-        return array(array(), null);
+        return [[], null];
     }
+
     public function getExtraHeaders() : array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
+
     /**
      * {@inheritdoc}
      *
@@ -51,8 +58,9 @@ class ContainerExport extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
             throw new \WeTheRed\DockerApi\Exception\ContainerExportInternalServerErrorException($serializer->deserialize($body, 'WeTheRed\\DockerApi\\Model\\ErrorResponse', 'json'));
         }
     }
+
     public function getAuthenticationScopes() : array
     {
-        return array();
+        return [];
     }
 }

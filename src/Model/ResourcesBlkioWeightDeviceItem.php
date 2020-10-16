@@ -5,19 +5,20 @@ namespace WeTheRed\DockerApi\Model;
 class ResourcesBlkioWeightDeviceItem
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $path;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $weight;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -25,8 +26,9 @@ class ResourcesBlkioWeightDeviceItem
     {
         return $this->path;
     }
+
     /**
-     * 
+     *
      *
      * @param string $path
      *
@@ -35,10 +37,12 @@ class ResourcesBlkioWeightDeviceItem
     public function setPath(string $path) : self
     {
         $this->path = $path;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -46,8 +50,9 @@ class ResourcesBlkioWeightDeviceItem
     {
         return $this->weight;
     }
+
     /**
-     * 
+     *
      *
      * @param int $weight
      *
@@ -56,6 +61,7 @@ class ResourcesBlkioWeightDeviceItem
     public function setWeight(int $weight) : self
     {
         $this->weight = $weight;
+
         return $this;
     }
 }

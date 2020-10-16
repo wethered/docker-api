@@ -5,8 +5,9 @@ namespace WeTheRed\DockerApi\Endpoint;
 class ContainerDelete extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Endpoint
 {
     protected $id;
+
     /**
-     * 
+     *
      *
      * @param string $id ID or name of the container
      * @param array $queryParameters {
@@ -15,39 +16,47 @@ class ContainerDelete extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
      *     @var bool $link Remove the specified link associated with the container.
      * }
      */
-    public function __construct(string $id, array $queryParameters = array())
+    public function __construct(string $id, array $queryParameters = [])
     {
         $this->id = $id;
         $this->queryParameters = $queryParameters;
     }
+
     use \Jane\OpenApiRuntime\Client\EndpointTrait;
+
     public function getMethod() : string
     {
         return 'DELETE';
     }
+
     public function getUri() : string
     {
-        return str_replace(array('{id}'), array($this->id), '/containers/{id}');
+        return str_replace(['{id}'], [$this->id], '/containers/{id}');
     }
+
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
-        return array(array(), null);
+        return [[], null];
     }
+
     public function getExtraHeaders() : array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
+
     protected function getQueryOptionsResolver() : \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(array('v', 'force', 'link'));
-        $optionsResolver->setRequired(array());
-        $optionsResolver->setDefaults(array('v' => false, 'force' => false, 'link' => false));
-        $optionsResolver->setAllowedTypes('v', array('bool'));
-        $optionsResolver->setAllowedTypes('force', array('bool'));
-        $optionsResolver->setAllowedTypes('link', array('bool'));
+        $optionsResolver->setDefined(['v', 'force', 'link']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults(['v' => false, 'force' => false, 'link' => false]);
+        $optionsResolver->setAllowedTypes('v', ['bool']);
+        $optionsResolver->setAllowedTypes('force', ['bool']);
+        $optionsResolver->setAllowedTypes('link', ['bool']);
+
         return $optionsResolver;
     }
+
     /**
      * {@inheritdoc}
      *
@@ -76,8 +85,9 @@ class ContainerDelete extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
             throw new \WeTheRed\DockerApi\Exception\ContainerDeleteInternalServerErrorException($serializer->deserialize($body, 'WeTheRed\\DockerApi\\Model\\ErrorResponse', 'json'));
         }
     }
+
     public function getAuthenticationScopes() : array
     {
-        return array();
+        return [];
     }
 }

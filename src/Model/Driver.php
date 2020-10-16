@@ -16,6 +16,7 @@ class Driver
      * @var string[]
      */
     protected $options;
+
     /**
      * Name of the driver.
      *
@@ -25,6 +26,7 @@ class Driver
     {
         return $this->name;
     }
+
     /**
      * Name of the driver.
      *
@@ -35,8 +37,10 @@ class Driver
     public function setName(string $name) : self
     {
         $this->name = $name;
+
         return $this;
     }
+
     /**
      * Key/value map of driver-specific options.
      *
@@ -46,6 +50,7 @@ class Driver
     {
         return $this->options;
     }
+
     /**
      * Key/value map of driver-specific options.
      *
@@ -56,6 +61,7 @@ class Driver
     public function setOptions(iterable $options) : self
     {
         $this->options = $options;
+
         return $this;
     }
 }

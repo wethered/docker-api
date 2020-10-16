@@ -2,29 +2,32 @@
 
 namespace WeTheRed\DockerApi\Normalizer;
 
-use Jane\JsonSchemaRuntime\Reference;
 use Jane\JsonSchemaRuntime\Normalizer\CheckArray;
-use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Jane\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 class NetworkSettingsNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
     use CheckArray;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
         return $type === 'WeTheRed\\DockerApi\\Model\\NetworkSettings';
     }
+
     public function supportsNormalization($data, $format = null)
     {
         return is_object($data) && get_class($data) === 'WeTheRed\\DockerApi\\Model\\NetworkSettings';
     }
-    public function denormalize($data, $class, $format = null, array $context = array())
+
+    public function denormalize($data, $class, $format = null, array $context = [])
     {
         if (isset($data['$ref'])) {
             return new Reference($data['$ref'], $context['document-origin']);
@@ -49,9 +52,9 @@ class NetworkSettingsNormalizer implements DenormalizerInterface, NormalizerInte
             $object->setLinkLocalIPv6PrefixLen($data['LinkLocalIPv6PrefixLen']);
         }
         if (\array_key_exists('Ports', $data)) {
-            $values = new \ArrayObject(array(), \ArrayObject::ARRAY_AS_PROPS);
+            $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data['Ports'] as $key => $value) {
-                $values_1 = array();
+                $values_1 = [];
                 foreach ($value as $value_1) {
                     $values_1[] = $this->denormalizer->denormalize($value_1, 'WeTheRed\\DockerApi\\Model\\PortBinding', 'json', $context);
                 }
@@ -63,23 +66,21 @@ class NetworkSettingsNormalizer implements DenormalizerInterface, NormalizerInte
             $object->setSandboxKey($data['SandboxKey']);
         }
         if (\array_key_exists('SecondaryIPAddresses', $data) && $data['SecondaryIPAddresses'] !== null) {
-            $values_2 = array();
+            $values_2 = [];
             foreach ($data['SecondaryIPAddresses'] as $value_2) {
                 $values_2[] = $this->denormalizer->denormalize($value_2, 'WeTheRed\\DockerApi\\Model\\Address', 'json', $context);
             }
             $object->setSecondaryIPAddresses($values_2);
-        }
-        elseif (\array_key_exists('SecondaryIPAddresses', $data) && $data['SecondaryIPAddresses'] === null) {
+        } elseif (\array_key_exists('SecondaryIPAddresses', $data) && $data['SecondaryIPAddresses'] === null) {
             $object->setSecondaryIPAddresses(null);
         }
         if (\array_key_exists('SecondaryIPv6Addresses', $data) && $data['SecondaryIPv6Addresses'] !== null) {
-            $values_3 = array();
+            $values_3 = [];
             foreach ($data['SecondaryIPv6Addresses'] as $value_3) {
                 $values_3[] = $this->denormalizer->denormalize($value_3, 'WeTheRed\\DockerApi\\Model\\Address', 'json', $context);
             }
             $object->setSecondaryIPv6Addresses($values_3);
-        }
-        elseif (\array_key_exists('SecondaryIPv6Addresses', $data) && $data['SecondaryIPv6Addresses'] === null) {
+        } elseif (\array_key_exists('SecondaryIPv6Addresses', $data) && $data['SecondaryIPv6Addresses'] === null) {
             $object->setSecondaryIPv6Addresses(null);
         }
         if (\array_key_exists('EndpointID', $data)) {
@@ -107,17 +108,19 @@ class NetworkSettingsNormalizer implements DenormalizerInterface, NormalizerInte
             $object->setMacAddress($data['MacAddress']);
         }
         if (\array_key_exists('Networks', $data)) {
-            $values_4 = new \ArrayObject(array(), \ArrayObject::ARRAY_AS_PROPS);
+            $values_4 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data['Networks'] as $key_1 => $value_4) {
                 $values_4[$key_1] = $this->denormalizer->denormalize($value_4, 'WeTheRed\\DockerApi\\Model\\EndpointSettings', 'json', $context);
             }
             $object->setNetworks($values_4);
         }
+
         return $object;
     }
-    public function normalize($object, $format = null, array $context = array())
+
+    public function normalize($object, $format = null, array $context = [])
     {
-        $data = array();
+        $data = [];
         if (null !== $object->getBridge()) {
             $data['Bridge'] = $object->getBridge();
         }
@@ -134,9 +137,9 @@ class NetworkSettingsNormalizer implements DenormalizerInterface, NormalizerInte
             $data['LinkLocalIPv6PrefixLen'] = $object->getLinkLocalIPv6PrefixLen();
         }
         if (null !== $object->getPorts()) {
-            $values = array();
+            $values = [];
             foreach ($object->getPorts() as $key => $value) {
-                $values_1 = array();
+                $values_1 = [];
                 foreach ($value as $value_1) {
                     $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
                 }
@@ -148,14 +151,14 @@ class NetworkSettingsNormalizer implements DenormalizerInterface, NormalizerInte
             $data['SandboxKey'] = $object->getSandboxKey();
         }
         if (null !== $object->getSecondaryIPAddresses()) {
-            $values_2 = array();
+            $values_2 = [];
             foreach ($object->getSecondaryIPAddresses() as $value_2) {
                 $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
             }
             $data['SecondaryIPAddresses'] = $values_2;
         }
         if (null !== $object->getSecondaryIPv6Addresses()) {
-            $values_3 = array();
+            $values_3 = [];
             foreach ($object->getSecondaryIPv6Addresses() as $value_3) {
                 $values_3[] = $this->normalizer->normalize($value_3, 'json', $context);
             }
@@ -186,12 +189,13 @@ class NetworkSettingsNormalizer implements DenormalizerInterface, NormalizerInte
             $data['MacAddress'] = $object->getMacAddress();
         }
         if (null !== $object->getNetworks()) {
-            $values_4 = array();
+            $values_4 = [];
             foreach ($object->getNetworks() as $key_1 => $value_4) {
                 $values_4[$key_1] = $this->normalizer->normalize($value_4, 'json', $context);
             }
             $data['Networks'] = $values_4;
         }
+
         return $data;
     }
 }

@@ -5,25 +5,26 @@ namespace WeTheRed\DockerApi\Model;
 class PluginConfigLinux
 {
     /**
-     * 
+     *
      *
      * @var string[]
      */
     protected $capabilities;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $allowAllDevices;
     /**
-     * 
+     *
      *
      * @var PluginDevice[]
      */
     protected $devices;
+
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -31,8 +32,9 @@ class PluginConfigLinux
     {
         return $this->capabilities;
     }
+
     /**
-     * 
+     *
      *
      * @param string[] $capabilities
      *
@@ -41,10 +43,12 @@ class PluginConfigLinux
     public function setCapabilities(array $capabilities) : self
     {
         $this->capabilities = $capabilities;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -52,8 +56,9 @@ class PluginConfigLinux
     {
         return $this->allowAllDevices;
     }
+
     /**
-     * 
+     *
      *
      * @param bool $allowAllDevices
      *
@@ -62,10 +67,12 @@ class PluginConfigLinux
     public function setAllowAllDevices(bool $allowAllDevices) : self
     {
         $this->allowAllDevices = $allowAllDevices;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return PluginDevice[]
      */
@@ -73,8 +80,9 @@ class PluginConfigLinux
     {
         return $this->devices;
     }
+
     /**
-     * 
+     *
      *
      * @param PluginDevice[] $devices
      *
@@ -83,6 +91,7 @@ class PluginConfigLinux
     public function setDevices(array $devices) : self
     {
         $this->devices = $devices;
+
         return $this;
     }
 }

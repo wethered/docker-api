@@ -5,7 +5,7 @@ namespace WeTheRed\DockerApi\Model;
 class ManagerStatus
 {
     /**
-     * 
+     *
      *
      * @var bool
      */
@@ -22,8 +22,9 @@ class ManagerStatus
      * @var string
      */
     protected $addr;
+
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -31,8 +32,9 @@ class ManagerStatus
     {
         return $this->leader;
     }
+
     /**
-     * 
+     *
      *
      * @param bool $leader
      *
@@ -41,8 +43,10 @@ class ManagerStatus
     public function setLeader(bool $leader) : self
     {
         $this->leader = $leader;
+
         return $this;
     }
+
     /**
      * Reachability represents the reachability of a node.
      *
@@ -52,6 +56,7 @@ class ManagerStatus
     {
         return $this->reachability;
     }
+
     /**
      * Reachability represents the reachability of a node.
      *
@@ -62,8 +67,10 @@ class ManagerStatus
     public function setReachability(string $reachability) : self
     {
         $this->reachability = $reachability;
+
         return $this;
     }
+
     /**
      * The IP address and port at which the manager is reachable.
      *
@@ -73,6 +80,7 @@ class ManagerStatus
     {
         return $this->addr;
     }
+
     /**
      * The IP address and port at which the manager is reachable.
      *
@@ -83,6 +91,7 @@ class ManagerStatus
     public function setAddr(string $addr) : self
     {
         $this->addr = $addr;
+
         return $this;
     }
 }

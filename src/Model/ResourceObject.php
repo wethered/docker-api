@@ -5,13 +5,13 @@ namespace WeTheRed\DockerApi\Model;
 class ResourceObject
 {
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $nanoCPUs;
     /**
-     * 
+     *
      *
      * @var int
      */
@@ -19,13 +19,14 @@ class ResourceObject
     /**
     * User-defined resources can be either Integer resources (e.g, `SSD=3`) or
     String resources (e.g, `GPU=UUID1`).
-    
+
     *
     * @var GenericResourcesItem[]
     */
     protected $genericResources;
+
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -33,8 +34,9 @@ class ResourceObject
     {
         return $this->nanoCPUs;
     }
+
     /**
-     * 
+     *
      *
      * @param int $nanoCPUs
      *
@@ -43,10 +45,12 @@ class ResourceObject
     public function setNanoCPUs(int $nanoCPUs) : self
     {
         $this->nanoCPUs = $nanoCPUs;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -54,8 +58,9 @@ class ResourceObject
     {
         return $this->memoryBytes;
     }
+
     /**
-     * 
+     *
      *
      * @param int $memoryBytes
      *
@@ -64,12 +69,14 @@ class ResourceObject
     public function setMemoryBytes(int $memoryBytes) : self
     {
         $this->memoryBytes = $memoryBytes;
+
         return $this;
     }
+
     /**
     * User-defined resources can be either Integer resources (e.g, `SSD=3`) or
     String resources (e.g, `GPU=UUID1`).
-    
+
     *
     * @return GenericResourcesItem[]
     */
@@ -77,10 +84,11 @@ class ResourceObject
     {
         return $this->genericResources;
     }
+
     /**
     * User-defined resources can be either Integer resources (e.g, `SSD=3`) or
     String resources (e.g, `GPU=UUID1`).
-    
+
     *
     * @param GenericResourcesItem[] $genericResources
     *
@@ -89,6 +97,7 @@ class ResourceObject
     public function setGenericResources(array $genericResources) : self
     {
         $this->genericResources = $genericResources;
+
         return $this;
     }
 }

@@ -5,49 +5,58 @@ namespace WeTheRed\DockerApi\Endpoint;
 class NodeUpdate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Endpoint
 {
     protected $id;
+
     /**
-    * 
+    *
     *
     * @param string $id The ID of the node
-    * @param \WeTheRed\DockerApi\Model\NodeSpec $body 
+    * @param \WeTheRed\DockerApi\Model\NodeSpec $body
     * @param array $queryParameters {
     *     @var int $version The version number of the node object being updated. This is required
     to avoid conflicting writes.
-    
+
     * }
     */
-    public function __construct(string $id, \WeTheRed\DockerApi\Model\NodeSpec $body, array $queryParameters = array())
+    public function __construct(string $id, \WeTheRed\DockerApi\Model\NodeSpec $body, array $queryParameters = [])
     {
         $this->id = $id;
         $this->body = $body;
         $this->queryParameters = $queryParameters;
     }
+
     use \Jane\OpenApiRuntime\Client\EndpointTrait;
+
     public function getMethod() : string
     {
         return 'POST';
     }
+
     public function getUri() : string
     {
-        return str_replace(array('{id}'), array($this->id), '/nodes/{id}/update');
+        return str_replace(['{id}'], [$this->id], '/nodes/{id}/update');
     }
+
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
         return $this->getSerializedBody($serializer);
     }
+
     public function getExtraHeaders() : array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
+
     protected function getQueryOptionsResolver() : \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(array('version'));
-        $optionsResolver->setRequired(array('version'));
-        $optionsResolver->setDefaults(array());
-        $optionsResolver->setAllowedTypes('version', array('int'));
+        $optionsResolver->setDefined(['version']);
+        $optionsResolver->setRequired(['version']);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('version', ['int']);
+
         return $optionsResolver;
     }
+
     /**
      * {@inheritdoc}
      *
@@ -76,8 +85,9 @@ class NodeUpdate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
             throw new \WeTheRed\DockerApi\Exception\NodeUpdateServiceUnavailableException($serializer->deserialize($body, 'WeTheRed\\DockerApi\\Model\\ErrorResponse', 'json'));
         }
     }
+
     public function getAuthenticationScopes() : array
     {
-        return array();
+        return [];
     }
 }

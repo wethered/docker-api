@@ -10,6 +10,7 @@ class ServiceUpdateResponse
      * @var string[]
      */
     protected $warnings;
+
     /**
      * Optional warning messages
      *
@@ -19,6 +20,7 @@ class ServiceUpdateResponse
     {
         return $this->warnings;
     }
+
     /**
      * Optional warning messages
      *
@@ -29,6 +31,7 @@ class ServiceUpdateResponse
     public function setWarnings(array $warnings) : self
     {
         $this->warnings = $warnings;
+
         return $this;
     }
 }

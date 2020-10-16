@@ -11,13 +11,13 @@ class EndpointSettings
      */
     protected $iPAMConfig;
     /**
-     * 
+     *
      *
      * @var string[]
      */
     protected $links;
     /**
-     * 
+     *
      *
      * @var string[]
      */
@@ -79,11 +79,12 @@ class EndpointSettings
     /**
     * DriverOpts is a mapping of driver options and values. These options
     are passed directly to the driver and are driver specific.
-    
+
     *
     * @var string[]|null
     */
     protected $driverOpts;
+
     /**
      * EndpointIPAMConfig represents an endpoint's IPAM configuration.
      *
@@ -93,6 +94,7 @@ class EndpointSettings
     {
         return $this->iPAMConfig;
     }
+
     /**
      * EndpointIPAMConfig represents an endpoint's IPAM configuration.
      *
@@ -103,10 +105,12 @@ class EndpointSettings
     public function setIPAMConfig(?EndpointIPAMConfig $iPAMConfig) : self
     {
         $this->iPAMConfig = $iPAMConfig;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -114,8 +118,9 @@ class EndpointSettings
     {
         return $this->links;
     }
+
     /**
-     * 
+     *
      *
      * @param string[] $links
      *
@@ -124,10 +129,12 @@ class EndpointSettings
     public function setLinks(array $links) : self
     {
         $this->links = $links;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -135,8 +142,9 @@ class EndpointSettings
     {
         return $this->aliases;
     }
+
     /**
-     * 
+     *
      *
      * @param string[] $aliases
      *
@@ -145,8 +153,10 @@ class EndpointSettings
     public function setAliases(array $aliases) : self
     {
         $this->aliases = $aliases;
+
         return $this;
     }
+
     /**
      * Unique ID of the network.
      *
@@ -156,6 +166,7 @@ class EndpointSettings
     {
         return $this->networkID;
     }
+
     /**
      * Unique ID of the network.
      *
@@ -166,8 +177,10 @@ class EndpointSettings
     public function setNetworkID(string $networkID) : self
     {
         $this->networkID = $networkID;
+
         return $this;
     }
+
     /**
      * Unique ID for the service endpoint in a Sandbox.
      *
@@ -177,6 +190,7 @@ class EndpointSettings
     {
         return $this->endpointID;
     }
+
     /**
      * Unique ID for the service endpoint in a Sandbox.
      *
@@ -187,8 +201,10 @@ class EndpointSettings
     public function setEndpointID(string $endpointID) : self
     {
         $this->endpointID = $endpointID;
+
         return $this;
     }
+
     /**
      * Gateway address for this network.
      *
@@ -198,6 +214,7 @@ class EndpointSettings
     {
         return $this->gateway;
     }
+
     /**
      * Gateway address for this network.
      *
@@ -208,8 +225,10 @@ class EndpointSettings
     public function setGateway(string $gateway) : self
     {
         $this->gateway = $gateway;
+
         return $this;
     }
+
     /**
      * IPv4 address.
      *
@@ -219,6 +238,7 @@ class EndpointSettings
     {
         return $this->iPAddress;
     }
+
     /**
      * IPv4 address.
      *
@@ -229,8 +249,10 @@ class EndpointSettings
     public function setIPAddress(string $iPAddress) : self
     {
         $this->iPAddress = $iPAddress;
+
         return $this;
     }
+
     /**
      * Mask length of the IPv4 address.
      *
@@ -240,6 +262,7 @@ class EndpointSettings
     {
         return $this->iPPrefixLen;
     }
+
     /**
      * Mask length of the IPv4 address.
      *
@@ -250,8 +273,10 @@ class EndpointSettings
     public function setIPPrefixLen(int $iPPrefixLen) : self
     {
         $this->iPPrefixLen = $iPPrefixLen;
+
         return $this;
     }
+
     /**
      * IPv6 gateway address.
      *
@@ -261,6 +286,7 @@ class EndpointSettings
     {
         return $this->iPv6Gateway;
     }
+
     /**
      * IPv6 gateway address.
      *
@@ -271,8 +297,10 @@ class EndpointSettings
     public function setIPv6Gateway(string $iPv6Gateway) : self
     {
         $this->iPv6Gateway = $iPv6Gateway;
+
         return $this;
     }
+
     /**
      * Global IPv6 address.
      *
@@ -282,6 +310,7 @@ class EndpointSettings
     {
         return $this->globalIPv6Address;
     }
+
     /**
      * Global IPv6 address.
      *
@@ -292,8 +321,10 @@ class EndpointSettings
     public function setGlobalIPv6Address(string $globalIPv6Address) : self
     {
         $this->globalIPv6Address = $globalIPv6Address;
+
         return $this;
     }
+
     /**
      * Mask length of the global IPv6 address.
      *
@@ -303,6 +334,7 @@ class EndpointSettings
     {
         return $this->globalIPv6PrefixLen;
     }
+
     /**
      * Mask length of the global IPv6 address.
      *
@@ -313,8 +345,10 @@ class EndpointSettings
     public function setGlobalIPv6PrefixLen(int $globalIPv6PrefixLen) : self
     {
         $this->globalIPv6PrefixLen = $globalIPv6PrefixLen;
+
         return $this;
     }
+
     /**
      * MAC address for the endpoint on this network.
      *
@@ -324,6 +358,7 @@ class EndpointSettings
     {
         return $this->macAddress;
     }
+
     /**
      * MAC address for the endpoint on this network.
      *
@@ -334,12 +369,14 @@ class EndpointSettings
     public function setMacAddress(string $macAddress) : self
     {
         $this->macAddress = $macAddress;
+
         return $this;
     }
+
     /**
     * DriverOpts is a mapping of driver options and values. These options
     are passed directly to the driver and are driver specific.
-    
+
     *
     * @return string[]|null
     */
@@ -347,10 +384,11 @@ class EndpointSettings
     {
         return $this->driverOpts;
     }
+
     /**
     * DriverOpts is a mapping of driver options and values. These options
     are passed directly to the driver and are driver specific.
-    
+
     *
     * @param string[]|null $driverOpts
     *
@@ -359,6 +397,7 @@ class EndpointSettings
     public function setDriverOpts(?iterable $driverOpts) : self
     {
         $this->driverOpts = $driverOpts;
+
         return $this;
     }
 }

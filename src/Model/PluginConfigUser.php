@@ -5,19 +5,20 @@ namespace WeTheRed\DockerApi\Model;
 class PluginConfigUser
 {
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $uID;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $gID;
+
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -25,8 +26,9 @@ class PluginConfigUser
     {
         return $this->uID;
     }
+
     /**
-     * 
+     *
      *
      * @param int $uID
      *
@@ -35,10 +37,12 @@ class PluginConfigUser
     public function setUID(int $uID) : self
     {
         $this->uID = $uID;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -46,8 +50,9 @@ class PluginConfigUser
     {
         return $this->gID;
     }
+
     /**
-     * 
+     *
      *
      * @param int $gID
      *
@@ -56,6 +61,7 @@ class PluginConfigUser
     public function setGID(int $gID) : self
     {
         $this->gID = $gID;
+
         return $this;
     }
 }

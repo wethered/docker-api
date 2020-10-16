@@ -5,36 +5,43 @@ namespace WeTheRed\DockerApi\Endpoint;
 class PluginSet extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Endpoint
 {
     protected $name;
+
     /**
-    * 
+    *
     *
     * @param string $name The name of the plugin. The `:latest` tag is optional, and is the
     default if omitted.
-    
-    * @param array $body 
+
+    * @param array $body
     */
     public function __construct(string $name, array $body)
     {
         $this->name = $name;
         $this->body = $body;
     }
+
     use \Jane\OpenApiRuntime\Client\EndpointTrait;
+
     public function getMethod() : string
     {
         return 'POST';
     }
+
     public function getUri() : string
     {
-        return str_replace(array('{name}'), array($this->name), '/plugins/{name}/set');
+        return str_replace(['{name}'], [$this->name], '/plugins/{name}/set');
     }
+
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
         return $this->getSerializedBody($serializer);
     }
+
     public function getExtraHeaders() : array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
+
     /**
      * {@inheritdoc}
      *
@@ -55,8 +62,9 @@ class PluginSet extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
             throw new \WeTheRed\DockerApi\Exception\PluginSetInternalServerErrorException($serializer->deserialize($body, 'WeTheRed\\DockerApi\\Model\\ErrorResponse', 'json'));
         }
     }
+
     public function getAuthenticationScopes() : array
     {
-        return array();
+        return [];
     }
 }

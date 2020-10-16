@@ -2,29 +2,32 @@
 
 namespace WeTheRed\DockerApi\Normalizer;
 
-use Jane\JsonSchemaRuntime\Reference;
 use Jane\JsonSchemaRuntime\Normalizer\CheckArray;
-use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Jane\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 class SwarmSpecNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
     use CheckArray;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
         return $type === 'WeTheRed\\DockerApi\\Model\\SwarmSpec';
     }
+
     public function supportsNormalization($data, $format = null)
     {
         return is_object($data) && get_class($data) === 'WeTheRed\\DockerApi\\Model\\SwarmSpec';
     }
-    public function denormalize($data, $class, $format = null, array $context = array())
+
+    public function denormalize($data, $class, $format = null, array $context = [])
     {
         if (isset($data['$ref'])) {
             return new Reference($data['$ref'], $context['document-origin']);
@@ -37,7 +40,7 @@ class SwarmSpecNormalizer implements DenormalizerInterface, NormalizerInterface,
             $object->setName($data['Name']);
         }
         if (\array_key_exists('Labels', $data)) {
-            $values = new \ArrayObject(array(), \ArrayObject::ARRAY_AS_PROPS);
+            $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data['Labels'] as $key => $value) {
                 $values[$key] = $value;
             }
@@ -45,8 +48,7 @@ class SwarmSpecNormalizer implements DenormalizerInterface, NormalizerInterface,
         }
         if (\array_key_exists('Orchestration', $data) && $data['Orchestration'] !== null) {
             $object->setOrchestration($this->denormalizer->denormalize($data['Orchestration'], 'WeTheRed\\DockerApi\\Model\\SwarmSpecOrchestration', 'json', $context));
-        }
-        elseif (\array_key_exists('Orchestration', $data) && $data['Orchestration'] === null) {
+        } elseif (\array_key_exists('Orchestration', $data) && $data['Orchestration'] === null) {
             $object->setOrchestration(null);
         }
         if (\array_key_exists('Raft', $data)) {
@@ -54,14 +56,12 @@ class SwarmSpecNormalizer implements DenormalizerInterface, NormalizerInterface,
         }
         if (\array_key_exists('Dispatcher', $data) && $data['Dispatcher'] !== null) {
             $object->setDispatcher($this->denormalizer->denormalize($data['Dispatcher'], 'WeTheRed\\DockerApi\\Model\\SwarmSpecDispatcher', 'json', $context));
-        }
-        elseif (\array_key_exists('Dispatcher', $data) && $data['Dispatcher'] === null) {
+        } elseif (\array_key_exists('Dispatcher', $data) && $data['Dispatcher'] === null) {
             $object->setDispatcher(null);
         }
         if (\array_key_exists('CAConfig', $data) && $data['CAConfig'] !== null) {
             $object->setCAConfig($this->denormalizer->denormalize($data['CAConfig'], 'WeTheRed\\DockerApi\\Model\\SwarmSpecCAConfig', 'json', $context));
-        }
-        elseif (\array_key_exists('CAConfig', $data) && $data['CAConfig'] === null) {
+        } elseif (\array_key_exists('CAConfig', $data) && $data['CAConfig'] === null) {
             $object->setCAConfig(null);
         }
         if (\array_key_exists('EncryptionConfig', $data)) {
@@ -70,16 +70,18 @@ class SwarmSpecNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (\array_key_exists('TaskDefaults', $data)) {
             $object->setTaskDefaults($this->denormalizer->denormalize($data['TaskDefaults'], 'WeTheRed\\DockerApi\\Model\\SwarmSpecTaskDefaults', 'json', $context));
         }
+
         return $object;
     }
-    public function normalize($object, $format = null, array $context = array())
+
+    public function normalize($object, $format = null, array $context = [])
     {
-        $data = array();
+        $data = [];
         if (null !== $object->getName()) {
             $data['Name'] = $object->getName();
         }
         if (null !== $object->getLabels()) {
-            $values = array();
+            $values = [];
             foreach ($object->getLabels() as $key => $value) {
                 $values[$key] = $value;
             }
@@ -103,6 +105,7 @@ class SwarmSpecNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (null !== $object->getTaskDefaults()) {
             $data['TaskDefaults'] = $this->normalizer->normalize($object->getTaskDefaults(), 'json', $context);
         }
+
         return $data;
     }
 }

@@ -5,6 +5,7 @@ namespace WeTheRed\DockerApi\Endpoint;
 class ImageTag extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Endpoint
 {
     protected $name;
+
     /**
      * Tag an image so that it becomes part of a repository.
      *
@@ -14,38 +15,46 @@ class ImageTag extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
      *     @var string $tag The name of the new tag.
      * }
      */
-    public function __construct(string $name, array $queryParameters = array())
+    public function __construct(string $name, array $queryParameters = [])
     {
         $this->name = $name;
         $this->queryParameters = $queryParameters;
     }
+
     use \Jane\OpenApiRuntime\Client\EndpointTrait;
+
     public function getMethod() : string
     {
         return 'POST';
     }
+
     public function getUri() : string
     {
-        return str_replace(array('{name}'), array($this->name), '/images/{name}/tag');
+        return str_replace(['{name}'], [$this->name], '/images/{name}/tag');
     }
+
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
-        return array(array(), null);
+        return [[], null];
     }
+
     public function getExtraHeaders() : array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
+
     protected function getQueryOptionsResolver() : \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(array('repo', 'tag'));
-        $optionsResolver->setRequired(array());
-        $optionsResolver->setDefaults(array());
-        $optionsResolver->setAllowedTypes('repo', array('string'));
-        $optionsResolver->setAllowedTypes('tag', array('string'));
+        $optionsResolver->setDefined(['repo', 'tag']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('repo', ['string']);
+        $optionsResolver->setAllowedTypes('tag', ['string']);
+
         return $optionsResolver;
     }
+
     /**
      * {@inheritdoc}
      *
@@ -74,8 +83,9 @@ class ImageTag extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
             throw new \WeTheRed\DockerApi\Exception\ImageTagInternalServerErrorException($serializer->deserialize($body, 'WeTheRed\\DockerApi\\Model\\ErrorResponse', 'json'));
         }
     }
+
     public function getAuthenticationScopes() : array
     {
-        return array();
+        return [];
     }
 }

@@ -7,7 +7,7 @@ class ServiceSpecUpdateConfig
     /**
     * Maximum number of tasks to be updated in one iteration (0 means
     unlimited parallelism).
-    
+
     *
     * @var int
     */
@@ -21,7 +21,7 @@ class ServiceSpecUpdateConfig
     /**
     * Action to take if an updated task fails to run, or stops running
     during the update.
-    
+
     *
     * @var string
     */
@@ -29,7 +29,7 @@ class ServiceSpecUpdateConfig
     /**
     * Amount of time to monitor each updated task for failures, in
     nanoseconds.
-    
+
     *
     * @var int
     */
@@ -38,7 +38,7 @@ class ServiceSpecUpdateConfig
     * The fraction of tasks that may fail during an update before the
     failure action is invoked, specified as a floating point number
     between 0 and 1.
-    
+
     *
     * @var float
     */
@@ -47,15 +47,16 @@ class ServiceSpecUpdateConfig
     * The order of operations when rolling out an updated task. Either
     the old task is shut down before the new task is started, or the
     new task is started before the old task is shut down.
-    
+
     *
     * @var string
     */
     protected $order;
+
     /**
     * Maximum number of tasks to be updated in one iteration (0 means
     unlimited parallelism).
-    
+
     *
     * @return int
     */
@@ -63,10 +64,11 @@ class ServiceSpecUpdateConfig
     {
         return $this->parallelism;
     }
+
     /**
     * Maximum number of tasks to be updated in one iteration (0 means
     unlimited parallelism).
-    
+
     *
     * @param int $parallelism
     *
@@ -75,8 +77,10 @@ class ServiceSpecUpdateConfig
     public function setParallelism(int $parallelism) : self
     {
         $this->parallelism = $parallelism;
+
         return $this;
     }
+
     /**
      * Amount of time between updates, in nanoseconds.
      *
@@ -86,6 +90,7 @@ class ServiceSpecUpdateConfig
     {
         return $this->delay;
     }
+
     /**
      * Amount of time between updates, in nanoseconds.
      *
@@ -96,12 +101,14 @@ class ServiceSpecUpdateConfig
     public function setDelay(int $delay) : self
     {
         $this->delay = $delay;
+
         return $this;
     }
+
     /**
     * Action to take if an updated task fails to run, or stops running
     during the update.
-    
+
     *
     * @return string
     */
@@ -109,10 +116,11 @@ class ServiceSpecUpdateConfig
     {
         return $this->failureAction;
     }
+
     /**
     * Action to take if an updated task fails to run, or stops running
     during the update.
-    
+
     *
     * @param string $failureAction
     *
@@ -121,12 +129,14 @@ class ServiceSpecUpdateConfig
     public function setFailureAction(string $failureAction) : self
     {
         $this->failureAction = $failureAction;
+
         return $this;
     }
+
     /**
     * Amount of time to monitor each updated task for failures, in
     nanoseconds.
-    
+
     *
     * @return int
     */
@@ -134,10 +144,11 @@ class ServiceSpecUpdateConfig
     {
         return $this->monitor;
     }
+
     /**
     * Amount of time to monitor each updated task for failures, in
     nanoseconds.
-    
+
     *
     * @param int $monitor
     *
@@ -146,13 +157,15 @@ class ServiceSpecUpdateConfig
     public function setMonitor(int $monitor) : self
     {
         $this->monitor = $monitor;
+
         return $this;
     }
+
     /**
     * The fraction of tasks that may fail during an update before the
     failure action is invoked, specified as a floating point number
     between 0 and 1.
-    
+
     *
     * @return float
     */
@@ -160,11 +173,12 @@ class ServiceSpecUpdateConfig
     {
         return $this->maxFailureRatio;
     }
+
     /**
     * The fraction of tasks that may fail during an update before the
     failure action is invoked, specified as a floating point number
     between 0 and 1.
-    
+
     *
     * @param float $maxFailureRatio
     *
@@ -173,13 +187,15 @@ class ServiceSpecUpdateConfig
     public function setMaxFailureRatio(float $maxFailureRatio) : self
     {
         $this->maxFailureRatio = $maxFailureRatio;
+
         return $this;
     }
+
     /**
     * The order of operations when rolling out an updated task. Either
     the old task is shut down before the new task is started, or the
     new task is started before the old task is shut down.
-    
+
     *
     * @return string
     */
@@ -187,11 +203,12 @@ class ServiceSpecUpdateConfig
     {
         return $this->order;
     }
+
     /**
     * The order of operations when rolling out an updated task. Either
     the old task is shut down before the new task is started, or the
     new task is started before the old task is shut down.
-    
+
     *
     * @param string $order
     *
@@ -200,6 +217,7 @@ class ServiceSpecUpdateConfig
     public function setOrder(string $order) : self
     {
         $this->order = $order;
+
         return $this;
     }
 }

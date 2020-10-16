@@ -6,10 +6,10 @@ class Runtime
 {
     /**
     * Name and, optional, path, of the OCI executable binary.
-    
+
     If the path is omitted, the daemon searches the host's `$PATH` for the
     binary and uses the first result.
-    
+
     *
     * @var string
     */
@@ -20,12 +20,13 @@ class Runtime
      * @var string[]|null
      */
     protected $runtimeArgs;
+
     /**
     * Name and, optional, path, of the OCI executable binary.
-    
+
     If the path is omitted, the daemon searches the host's `$PATH` for the
     binary and uses the first result.
-    
+
     *
     * @return string
     */
@@ -33,12 +34,13 @@ class Runtime
     {
         return $this->path;
     }
+
     /**
     * Name and, optional, path, of the OCI executable binary.
-    
+
     If the path is omitted, the daemon searches the host's `$PATH` for the
     binary and uses the first result.
-    
+
     *
     * @param string $path
     *
@@ -47,8 +49,10 @@ class Runtime
     public function setPath(string $path) : self
     {
         $this->path = $path;
+
         return $this;
     }
+
     /**
      * List of command-line arguments to pass to the runtime when invoked.
      *
@@ -58,6 +62,7 @@ class Runtime
     {
         return $this->runtimeArgs;
     }
+
     /**
      * List of command-line arguments to pass to the runtime when invoked.
      *
@@ -68,6 +73,7 @@ class Runtime
     public function setRuntimeArgs(?array $runtimeArgs) : self
     {
         $this->runtimeArgs = $runtimeArgs;
+
         return $this;
     }
 }

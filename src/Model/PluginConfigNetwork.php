@@ -5,13 +5,14 @@ namespace WeTheRed\DockerApi\Model;
 class PluginConfigNetwork
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $type;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -19,8 +20,9 @@ class PluginConfigNetwork
     {
         return $this->type;
     }
+
     /**
-     * 
+     *
      *
      * @param string $type
      *
@@ -29,6 +31,7 @@ class PluginConfigNetwork
     public function setType(string $type) : self
     {
         $this->type = $type;
+
         return $this;
     }
 }

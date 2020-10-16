@@ -22,6 +22,7 @@ class MountVolumeOptions
      * @var MountVolumeOptionsDriverConfig
      */
     protected $driverConfig;
+
     /**
      * Populate volume with data from the target.
      *
@@ -31,6 +32,7 @@ class MountVolumeOptions
     {
         return $this->noCopy;
     }
+
     /**
      * Populate volume with data from the target.
      *
@@ -41,8 +43,10 @@ class MountVolumeOptions
     public function setNoCopy(bool $noCopy) : self
     {
         $this->noCopy = $noCopy;
+
         return $this;
     }
+
     /**
      * User-defined key/value metadata.
      *
@@ -52,6 +56,7 @@ class MountVolumeOptions
     {
         return $this->labels;
     }
+
     /**
      * User-defined key/value metadata.
      *
@@ -62,8 +67,10 @@ class MountVolumeOptions
     public function setLabels(iterable $labels) : self
     {
         $this->labels = $labels;
+
         return $this;
     }
+
     /**
      * Map of driver specific options
      *
@@ -73,6 +80,7 @@ class MountVolumeOptions
     {
         return $this->driverConfig;
     }
+
     /**
      * Map of driver specific options
      *
@@ -83,6 +91,7 @@ class MountVolumeOptions
     public function setDriverConfig(MountVolumeOptionsDriverConfig $driverConfig) : self
     {
         $this->driverConfig = $driverConfig;
+
         return $this;
     }
 }

@@ -17,7 +17,7 @@ class EventsGetResponse200
      */
     protected $action;
     /**
-     * 
+     *
      *
      * @var EventsGetResponse200Actor
      */
@@ -34,6 +34,7 @@ class EventsGetResponse200
      * @var int
      */
     protected $timeNano;
+
     /**
      * The type of object emitting the event
      *
@@ -43,6 +44,7 @@ class EventsGetResponse200
     {
         return $this->type;
     }
+
     /**
      * The type of object emitting the event
      *
@@ -53,8 +55,10 @@ class EventsGetResponse200
     public function setType(string $type) : self
     {
         $this->type = $type;
+
         return $this;
     }
+
     /**
      * The type of event
      *
@@ -64,6 +68,7 @@ class EventsGetResponse200
     {
         return $this->action;
     }
+
     /**
      * The type of event
      *
@@ -74,10 +79,12 @@ class EventsGetResponse200
     public function setAction(string $action) : self
     {
         $this->action = $action;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return EventsGetResponse200Actor
      */
@@ -85,8 +92,9 @@ class EventsGetResponse200
     {
         return $this->actor;
     }
+
     /**
-     * 
+     *
      *
      * @param EventsGetResponse200Actor $actor
      *
@@ -95,8 +103,10 @@ class EventsGetResponse200
     public function setActor(EventsGetResponse200Actor $actor) : self
     {
         $this->actor = $actor;
+
         return $this;
     }
+
     /**
      * Timestamp of event
      *
@@ -106,6 +116,7 @@ class EventsGetResponse200
     {
         return $this->time;
     }
+
     /**
      * Timestamp of event
      *
@@ -116,8 +127,10 @@ class EventsGetResponse200
     public function setTime(int $time) : self
     {
         $this->time = $time;
+
         return $this;
     }
+
     /**
      * Timestamp of event, with nanosecond accuracy
      *
@@ -127,6 +140,7 @@ class EventsGetResponse200
     {
         return $this->timeNano;
     }
+
     /**
      * Timestamp of event, with nanosecond accuracy
      *
@@ -137,6 +151,7 @@ class EventsGetResponse200
     public function setTimeNano(int $timeNano) : self
     {
         $this->timeNano = $timeNano;
+
         return $this;
     }
 }

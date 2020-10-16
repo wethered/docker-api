@@ -5,13 +5,14 @@ namespace WeTheRed\DockerApi\Model;
 class ImageMetadata
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $lastTagTime;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -19,8 +20,9 @@ class ImageMetadata
     {
         return $this->lastTagTime;
     }
+
     /**
-     * 
+     *
      *
      * @param string $lastTagTime
      *
@@ -29,6 +31,7 @@ class ImageMetadata
     public function setLastTagTime(string $lastTagTime) : self
     {
         $this->lastTagTime = $lastTagTime;
+
         return $this;
     }
 }

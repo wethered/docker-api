@@ -5,13 +5,14 @@ namespace WeTheRed\DockerApi\Model;
 class TaskSpecPlacementPreferencesItem
 {
     /**
-     * 
+     *
      *
      * @var TaskSpecPlacementPreferencesItemSpread
      */
     protected $spread;
+
     /**
-     * 
+     *
      *
      * @return TaskSpecPlacementPreferencesItemSpread
      */
@@ -19,8 +20,9 @@ class TaskSpecPlacementPreferencesItem
     {
         return $this->spread;
     }
+
     /**
-     * 
+     *
      *
      * @param TaskSpecPlacementPreferencesItemSpread $spread
      *
@@ -29,6 +31,7 @@ class TaskSpecPlacementPreferencesItem
     public function setSpread(TaskSpecPlacementPreferencesItemSpread $spread) : self
     {
         $this->spread = $spread;
+
         return $this;
     }
 }

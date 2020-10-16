@@ -5,48 +5,57 @@ namespace WeTheRed\DockerApi\Endpoint;
 class ContainerArchiveInfo extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Endpoint
 {
     protected $id;
+
     /**
     * A response header `X-Docker-Container-Path-Stat` is returned, containing
     a base64 - encoded JSON object with some filesystem header information
     about the path.
-    
+
     *
     * @param string $id ID or name of the container
     * @param array $queryParameters {
     *     @var string $path Resource in the container’s filesystem to archive.
     * }
     */
-    public function __construct(string $id, array $queryParameters = array())
+    public function __construct(string $id, array $queryParameters = [])
     {
         $this->id = $id;
         $this->queryParameters = $queryParameters;
     }
+
     use \Jane\OpenApiRuntime\Client\EndpointTrait;
+
     public function getMethod() : string
     {
         return 'HEAD';
     }
+
     public function getUri() : string
     {
-        return str_replace(array('{id}'), array($this->id), '/containers/{id}/archive');
+        return str_replace(['{id}'], [$this->id], '/containers/{id}/archive');
     }
+
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
-        return array(array(), null);
+        return [[], null];
     }
+
     public function getExtraHeaders() : array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
+
     protected function getQueryOptionsResolver() : \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(array('path'));
-        $optionsResolver->setRequired(array('path'));
-        $optionsResolver->setDefaults(array());
-        $optionsResolver->setAllowedTypes('path', array('string'));
+        $optionsResolver->setDefined(['path']);
+        $optionsResolver->setRequired(['path']);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('path', ['string']);
+
         return $optionsResolver;
     }
+
     /**
      * {@inheritdoc}
      *
@@ -71,8 +80,9 @@ class ContainerArchiveInfo extends \Jane\OpenApiRuntime\Client\BaseEndpoint impl
             throw new \WeTheRed\DockerApi\Exception\ContainerArchiveInfoInternalServerErrorException($serializer->deserialize($body, 'WeTheRed\\DockerApi\\Model\\ErrorResponse', 'json'));
         }
     }
+
     public function getAuthenticationScopes() : array
     {
-        return array();
+        return [];
     }
 }

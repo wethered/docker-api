@@ -16,6 +16,7 @@ class ImageDeleteResponseItem
      * @var string
      */
     protected $deleted;
+
     /**
      * The image ID of an image that was untagged
      *
@@ -25,6 +26,7 @@ class ImageDeleteResponseItem
     {
         return $this->untagged;
     }
+
     /**
      * The image ID of an image that was untagged
      *
@@ -35,8 +37,10 @@ class ImageDeleteResponseItem
     public function setUntagged(string $untagged) : self
     {
         $this->untagged = $untagged;
+
         return $this;
     }
+
     /**
      * The image ID of an image that was deleted
      *
@@ -46,6 +50,7 @@ class ImageDeleteResponseItem
     {
         return $this->deleted;
     }
+
     /**
      * The image ID of an image that was deleted
      *
@@ -56,6 +61,7 @@ class ImageDeleteResponseItem
     public function setDeleted(string $deleted) : self
     {
         $this->deleted = $deleted;
+
         return $this;
     }
 }

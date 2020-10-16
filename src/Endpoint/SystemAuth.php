@@ -7,7 +7,7 @@ class SystemAuth extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     /**
     * Validate credentials for a registry and, if available, get an identity
     token for accessing the registry without password.
-    
+
     *
     * @param \WeTheRed\DockerApi\Model\AuthConfig $authConfig Authentication to check
     */
@@ -15,23 +15,29 @@ class SystemAuth extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     {
         $this->body = $authConfig;
     }
+
     use \Jane\OpenApiRuntime\Client\EndpointTrait;
+
     public function getMethod() : string
     {
         return 'POST';
     }
+
     public function getUri() : string
     {
         return '/auth';
     }
+
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
         return $this->getSerializedBody($serializer);
     }
+
     public function getExtraHeaders() : array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
+
     /**
      * {@inheritdoc}
      *
@@ -51,8 +57,9 @@ class SystemAuth extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
             throw new \WeTheRed\DockerApi\Exception\SystemAuthInternalServerErrorException($serializer->deserialize($body, 'WeTheRed\\DockerApi\\Model\\ErrorResponse', 'json'));
         }
     }
+
     public function getAuthenticationScopes() : array
     {
-        return array();
+        return [];
     }
 }

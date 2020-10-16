@@ -5,31 +5,32 @@ namespace WeTheRed\DockerApi\Model;
 class ServiceUpdateStatus
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $state;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $startedAt;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $completedAt;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $message;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -37,8 +38,9 @@ class ServiceUpdateStatus
     {
         return $this->state;
     }
+
     /**
-     * 
+     *
      *
      * @param string $state
      *
@@ -47,10 +49,12 @@ class ServiceUpdateStatus
     public function setState(string $state) : self
     {
         $this->state = $state;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -58,8 +62,9 @@ class ServiceUpdateStatus
     {
         return $this->startedAt;
     }
+
     /**
-     * 
+     *
      *
      * @param string $startedAt
      *
@@ -68,10 +73,12 @@ class ServiceUpdateStatus
     public function setStartedAt(string $startedAt) : self
     {
         $this->startedAt = $startedAt;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -79,8 +86,9 @@ class ServiceUpdateStatus
     {
         return $this->completedAt;
     }
+
     /**
-     * 
+     *
      *
      * @param string $completedAt
      *
@@ -89,10 +97,12 @@ class ServiceUpdateStatus
     public function setCompletedAt(string $completedAt) : self
     {
         $this->completedAt = $completedAt;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -100,8 +110,9 @@ class ServiceUpdateStatus
     {
         return $this->message;
     }
+
     /**
-     * 
+     *
      *
      * @param string $message
      *
@@ -110,6 +121,7 @@ class ServiceUpdateStatus
     public function setMessage(string $message) : self
     {
         $this->message = $message;
+
         return $this;
     }
 }

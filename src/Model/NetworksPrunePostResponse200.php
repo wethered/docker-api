@@ -10,6 +10,7 @@ class NetworksPrunePostResponse200
      * @var string[]
      */
     protected $networksDeleted;
+
     /**
      * Networks that were deleted
      *
@@ -19,6 +20,7 @@ class NetworksPrunePostResponse200
     {
         return $this->networksDeleted;
     }
+
     /**
      * Networks that were deleted
      *
@@ -29,6 +31,7 @@ class NetworksPrunePostResponse200
     public function setNetworksDeleted(array $networksDeleted) : self
     {
         $this->networksDeleted = $networksDeleted;
+
         return $this;
     }
 }

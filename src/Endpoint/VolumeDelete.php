@@ -5,6 +5,7 @@ namespace WeTheRed\DockerApi\Endpoint;
 class VolumeDelete extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Endpoint
 {
     protected $name;
+
     /**
      * Instruct the driver to remove the volume.
      *
@@ -13,37 +14,45 @@ class VolumeDelete extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      *     @var bool $force Force the removal of the volume
      * }
      */
-    public function __construct(string $name, array $queryParameters = array())
+    public function __construct(string $name, array $queryParameters = [])
     {
         $this->name = $name;
         $this->queryParameters = $queryParameters;
     }
+
     use \Jane\OpenApiRuntime\Client\EndpointTrait;
+
     public function getMethod() : string
     {
         return 'DELETE';
     }
+
     public function getUri() : string
     {
-        return str_replace(array('{name}'), array($this->name), '/volumes/{name}');
+        return str_replace(['{name}'], [$this->name], '/volumes/{name}');
     }
+
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
-        return array(array(), null);
+        return [[], null];
     }
+
     public function getExtraHeaders() : array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
+
     protected function getQueryOptionsResolver() : \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(array('force'));
-        $optionsResolver->setRequired(array());
-        $optionsResolver->setDefaults(array('force' => false));
-        $optionsResolver->setAllowedTypes('force', array('bool'));
+        $optionsResolver->setDefined(['force']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults(['force' => false]);
+        $optionsResolver->setAllowedTypes('force', ['bool']);
+
         return $optionsResolver;
     }
+
     /**
      * {@inheritdoc}
      *
@@ -68,8 +77,9 @@ class VolumeDelete extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
             throw new \WeTheRed\DockerApi\Exception\VolumeDeleteInternalServerErrorException($serializer->deserialize($body, 'WeTheRed\\DockerApi\\Model\\ErrorResponse', 'json'));
         }
     }
+
     public function getAuthenticationScopes() : array
     {
-        return array();
+        return [];
     }
 }

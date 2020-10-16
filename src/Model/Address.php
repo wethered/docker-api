@@ -16,6 +16,7 @@ class Address
      * @var int
      */
     protected $prefixLen;
+
     /**
      * IP address.
      *
@@ -25,6 +26,7 @@ class Address
     {
         return $this->addr;
     }
+
     /**
      * IP address.
      *
@@ -35,8 +37,10 @@ class Address
     public function setAddr(string $addr) : self
     {
         $this->addr = $addr;
+
         return $this;
     }
+
     /**
      * Mask length of the IP address.
      *
@@ -46,6 +50,7 @@ class Address
     {
         return $this->prefixLen;
     }
+
     /**
      * Mask length of the IP address.
      *
@@ -56,6 +61,7 @@ class Address
     public function setPrefixLen(int $prefixLen) : self
     {
         $this->prefixLen = $prefixLen;
+
         return $this;
     }
 }

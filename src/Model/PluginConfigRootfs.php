@@ -5,19 +5,20 @@ namespace WeTheRed\DockerApi\Model;
 class PluginConfigRootfs
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $type;
     /**
-     * 
+     *
      *
      * @var string[]
      */
     protected $diffIds;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -25,8 +26,9 @@ class PluginConfigRootfs
     {
         return $this->type;
     }
+
     /**
-     * 
+     *
      *
      * @param string $type
      *
@@ -35,10 +37,12 @@ class PluginConfigRootfs
     public function setType(string $type) : self
     {
         $this->type = $type;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -46,8 +50,9 @@ class PluginConfigRootfs
     {
         return $this->diffIds;
     }
+
     /**
-     * 
+     *
      *
      * @param string[] $diffIds
      *
@@ -56,6 +61,7 @@ class PluginConfigRootfs
     public function setDiffIds(array $diffIds) : self
     {
         $this->diffIds = $diffIds;
+
         return $this;
     }
 }

@@ -7,7 +7,7 @@ class Platform
     /**
     * Architecture represents the hardware architecture (for example,
     `x86_64`).
-    
+
     *
     * @var string
     */
@@ -18,10 +18,11 @@ class Platform
      * @var string
      */
     protected $oS;
+
     /**
     * Architecture represents the hardware architecture (for example,
     `x86_64`).
-    
+
     *
     * @return string
     */
@@ -29,10 +30,11 @@ class Platform
     {
         return $this->architecture;
     }
+
     /**
     * Architecture represents the hardware architecture (for example,
     `x86_64`).
-    
+
     *
     * @param string $architecture
     *
@@ -41,8 +43,10 @@ class Platform
     public function setArchitecture(string $architecture) : self
     {
         $this->architecture = $architecture;
+
         return $this;
     }
+
     /**
      * OS represents the Operating System (for example, `linux` or `windows`).
      *
@@ -52,6 +56,7 @@ class Platform
     {
         return $this->oS;
     }
+
     /**
      * OS represents the Operating System (for example, `linux` or `windows`).
      *
@@ -62,6 +67,7 @@ class Platform
     public function setOS(string $oS) : self
     {
         $this->oS = $oS;
+
         return $this;
     }
 }

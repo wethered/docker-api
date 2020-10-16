@@ -5,61 +5,61 @@ namespace WeTheRed\DockerApi\Model;
 class ExecIdJsonGetResponse200
 {
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $canRemove;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $detachKeys;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $iD;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $running;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $exitCode;
     /**
-     * 
+     *
      *
      * @var ProcessConfig
      */
     protected $processConfig;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $openStdin;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $openStderr;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $openStdout;
     /**
-     * 
+     *
      *
      * @var string
      */
@@ -70,8 +70,9 @@ class ExecIdJsonGetResponse200
      * @var int
      */
     protected $pid;
+
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -79,8 +80,9 @@ class ExecIdJsonGetResponse200
     {
         return $this->canRemove;
     }
+
     /**
-     * 
+     *
      *
      * @param bool $canRemove
      *
@@ -89,10 +91,12 @@ class ExecIdJsonGetResponse200
     public function setCanRemove(bool $canRemove) : self
     {
         $this->canRemove = $canRemove;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -100,8 +104,9 @@ class ExecIdJsonGetResponse200
     {
         return $this->detachKeys;
     }
+
     /**
-     * 
+     *
      *
      * @param string $detachKeys
      *
@@ -110,10 +115,12 @@ class ExecIdJsonGetResponse200
     public function setDetachKeys(string $detachKeys) : self
     {
         $this->detachKeys = $detachKeys;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -121,8 +128,9 @@ class ExecIdJsonGetResponse200
     {
         return $this->iD;
     }
+
     /**
-     * 
+     *
      *
      * @param string $iD
      *
@@ -131,10 +139,12 @@ class ExecIdJsonGetResponse200
     public function setID(string $iD) : self
     {
         $this->iD = $iD;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -142,8 +152,9 @@ class ExecIdJsonGetResponse200
     {
         return $this->running;
     }
+
     /**
-     * 
+     *
      *
      * @param bool $running
      *
@@ -152,10 +163,12 @@ class ExecIdJsonGetResponse200
     public function setRunning(bool $running) : self
     {
         $this->running = $running;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -163,8 +176,9 @@ class ExecIdJsonGetResponse200
     {
         return $this->exitCode;
     }
+
     /**
-     * 
+     *
      *
      * @param int $exitCode
      *
@@ -173,10 +187,12 @@ class ExecIdJsonGetResponse200
     public function setExitCode(int $exitCode) : self
     {
         $this->exitCode = $exitCode;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return ProcessConfig
      */
@@ -184,8 +200,9 @@ class ExecIdJsonGetResponse200
     {
         return $this->processConfig;
     }
+
     /**
-     * 
+     *
      *
      * @param ProcessConfig $processConfig
      *
@@ -194,10 +211,12 @@ class ExecIdJsonGetResponse200
     public function setProcessConfig(ProcessConfig $processConfig) : self
     {
         $this->processConfig = $processConfig;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -205,8 +224,9 @@ class ExecIdJsonGetResponse200
     {
         return $this->openStdin;
     }
+
     /**
-     * 
+     *
      *
      * @param bool $openStdin
      *
@@ -215,10 +235,12 @@ class ExecIdJsonGetResponse200
     public function setOpenStdin(bool $openStdin) : self
     {
         $this->openStdin = $openStdin;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -226,8 +248,9 @@ class ExecIdJsonGetResponse200
     {
         return $this->openStderr;
     }
+
     /**
-     * 
+     *
      *
      * @param bool $openStderr
      *
@@ -236,10 +259,12 @@ class ExecIdJsonGetResponse200
     public function setOpenStderr(bool $openStderr) : self
     {
         $this->openStderr = $openStderr;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -247,8 +272,9 @@ class ExecIdJsonGetResponse200
     {
         return $this->openStdout;
     }
+
     /**
-     * 
+     *
      *
      * @param bool $openStdout
      *
@@ -257,10 +283,12 @@ class ExecIdJsonGetResponse200
     public function setOpenStdout(bool $openStdout) : self
     {
         $this->openStdout = $openStdout;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -268,8 +296,9 @@ class ExecIdJsonGetResponse200
     {
         return $this->containerID;
     }
+
     /**
-     * 
+     *
      *
      * @param string $containerID
      *
@@ -278,8 +307,10 @@ class ExecIdJsonGetResponse200
     public function setContainerID(string $containerID) : self
     {
         $this->containerID = $containerID;
+
         return $this;
     }
+
     /**
      * The system process ID for the exec process.
      *
@@ -289,6 +320,7 @@ class ExecIdJsonGetResponse200
     {
         return $this->pid;
     }
+
     /**
      * The system process ID for the exec process.
      *
@@ -299,6 +331,7 @@ class ExecIdJsonGetResponse200
     public function setPid(int $pid) : self
     {
         $this->pid = $pid;
+
         return $this;
     }
 }

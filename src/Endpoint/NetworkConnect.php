@@ -5,34 +5,41 @@ namespace WeTheRed\DockerApi\Endpoint;
 class NetworkConnect extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Endpoint
 {
     protected $id;
+
     /**
-     * 
+     *
      *
      * @param string $id Network ID or name
-     * @param \WeTheRed\DockerApi\Model\NetworksIdConnectPostBody $container 
+     * @param \WeTheRed\DockerApi\Model\NetworksIdConnectPostBody $container
      */
     public function __construct(string $id, \WeTheRed\DockerApi\Model\NetworksIdConnectPostBody $container)
     {
         $this->id = $id;
         $this->body = $container;
     }
+
     use \Jane\OpenApiRuntime\Client\EndpointTrait;
+
     public function getMethod() : string
     {
         return 'POST';
     }
+
     public function getUri() : string
     {
-        return str_replace(array('{id}'), array($this->id), '/networks/{id}/connect');
+        return str_replace(['{id}'], [$this->id], '/networks/{id}/connect');
     }
+
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
         return $this->getSerializedBody($serializer);
     }
+
     public function getExtraHeaders() : array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
+
     /**
      * {@inheritdoc}
      *
@@ -57,8 +64,9 @@ class NetworkConnect extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
             throw new \WeTheRed\DockerApi\Exception\NetworkConnectInternalServerErrorException($serializer->deserialize($body, 'WeTheRed\\DockerApi\\Model\\ErrorResponse', 'json'));
         }
     }
+
     public function getAuthenticationScopes() : array
     {
-        return array();
+        return [];
     }
 }

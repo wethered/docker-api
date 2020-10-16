@@ -5,25 +5,26 @@ namespace WeTheRed\DockerApi\Model;
 class ImageRootFS
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $type;
     /**
-     * 
+     *
      *
      * @var string[]
      */
     protected $layers;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $baseLayer;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -31,8 +32,9 @@ class ImageRootFS
     {
         return $this->type;
     }
+
     /**
-     * 
+     *
      *
      * @param string $type
      *
@@ -41,10 +43,12 @@ class ImageRootFS
     public function setType(string $type) : self
     {
         $this->type = $type;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -52,8 +56,9 @@ class ImageRootFS
     {
         return $this->layers;
     }
+
     /**
-     * 
+     *
      *
      * @param string[] $layers
      *
@@ -62,10 +67,12 @@ class ImageRootFS
     public function setLayers(array $layers) : self
     {
         $this->layers = $layers;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -73,8 +80,9 @@ class ImageRootFS
     {
         return $this->baseLayer;
     }
+
     /**
-     * 
+     *
      *
      * @param string $baseLayer
      *
@@ -83,6 +91,7 @@ class ImageRootFS
     public function setBaseLayer(string $baseLayer) : self
     {
         $this->baseLayer = $baseLayer;
+
         return $this;
     }
 }

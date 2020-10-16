@@ -5,6 +5,7 @@ namespace WeTheRed\DockerApi\Endpoint;
 class DistributionInspect extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Endpoint
 {
     protected $name;
+
     /**
      * Return image digest and platform information by contacting the registry.
      *
@@ -14,23 +15,29 @@ class DistributionInspect extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
     {
         $this->name = $name;
     }
+
     use \Jane\OpenApiRuntime\Client\EndpointTrait;
+
     public function getMethod() : string
     {
         return 'GET';
     }
+
     public function getUri() : string
     {
-        return str_replace(array('{name}'), array($this->name), '/distribution/{name}/json');
+        return str_replace(['{name}'], [$this->name], '/distribution/{name}/json');
     }
+
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
-        return array(array(), null);
+        return [[], null];
     }
+
     public function getExtraHeaders() : array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
+
     /**
      * {@inheritdoc}
      *
@@ -51,8 +58,9 @@ class DistributionInspect extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
             throw new \WeTheRed\DockerApi\Exception\DistributionInspectInternalServerErrorException($serializer->deserialize($body, 'WeTheRed\\DockerApi\\Model\\ErrorResponse', 'json'));
         }
     }
+
     public function getAuthenticationScopes() : array
     {
-        return array();
+        return [];
     }
 }

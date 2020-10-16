@@ -7,7 +7,7 @@ class ServiceSpecRollbackConfig
     /**
     * Maximum number of tasks to be rolled back in one iteration (0 means
     unlimited parallelism).
-    
+
     *
     * @var int
     */
@@ -21,7 +21,7 @@ class ServiceSpecRollbackConfig
     /**
     * Action to take if an rolled back task fails to run, or stops
     running during the rollback.
-    
+
     *
     * @var string
     */
@@ -29,7 +29,7 @@ class ServiceSpecRollbackConfig
     /**
     * Amount of time to monitor each rolled back task for failures, in
     nanoseconds.
-    
+
     *
     * @var int
     */
@@ -38,7 +38,7 @@ class ServiceSpecRollbackConfig
     * The fraction of tasks that may fail during a rollback before the
     failure action is invoked, specified as a floating point number
     between 0 and 1.
-    
+
     *
     * @var float
     */
@@ -47,15 +47,16 @@ class ServiceSpecRollbackConfig
     * The order of operations when rolling back a task. Either the old
     task is shut down before the new task is started, or the new task
     is started before the old task is shut down.
-    
+
     *
     * @var string
     */
     protected $order;
+
     /**
     * Maximum number of tasks to be rolled back in one iteration (0 means
     unlimited parallelism).
-    
+
     *
     * @return int
     */
@@ -63,10 +64,11 @@ class ServiceSpecRollbackConfig
     {
         return $this->parallelism;
     }
+
     /**
     * Maximum number of tasks to be rolled back in one iteration (0 means
     unlimited parallelism).
-    
+
     *
     * @param int $parallelism
     *
@@ -75,8 +77,10 @@ class ServiceSpecRollbackConfig
     public function setParallelism(int $parallelism) : self
     {
         $this->parallelism = $parallelism;
+
         return $this;
     }
+
     /**
      * Amount of time between rollback iterations, in nanoseconds.
      *
@@ -86,6 +90,7 @@ class ServiceSpecRollbackConfig
     {
         return $this->delay;
     }
+
     /**
      * Amount of time between rollback iterations, in nanoseconds.
      *
@@ -96,12 +101,14 @@ class ServiceSpecRollbackConfig
     public function setDelay(int $delay) : self
     {
         $this->delay = $delay;
+
         return $this;
     }
+
     /**
     * Action to take if an rolled back task fails to run, or stops
     running during the rollback.
-    
+
     *
     * @return string
     */
@@ -109,10 +116,11 @@ class ServiceSpecRollbackConfig
     {
         return $this->failureAction;
     }
+
     /**
     * Action to take if an rolled back task fails to run, or stops
     running during the rollback.
-    
+
     *
     * @param string $failureAction
     *
@@ -121,12 +129,14 @@ class ServiceSpecRollbackConfig
     public function setFailureAction(string $failureAction) : self
     {
         $this->failureAction = $failureAction;
+
         return $this;
     }
+
     /**
     * Amount of time to monitor each rolled back task for failures, in
     nanoseconds.
-    
+
     *
     * @return int
     */
@@ -134,10 +144,11 @@ class ServiceSpecRollbackConfig
     {
         return $this->monitor;
     }
+
     /**
     * Amount of time to monitor each rolled back task for failures, in
     nanoseconds.
-    
+
     *
     * @param int $monitor
     *
@@ -146,13 +157,15 @@ class ServiceSpecRollbackConfig
     public function setMonitor(int $monitor) : self
     {
         $this->monitor = $monitor;
+
         return $this;
     }
+
     /**
     * The fraction of tasks that may fail during a rollback before the
     failure action is invoked, specified as a floating point number
     between 0 and 1.
-    
+
     *
     * @return float
     */
@@ -160,11 +173,12 @@ class ServiceSpecRollbackConfig
     {
         return $this->maxFailureRatio;
     }
+
     /**
     * The fraction of tasks that may fail during a rollback before the
     failure action is invoked, specified as a floating point number
     between 0 and 1.
-    
+
     *
     * @param float $maxFailureRatio
     *
@@ -173,13 +187,15 @@ class ServiceSpecRollbackConfig
     public function setMaxFailureRatio(float $maxFailureRatio) : self
     {
         $this->maxFailureRatio = $maxFailureRatio;
+
         return $this;
     }
+
     /**
     * The order of operations when rolling back a task. Either the old
     task is shut down before the new task is started, or the new task
     is started before the old task is shut down.
-    
+
     *
     * @return string
     */
@@ -187,11 +203,12 @@ class ServiceSpecRollbackConfig
     {
         return $this->order;
     }
+
     /**
     * The order of operations when rolling back a task. Either the old
     task is shut down before the new task is started, or the new task
     is started before the old task is shut down.
-    
+
     *
     * @param string $order
     *
@@ -200,6 +217,7 @@ class ServiceSpecRollbackConfig
     public function setOrder(string $order) : self
     {
         $this->order = $order;
+
         return $this;
     }
 }

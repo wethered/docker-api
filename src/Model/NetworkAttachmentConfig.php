@@ -22,6 +22,7 @@ class NetworkAttachmentConfig
      * @var string[]
      */
     protected $driverOpts;
+
     /**
      * The target network for attachment. Must be a network name or ID.
      *
@@ -31,6 +32,7 @@ class NetworkAttachmentConfig
     {
         return $this->target;
     }
+
     /**
      * The target network for attachment. Must be a network name or ID.
      *
@@ -41,8 +43,10 @@ class NetworkAttachmentConfig
     public function setTarget(string $target) : self
     {
         $this->target = $target;
+
         return $this;
     }
+
     /**
      * Discoverable alternate names for the service on this network.
      *
@@ -52,6 +56,7 @@ class NetworkAttachmentConfig
     {
         return $this->aliases;
     }
+
     /**
      * Discoverable alternate names for the service on this network.
      *
@@ -62,8 +67,10 @@ class NetworkAttachmentConfig
     public function setAliases(array $aliases) : self
     {
         $this->aliases = $aliases;
+
         return $this;
     }
+
     /**
      * Driver attachment options for the network target.
      *
@@ -73,6 +80,7 @@ class NetworkAttachmentConfig
     {
         return $this->driverOpts;
     }
+
     /**
      * Driver attachment options for the network target.
      *
@@ -83,6 +91,7 @@ class NetworkAttachmentConfig
     public function setDriverOpts(iterable $driverOpts) : self
     {
         $this->driverOpts = $driverOpts;
+
         return $this;
     }
 }

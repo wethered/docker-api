@@ -34,6 +34,7 @@ class TaskSpecContainerSpecPrivilegesSELinuxContext
      * @var string
      */
     protected $level;
+
     /**
      * Disable SELinux
      *
@@ -43,6 +44,7 @@ class TaskSpecContainerSpecPrivilegesSELinuxContext
     {
         return $this->disable;
     }
+
     /**
      * Disable SELinux
      *
@@ -53,8 +55,10 @@ class TaskSpecContainerSpecPrivilegesSELinuxContext
     public function setDisable(bool $disable) : self
     {
         $this->disable = $disable;
+
         return $this;
     }
+
     /**
      * SELinux user label
      *
@@ -64,6 +68,7 @@ class TaskSpecContainerSpecPrivilegesSELinuxContext
     {
         return $this->user;
     }
+
     /**
      * SELinux user label
      *
@@ -74,8 +79,10 @@ class TaskSpecContainerSpecPrivilegesSELinuxContext
     public function setUser(string $user) : self
     {
         $this->user = $user;
+
         return $this;
     }
+
     /**
      * SELinux role label
      *
@@ -85,6 +92,7 @@ class TaskSpecContainerSpecPrivilegesSELinuxContext
     {
         return $this->role;
     }
+
     /**
      * SELinux role label
      *
@@ -95,8 +103,10 @@ class TaskSpecContainerSpecPrivilegesSELinuxContext
     public function setRole(string $role) : self
     {
         $this->role = $role;
+
         return $this;
     }
+
     /**
      * SELinux type label
      *
@@ -106,6 +116,7 @@ class TaskSpecContainerSpecPrivilegesSELinuxContext
     {
         return $this->type;
     }
+
     /**
      * SELinux type label
      *
@@ -116,8 +127,10 @@ class TaskSpecContainerSpecPrivilegesSELinuxContext
     public function setType(string $type) : self
     {
         $this->type = $type;
+
         return $this;
     }
+
     /**
      * SELinux level label
      *
@@ -127,6 +140,7 @@ class TaskSpecContainerSpecPrivilegesSELinuxContext
     {
         return $this->level;
     }
+
     /**
      * SELinux level label
      *
@@ -137,6 +151,7 @@ class TaskSpecContainerSpecPrivilegesSELinuxContext
     public function setLevel(string $level) : self
     {
         $this->level = $level;
+
         return $this;
     }
 }

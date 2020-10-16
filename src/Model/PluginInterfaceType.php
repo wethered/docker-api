@@ -5,25 +5,26 @@ namespace WeTheRed\DockerApi\Model;
 class PluginInterfaceType
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $prefix;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $capability;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $version;
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -31,8 +32,9 @@ class PluginInterfaceType
     {
         return $this->prefix;
     }
+
     /**
-     * 
+     *
      *
      * @param string $prefix
      *
@@ -41,10 +43,12 @@ class PluginInterfaceType
     public function setPrefix(string $prefix) : self
     {
         $this->prefix = $prefix;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -52,8 +56,9 @@ class PluginInterfaceType
     {
         return $this->capability;
     }
+
     /**
-     * 
+     *
      *
      * @param string $capability
      *
@@ -62,10 +67,12 @@ class PluginInterfaceType
     public function setCapability(string $capability) : self
     {
         $this->capability = $capability;
+
         return $this;
     }
+
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -73,8 +80,9 @@ class PluginInterfaceType
     {
         return $this->version;
     }
+
     /**
-     * 
+     *
      *
      * @param string $version
      *
@@ -83,6 +91,7 @@ class PluginInterfaceType
     public function setVersion(string $version) : self
     {
         $this->version = $version;
+
         return $this;
     }
 }
