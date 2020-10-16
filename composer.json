@@ -1,16 +1,16 @@
 {
-    "name": ":vendor_name/:package_name",
-    "description": ":package_description",
+    "name": "wethered/docker-api",
+    "description": "",
     "keywords": [
-        ":vendor_name",
-        ":package_name"
+        "wethered",
+        "docker-api"
     ],
-    "homepage": "https://github.com/:vendor_name/:package_name",
+    "homepage": "https://github.com/wethered/docker-api",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
+            "name": "Kadir Yamamoto",
+            "email": "me@yamakadi.com",
             "homepage": "https://spatie.be",
             "role": "Developer"
         }
@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\Skeleton\\": "src"
+            "Wethered\\DockerApi\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\Skeleton\\Tests\\": "tests"
+            "Wethered\\DockerApi\\Tests\\": "tests"
         }
     },
     "scripts": {

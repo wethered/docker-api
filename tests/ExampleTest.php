@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Skeleton\Tests;
+namespace Wethered\DockerApi\Tests;
 
 use PHPUnit\Framework\TestCase;
 
