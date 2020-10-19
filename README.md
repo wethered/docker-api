@@ -14,13 +14,6 @@ You can install the package via composer:
 composer require wethered/docker-api
 ```
 
-## Usage
-
-``` php
-$skeleton = new WeTheRed\DockerApi();
-echo $skeleton->echoPhrase('Hello, WeTheRed!');
-```
-
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.

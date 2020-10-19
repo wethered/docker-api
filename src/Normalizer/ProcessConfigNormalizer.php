@@ -48,7 +48,7 @@ class ProcessConfigNormalizer implements DenormalizerInterface, NormalizerInterf
         if (\array_key_exists('entrypoint', $data)) {
             $object->setEntrypoint($data['entrypoint']);
         }
-        if (\array_key_exists('arguments', $data)) {
+        if (\array_key_exists('arguments', $data) && null !== $data['arguments']) {
             $values = [];
             foreach ($data['arguments'] as $value) {
                 $values[] = $value;

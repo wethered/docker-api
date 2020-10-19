@@ -39,14 +39,14 @@ class SystemDfGetResponse200Normalizer implements DenormalizerInterface, Normali
         if (\array_key_exists('LayersSize', $data)) {
             $object->setLayersSize($data['LayersSize']);
         }
-        if (\array_key_exists('Images', $data)) {
+        if (\array_key_exists('Images', $data) && null !== $data['Images']) {
             $values = [];
             foreach ($data['Images'] as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'WeTheRed\\DockerApi\\Model\\ImageSummary', 'json', $context);
             }
             $object->setImages($values);
         }
-        if (\array_key_exists('Containers', $data)) {
+        if (\array_key_exists('Containers', $data) && null !== $data['Containers']) {
             $values_1 = [];
             foreach ($data['Containers'] as $value_1) {
                 $values_2 = [];
@@ -57,14 +57,14 @@ class SystemDfGetResponse200Normalizer implements DenormalizerInterface, Normali
             }
             $object->setContainers($values_1);
         }
-        if (\array_key_exists('Volumes', $data)) {
+        if (\array_key_exists('Volumes', $data) && null !== $data['Volumes']) {
             $values_3 = [];
             foreach ($data['Volumes'] as $value_3) {
                 $values_3[] = $this->denormalizer->denormalize($value_3, 'WeTheRed\\DockerApi\\Model\\Volume', 'json', $context);
             }
             $object->setVolumes($values_3);
         }
-        if (\array_key_exists('BuildCache', $data)) {
+        if (\array_key_exists('BuildCache', $data) && null !== $data['BuildCache']) {
             $values_4 = [];
             foreach ($data['BuildCache'] as $value_4) {
                 $values_4[] = $this->denormalizer->denormalize($value_4, 'WeTheRed\\DockerApi\\Model\\BuildCache', 'json', $context);

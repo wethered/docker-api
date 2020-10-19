@@ -45,7 +45,7 @@ class DistributionNameJsonGetResponse200PlatformsItemNormalizer implements Denor
         if (\array_key_exists('OSVersion', $data)) {
             $object->setOSVersion($data['OSVersion']);
         }
-        if (\array_key_exists('OSFeatures', $data)) {
+        if (\array_key_exists('OSFeatures', $data) && null !== $data['OSFeatures']) {
             $values = [];
             foreach ($data['OSFeatures'] as $value) {
                 $values[] = $value;
@@ -55,7 +55,7 @@ class DistributionNameJsonGetResponse200PlatformsItemNormalizer implements Denor
         if (\array_key_exists('Variant', $data)) {
             $object->setVariant($data['Variant']);
         }
-        if (\array_key_exists('Features', $data)) {
+        if (\array_key_exists('Features', $data) && null !== $data['Features']) {
             $values_1 = [];
             foreach ($data['Features'] as $value_1) {
                 $values_1[] = $value_1;

@@ -41,14 +41,14 @@ class EndpointSettingsNormalizer implements DenormalizerInterface, NormalizerInt
         } elseif (\array_key_exists('IPAMConfig', $data) && $data['IPAMConfig'] === null) {
             $object->setIPAMConfig(null);
         }
-        if (\array_key_exists('Links', $data)) {
+        if (\array_key_exists('Links', $data) && null !== $data['Links']) {
             $values = [];
             foreach ($data['Links'] as $value) {
                 $values[] = $value;
             }
             $object->setLinks($values);
         }
-        if (\array_key_exists('Aliases', $data)) {
+        if (\array_key_exists('Aliases', $data) && null !== $data['Aliases']) {
             $values_1 = [];
             foreach ($data['Aliases'] as $value_1) {
                 $values_1[] = $value_1;

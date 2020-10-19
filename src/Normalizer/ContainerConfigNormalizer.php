@@ -54,7 +54,7 @@ class ContainerConfigNormalizer implements DenormalizerInterface, NormalizerInte
         if (\array_key_exists('AttachStderr', $data)) {
             $object->setAttachStderr($data['AttachStderr']);
         }
-        if (\array_key_exists('ExposedPorts', $data)) {
+        if (\array_key_exists('ExposedPorts', $data) && null !== $data['ExposedPorts']) {
             $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data['ExposedPorts'] as $key => $value) {
                 $values[$key] = $value;
@@ -70,14 +70,14 @@ class ContainerConfigNormalizer implements DenormalizerInterface, NormalizerInte
         if (\array_key_exists('StdinOnce', $data)) {
             $object->setStdinOnce($data['StdinOnce']);
         }
-        if (\array_key_exists('Env', $data)) {
+        if (\array_key_exists('Env', $data) && null !== $data['Env']) {
             $values_1 = [];
             foreach ($data['Env'] as $value_1) {
                 $values_1[] = $value_1;
             }
             $object->setEnv($values_1);
         }
-        if (\array_key_exists('Cmd', $data)) {
+        if (\array_key_exists('Cmd', $data) && null !== $data['Cmd']) {
             $values_2 = [];
             foreach ($data['Cmd'] as $value_2) {
                 $values_2[] = $value_2;
@@ -93,7 +93,7 @@ class ContainerConfigNormalizer implements DenormalizerInterface, NormalizerInte
         if (\array_key_exists('Image', $data)) {
             $object->setImage($data['Image']);
         }
-        if (\array_key_exists('Volumes', $data)) {
+        if (\array_key_exists('Volumes', $data) && null !== $data['Volumes']) {
             $values_3 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data['Volumes'] as $key_1 => $value_3) {
                 $values_3[$key_1] = $value_3;
@@ -103,7 +103,7 @@ class ContainerConfigNormalizer implements DenormalizerInterface, NormalizerInte
         if (\array_key_exists('WorkingDir', $data)) {
             $object->setWorkingDir($data['WorkingDir']);
         }
-        if (\array_key_exists('Entrypoint', $data)) {
+        if (\array_key_exists('Entrypoint', $data) && null !== $data['Entrypoint']) {
             $values_4 = [];
             foreach ($data['Entrypoint'] as $value_4) {
                 $values_4[] = $value_4;
@@ -116,14 +116,14 @@ class ContainerConfigNormalizer implements DenormalizerInterface, NormalizerInte
         if (\array_key_exists('MacAddress', $data)) {
             $object->setMacAddress($data['MacAddress']);
         }
-        if (\array_key_exists('OnBuild', $data)) {
+        if (\array_key_exists('OnBuild', $data) && null !== $data['OnBuild']) {
             $values_5 = [];
             foreach ($data['OnBuild'] as $value_5) {
                 $values_5[] = $value_5;
             }
             $object->setOnBuild($values_5);
         }
-        if (\array_key_exists('Labels', $data)) {
+        if (\array_key_exists('Labels', $data) && null !== $data['Labels']) {
             $values_6 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data['Labels'] as $key_2 => $value_6) {
                 $values_6[$key_2] = $value_6;
@@ -136,7 +136,7 @@ class ContainerConfigNormalizer implements DenormalizerInterface, NormalizerInte
         if (\array_key_exists('StopTimeout', $data)) {
             $object->setStopTimeout($data['StopTimeout']);
         }
-        if (\array_key_exists('Shell', $data)) {
+        if (\array_key_exists('Shell', $data) && null !== $data['Shell']) {
             $values_7 = [];
             foreach ($data['Shell'] as $value_7) {
                 $values_7[] = $value_7;

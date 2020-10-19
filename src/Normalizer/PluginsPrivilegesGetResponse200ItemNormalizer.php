@@ -42,7 +42,7 @@ class PluginsPrivilegesGetResponse200ItemNormalizer implements DenormalizerInter
         if (\array_key_exists('Description', $data)) {
             $object->setDescription($data['Description']);
         }
-        if (\array_key_exists('Value', $data)) {
+        if (\array_key_exists('Value', $data) && null !== $data['Value']) {
             $values = [];
             foreach ($data['Value'] as $value) {
                 $values[] = $value;

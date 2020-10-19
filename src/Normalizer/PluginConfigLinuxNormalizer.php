@@ -36,7 +36,7 @@ class PluginConfigLinuxNormalizer implements DenormalizerInterface, NormalizerIn
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         $object = new \WeTheRed\DockerApi\Model\PluginConfigLinux();
-        if (\array_key_exists('Capabilities', $data)) {
+        if (\array_key_exists('Capabilities', $data) && null !== $data['Capabilities']) {
             $values = [];
             foreach ($data['Capabilities'] as $value) {
                 $values[] = $value;
@@ -46,7 +46,7 @@ class PluginConfigLinuxNormalizer implements DenormalizerInterface, NormalizerIn
         if (\array_key_exists('AllowAllDevices', $data)) {
             $object->setAllowAllDevices($data['AllowAllDevices']);
         }
-        if (\array_key_exists('Devices', $data)) {
+        if (\array_key_exists('Devices', $data) && null !== $data['Devices']) {
             $values_1 = [];
             foreach ($data['Devices'] as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, 'WeTheRed\\DockerApi\\Model\\PluginDevice', 'json', $context);

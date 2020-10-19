@@ -36,7 +36,7 @@ class ServiceUpdateResponseNormalizer implements DenormalizerInterface, Normaliz
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         $object = new \WeTheRed\DockerApi\Model\ServiceUpdateResponse();
-        if (\array_key_exists('Warnings', $data)) {
+        if (\array_key_exists('Warnings', $data) && null !== $data['Warnings']) {
             $values = [];
             foreach ($data['Warnings'] as $value) {
                 $values[] = $value;

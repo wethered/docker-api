@@ -36,7 +36,7 @@ class HealthConfigNormalizer implements DenormalizerInterface, NormalizerInterfa
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         $object = new \WeTheRed\DockerApi\Model\HealthConfig();
-        if (\array_key_exists('Test', $data)) {
+        if (\array_key_exists('Test', $data) && null !== $data['Test']) {
             $values = [];
             foreach ($data['Test'] as $value) {
                 $values[] = $value;

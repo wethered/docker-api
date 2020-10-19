@@ -45,7 +45,7 @@ class ContainersIdJsonGetResponse200Normalizer implements DenormalizerInterface,
         if (\array_key_exists('Path', $data)) {
             $object->setPath($data['Path']);
         }
-        if (\array_key_exists('Args', $data)) {
+        if (\array_key_exists('Args', $data) && null !== $data['Args']) {
             $values = [];
             foreach ($data['Args'] as $value) {
                 $values[] = $value;
@@ -115,7 +115,7 @@ class ContainersIdJsonGetResponse200Normalizer implements DenormalizerInterface,
         if (\array_key_exists('SizeRootFs', $data)) {
             $object->setSizeRootFs($data['SizeRootFs']);
         }
-        if (\array_key_exists('Mounts', $data)) {
+        if (\array_key_exists('Mounts', $data) && null !== $data['Mounts']) {
             $values_2 = [];
             foreach ($data['Mounts'] as $value_2) {
                 $values_2[] = $this->denormalizer->denormalize($value_2, 'WeTheRed\\DockerApi\\Model\\MountPoint', 'json', $context);

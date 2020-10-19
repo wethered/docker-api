@@ -36,7 +36,7 @@ class NetworksPrunePostResponse200Normalizer implements DenormalizerInterface, N
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         $object = new \WeTheRed\DockerApi\Model\NetworksPrunePostResponse200();
-        if (\array_key_exists('NetworksDeleted', $data)) {
+        if (\array_key_exists('NetworksDeleted', $data) && null !== $data['NetworksDeleted']) {
             $values = [];
             foreach ($data['NetworksDeleted'] as $value) {
                 $values[] = $value;

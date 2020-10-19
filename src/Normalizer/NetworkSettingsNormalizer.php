@@ -51,7 +51,7 @@ class NetworkSettingsNormalizer implements DenormalizerInterface, NormalizerInte
         if (\array_key_exists('LinkLocalIPv6PrefixLen', $data)) {
             $object->setLinkLocalIPv6PrefixLen($data['LinkLocalIPv6PrefixLen']);
         }
-        if (\array_key_exists('Ports', $data)) {
+        if (\array_key_exists('Ports', $data) && null !== $data['Ports']) {
             $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data['Ports'] as $key => $value) {
                 $values_1 = [];

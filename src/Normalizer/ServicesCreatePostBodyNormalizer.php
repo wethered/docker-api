@@ -39,7 +39,7 @@ class ServicesCreatePostBodyNormalizer implements DenormalizerInterface, Normali
         if (\array_key_exists('Name', $data)) {
             $object->setName($data['Name']);
         }
-        if (\array_key_exists('Labels', $data)) {
+        if (\array_key_exists('Labels', $data) && null !== $data['Labels']) {
             $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data['Labels'] as $key => $value) {
                 $values[$key] = $value;
@@ -58,7 +58,7 @@ class ServicesCreatePostBodyNormalizer implements DenormalizerInterface, Normali
         if (\array_key_exists('RollbackConfig', $data)) {
             $object->setRollbackConfig($this->denormalizer->denormalize($data['RollbackConfig'], 'WeTheRed\\DockerApi\\Model\\ServiceSpecRollbackConfig', 'json', $context));
         }
-        if (\array_key_exists('Networks', $data)) {
+        if (\array_key_exists('Networks', $data) && null !== $data['Networks']) {
             $values_1 = [];
             foreach ($data['Networks'] as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, 'WeTheRed\\DockerApi\\Model\\NetworkAttachmentConfig', 'json', $context);

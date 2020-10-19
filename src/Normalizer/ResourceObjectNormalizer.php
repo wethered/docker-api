@@ -42,7 +42,7 @@ class ResourceObjectNormalizer implements DenormalizerInterface, NormalizerInter
         if (\array_key_exists('MemoryBytes', $data)) {
             $object->setMemoryBytes($data['MemoryBytes']);
         }
-        if (\array_key_exists('GenericResources', $data)) {
+        if (\array_key_exists('GenericResources', $data) && null !== $data['GenericResources']) {
             $values = [];
             foreach ($data['GenericResources'] as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'WeTheRed\\DockerApi\\Model\\GenericResourcesItem', 'json', $context);

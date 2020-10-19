@@ -45,7 +45,7 @@ class DistributionNameJsonGetResponse200DescriptorNormalizer implements Denormal
         if (\array_key_exists('Digest', $data)) {
             $object->setDigest($data['Digest']);
         }
-        if (\array_key_exists('URLs', $data)) {
+        if (\array_key_exists('URLs', $data) && null !== $data['URLs']) {
             $values = [];
             foreach ($data['URLs'] as $value) {
                 $values[] = $value;

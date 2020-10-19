@@ -36,14 +36,14 @@ class VolumesGetResponse200Normalizer implements DenormalizerInterface, Normaliz
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         $object = new \WeTheRed\DockerApi\Model\VolumesGetResponse200();
-        if (\array_key_exists('Volumes', $data)) {
+        if (\array_key_exists('Volumes', $data) && null !== $data['Volumes']) {
             $values = [];
             foreach ($data['Volumes'] as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'WeTheRed\\DockerApi\\Model\\Volume', 'json', $context);
             }
             $object->setVolumes($values);
         }
-        if (\array_key_exists('Warnings', $data)) {
+        if (\array_key_exists('Warnings', $data) && null !== $data['Warnings']) {
             $values_1 = [];
             foreach ($data['Warnings'] as $value_1) {
                 $values_1[] = $value_1;

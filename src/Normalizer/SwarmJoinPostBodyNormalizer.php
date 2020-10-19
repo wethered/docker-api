@@ -45,7 +45,7 @@ class SwarmJoinPostBodyNormalizer implements DenormalizerInterface, NormalizerIn
         if (\array_key_exists('DataPathAddr', $data)) {
             $object->setDataPathAddr($data['DataPathAddr']);
         }
-        if (\array_key_exists('RemoteAddrs', $data)) {
+        if (\array_key_exists('RemoteAddrs', $data) && null !== $data['RemoteAddrs']) {
             $values = [];
             foreach ($data['RemoteAddrs'] as $value) {
                 $values[] = $value;

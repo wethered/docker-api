@@ -39,7 +39,7 @@ class IPAMNormalizer implements DenormalizerInterface, NormalizerInterface, Deno
         if (\array_key_exists('Driver', $data)) {
             $object->setDriver($data['Driver']);
         }
-        if (\array_key_exists('Config', $data)) {
+        if (\array_key_exists('Config', $data) && null !== $data['Config']) {
             $values = [];
             foreach ($data['Config'] as $value) {
                 $values_1 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);

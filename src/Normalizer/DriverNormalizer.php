@@ -39,7 +39,7 @@ class DriverNormalizer implements DenormalizerInterface, NormalizerInterface, De
         if (\array_key_exists('Name', $data)) {
             $object->setName($data['Name']);
         }
-        if (\array_key_exists('Options', $data)) {
+        if (\array_key_exists('Options', $data) && null !== $data['Options']) {
             $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data['Options'] as $key => $value) {
                 $values[$key] = $value;

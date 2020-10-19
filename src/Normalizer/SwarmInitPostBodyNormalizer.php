@@ -48,7 +48,7 @@ class SwarmInitPostBodyNormalizer implements DenormalizerInterface, NormalizerIn
         if (\array_key_exists('DataPathPort', $data)) {
             $object->setDataPathPort($data['DataPathPort']);
         }
-        if (\array_key_exists('DefaultAddrPool', $data)) {
+        if (\array_key_exists('DefaultAddrPool', $data) && null !== $data['DefaultAddrPool']) {
             $values = [];
             foreach ($data['DefaultAddrPool'] as $value) {
                 $values[] = $value;

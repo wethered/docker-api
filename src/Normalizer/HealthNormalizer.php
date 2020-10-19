@@ -42,7 +42,7 @@ class HealthNormalizer implements DenormalizerInterface, NormalizerInterface, De
         if (\array_key_exists('FailingStreak', $data)) {
             $object->setFailingStreak($data['FailingStreak']);
         }
-        if (\array_key_exists('Log', $data)) {
+        if (\array_key_exists('Log', $data) && null !== $data['Log']) {
             $values = [];
             foreach ($data['Log'] as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'WeTheRed\\DockerApi\\Model\\HealthcheckResult', 'json', $context);

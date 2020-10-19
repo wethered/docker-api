@@ -48,35 +48,35 @@ class ContainersIdUpdatePostBodyNormalizer implements DenormalizerInterface, Nor
         if (\array_key_exists('BlkioWeight', $data)) {
             $object->setBlkioWeight($data['BlkioWeight']);
         }
-        if (\array_key_exists('BlkioWeightDevice', $data)) {
+        if (\array_key_exists('BlkioWeightDevice', $data) && null !== $data['BlkioWeightDevice']) {
             $values = [];
             foreach ($data['BlkioWeightDevice'] as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'WeTheRed\\DockerApi\\Model\\ResourcesBlkioWeightDeviceItem', 'json', $context);
             }
             $object->setBlkioWeightDevice($values);
         }
-        if (\array_key_exists('BlkioDeviceReadBps', $data)) {
+        if (\array_key_exists('BlkioDeviceReadBps', $data) && null !== $data['BlkioDeviceReadBps']) {
             $values_1 = [];
             foreach ($data['BlkioDeviceReadBps'] as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, 'WeTheRed\\DockerApi\\Model\\ThrottleDevice', 'json', $context);
             }
             $object->setBlkioDeviceReadBps($values_1);
         }
-        if (\array_key_exists('BlkioDeviceWriteBps', $data)) {
+        if (\array_key_exists('BlkioDeviceWriteBps', $data) && null !== $data['BlkioDeviceWriteBps']) {
             $values_2 = [];
             foreach ($data['BlkioDeviceWriteBps'] as $value_2) {
                 $values_2[] = $this->denormalizer->denormalize($value_2, 'WeTheRed\\DockerApi\\Model\\ThrottleDevice', 'json', $context);
             }
             $object->setBlkioDeviceWriteBps($values_2);
         }
-        if (\array_key_exists('BlkioDeviceReadIOps', $data)) {
+        if (\array_key_exists('BlkioDeviceReadIOps', $data) && null !== $data['BlkioDeviceReadIOps']) {
             $values_3 = [];
             foreach ($data['BlkioDeviceReadIOps'] as $value_3) {
                 $values_3[] = $this->denormalizer->denormalize($value_3, 'WeTheRed\\DockerApi\\Model\\ThrottleDevice', 'json', $context);
             }
             $object->setBlkioDeviceReadIOps($values_3);
         }
-        if (\array_key_exists('BlkioDeviceWriteIOps', $data)) {
+        if (\array_key_exists('BlkioDeviceWriteIOps', $data) && null !== $data['BlkioDeviceWriteIOps']) {
             $values_4 = [];
             foreach ($data['BlkioDeviceWriteIOps'] as $value_4) {
                 $values_4[] = $this->denormalizer->denormalize($value_4, 'WeTheRed\\DockerApi\\Model\\ThrottleDevice', 'json', $context);
@@ -101,7 +101,7 @@ class ContainersIdUpdatePostBodyNormalizer implements DenormalizerInterface, Nor
         if (\array_key_exists('CpusetMems', $data)) {
             $object->setCpusetMems($data['CpusetMems']);
         }
-        if (\array_key_exists('Devices', $data)) {
+        if (\array_key_exists('Devices', $data) && null !== $data['Devices']) {
             $values_5 = [];
             foreach ($data['Devices'] as $value_5) {
                 $values_5[] = $this->denormalizer->denormalize($value_5, 'WeTheRed\\DockerApi\\Model\\DeviceMapping', 'json', $context);

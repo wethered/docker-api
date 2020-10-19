@@ -36,21 +36,21 @@ class TaskSpecContainerSpecDNSConfigNormalizer implements DenormalizerInterface,
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         $object = new \WeTheRed\DockerApi\Model\TaskSpecContainerSpecDNSConfig();
-        if (\array_key_exists('Nameservers', $data)) {
+        if (\array_key_exists('Nameservers', $data) && null !== $data['Nameservers']) {
             $values = [];
             foreach ($data['Nameservers'] as $value) {
                 $values[] = $value;
             }
             $object->setNameservers($values);
         }
-        if (\array_key_exists('Search', $data)) {
+        if (\array_key_exists('Search', $data) && null !== $data['Search']) {
             $values_1 = [];
             foreach ($data['Search'] as $value_1) {
                 $values_1[] = $value_1;
             }
             $object->setSearch($values_1);
         }
-        if (\array_key_exists('Options', $data)) {
+        if (\array_key_exists('Options', $data) && null !== $data['Options']) {
             $values_2 = [];
             foreach ($data['Options'] as $value_2) {
                 $values_2[] = $value_2;

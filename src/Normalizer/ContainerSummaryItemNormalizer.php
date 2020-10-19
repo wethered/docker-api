@@ -39,7 +39,7 @@ class ContainerSummaryItemNormalizer implements DenormalizerInterface, Normalize
         if (\array_key_exists('Id', $data)) {
             $object->setId($data['Id']);
         }
-        if (\array_key_exists('Names', $data)) {
+        if (\array_key_exists('Names', $data) && null !== $data['Names']) {
             $values = [];
             foreach ($data['Names'] as $value) {
                 $values[] = $value;
@@ -58,7 +58,7 @@ class ContainerSummaryItemNormalizer implements DenormalizerInterface, Normalize
         if (\array_key_exists('Created', $data)) {
             $object->setCreated($data['Created']);
         }
-        if (\array_key_exists('Ports', $data)) {
+        if (\array_key_exists('Ports', $data) && null !== $data['Ports']) {
             $values_1 = [];
             foreach ($data['Ports'] as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, 'WeTheRed\\DockerApi\\Model\\Port', 'json', $context);
@@ -71,7 +71,7 @@ class ContainerSummaryItemNormalizer implements DenormalizerInterface, Normalize
         if (\array_key_exists('SizeRootFs', $data)) {
             $object->setSizeRootFs($data['SizeRootFs']);
         }
-        if (\array_key_exists('Labels', $data)) {
+        if (\array_key_exists('Labels', $data) && null !== $data['Labels']) {
             $values_2 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data['Labels'] as $key => $value_2) {
                 $values_2[$key] = $value_2;
@@ -90,7 +90,7 @@ class ContainerSummaryItemNormalizer implements DenormalizerInterface, Normalize
         if (\array_key_exists('NetworkSettings', $data)) {
             $object->setNetworkSettings($this->denormalizer->denormalize($data['NetworkSettings'], 'WeTheRed\\DockerApi\\Model\\ContainerSummaryItemNetworkSettings', 'json', $context));
         }
-        if (\array_key_exists('Mounts', $data)) {
+        if (\array_key_exists('Mounts', $data) && null !== $data['Mounts']) {
             $values_3 = [];
             foreach ($data['Mounts'] as $value_3) {
                 $values_3[] = $this->denormalizer->denormalize($value_3, 'WeTheRed\\DockerApi\\Model\\Mount', 'json', $context);

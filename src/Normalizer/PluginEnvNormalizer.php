@@ -42,7 +42,7 @@ class PluginEnvNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (\array_key_exists('Description', $data)) {
             $object->setDescription($data['Description']);
         }
-        if (\array_key_exists('Settable', $data)) {
+        if (\array_key_exists('Settable', $data) && null !== $data['Settable']) {
             $values = [];
             foreach ($data['Settable'] as $value) {
                 $values[] = $value;

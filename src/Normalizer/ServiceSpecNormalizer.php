@@ -39,7 +39,7 @@ class ServiceSpecNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (\array_key_exists('Name', $data)) {
             $object->setName($data['Name']);
         }
-        if (\array_key_exists('Labels', $data)) {
+        if (\array_key_exists('Labels', $data) && null !== $data['Labels']) {
             $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data['Labels'] as $key => $value) {
                 $values[$key] = $value;

@@ -45,7 +45,7 @@ class ImagesNameHistoryGetResponse200ItemNormalizer implements DenormalizerInter
         if (\array_key_exists('CreatedBy', $data)) {
             $object->setCreatedBy($data['CreatedBy']);
         }
-        if (\array_key_exists('Tags', $data)) {
+        if (\array_key_exists('Tags', $data) && null !== $data['Tags']) {
             $values = [];
             foreach ($data['Tags'] as $value) {
                 $values[] = $value;

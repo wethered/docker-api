@@ -36,7 +36,7 @@ class ContainerSummaryItemNetworkSettingsNormalizer implements DenormalizerInter
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         $object = new \WeTheRed\DockerApi\Model\ContainerSummaryItemNetworkSettings();
-        if (\array_key_exists('Networks', $data)) {
+        if (\array_key_exists('Networks', $data) && null !== $data['Networks']) {
             $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data['Networks'] as $key => $value) {
                 $values[$key] = $this->denormalizer->denormalize($value, 'WeTheRed\\DockerApi\\Model\\EndpointSettings', 'json', $context);

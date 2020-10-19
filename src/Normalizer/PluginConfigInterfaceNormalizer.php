@@ -36,7 +36,7 @@ class PluginConfigInterfaceNormalizer implements DenormalizerInterface, Normaliz
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         $object = new \WeTheRed\DockerApi\Model\PluginConfigInterface();
-        if (\array_key_exists('Types', $data)) {
+        if (\array_key_exists('Types', $data) && null !== $data['Types']) {
             $values = [];
             foreach ($data['Types'] as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'WeTheRed\\DockerApi\\Model\\PluginInterfaceType', 'json', $context);

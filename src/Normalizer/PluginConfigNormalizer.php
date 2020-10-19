@@ -48,7 +48,7 @@ class PluginConfigNormalizer implements DenormalizerInterface, NormalizerInterfa
         if (\array_key_exists('Interface', $data)) {
             $object->setInterface($this->denormalizer->denormalize($data['Interface'], 'WeTheRed\\DockerApi\\Model\\PluginConfigInterface', 'json', $context));
         }
-        if (\array_key_exists('Entrypoint', $data)) {
+        if (\array_key_exists('Entrypoint', $data) && null !== $data['Entrypoint']) {
             $values = [];
             foreach ($data['Entrypoint'] as $value) {
                 $values[] = $value;

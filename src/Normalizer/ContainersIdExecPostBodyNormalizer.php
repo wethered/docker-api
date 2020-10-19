@@ -51,14 +51,14 @@ class ContainersIdExecPostBodyNormalizer implements DenormalizerInterface, Norma
         if (\array_key_exists('Tty', $data)) {
             $object->setTty($data['Tty']);
         }
-        if (\array_key_exists('Env', $data)) {
+        if (\array_key_exists('Env', $data) && null !== $data['Env']) {
             $values = [];
             foreach ($data['Env'] as $value) {
                 $values[] = $value;
             }
             $object->setEnv($values);
         }
-        if (\array_key_exists('Cmd', $data)) {
+        if (\array_key_exists('Cmd', $data) && null !== $data['Cmd']) {
             $values_1 = [];
             foreach ($data['Cmd'] as $value_1) {
                 $values_1[] = $value_1;
